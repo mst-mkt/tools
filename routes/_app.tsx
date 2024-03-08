@@ -10,7 +10,7 @@ export default function App({ Component }: PageProps) {
         <title>tools</title>
         <link rel="stylesheet" href="/styles.css" />
       </head>
-      <body class="max-w-screen-sm mx-auto p-4">
+      <body class="max-w-screen-sm mx-auto p-6">
         <Header />
         <Component />
       </body>
