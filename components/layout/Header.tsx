@@ -4,8 +4,10 @@ import IconBrandGithubFilled from "$tabler-icons-tsx/tsx/brand-github-filled.tsx
 export const Header = () => {
   return (
     <header class="flex items-center gap-x-4">
-      <EmojiYarn width="32" height="32" />
-      <h1 class="text-2xl flex-grow flex-shrink truncate">Tools</h1>
+      <a href="/" class="contents">
+        <EmojiYarn width="32" height="32" />
+        <h1 class="text-2xl flex-grow flex-shrink truncate">Tools</h1>
+      </a>
       <a
         href="http://github.com/mst-mkt/tools"
         class="hover:bg-neutral-200 transition-colors p-2 rounded-lg"
