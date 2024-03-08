@@ -6,7 +6,7 @@ import * as $_404 from "./routes/_404.tsx";
 import * as $_app from "./routes/_app.tsx";
 import * as $index from "./routes/index.tsx";
 import * as $text_counter from "./routes/text/counter.tsx";
-
+import * as $TextCounter from "./islands/TextCounter.tsx";
 import { type Manifest } from "$fresh/server.ts";
 
 const manifest = {
@@ -16,7 +16,9 @@ const manifest = {
     "./routes/index.tsx": $index,
     "./routes/text/counter.tsx": $text_counter,
   },
-  islands: {},
+  islands: {
+    "./islands/TextCounter.tsx": $TextCounter,
+  },
   baseUrl: import.meta.url,
 } satisfies Manifest;
 
