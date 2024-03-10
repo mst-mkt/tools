@@ -7,7 +7,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["'Lexend'", "sans-serif"],
+        sans: ["'Lexend'", "'Zen Kaku Gothic New'", "sans-serif"],
       },
     },
   },
