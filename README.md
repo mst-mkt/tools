@@ -1,16 +1,14 @@
-# Fresh project
+# <img src="https://cdn.jsdelivr.net/npm/twemoji@11.3.0/2/svg/1f9f6.svg" alt="🧶" width="40px" height="40px"> Tools
 
-Your new Fresh project is ready to go. You can follow the Fresh "Getting
-Started" guide here: https://fresh.deno.dev/docs/getting-started
+various tools for myself.
 
-### Usage
+[![Deploy to deno-deploy](https://img.shields.io/badge/available%20on-tools.keito.dev-lightgrey.svg?logo=deno&labelColor=black)](https://tools.keito.dev)
+[![Deploy Action](https://github.com/mst-mkt/tools/actions/workflows/deploy.yml/badge.svg)](https://github.com/mst-mkt/tools/actions/workflows/deploy.yml)  \
+[![Made with Fresh](https://fresh.deno.dev/fresh-badge.svg)](https://fresh.deno.dev)
 
-Make sure to install Deno: https://deno.land/manual/getting_started/installation
+## tool list
 
-Then start the project:
+### text
 
-```
-deno task start
-```
-
-This will watch the project directory and restart as necessary.
+- [文字数カウント](https://tools.keito.dev/text/counter)
+- [怪レい日本语 変換](https://tools.keito.dev/text/cjp)
