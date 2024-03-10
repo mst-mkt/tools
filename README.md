@@ -10,5 +10,5 @@ various tools for myself.
 
 ### text
 
-- [文字数カウント](https://tools.keito.dev/text/counter)
+- [文字数カウント](https://tools.keito.dev/text/count)
 - [怪レい日本语 変換](https://tools.keito.dev/text/cjp)

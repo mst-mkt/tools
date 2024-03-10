@@ -9,7 +9,7 @@ export default function Home() {
       <section class="flex flex-col gap-y-2">
         <SectionTitle title="Text" />
         <LinkCard
-          href="/text/counter"
+          href="/text/count"
           title="文字数カウント"
           Emoji={EmojiNotePad}
         />
