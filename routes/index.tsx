@@ -1,6 +1,7 @@
 import { LinkCard } from "../components/common/LinkCard.tsx";
 import { SectionTitle } from "../components/common/SectionTitle.tsx";
 import { EmojiChineFlag } from "../components/emoji/ChinaFlag.tsx";
+import { EmojiCircleArrows } from "../components/emoji/CircleArrows.tsx";
 import { EmojiNotePad } from "../components/emoji/NotePad.tsx";
 
 export default function Home() {
@@ -12,6 +13,11 @@ export default function Home() {
           href="/text/count"
           title="文字数カウント"
           Emoji={EmojiNotePad}
+        />
+        <LinkCard
+          href="/text/replace"
+          title="文字置換"
+          Emoji={EmojiCircleArrows}
         />
         <LinkCard
           href="/text/cjp"
