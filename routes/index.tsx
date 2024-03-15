@@ -2,6 +2,7 @@ import { LinkCard } from "../components/common/LinkCard.tsx";
 import { SectionTitle } from "../components/common/SectionTitle.tsx";
 import { EmojiChineFlag } from "../components/emoji/ChinaFlag.tsx";
 import { EmojiCircleArrows } from "../components/emoji/CircleArrows.tsx";
+import { EmojiDizzy } from "../components/emoji/Dizzy.tsx";
 import { EmojiNotePad } from "../components/emoji/NotePad.tsx";
 
 export default function Home() {
@@ -18,6 +19,11 @@ export default function Home() {
           href="/text/replace"
           title="文字置換"
           Emoji={EmojiCircleArrows}
+        />
+        <LinkCard
+          href="/text/repeat"
+          title="文字列反復"
+          Emoji={EmojiDizzy}
         />
         <LinkCard
           href="/text/cjp"
