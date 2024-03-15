@@ -117,9 +117,9 @@ export const TextReplacer = () => {
       <button
         type="button"
         onClick={addRule}
-        class="flex gap-x-1 items-center text-white font-bold self-center bg-sky-400 hover:bg-sky-500 transition-colors py-1 px-2 outline-0 rounded ring-offset-2 focus-visible:ring-2 ring-sky-500"
+        class="text-sm flex gap-x-1 items-center text-white font-bold self-center bg-sky-400 hover:bg-sky-500 transition-colors py-1 px-2 outline-0 rounded ring-offset-2 focus-visible:ring-2 ring-sky-500"
       >
-        <IconPlus class="size-5" />
+        <IconPlus class="size-4" />
         ルールを追加
       </button>
       <TextArea
