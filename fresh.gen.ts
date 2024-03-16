@@ -4,8 +4,8 @@
 
 import * as $_404 from "./routes/_404.tsx";
 import * as $_app from "./routes/_app.tsx";
+import * as $convert_cjp from "./routes/convert/cjp.tsx";
 import * as $index from "./routes/index.tsx";
-import * as $text_cjp from "./routes/text/cjp.tsx";
 import * as $text_count from "./routes/text/count.tsx";
 import * as $text_repeat from "./routes/text/repeat.tsx";
 import * as $text_replace from "./routes/text/replace.tsx";
@@ -19,8 +19,8 @@ const manifest = {
   routes: {
     "./routes/_404.tsx": $_404,
     "./routes/_app.tsx": $_app,
+    "./routes/convert/cjp.tsx": $convert_cjp,
     "./routes/index.tsx": $index,
-    "./routes/text/cjp.tsx": $text_cjp,
     "./routes/text/count.tsx": $text_count,
     "./routes/text/repeat.tsx": $text_repeat,
     "./routes/text/replace.tsx": $text_replace,

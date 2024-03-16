@@ -7,7 +7,7 @@ import { EmojiNotePad } from "../components/emoji/NotePad.tsx";
 
 export default function Home() {
   return (
-    <div>
+    <div class="flex flex-col gap-4">
       <section class="flex flex-col gap-y-2">
         <SectionTitle title="Text" />
         <LinkCard
@@ -25,9 +25,12 @@ export default function Home() {
           title="文字列反復"
           Emoji={EmojiDizzy}
         />
+      </section>
+      <section class="flex flex-col gap-y-2">
+        <SectionTitle title="Convert" />
         <LinkCard
-          href="/text/cjp"
-          title="怪レい日本语"
+          href="/convert/cjp"
+          title="怪レい日本語"
           Emoji={EmojiChineFlag}
         />
       </section>
