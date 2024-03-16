@@ -31,6 +31,7 @@
     "tailwindcss/": "npm:/tailwindcss@3.4.1/",
     "tailwindcss/plugin": "npm:/tailwindcss@3.4.1/plugin.js",
     "cjp": "npm:cjp@2.3.1",
+    "uqr": "npm:uqr@0.1.2",
     "$std/": "https://deno.land/std@0.211.0/"
   },
   "compilerOptions": {
