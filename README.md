@@ -16,4 +16,5 @@ various tools for myself.
 
 ### convert
 
-- [怪レい日本语 変換](https://tools.keito.dev/text/cjp)
+- [怪レい日本语](https://tools.keito.dev/text/cjp)
+- [QRCode](https://tools.keito.dev/convert/qrcode)

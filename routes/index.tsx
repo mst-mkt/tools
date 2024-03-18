@@ -3,6 +3,7 @@ import { SectionTitle } from "../components/common/SectionTitle.tsx";
 import { EmojiChineFlag } from "../components/emoji/ChinaFlag.tsx";
 import { EmojiCircleArrows } from "../components/emoji/CircleArrows.tsx";
 import { EmojiDizzy } from "../components/emoji/Dizzy.tsx";
+import { EmojiLink } from "../components/emoji/Link.tsx";
 import { EmojiNotePad } from "../components/emoji/NotePad.tsx";
 
 export default function Home() {
@@ -32,6 +33,11 @@ export default function Home() {
           href="/convert/cjp"
           title="怪レい日本語"
           Emoji={EmojiChineFlag}
+        />
+        <LinkCard
+          href="/convert/qrcode"
+          title="QRCode"
+          Emoji={EmojiLink}
         />
       </section>
     </div>
