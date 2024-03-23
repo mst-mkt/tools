@@ -7,6 +7,7 @@ import * as $_app from "./routes/_app.tsx";
 import * as $convert_cjp from "./routes/convert/cjp.tsx";
 import * as $convert_qrcode from "./routes/convert/qrcode.tsx";
 import * as $index from "./routes/index.tsx";
+import * as $repl_python from "./routes/repl/python.tsx";
 import * as $text_count from "./routes/text/count.tsx";
 import * as $text_repeat from "./routes/text/repeat.tsx";
 import * as $text_replace from "./routes/text/replace.tsx";
@@ -24,6 +25,7 @@ const manifest = {
     "./routes/convert/cjp.tsx": $convert_cjp,
     "./routes/convert/qrcode.tsx": $convert_qrcode,
     "./routes/index.tsx": $index,
+    "./routes/repl/python.tsx": $repl_python,
     "./routes/text/count.tsx": $text_count,
     "./routes/text/repeat.tsx": $text_repeat,
     "./routes/text/replace.tsx": $text_replace,

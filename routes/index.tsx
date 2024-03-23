@@ -5,6 +5,7 @@ import { EmojiCircleArrows } from "../components/emoji/CircleArrows.tsx";
 import { EmojiDizzy } from "../components/emoji/Dizzy.tsx";
 import { EmojiLink } from "../components/emoji/Link.tsx";
 import { EmojiNotePad } from "../components/emoji/NotePad.tsx";
+import { EmojiSnake } from "../components/emoji/Snake.tsx";
 
 export default function Home() {
   return (
@@ -38,6 +39,14 @@ export default function Home() {
           href="/convert/qrcode"
           title="QRCode"
           Emoji={EmojiLink}
+        />
+      </section>
+      <section class="flex flex-col gap-y-2">
+        <SectionTitle title="Repl" />
+        <LinkCard
+          href="/repl/python"
+          title="Python Repl"
+          Emoji={EmojiSnake}
         />
       </section>
     </div>
