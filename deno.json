@@ -26,6 +26,7 @@
     "$tabler-icons-tsx/": "https://deno.land/x/tabler_icons_tsx@0.0.6/",
     "@fmt/biome-fmt": "jsr:@fmt/biome-fmt@^0.1.9",
     "@fmt/clang-format": "jsr:@fmt/clang-format@^0.2.10",
+    "@fmt/json-fmt": "jsr:@fmt/json-fmt@^0.1.9",
     "@fmt/ruff-fmt": "jsr:@fmt/ruff-fmt@^0.5.9",
     "@preact/signals": "https://esm.sh/*@preact/signals@1.2.1",
     "@preact/signals-core": "https://esm.sh/*@preact/signals-core@1.5.0",
