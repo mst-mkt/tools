@@ -28,6 +28,7 @@
     "@fmt/clang-format": "jsr:@fmt/clang-format@^0.2.10",
     "@fmt/json-fmt": "jsr:@fmt/json-fmt@^0.1.9",
     "@fmt/ruff-fmt": "jsr:@fmt/ruff-fmt@^0.5.9",
+    "@fmt/sql-fmt": "jsr:@fmt/sql-fmt@^0.0.2",
     "@preact/signals": "https://esm.sh/*@preact/signals@1.2.1",
     "@preact/signals-core": "https://esm.sh/*@preact/signals-core@1.5.0",
     "cjp": "npm:cjp@2.3.1",
