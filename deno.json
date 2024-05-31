@@ -22,17 +22,18 @@
   ],
   "imports": {
     "$fresh/": "https://deno.land/x/fresh@1.6.5/",
+    "$std/": "https://deno.land/std@0.211.0/",
     "$tabler-icons-tsx/": "https://deno.land/x/tabler_icons_tsx@0.0.6/",
-    "preact": "https://esm.sh/preact@10.19.2",
-    "preact/": "https://esm.sh/preact@10.19.2/",
+    "@fmt/clang-format": "jsr:@fmt/clang-format@^0.2.10",
     "@preact/signals": "https://esm.sh/*@preact/signals@1.2.1",
     "@preact/signals-core": "https://esm.sh/*@preact/signals-core@1.5.0",
+    "cjp": "npm:cjp@2.3.1",
+    "preact": "https://esm.sh/preact@10.19.2",
+    "preact/": "https://esm.sh/preact@10.19.2/",
     "tailwindcss": "npm:tailwindcss@3.4.1",
     "tailwindcss/": "npm:/tailwindcss@3.4.1/",
     "tailwindcss/plugin": "npm:/tailwindcss@3.4.1/plugin.js",
-    "cjp": "npm:cjp@2.3.1",
-    "uqr": "npm:uqr@0.1.2",
-    "$std/": "https://deno.land/std@0.211.0/"
+    "uqr": "npm:uqr@0.1.2"
   },
   "compilerOptions": {
     "jsx": "react-jsx",
