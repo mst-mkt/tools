@@ -40,6 +40,14 @@ export default function Home() {
           Emoji={EmojiLink}
         />
       </section>
+      <section class="flex flex-col gap-y-2">
+        <SectionTitle title="Web" />
+        <LinkCard
+          href="/web/clipboard"
+          title="クリップボード"
+          Emoji={EmojiNotePad}
+        />
+      </section>
     </div>
   );
 }

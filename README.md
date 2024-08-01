@@ -18,3 +18,7 @@ various tools for myself.
 
 - [怪レい日本语](https://tools.keito.dev/text/cjp)
 - [QRCode](https://tools.keito.dev/convert/qrcode)
+
+### web
+
+- [Clipboard 内容確認](https://tools.keito.dev/web/clipboard)
