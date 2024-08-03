@@ -1,10 +1,4 @@
-# Vite and React template
-
-Template for Vite and React projects.
-
-> [!NOTE]
-> This Template is basically for my personal use, but you can use it if you want. \
-> If you have any suggestions or improvements, feel free to open an issue or a pull request.
+# 🧶 Tools
 
 ## Tech Stack
 
