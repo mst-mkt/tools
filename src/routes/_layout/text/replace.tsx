@@ -112,7 +112,7 @@ const Replacer = () => {
               })
             }
             disabled={
-              text.length === 0 || rules.some((rule) => rule.from.length + rule.to.length <= 0)
+              text.length === 0 || rules.every((rule) => rule.from.length + rule.to.length <= 0)
             }
           />
           <IconButton icon={IconCopy} label="Copy Result" onClick={() => copy(replacedText)} />
