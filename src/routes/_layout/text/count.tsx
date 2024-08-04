@@ -109,7 +109,12 @@ const Counter = () => {
           </table>
         </div>
         <div className="flex gap-x-2">
-          <IconButton icon={IconShare} label="Share Link" onClick={() => copyLink({ text })} />
+          <IconButton
+            icon={IconShare}
+            label="Share Link"
+            onClick={() => copyLink({ text })}
+            disabled={text.length === 0}
+          />
           <IconButton icon={IconCopy} label="Copy Result" onClick={() => copy(...copyData)} />
         </div>
       </div>
