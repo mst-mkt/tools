@@ -13,7 +13,12 @@ export const Header = () => {
         <Link to="/" className="transition-colors hover:text-accent-400">
           {PROJECT_NAME}
         </Link>
-        <IconButton icon={IconBrightness} onClick={toggleTheme} className="bg-transparent" />
+        <IconButton
+          icon={IconBrightness}
+          onClick={toggleTheme}
+          className="bg-transparent"
+          aria-label="toggle theme"
+        />
       </div>
     </header>
   )

@@ -90,6 +90,7 @@ const Counter = () => {
             value={text}
             onChange={(e) => setText(e.currentTarget.value)}
             placeholder="Input text here"
+            aria-label="enter text to count"
           />
         </div>
         <div className="flex flex-col gap-y-2">
