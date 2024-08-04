@@ -7,6 +7,7 @@
 import { Route as rootRoute } from './../../routes/__root'
 import { Route as LayoutImport } from './../../routes/_layout'
 import { Route as LayoutIndexImport } from './../../routes/_layout/index'
+import { Route as LayoutTextCountImport } from './../../routes/_layout/text/count'
 
 // Create/Update Routes
 
@@ -17,6 +18,11 @@ const LayoutRoute = LayoutImport.update({
 
 const LayoutIndexRoute = LayoutIndexImport.update({
   path: '/',
+  getParentRoute: () => LayoutRoute,
+} as any)
+
+const LayoutTextCountRoute = LayoutTextCountImport.update({
+  path: '/text/count',
   getParentRoute: () => LayoutRoute,
 } as any)
 
@@ -38,13 +44,23 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LayoutIndexImport
       parentRoute: typeof LayoutImport
     }
+    '/_layout/text/count': {
+      id: '/_layout/text/count'
+      path: '/text/count'
+      fullPath: '/text/count'
+      preLoaderRoute: typeof LayoutTextCountImport
+      parentRoute: typeof LayoutImport
+    }
   }
 }
 
 // Create and export the route tree
 
 export const routeTree = rootRoute.addChildren({
-  LayoutRoute: LayoutRoute.addChildren({ LayoutIndexRoute }),
+  LayoutRoute: LayoutRoute.addChildren({
+    LayoutIndexRoute,
+    LayoutTextCountRoute,
+  }),
 })
 
 /* ROUTE_MANIFEST_START
@@ -59,11 +75,16 @@ export const routeTree = rootRoute.addChildren({
     "/_layout": {
       "filePath": "_layout.tsx",
       "children": [
-        "/_layout/"
+        "/_layout/",
+        "/_layout/text/count"
       ]
     },
     "/_layout/": {
       "filePath": "_layout/index.tsx",
+      "parent": "/_layout"
+    },
+    "/_layout/text/count": {
+      "filePath": "_layout/text/count.tsx",
       "parent": "/_layout"
     }
   }
