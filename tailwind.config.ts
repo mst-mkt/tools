@@ -56,7 +56,7 @@ const config = {
   plugins: [
     scrollbar({ nocompatible: true, preferredStrategy: 'pseudoelements' }),
     typography,
-    forms,
+    forms({ strategy: 'class' }),
     aspectRatio,
   ],
 } satisfies Config
