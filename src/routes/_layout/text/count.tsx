@@ -1,8 +1,12 @@
+import { IconCopy, IconShare } from '@tabler/icons-react'
 import { createFileRoute } from '@tanstack/react-router'
-import { useCallback, useMemo, useState } from 'react'
+import { type JSX, useCallback, useMemo, useState } from 'react'
 import { z } from 'zod'
 import { Head } from '../../../components/shared/Head'
+import { IconButton } from '../../../components/ui/IconButton'
 import { Textarea } from '../../../components/ui/Textarea'
+import { useCopyLink } from '../../../hooks/useCopyLocation'
+import { copy } from '../../../utils/clipboard/copy'
 
 const searchParamsValidator = z.object({
   text: z.string().optional(),
@@ -15,6 +19,7 @@ export const Route = createFileRoute('/_layout/text/count')({
 
 const Counter = () => {
   const { text: initialText } = Route.useSearch()
+  const { copyLink } = useCopyLink(Route.id)
   const [text, setText] = useState(initialText ?? '')
 
   const countWithIntlSegmenter = useCallback(
@@ -56,6 +61,25 @@ const Counter = () => {
     [],
   )
 
+  const copyData = useMemo<[string, JSX.Element]>(() => {
+    const plainText = Object.entries(textLengths)
+      .map(([key, value]: [string, number]) => `${labels[key] ?? key}: ${value}`)
+      .join('\n')
+    const htmlData = (
+      <table>
+        <tbody>
+          {Object.entries(textLengths).map(([key, value]: [string, number]) => (
+            <tr key={key}>
+              <td>{labels[key] ?? key}</td>
+              <td>{value}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    )
+    return [plainText, htmlData]
+  }, [labels, textLengths])
+
   return (
     <>
       <Head title="Text Counter" />
@@ -83,6 +107,10 @@ const Counter = () => {
               ))}
             </tbody>
           </table>
+        </div>
+        <div className="flex gap-x-2">
+          <IconButton icon={IconShare} label="Share Link" onClick={() => copyLink({ text })} />
+          <IconButton icon={IconCopy} label="Copy Result" onClick={() => copy(...copyData)} />
         </div>
       </div>
     </>
