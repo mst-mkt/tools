@@ -23,5 +23,6 @@
 @layer base {
   body {
     @apply bg-background text-foreground;
+    @apply scrollbar-thin scrollbar-thumb-background-200 scrollbar-thumb-rounded-full scrollbar-track-transparent;
   }
 }

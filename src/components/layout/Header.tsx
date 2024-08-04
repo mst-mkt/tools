@@ -2,6 +2,7 @@ import { IconBrightness } from '@tabler/icons-react'
 import { Link } from '@tanstack/react-router'
 import { PROJECT_NAME } from '../../constants/project'
 import { useTheme } from '../../hooks/useTheme'
+import { IconButton } from '../ui/IconButton'
 
 export const Header = () => {
   const { toggleTheme } = useTheme()
@@ -12,13 +13,7 @@ export const Header = () => {
         <Link to="/" className="transition-colors hover:text-accent-400">
           {PROJECT_NAME}
         </Link>
-        <button
-          type="button"
-          onClick={toggleTheme}
-          className="w-fit rounded-md p-2 transition-colors hover:bg-background-200 focus:outline-none"
-        >
-          <IconBrightness size={20} />
-        </button>
+        <IconButton icon={IconBrightness} onClick={toggleTheme} className="bg-transparent" />
       </div>
     </header>
   )

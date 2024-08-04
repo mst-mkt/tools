@@ -99,7 +99,7 @@ const Counter = () => {
               {Object.entries(textLengths).map(([key, value]: [string, number]) => (
                 <tr
                   key={key}
-                  className="flex w-full items-center justify-between border-b px-2 py-1 last:border-0"
+                  className="flex w-full items-center justify-between border-background-100 border-b px-2 py-1 last:border-0"
                 >
                   <td className="text-sm">{labels[key] ?? key}</td>
                   <td>{value}</td>
