@@ -13,11 +13,11 @@ const oklch = (channels: TemplateStringsArray) => `oklch(var(--${channels[0]}))`
 const oklchAlpha = (channels: TemplateStringsArray) => `oklch(var(--${channels[0]}) / <alpha-value>)`
 
 const makeColorPalette = (color: string) => ({
-  50: colorMix(color, oklch`foreground`, 70),
-  100: colorMix(color, oklch`foreground`, 50),
-  200: colorMix(color, oklch`foreground`, 30),
-  300: colorMix(color, oklch`foreground`, 10),
-  400: colorMix(color, oklch`foreground`, 5),
+  50: colorMix(color, oklch`background`, 70),
+  100: colorMix(color, oklch`background`, 50),
+  200: colorMix(color, oklch`background`, 30),
+  300: colorMix(color, oklch`background`, 10),
+  400: colorMix(color, oklch`background`, 5),
   500: color,
   600: colorMix(color, oklch`foreground`, 10),
   700: colorMix(color, oklch`foreground`, 30),
