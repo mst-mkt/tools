@@ -1,6 +1,7 @@
 import { IconCopy, IconShare } from '@tabler/icons-react'
 import { createFileRoute } from '@tanstack/react-router'
 import { type JSX, useCallback, useMemo, useState } from 'react'
+import twitterText from 'twitter-text'
 import { z } from 'zod'
 import { Head } from '../../../components/shared/Head'
 import { IconButton } from '../../../components/ui/IconButton'
@@ -35,6 +36,7 @@ const Counter = () => {
     () => ({
       characters: countWithIntlSegmenter(text, 'grapheme'),
       charactersWithoutSpaces: countWithIntlSegmenter(text.replace(/\s/g, ''), 'grapheme'),
+      charactersForTwitter: twitterText.getTweetLength(text) / 2,
       words: countWithIntlSegmenter(text, 'word'),
       lines: text.split('\n').length,
       linesWithoutEmpty: text.split('\n').filter((line) => line.trim() !== '').length,
@@ -50,6 +52,7 @@ const Counter = () => {
     () => ({
       characters: '文字数',
       charactersWithoutSpaces: '文字数 (空白,改行抜き)',
+      charactersForTwitter: '文字数 (Twitter方式)',
       words: '単語数',
       sentences: '文章数',
       lines: '行数',
