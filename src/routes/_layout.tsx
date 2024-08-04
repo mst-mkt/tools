@@ -7,7 +7,7 @@ export const Route = createFileRoute('/_layout')({
 })
 
 const RootLayout = () => (
-  <div className="flex min-h-svh flex-col gap-y-12">
+  <div className="flex min-h-svh flex-col gap-y-8">
     <Header />
     <main className="mx-auto flex w-full max-w-max-content grow flex-col gap-y-8 px-6">
       <Outlet />
