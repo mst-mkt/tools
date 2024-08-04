@@ -8,6 +8,7 @@ import { Route as rootRoute } from './../../routes/__root'
 import { Route as LayoutImport } from './../../routes/_layout'
 import { Route as LayoutIndexImport } from './../../routes/_layout/index'
 import { Route as LayoutTextCountImport } from './../../routes/_layout/text/count'
+import { Route as LayoutTextReplaceImport } from './../../routes/_layout/text/replace'
 
 // Create/Update Routes
 
@@ -18,6 +19,11 @@ const LayoutRoute = LayoutImport.update({
 
 const LayoutIndexRoute = LayoutIndexImport.update({
   path: '/',
+  getParentRoute: () => LayoutRoute,
+} as any)
+
+const LayoutTextReplaceRoute = LayoutTextReplaceImport.update({
+  path: '/text/replace',
   getParentRoute: () => LayoutRoute,
 } as any)
 
@@ -51,6 +57,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LayoutTextCountImport
       parentRoute: typeof LayoutImport
     }
+    '/_layout/text/replace': {
+      id: '/_layout/text/replace'
+      path: '/text/replace'
+      fullPath: '/text/replace'
+      preLoaderRoute: typeof LayoutTextReplaceImport
+      parentRoute: typeof LayoutImport
+    }
   }
 }
 
@@ -60,6 +73,7 @@ export const routeTree = rootRoute.addChildren({
   LayoutRoute: LayoutRoute.addChildren({
     LayoutIndexRoute,
     LayoutTextCountRoute,
+    LayoutTextReplaceRoute,
   }),
 })
 
@@ -76,7 +90,8 @@ export const routeTree = rootRoute.addChildren({
       "filePath": "_layout.tsx",
       "children": [
         "/_layout/",
-        "/_layout/text/count"
+        "/_layout/text/count",
+        "/_layout/text/replace"
       ]
     },
     "/_layout/": {
@@ -85,6 +100,10 @@ export const routeTree = rootRoute.addChildren({
     },
     "/_layout/text/count": {
       "filePath": "_layout/text/count.tsx",
+      "parent": "/_layout"
+    },
+    "/_layout/text/replace": {
+      "filePath": "_layout/text/replace.tsx",
       "parent": "/_layout"
     }
   }
