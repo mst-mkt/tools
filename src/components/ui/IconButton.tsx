@@ -1,5 +1,5 @@
 import type { Icon } from '@tabler/icons-react'
-import clsx from 'clsx'
+import { clsx } from 'clsx'
 import type { FC, JSX } from 'react'
 import { twMerge } from 'tailwind-merge'
 
