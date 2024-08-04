@@ -7,6 +7,7 @@ import { IconButton } from '../../../components/ui/IconButton'
 import { TextInput } from '../../../components/ui/TextInput'
 import { Textarea } from '../../../components/ui/Textarea'
 import { useCopyLink } from '../../../hooks/useCopyLocation'
+import { useInputState } from '../../../hooks/useInputState'
 import { copy } from '../../../utils/clipboard/copy'
 
 const searchParamsValidator = z.object({
@@ -32,7 +33,7 @@ export const Route = createFileRoute('/_layout/text/replace')({
 const Replacer = () => {
   const { text: initialText, rules: initialRules } = Route.useSearch()
   const { copyLink } = useCopyLink(Route.id)
-  const [text, setText] = useState(initialText ?? '')
+  const [text, setText] = useInputState(initialText ?? '')
   const [rules, setRules] = useState<Rule[]>(
     initialRules ?? [...Array(3)].map(() => ({ from: '', to: '' })),
   )
@@ -58,7 +59,7 @@ const Replacer = () => {
         <div className="flex flex-col items-center gap-y-4">
           <Textarea
             value={text}
-            onChange={(e) => setText(e.currentTarget.value)}
+            onChange={setText}
             aria-label="置換前のテキスト"
             placeholder="置換前のテキスト"
           />

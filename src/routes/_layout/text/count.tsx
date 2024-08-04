@@ -1,12 +1,13 @@
 import { IconCopy, IconShare } from '@tabler/icons-react'
 import { createFileRoute } from '@tanstack/react-router'
-import { type JSX, useCallback, useMemo, useState } from 'react'
+import { type JSX, useCallback, useMemo } from 'react'
 import twitterText from 'twitter-text'
 import { z } from 'zod'
 import { Head } from '../../../components/shared/Head'
 import { IconButton } from '../../../components/ui/IconButton'
 import { Textarea } from '../../../components/ui/Textarea'
 import { useCopyLink } from '../../../hooks/useCopyLocation'
+import { useInputState } from '../../../hooks/useInputState'
 import { copy } from '../../../utils/clipboard/copy'
 
 const searchParamsValidator = z.object({
@@ -21,7 +22,7 @@ export const Route = createFileRoute('/_layout/text/count')({
 const Counter = () => {
   const { text: initialText } = Route.useSearch()
   const { copyLink } = useCopyLink(Route.id)
-  const [text, setText] = useState(initialText ?? '')
+  const [text, setText] = useInputState(initialText ?? '')
 
   const countWithIntlSegmenter = useCallback(
     (text: string, granularity: 'grapheme' | 'word' | 'sentence') => {
@@ -91,7 +92,7 @@ const Counter = () => {
           <h1 className="font-bold text-lg">文字数カウント</h1>
           <Textarea
             value={text}
-            onChange={(e) => setText(e.currentTarget.value)}
+            onChange={setText}
             placeholder="Input text here"
             aria-label="enter text to count"
           />
