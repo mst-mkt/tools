@@ -68,7 +68,10 @@ const ClipboardChecker = () => {
             </h2>
             {Object.entries(clipboardData).map(([key, value]) => (
               <div key={key} className="flex flex-col gap-y-1">
-                <h3 className="text-sm">{key}</h3>
+                <h3 className="text-sm">
+                  {key}
+                  {value instanceof File && ` - ${value.name} (${value.size} bytes)`}
+                </h3>
                 {match(value)
                   .with(P.string, (value) => (
                     <Textarea
