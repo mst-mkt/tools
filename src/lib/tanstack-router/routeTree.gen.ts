@@ -6,6 +6,7 @@
 
 import { Route as rootRoute } from './../../routes/__root'
 import { Route as LayoutImport } from './../../routes/_layout'
+import { Route as LayoutConvertCjpImport } from './../../routes/_layout/convert/cjp'
 import { Route as LayoutIndexImport } from './../../routes/_layout/index'
 import { Route as LayoutTextCountImport } from './../../routes/_layout/text/count'
 import { Route as LayoutTextRepeatImport } from './../../routes/_layout/text/repeat'
@@ -38,6 +39,11 @@ const LayoutTextCountRoute = LayoutTextCountImport.update({
   getParentRoute: () => LayoutRoute,
 } as any)
 
+const LayoutConvertCjpRoute = LayoutConvertCjpImport.update({
+  path: '/convert/cjp',
+  getParentRoute: () => LayoutRoute,
+} as any)
+
 // Populate the FileRoutesByPath interface
 
 declare module '@tanstack/react-router' {
@@ -54,6 +60,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof LayoutIndexImport
+      parentRoute: typeof LayoutImport
+    }
+    '/_layout/convert/cjp': {
+      id: '/_layout/convert/cjp'
+      path: '/convert/cjp'
+      fullPath: '/convert/cjp'
+      preLoaderRoute: typeof LayoutConvertCjpImport
       parentRoute: typeof LayoutImport
     }
     '/_layout/text/count': {
@@ -85,6 +98,7 @@ declare module '@tanstack/react-router' {
 export const routeTree = rootRoute.addChildren({
   LayoutRoute: LayoutRoute.addChildren({
     LayoutIndexRoute,
+    LayoutConvertCjpRoute,
     LayoutTextCountRoute,
     LayoutTextRepeatRoute,
     LayoutTextReplaceRoute,
@@ -104,6 +118,7 @@ export const routeTree = rootRoute.addChildren({
       "filePath": "_layout.tsx",
       "children": [
         "/_layout/",
+        "/_layout/convert/cjp",
         "/_layout/text/count",
         "/_layout/text/repeat",
         "/_layout/text/replace"
@@ -111,6 +126,10 @@ export const routeTree = rootRoute.addChildren({
     },
     "/_layout/": {
       "filePath": "_layout/index.tsx",
+      "parent": "/_layout"
+    },
+    "/_layout/convert/cjp": {
+      "filePath": "_layout/convert/cjp.tsx",
       "parent": "/_layout"
     },
     "/_layout/text/count": {
