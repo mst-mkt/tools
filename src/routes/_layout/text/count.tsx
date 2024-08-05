@@ -93,8 +93,8 @@ const Counter = () => {
           <Textarea
             value={text}
             onChange={setText}
-            placeholder="Input text here"
-            aria-label="enter text to count"
+            placeholder="カウントする文字列を入力"
+            aria-label="カウントする文字列を入力"
           />
         </div>
         <div className="flex flex-col gap-y-2">

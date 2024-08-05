@@ -33,11 +33,21 @@ const Cjp = () => {
         <h1 className="font-bold text-lg">怪レい日本语 変換</h1>
         <div className="flex flex-col gap-y-2">
           <h2 className="text-sm">日本語</h2>
-          <Textarea value={text} onChange={setText} placeholder="変換する日本語を入力" />
+          <Textarea
+            value={text}
+            onChange={setText}
+            placeholder="変換する日本語を入力"
+            aria-label="変換する日本語を入力"
+          />
         </div>
         <div className="flex flex-col gap-y-2">
           <h2 className="text-sm">怪レい日本语</h2>
-          <Textarea value={cjpText} readOnly={true} placeholder="変換した怪レい日本语" />
+          <Textarea
+            value={cjpText}
+            readOnly={true}
+            placeholder="変換した怪レい日本语"
+            aria-label="変換した怪レい日本语"
+          />
         </div>
       </div>
       <div className="flex gap-x-2">
