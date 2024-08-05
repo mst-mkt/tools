@@ -8,6 +8,7 @@ import { Route as rootRoute } from './../../routes/__root'
 import { Route as LayoutImport } from './../../routes/_layout'
 import { Route as LayoutIndexImport } from './../../routes/_layout/index'
 import { Route as LayoutTextCountImport } from './../../routes/_layout/text/count'
+import { Route as LayoutTextRepeatImport } from './../../routes/_layout/text/repeat'
 import { Route as LayoutTextReplaceImport } from './../../routes/_layout/text/replace'
 
 // Create/Update Routes
@@ -24,6 +25,11 @@ const LayoutIndexRoute = LayoutIndexImport.update({
 
 const LayoutTextReplaceRoute = LayoutTextReplaceImport.update({
   path: '/text/replace',
+  getParentRoute: () => LayoutRoute,
+} as any)
+
+const LayoutTextRepeatRoute = LayoutTextRepeatImport.update({
+  path: '/text/repeat',
   getParentRoute: () => LayoutRoute,
 } as any)
 
@@ -57,6 +63,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LayoutTextCountImport
       parentRoute: typeof LayoutImport
     }
+    '/_layout/text/repeat': {
+      id: '/_layout/text/repeat'
+      path: '/text/repeat'
+      fullPath: '/text/repeat'
+      preLoaderRoute: typeof LayoutTextRepeatImport
+      parentRoute: typeof LayoutImport
+    }
     '/_layout/text/replace': {
       id: '/_layout/text/replace'
       path: '/text/replace'
@@ -73,6 +86,7 @@ export const routeTree = rootRoute.addChildren({
   LayoutRoute: LayoutRoute.addChildren({
     LayoutIndexRoute,
     LayoutTextCountRoute,
+    LayoutTextRepeatRoute,
     LayoutTextReplaceRoute,
   }),
 })
@@ -91,6 +105,7 @@ export const routeTree = rootRoute.addChildren({
       "children": [
         "/_layout/",
         "/_layout/text/count",
+        "/_layout/text/repeat",
         "/_layout/text/replace"
       ]
     },
@@ -100,6 +115,10 @@ export const routeTree = rootRoute.addChildren({
     },
     "/_layout/text/count": {
       "filePath": "_layout/text/count.tsx",
+      "parent": "/_layout"
+    },
+    "/_layout/text/repeat": {
+      "filePath": "_layout/text/repeat.tsx",
       "parent": "/_layout"
     },
     "/_layout/text/replace": {
