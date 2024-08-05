@@ -54,7 +54,7 @@ const Replacer = () => {
   return (
     <>
       <Head title="Text Replacer" />
-      <div className="it flex flex-col gap-y-8">
+      <div className="flex flex-col gap-y-8">
         <h1 className="font-bold text-lg">文字置換</h1>
         <div className="flex flex-col items-center gap-y-4">
           <Textarea
