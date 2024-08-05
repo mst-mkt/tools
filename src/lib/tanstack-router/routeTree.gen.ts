@@ -7,6 +7,7 @@
 import { Route as rootRoute } from './../../routes/__root'
 import { Route as LayoutImport } from './../../routes/_layout'
 import { Route as LayoutConvertCjpImport } from './../../routes/_layout/convert/cjp'
+import { Route as LayoutConvertQrcodeImport } from './../../routes/_layout/convert/qrcode'
 import { Route as LayoutIndexImport } from './../../routes/_layout/index'
 import { Route as LayoutTextCountImport } from './../../routes/_layout/text/count'
 import { Route as LayoutTextRepeatImport } from './../../routes/_layout/text/repeat'
@@ -36,6 +37,11 @@ const LayoutTextRepeatRoute = LayoutTextRepeatImport.update({
 
 const LayoutTextCountRoute = LayoutTextCountImport.update({
   path: '/text/count',
+  getParentRoute: () => LayoutRoute,
+} as any)
+
+const LayoutConvertQrcodeRoute = LayoutConvertQrcodeImport.update({
+  path: '/convert/qrcode',
   getParentRoute: () => LayoutRoute,
 } as any)
 
@@ -69,6 +75,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LayoutConvertCjpImport
       parentRoute: typeof LayoutImport
     }
+    '/_layout/convert/qrcode': {
+      id: '/_layout/convert/qrcode'
+      path: '/convert/qrcode'
+      fullPath: '/convert/qrcode'
+      preLoaderRoute: typeof LayoutConvertQrcodeImport
+      parentRoute: typeof LayoutImport
+    }
     '/_layout/text/count': {
       id: '/_layout/text/count'
       path: '/text/count'
@@ -99,6 +112,7 @@ export const routeTree = rootRoute.addChildren({
   LayoutRoute: LayoutRoute.addChildren({
     LayoutIndexRoute,
     LayoutConvertCjpRoute,
+    LayoutConvertQrcodeRoute,
     LayoutTextCountRoute,
     LayoutTextRepeatRoute,
     LayoutTextReplaceRoute,
@@ -119,6 +133,7 @@ export const routeTree = rootRoute.addChildren({
       "children": [
         "/_layout/",
         "/_layout/convert/cjp",
+        "/_layout/convert/qrcode",
         "/_layout/text/count",
         "/_layout/text/repeat",
         "/_layout/text/replace"
@@ -130,6 +145,10 @@ export const routeTree = rootRoute.addChildren({
     },
     "/_layout/convert/cjp": {
       "filePath": "_layout/convert/cjp.tsx",
+      "parent": "/_layout"
+    },
+    "/_layout/convert/qrcode": {
+      "filePath": "_layout/convert/qrcode.tsx",
       "parent": "/_layout"
     },
     "/_layout/text/count": {
