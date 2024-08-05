@@ -1,26 +1,17 @@
 # 🧶 Tools
 
-## Tech Stack
+A collection of various tools for myself.
 
-| Name                   | Purpose                   |
-| ---------------------- | ------------------------- |
-| Vite                   | Build tool                |
-| React                  | UI library                |
-| Tailwind CSS           | CSS framework             |
-| @tanstack/react-router | Routing library           |
-| Jotai                  | State management library  |
-| zod                    | Schema validation library |
-| react-helmet-async     | Dynamic meta tags         |
-| @tabler/icons-react    | Icon component library    |
+## Tool list
 
-### For development
-
-| Name        | Purpose                     |
-| ----------- | --------------------------- |
-| pnpm        | Package manager             |
-| biome       | Formatter and linter        |
-| husky       | Git hooks                   |
-| lint-staged | Run linters on staged files |
+| Name                                                       | Description                                   |
+| ---------------------------------------------------------- | --------------------------------------------- |
+| [Text Counter](https://tools.keito.dev/text/counte)        | Count characters, words, and lines in text.   |
+| [Text Replacer](https://tools.keito.dev/text/replace)      | Replace text with custom rules.               |
+| [Text Repeater](https://tools.keito.dev/text/repeat)       | Repeat text multiple times.                   |
+| [CJP Converter](https://tools.keito.dev/convert/cjp)       | Convert from Japanese to `怪レい日本语` (CJP) |
+| [QR Code Generator](https://tools.keito.dev/convert/cjp)   | Generate QR code from text.                   |
+| [Clipboard Checker](https://tools.keito.dev/web/clipboard) | Check data in clipboard.                      |
 
 ## Development
 
