@@ -4,6 +4,11 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+patchedDependencies:
+  cjp@2.3.1:
+    hash: yzwolsml2b4mob6en7vmkap4bi
+    path: patches/cjp@2.3.1.patch
+
 dependencies:
   '@tabler/icons-react':
     specifier: ^3.11.0
@@ -16,7 +21,7 @@ dependencies:
     version: 1.45.11(@tanstack/react-router@1.45.11)(csstype@3.1.3)(react-dom@18.3.1)(react@18.3.1)
   cjp:
     specifier: ^2.3.1
-    version: 2.3.1
+    version: 2.3.1(patch_hash=yzwolsml2b4mob6en7vmkap4bi)
   clsx:
     specifier: ^2.1.1
     version: 2.1.1
@@ -1312,9 +1317,10 @@ packages:
       fsevents: 2.3.3
     dev: true
 
-  /cjp@2.3.1:
+  /cjp@2.3.1(patch_hash=yzwolsml2b4mob6en7vmkap4bi):
     resolution: {integrity: sha512-TeovKU2X165UpIrDtGb5zP05YcY+dYEAoNO0hT8RcB8Bpj2qMigR5/iGJNOFE/DwEmdKs4dIN3EoZKX4aa8X/w==}
     dev: false
+    patched: true
 
   /cli-cursor@5.0.0:
     resolution: {integrity: sha512-aCj4O5wKyszjMmDT4tZj93kxyydN/K5zPWSCe6/0AV/AA1pqe5ZBIw0a2ZfPQV7lL5/yb5HsUreJ6UFAF1tEQw==}
