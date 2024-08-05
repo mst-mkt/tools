@@ -1,24 +1,46 @@
-# <img src="https://cdn.jsdelivr.net/npm/twemoji@11.3.0/2/svg/1f9f6.svg" alt="🧶" width="40px" height="40px"> Tools
+# 🧶 Tools
 
-various tools for myself.
+A collection of various tools for myself.
 
-[![Deploy to deno-deploy](https://img.shields.io/badge/available%20on-tools.keito.dev-lightgrey.svg?logo=deno&labelColor=black)](https://tools.keito.dev)
-[![Deploy Action](https://github.com/mst-mkt/tools/actions/workflows/deploy.yml/badge.svg)](https://github.com/mst-mkt/tools/actions/workflows/deploy.yml)  \
-[![Made with Fresh](https://fresh.deno.dev/fresh-badge.svg)](https://fresh.deno.dev)
+## Tool list
 
-## tool list
+| Name                                                       | Description                                   |
+| ---------------------------------------------------------- | --------------------------------------------- |
+| [Text Counter](https://tools.keito.dev/text/counte)        | Count characters, words, and lines in text.   |
+| [Text Replacer](https://tools.keito.dev/text/replace)      | Replace text with custom rules.               |
+| [Text Repeater](https://tools.keito.dev/text/repeat)       | Repeat text multiple times.                   |
+| [CJP Converter](https://tools.keito.dev/convert/cjp)       | Convert from Japanese to `怪レい日本语` (CJP) |
+| [QR Code Generator](https://tools.keito.dev/convert/cjp)   | Generate QR code from text.                   |
+| [Clipboard Checker](https://tools.keito.dev/web/clipboard) | Check data in clipboard.                      |
 
-### text
+## Development
 
-- [文字数カウント](https://tools.keito.dev/text/count)
-- [文字置換](https://tools.keito.dev/text/replace)
-- [文字列反復](https://tools.keito.dev/text/repeat)
+### Install dependencies
 
-### convert
+```sh
+pnpm i
+```
 
-- [怪レい日本语](https://tools.keito.dev/text/cjp)
-- [QRCode](https://tools.keito.dev/convert/qrcode)
+### Run development server
 
-### web
+```sh
+pnpm dev
+```
 
-- [Clipboard 内容確認](https://tools.keito.dev/web/clipboard)
+### Build
+
+```sh
+pnpm build
+```
+
+### Lint and format
+
+```sh
+pnpm check
+```
+
+with applying fixes:
+
+```sh
+pnpm fix
+```
