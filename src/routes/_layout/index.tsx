@@ -17,7 +17,7 @@ const links = {
     { label: 'クリップボード', id: 'clipboard' },
     { label: 'Cursor viewer', id: 'cursor' },
   ],
-}
+} as const satisfies { [category: string]: { label: string; id: string }[] }
 
 export const Route = createFileRoute('/_layout/')({
   component: () => <Home />,
