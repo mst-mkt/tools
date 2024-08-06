@@ -12,6 +12,7 @@ A collection of various tools for myself.
 | [CJP Converter](https://tools.keito.dev/convert/cjp)       | Convert from Japanese to `怪レい日本语` (CJP) |
 | [QR Code Generator](https://tools.keito.dev/convert/cjp)   | Generate QR code from text.                   |
 | [Clipboard Checker](https://tools.keito.dev/web/clipboard) | Check data in clipboard.                      |
+| [Cursor Viewer](https://tools.keito.dev/web/cursor)        | View css cursor property and its preview.     |
 
 ## Development
 

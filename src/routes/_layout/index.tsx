@@ -13,7 +13,10 @@ const links = {
     { label: '怪レい日本语', id: 'cjp' },
     { label: 'QRCode', id: 'qrcode' },
   ],
-  web: [{ label: 'クリップボード', id: 'clipboard' }],
+  web: [
+    { label: 'クリップボード', id: 'clipboard' },
+    { label: 'Cursor viewer', id: 'cursor' },
+  ],
 }
 
 export const Route = createFileRoute('/_layout/')({
