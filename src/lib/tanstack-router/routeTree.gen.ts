@@ -14,6 +14,7 @@ import { Route as LayoutTextCountImport } from './../../routes/_layout/text/coun
 import { Route as LayoutTextRepeatImport } from './../../routes/_layout/text/repeat'
 import { Route as LayoutTextReplaceImport } from './../../routes/_layout/text/replace'
 import { Route as LayoutWebClipboardImport } from './../../routes/_layout/web/clipboard'
+import { Route as LayoutWebKeyEventImport } from './../../routes/_layout/web/keyEvent'
 
 // Create/Update Routes
 
@@ -24,6 +25,11 @@ const LayoutRoute = LayoutImport.update({
 
 const LayoutIndexRoute = LayoutIndexImport.update({
   path: '/',
+  getParentRoute: () => LayoutRoute,
+} as any)
+
+const LayoutWebKeyEventRoute = LayoutWebKeyEventImport.update({
+  path: '/web/keyEvent',
   getParentRoute: () => LayoutRoute,
 } as any)
 
@@ -129,6 +135,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LayoutWebClipboardImport
       parentRoute: typeof LayoutImport
     }
+    '/_layout/web/keyEvent': {
+      id: '/_layout/web/keyEvent'
+      path: '/web/keyEvent'
+      fullPath: '/web/keyEvent'
+      preLoaderRoute: typeof LayoutWebKeyEventImport
+      parentRoute: typeof LayoutImport
+    }
   }
 }
 
@@ -144,6 +157,7 @@ export const routeTree = rootRoute.addChildren({
     LayoutTextRepeatRoute,
     LayoutTextReplaceRoute,
     LayoutWebClipboardRoute,
+    LayoutWebKeyEventRoute,
   }),
 })
 
@@ -166,7 +180,8 @@ export const routeTree = rootRoute.addChildren({
         "/_layout/text/count",
         "/_layout/text/repeat",
         "/_layout/text/replace",
-        "/_layout/web/clipboard"
+        "/_layout/web/clipboard",
+        "/_layout/web/keyEvent"
       ]
     },
     "/_layout/": {
@@ -199,6 +214,10 @@ export const routeTree = rootRoute.addChildren({
     },
     "/_layout/web/clipboard": {
       "filePath": "_layout/web/clipboard.tsx",
+      "parent": "/_layout"
+    },
+    "/_layout/web/keyEvent": {
+      "filePath": "_layout/web/keyEvent.tsx",
       "parent": "/_layout"
     }
   }

@@ -14,7 +14,10 @@ const links = {
     { label: 'QRCode', id: 'qrcode' },
     { label: 'Punycode', id: 'punycode' },
   ],
-  web: [{ label: 'クリップボード', id: 'clipboard' }],
+  web: [
+    { label: 'Clipboard Data Checker', id: 'clipboard' },
+    { label: 'Keyboard Event Checker', id: 'keyEvent' },
+  ],
 }
 
 export const Route = createFileRoute('/_layout/')({
