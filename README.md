@@ -11,6 +11,7 @@ A collection of various tools for myself.
 | [Text Repeater](https://tools.keito.dev/text/repeat)       | Repeat text multiple times.                   |
 | [CJP Converter](https://tools.keito.dev/convert/cjp)       | Convert from Japanese to `怪レい日本语` (CJP) |
 | [QR Code Generator](https://tools.keito.dev/convert/cjp)   | Generate QR code from text.                   |
+| [Punycode Converter](https://tools.keito.dev/convert/puny) | Convert between Text and Punycode.            |
 | [Clipboard Checker](https://tools.keito.dev/web/clipboard) | Check data in clipboard.                      |
 
 ## Development

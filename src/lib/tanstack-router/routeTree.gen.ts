@@ -7,6 +7,7 @@
 import { Route as rootRoute } from './../../routes/__root'
 import { Route as LayoutImport } from './../../routes/_layout'
 import { Route as LayoutConvertCjpImport } from './../../routes/_layout/convert/cjp'
+import { Route as LayoutConvertPunycodeImport } from './../../routes/_layout/convert/punycode'
 import { Route as LayoutConvertQrcodeImport } from './../../routes/_layout/convert/qrcode'
 import { Route as LayoutIndexImport } from './../../routes/_layout/index'
 import { Route as LayoutTextCountImport } from './../../routes/_layout/text/count'
@@ -51,6 +52,11 @@ const LayoutConvertQrcodeRoute = LayoutConvertQrcodeImport.update({
   getParentRoute: () => LayoutRoute,
 } as any)
 
+const LayoutConvertPunycodeRoute = LayoutConvertPunycodeImport.update({
+  path: '/convert/punycode',
+  getParentRoute: () => LayoutRoute,
+} as any)
+
 const LayoutConvertCjpRoute = LayoutConvertCjpImport.update({
   path: '/convert/cjp',
   getParentRoute: () => LayoutRoute,
@@ -79,6 +85,13 @@ declare module '@tanstack/react-router' {
       path: '/convert/cjp'
       fullPath: '/convert/cjp'
       preLoaderRoute: typeof LayoutConvertCjpImport
+      parentRoute: typeof LayoutImport
+    }
+    '/_layout/convert/punycode': {
+      id: '/_layout/convert/punycode'
+      path: '/convert/punycode'
+      fullPath: '/convert/punycode'
+      preLoaderRoute: typeof LayoutConvertPunycodeImport
       parentRoute: typeof LayoutImport
     }
     '/_layout/convert/qrcode': {
@@ -125,6 +138,7 @@ export const routeTree = rootRoute.addChildren({
   LayoutRoute: LayoutRoute.addChildren({
     LayoutIndexRoute,
     LayoutConvertCjpRoute,
+    LayoutConvertPunycodeRoute,
     LayoutConvertQrcodeRoute,
     LayoutTextCountRoute,
     LayoutTextRepeatRoute,
@@ -147,6 +161,7 @@ export const routeTree = rootRoute.addChildren({
       "children": [
         "/_layout/",
         "/_layout/convert/cjp",
+        "/_layout/convert/punycode",
         "/_layout/convert/qrcode",
         "/_layout/text/count",
         "/_layout/text/repeat",
@@ -160,6 +175,10 @@ export const routeTree = rootRoute.addChildren({
     },
     "/_layout/convert/cjp": {
       "filePath": "_layout/convert/cjp.tsx",
+      "parent": "/_layout"
+    },
+    "/_layout/convert/punycode": {
+      "filePath": "_layout/convert/punycode.tsx",
       "parent": "/_layout"
     },
     "/_layout/convert/qrcode": {

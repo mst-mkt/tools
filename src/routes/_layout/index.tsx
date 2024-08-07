@@ -12,6 +12,7 @@ const links = {
   convert: [
     { label: '怪レい日本语', id: 'cjp' },
     { label: 'QRCode', id: 'qrcode' },
+    { label: 'Punycode', id: 'punycode' },
   ],
   web: [{ label: 'クリップボード', id: 'clipboard' }],
 }
