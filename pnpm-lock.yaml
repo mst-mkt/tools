@@ -31,6 +31,9 @@ dependencies:
   jotai:
     specifier: ^2.9.1
     version: 2.9.1(@types/react@18.3.3)(react@18.3.1)
+  punycode:
+    specifier: ^2.3.1
+    version: 2.3.1
   react:
     specifier: ^18.3.1
     version: 18.3.1
@@ -2092,6 +2095,11 @@ packages:
 
   /punycode@1.4.1:
     resolution: {integrity: sha512-jmYNElW7yvO7TV33CjSmvSiE2yco3bV2czu/OzDKdMNVZQWfxCblURLhf+47syQRBntjfLdd/H0egrzIG+oaFQ==}
+    dev: false
+
+  /punycode@2.3.1:
+    resolution: {integrity: sha512-vYt7UD1U9Wg6138shLtLOvdAu+8DsC/ilFtEVHcH+wydcSpNE20AfSOduf6MkRFahL5FY7X1oU7nKVZFtfq8Fg==}
+    engines: {node: '>=6'}
     dev: false
 
   /queue-microtask@1.2.3:
