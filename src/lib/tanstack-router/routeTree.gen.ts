@@ -7,6 +7,7 @@
 import { Route as rootRoute } from './../../routes/__root'
 import { Route as LayoutImport } from './../../routes/_layout'
 import { Route as LayoutConvertCjpImport } from './../../routes/_layout/convert/cjp'
+import { Route as LayoutConvertPunycodeImport } from './../../routes/_layout/convert/punycode'
 import { Route as LayoutConvertQrcodeImport } from './../../routes/_layout/convert/qrcode'
 import { Route as LayoutIndexImport } from './../../routes/_layout/index'
 import { Route as LayoutTextCountImport } from './../../routes/_layout/text/count'
@@ -14,6 +15,7 @@ import { Route as LayoutTextRepeatImport } from './../../routes/_layout/text/rep
 import { Route as LayoutTextReplaceImport } from './../../routes/_layout/text/replace'
 import { Route as LayoutWebClipboardImport } from './../../routes/_layout/web/clipboard'
 import { Route as LayoutWebCursorImport } from './../../routes/_layout/web/cursor'
+import { Route as LayoutWebKeyEventImport } from './../../routes/_layout/web/keyEvent'
 
 // Create/Update Routes
 
@@ -24,6 +26,11 @@ const LayoutRoute = LayoutImport.update({
 
 const LayoutIndexRoute = LayoutIndexImport.update({
   path: '/',
+  getParentRoute: () => LayoutRoute,
+} as any)
+
+const LayoutWebKeyEventRoute = LayoutWebKeyEventImport.update({
+  path: '/web/keyEvent',
   getParentRoute: () => LayoutRoute,
 } as any)
 
@@ -57,6 +64,11 @@ const LayoutConvertQrcodeRoute = LayoutConvertQrcodeImport.update({
   getParentRoute: () => LayoutRoute,
 } as any)
 
+const LayoutConvertPunycodeRoute = LayoutConvertPunycodeImport.update({
+  path: '/convert/punycode',
+  getParentRoute: () => LayoutRoute,
+} as any)
+
 const LayoutConvertCjpRoute = LayoutConvertCjpImport.update({
   path: '/convert/cjp',
   getParentRoute: () => LayoutRoute,
@@ -85,6 +97,13 @@ declare module '@tanstack/react-router' {
       path: '/convert/cjp'
       fullPath: '/convert/cjp'
       preLoaderRoute: typeof LayoutConvertCjpImport
+      parentRoute: typeof LayoutImport
+    }
+    '/_layout/convert/punycode': {
+      id: '/_layout/convert/punycode'
+      path: '/convert/punycode'
+      fullPath: '/convert/punycode'
+      preLoaderRoute: typeof LayoutConvertPunycodeImport
       parentRoute: typeof LayoutImport
     }
     '/_layout/convert/qrcode': {
@@ -129,6 +148,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LayoutWebCursorImport
       parentRoute: typeof LayoutImport
     }
+    '/_layout/web/keyEvent': {
+      id: '/_layout/web/keyEvent'
+      path: '/web/keyEvent'
+      fullPath: '/web/keyEvent'
+      preLoaderRoute: typeof LayoutWebKeyEventImport
+      parentRoute: typeof LayoutImport
+    }
   }
 }
 
@@ -138,12 +164,14 @@ export const routeTree = rootRoute.addChildren({
   LayoutRoute: LayoutRoute.addChildren({
     LayoutIndexRoute,
     LayoutConvertCjpRoute,
+    LayoutConvertPunycodeRoute,
     LayoutConvertQrcodeRoute,
     LayoutTextCountRoute,
     LayoutTextRepeatRoute,
     LayoutTextReplaceRoute,
     LayoutWebClipboardRoute,
     LayoutWebCursorRoute,
+    LayoutWebKeyEventRoute,
   }),
 })
 
@@ -161,12 +189,14 @@ export const routeTree = rootRoute.addChildren({
       "children": [
         "/_layout/",
         "/_layout/convert/cjp",
+        "/_layout/convert/punycode",
         "/_layout/convert/qrcode",
         "/_layout/text/count",
         "/_layout/text/repeat",
         "/_layout/text/replace",
         "/_layout/web/clipboard",
-        "/_layout/web/cursor"
+        "/_layout/web/cursor",
+        "/_layout/web/keyEvent"
       ]
     },
     "/_layout/": {
@@ -175,6 +205,10 @@ export const routeTree = rootRoute.addChildren({
     },
     "/_layout/convert/cjp": {
       "filePath": "_layout/convert/cjp.tsx",
+      "parent": "/_layout"
+    },
+    "/_layout/convert/punycode": {
+      "filePath": "_layout/convert/punycode.tsx",
       "parent": "/_layout"
     },
     "/_layout/convert/qrcode": {
@@ -199,6 +233,10 @@ export const routeTree = rootRoute.addChildren({
     },
     "/_layout/web/cursor": {
       "filePath": "_layout/web/cursor.tsx",
+      "parent": "/_layout"
+    },
+    "/_layout/web/keyEvent": {
+      "filePath": "_layout/web/keyEvent.tsx",
       "parent": "/_layout"
     }
   }

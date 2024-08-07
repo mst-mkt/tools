@@ -12,10 +12,12 @@ const links = {
   convert: [
     { label: '怪レい日本语', id: 'cjp' },
     { label: 'QRCode', id: 'qrcode' },
+    { label: 'Punycode', id: 'punycode' },
   ],
   web: [
-    { label: 'クリップボード', id: 'clipboard' },
-    { label: 'Cursor viewer', id: 'cursor' },
+    { label: 'Clipboard Data Checker', id: 'clipboard' },
+    { label: 'Keyboard Event Checker', id: 'keyEvent' },
+    { label: 'Cursor Preview', id: 'cursor' },
   ],
 } as const satisfies { [category: string]: { label: string; id: string }[] }
 
