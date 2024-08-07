@@ -17,8 +17,9 @@ const links = {
   web: [
     { label: 'Clipboard Data Checker', id: 'clipboard' },
     { label: 'Keyboard Event Checker', id: 'keyEvent' },
+    { label: 'Cursor Preview', id: 'cursor' },
   ],
-}
+} as const satisfies { [category: string]: { label: string; id: string }[] }
 
 export const Route = createFileRoute('/_layout/')({
   component: () => <Home />,

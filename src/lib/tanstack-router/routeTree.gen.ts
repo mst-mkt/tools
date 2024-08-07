@@ -14,6 +14,7 @@ import { Route as LayoutTextCountImport } from './../../routes/_layout/text/coun
 import { Route as LayoutTextRepeatImport } from './../../routes/_layout/text/repeat'
 import { Route as LayoutTextReplaceImport } from './../../routes/_layout/text/replace'
 import { Route as LayoutWebClipboardImport } from './../../routes/_layout/web/clipboard'
+import { Route as LayoutWebCursorImport } from './../../routes/_layout/web/cursor'
 import { Route as LayoutWebKeyEventImport } from './../../routes/_layout/web/keyEvent'
 
 // Create/Update Routes
@@ -30,6 +31,11 @@ const LayoutIndexRoute = LayoutIndexImport.update({
 
 const LayoutWebKeyEventRoute = LayoutWebKeyEventImport.update({
   path: '/web/keyEvent',
+  getParentRoute: () => LayoutRoute,
+} as any)
+
+const LayoutWebCursorRoute = LayoutWebCursorImport.update({
+  path: '/web/cursor',
   getParentRoute: () => LayoutRoute,
 } as any)
 
@@ -135,6 +141,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LayoutWebClipboardImport
       parentRoute: typeof LayoutImport
     }
+    '/_layout/web/cursor': {
+      id: '/_layout/web/cursor'
+      path: '/web/cursor'
+      fullPath: '/web/cursor'
+      preLoaderRoute: typeof LayoutWebCursorImport
+      parentRoute: typeof LayoutImport
+    }
     '/_layout/web/keyEvent': {
       id: '/_layout/web/keyEvent'
       path: '/web/keyEvent'
@@ -157,6 +170,7 @@ export const routeTree = rootRoute.addChildren({
     LayoutTextRepeatRoute,
     LayoutTextReplaceRoute,
     LayoutWebClipboardRoute,
+    LayoutWebCursorRoute,
     LayoutWebKeyEventRoute,
   }),
 })
@@ -181,6 +195,7 @@ export const routeTree = rootRoute.addChildren({
         "/_layout/text/repeat",
         "/_layout/text/replace",
         "/_layout/web/clipboard",
+        "/_layout/web/cursor",
         "/_layout/web/keyEvent"
       ]
     },
@@ -214,6 +229,10 @@ export const routeTree = rootRoute.addChildren({
     },
     "/_layout/web/clipboard": {
       "filePath": "_layout/web/clipboard.tsx",
+      "parent": "/_layout"
+    },
+    "/_layout/web/cursor": {
+      "filePath": "_layout/web/cursor.tsx",
       "parent": "/_layout"
     },
     "/_layout/web/keyEvent": {
