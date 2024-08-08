@@ -19,9 +19,24 @@ dependencies:
   '@tanstack/router-devtools':
     specifier: ^1.45.11
     version: 1.45.11(@tanstack/react-router@1.46.8)(csstype@3.1.3)(react-dom@18.3.1)(react@18.3.1)
+  '@wasm-fmt/clang-format':
+    specifier: ^18.1.8
+    version: 18.1.8
+  '@wasm-fmt/gofmt':
+    specifier: ^0.4.9
+    version: 0.4.9
+  '@wasm-fmt/ruff_fmt':
+    specifier: ^0.5.10
+    version: 0.5.10
+  '@wasm-fmt/sql_fmt':
+    specifier: ^0.0.2
+    version: 0.0.2
   '@wasm-fmt/web_fmt':
     specifier: ^0.1.10
     version: 0.1.10
+  '@wasm-fmt/yamlfmt':
+    specifier: ^0.0.2
+    version: 0.0.2
   cjp:
     specifier: ^2.3.1
     version: 2.3.1(patch_hash=yzwolsml2b4mob6en7vmkap4bi)
@@ -1192,8 +1207,31 @@ packages:
       - '@swc/helpers'
     dev: true
 
+  /@wasm-fmt/clang-format@18.1.8:
+    resolution: {integrity: sha512-JWX9ILldydxP0/Z6ksCiyWbpN9mB7X1Kj8ESVGkZ3KA5aV363EEzTctHb/Y/FHXAsNIdWO7dp73OMNM0uCUPBg==}
+    engines: {node: '>=16.17.0'}
+    hasBin: true
+    dev: false
+
+  /@wasm-fmt/gofmt@0.4.9:
+    resolution: {integrity: sha512-YiJKASbwWHD9Rt4MD1Xwb5DanB0MQLYXgxeNGocxE5nu7ZyzPgm1nTn0sFVCJoxYMsGn5ypyXakuHTQtiJu4Ag==}
+    engines: {node: '>=16.17.0'}
+    dev: false
+
+  /@wasm-fmt/ruff_fmt@0.5.10:
+    resolution: {integrity: sha512-PR0uVT1xGBJh9t22b2Hd7smFjlKygwN30DgDQ1QovFmZZiTkS7Y8yHiyMYsPKlbEko3Q2fnfCTJJOCZm8NqWWA==}
+    dev: false
+
+  /@wasm-fmt/sql_fmt@0.0.2:
+    resolution: {integrity: sha512-pr6HacbCwE87e/Rvc8zwtzaSE2EfEf7JCNf9GEHobITMbR1f0PcAWjmfdBaNo22If0Kz1pp3m3h02X7Vx6OXoQ==}
+    dev: false
+
   /@wasm-fmt/web_fmt@0.1.10:
     resolution: {integrity: sha512-UuzxtV+c9RyI7PHyGjanyJCM+0/1OwV7wVXuwx0RGykp13pOZ86VM9fTCOJCDICo5GlbGk31UgsGJEXkFpN8pA==}
+    dev: false
+
+  /@wasm-fmt/yamlfmt@0.0.2:
+    resolution: {integrity: sha512-I5vgaoKV7kXEvjicpZjqw4AL4/573TkEbmtg8NzZ5jubMCW4riPj/iiXPSWM6uJ9S3Q0Ad63IyPLY+q8ND9oOQ==}
     dev: false
 
   /acorn@8.12.1:
