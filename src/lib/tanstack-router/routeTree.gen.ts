@@ -7,6 +7,7 @@
 import { Route as rootRoute } from './../../routes/__root'
 import { Route as LayoutImport } from './../../routes/_layout'
 import { Route as LayoutConvertCjpImport } from './../../routes/_layout/convert/cjp'
+import { Route as LayoutConvertJsonSchemaToZodImport } from './../../routes/_layout/convert/jsonSchemaToZod'
 import { Route as LayoutConvertPunycodeImport } from './../../routes/_layout/convert/punycode'
 import { Route as LayoutConvertQrcodeImport } from './../../routes/_layout/convert/qrcode'
 import { Route as LayoutIndexImport } from './../../routes/_layout/index'
@@ -69,6 +70,11 @@ const LayoutConvertPunycodeRoute = LayoutConvertPunycodeImport.update({
   getParentRoute: () => LayoutRoute,
 } as any)
 
+const LayoutConvertJsonSchemaToZodRoute = LayoutConvertJsonSchemaToZodImport.update({
+  path: '/convert/jsonSchemaToZod',
+  getParentRoute: () => LayoutRoute,
+} as any)
+
 const LayoutConvertCjpRoute = LayoutConvertCjpImport.update({
   path: '/convert/cjp',
   getParentRoute: () => LayoutRoute,
@@ -97,6 +103,13 @@ declare module '@tanstack/react-router' {
       path: '/convert/cjp'
       fullPath: '/convert/cjp'
       preLoaderRoute: typeof LayoutConvertCjpImport
+      parentRoute: typeof LayoutImport
+    }
+    '/_layout/convert/jsonSchemaToZod': {
+      id: '/_layout/convert/jsonSchemaToZod'
+      path: '/convert/jsonSchemaToZod'
+      fullPath: '/convert/jsonSchemaToZod'
+      preLoaderRoute: typeof LayoutConvertJsonSchemaToZodImport
       parentRoute: typeof LayoutImport
     }
     '/_layout/convert/punycode': {
@@ -164,6 +177,7 @@ export const routeTree = rootRoute.addChildren({
   LayoutRoute: LayoutRoute.addChildren({
     LayoutIndexRoute,
     LayoutConvertCjpRoute,
+    LayoutConvertJsonSchemaToZodRoute,
     LayoutConvertPunycodeRoute,
     LayoutConvertQrcodeRoute,
     LayoutTextCountRoute,
@@ -189,6 +203,7 @@ export const routeTree = rootRoute.addChildren({
       "children": [
         "/_layout/",
         "/_layout/convert/cjp",
+        "/_layout/convert/jsonSchemaToZod",
         "/_layout/convert/punycode",
         "/_layout/convert/qrcode",
         "/_layout/text/count",
@@ -205,6 +220,10 @@ export const routeTree = rootRoute.addChildren({
     },
     "/_layout/convert/cjp": {
       "filePath": "_layout/convert/cjp.tsx",
+      "parent": "/_layout"
+    },
+    "/_layout/convert/jsonSchemaToZod": {
+      "filePath": "_layout/convert/jsonSchemaToZod.tsx",
       "parent": "/_layout"
     },
     "/_layout/convert/punycode": {
