@@ -31,6 +31,9 @@ dependencies:
   jotai:
     specifier: ^2.9.1
     version: 2.9.1(@types/react@18.3.3)(react@18.3.1)
+  json-schema-to-zod:
+    specifier: ^2.4.0
+    version: 2.4.0
   punycode:
     specifier: ^2.3.1
     version: 2.3.1
@@ -1786,6 +1789,11 @@ packages:
     engines: {node: '>=4'}
     hasBin: true
     dev: true
+
+  /json-schema-to-zod@2.4.0:
+    resolution: {integrity: sha512-3T+eBPrG43VB5nYrmQFjoh9+EwzgVeNuJmqm6/m/9khqVlahFULUjzQ8Nu4jelgeTEJSm2ALDy5KDDqk1Y7xlg==}
+    hasBin: true
+    dev: false
 
   /json5@2.2.3:
     resolution: {integrity: sha512-XmOWe7eyHYH14cLdVPoyg+GOH3rYX++KpzrylJwSW98t3Nk+U8XOl8FWKOgwtzdb8lXGf6zYwDUzeHMWfxasyg==}
