@@ -95,7 +95,13 @@ const JsonSchemaToZod = () => {
           <IconButton
             icon={IconShare}
             label="Share Link"
-            onClick={() => copyLink({ text: minifiedText })}
+            onClick={() =>
+              copyLink({
+                text: minifiedText,
+                name: schemaName !== '' ? schemaName : undefined,
+                module: moduleType,
+              })
+            }
             disabled={text.trim() === ''}
           />
           <IconButton
