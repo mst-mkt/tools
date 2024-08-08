@@ -21,7 +21,10 @@ const links = {
     { label: 'Cursor Preview', id: 'cursor' },
     { label: 'Whois Lookup', id: 'whois' },
   ],
-  formatter: [{ label: 'TypeScript, JavaScript', id: 'typescript' }],
+  formatter: [
+    { label: 'TypeScript, JavaScript', id: 'typescript' },
+    { label: 'JSON', id: 'json' },
+  ],
 } as const satisfies { [category: string]: { label: string; id: string }[] }
 
 export const Route = createFileRoute('/_layout/')({
