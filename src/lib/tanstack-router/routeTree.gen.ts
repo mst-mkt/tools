@@ -17,6 +17,7 @@ import { Route as LayoutTextReplaceImport } from './../../routes/_layout/text/re
 import { Route as LayoutWebClipboardImport } from './../../routes/_layout/web/clipboard'
 import { Route as LayoutWebCursorImport } from './../../routes/_layout/web/cursor'
 import { Route as LayoutWebKeyEventImport } from './../../routes/_layout/web/keyEvent'
+import { Route as LayoutWebWhoisImport } from './../../routes/_layout/web/whois'
 
 // Create/Update Routes
 
@@ -27,6 +28,11 @@ const LayoutRoute = LayoutImport.update({
 
 const LayoutIndexRoute = LayoutIndexImport.update({
   path: '/',
+  getParentRoute: () => LayoutRoute,
+} as any)
+
+const LayoutWebWhoisRoute = LayoutWebWhoisImport.update({
+  path: '/web/whois',
   getParentRoute: () => LayoutRoute,
 } as any)
 
@@ -168,6 +174,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LayoutWebKeyEventImport
       parentRoute: typeof LayoutImport
     }
+    '/_layout/web/whois': {
+      id: '/_layout/web/whois'
+      path: '/web/whois'
+      fullPath: '/web/whois'
+      preLoaderRoute: typeof LayoutWebWhoisImport
+      parentRoute: typeof LayoutImport
+    }
   }
 }
 
@@ -186,6 +199,7 @@ export const routeTree = rootRoute.addChildren({
     LayoutWebClipboardRoute,
     LayoutWebCursorRoute,
     LayoutWebKeyEventRoute,
+    LayoutWebWhoisRoute,
   }),
 })
 
@@ -211,7 +225,8 @@ export const routeTree = rootRoute.addChildren({
         "/_layout/text/replace",
         "/_layout/web/clipboard",
         "/_layout/web/cursor",
-        "/_layout/web/keyEvent"
+        "/_layout/web/keyEvent",
+        "/_layout/web/whois"
       ]
     },
     "/_layout/": {
@@ -256,6 +271,10 @@ export const routeTree = rootRoute.addChildren({
     },
     "/_layout/web/keyEvent": {
       "filePath": "_layout/web/keyEvent.tsx",
+      "parent": "/_layout"
+    },
+    "/_layout/web/whois": {
+      "filePath": "_layout/web/whois.tsx",
       "parent": "/_layout"
     }
   }

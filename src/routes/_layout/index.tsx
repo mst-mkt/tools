@@ -19,6 +19,7 @@ const links = {
     { label: 'Clipboard Data Checker', id: 'clipboard' },
     { label: 'Keyboard Event Checker', id: 'keyEvent' },
     { label: 'Cursor Preview', id: 'cursor' },
+    { label: 'Whois Lookup', id: 'whois' },
   ],
 } as const satisfies { [category: string]: { label: string; id: string }[] }
 
