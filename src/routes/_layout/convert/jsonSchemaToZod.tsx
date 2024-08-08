@@ -43,9 +43,10 @@ const JsonSchemaToZod = () => {
     }
   }, [setText, text])
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: exec only once on mount
   useEffect(() => {
     init().then(() => text !== '' && handleFormat())
-  }, [handleFormat, text])
+  }, [])
 
   const convertedCode = useMemo(() => {
     try {
