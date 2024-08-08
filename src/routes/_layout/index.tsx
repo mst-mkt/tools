@@ -13,6 +13,7 @@ const links = {
     { label: '怪レい日本语', id: 'cjp' },
     { label: 'QRCode', id: 'qrcode' },
     { label: 'Punycode', id: 'punycode' },
+    { label: 'JSON Schema to Zod', id: 'jsonSchemaToZod' },
   ],
   web: [
     { label: 'Clipboard Data Checker', id: 'clipboard' },
