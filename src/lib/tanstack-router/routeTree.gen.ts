@@ -10,6 +10,7 @@ import { Route as LayoutConvertCjpImport } from './../../routes/_layout/convert/
 import { Route as LayoutConvertJsonSchemaToZodImport } from './../../routes/_layout/convert/jsonSchemaToZod'
 import { Route as LayoutConvertPunycodeImport } from './../../routes/_layout/convert/punycode'
 import { Route as LayoutConvertQrcodeImport } from './../../routes/_layout/convert/qrcode'
+import { Route as LayoutFormatterTypescriptImport } from './../../routes/_layout/formatter/typescript'
 import { Route as LayoutIndexImport } from './../../routes/_layout/index'
 import { Route as LayoutTextCountImport } from './../../routes/_layout/text/count'
 import { Route as LayoutTextRepeatImport } from './../../routes/_layout/text/repeat'
@@ -63,6 +64,11 @@ const LayoutTextRepeatRoute = LayoutTextRepeatImport.update({
 
 const LayoutTextCountRoute = LayoutTextCountImport.update({
   path: '/text/count',
+  getParentRoute: () => LayoutRoute,
+} as any)
+
+const LayoutFormatterTypescriptRoute = LayoutFormatterTypescriptImport.update({
+  path: '/formatter/typescript',
   getParentRoute: () => LayoutRoute,
 } as any)
 
@@ -132,6 +138,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LayoutConvertQrcodeImport
       parentRoute: typeof LayoutImport
     }
+    '/_layout/formatter/typescript': {
+      id: '/_layout/formatter/typescript'
+      path: '/formatter/typescript'
+      fullPath: '/formatter/typescript'
+      preLoaderRoute: typeof LayoutFormatterTypescriptImport
+      parentRoute: typeof LayoutImport
+    }
     '/_layout/text/count': {
       id: '/_layout/text/count'
       path: '/text/count'
@@ -193,6 +206,7 @@ export const routeTree = rootRoute.addChildren({
     LayoutConvertJsonSchemaToZodRoute,
     LayoutConvertPunycodeRoute,
     LayoutConvertQrcodeRoute,
+    LayoutFormatterTypescriptRoute,
     LayoutTextCountRoute,
     LayoutTextRepeatRoute,
     LayoutTextReplaceRoute,
@@ -220,6 +234,7 @@ export const routeTree = rootRoute.addChildren({
         "/_layout/convert/jsonSchemaToZod",
         "/_layout/convert/punycode",
         "/_layout/convert/qrcode",
+        "/_layout/formatter/typescript",
         "/_layout/text/count",
         "/_layout/text/repeat",
         "/_layout/text/replace",
@@ -247,6 +262,10 @@ export const routeTree = rootRoute.addChildren({
     },
     "/_layout/convert/qrcode": {
       "filePath": "_layout/convert/qrcode.tsx",
+      "parent": "/_layout"
+    },
+    "/_layout/formatter/typescript": {
+      "filePath": "_layout/formatter/typescript.tsx",
       "parent": "/_layout"
     },
     "/_layout/text/count": {

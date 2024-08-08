@@ -16,6 +16,7 @@ A collection of various tools for myself.
 | [Clipboard Checker](https://tools.keito.dev/web/clipboard)            | Check data in clipboard.                      |
 | [Keyboard Event Checker](https://tools.keito.dev/web/keyboard)        | Check some properties of keyboard events.     |
 | [Whois Lookup](https://tools.keito.dev/web/whois)                     | Lookup whois information of a domain.         |
+| [TS / JS Formatter](https://tools.keito.dev/formatter/typescript)     | Format TypeScript / JavaScript code.          |
 
 ## Development
 
