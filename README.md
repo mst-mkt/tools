@@ -15,6 +15,7 @@ A collection of various tools for myself.
 | [JSON Schema to Zod](https://tools.keito.dev/convert/jsonSchemaToZod) | Convert JSON Schema to Zod schema.            |
 | [Clipboard Checker](https://tools.keito.dev/web/clipboard)            | Check data in clipboard.                      |
 | [Keyboard Event Checker](https://tools.keito.dev/web/keyboard)        | Check some properties of keyboard events.     |
+| [Whois Lookup](https://tools.keito.dev/web/whois)                     | Lookup whois information of a domain.         |
 
 ## Development
 
