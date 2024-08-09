@@ -16,6 +16,7 @@ import { Route as LayoutFormatterGoImport } from './../../routes/_layout/formatt
 import { Route as LayoutFormatterHtmlImport } from './../../routes/_layout/formatter/html'
 import { Route as LayoutFormatterJavaImport } from './../../routes/_layout/formatter/java'
 import { Route as LayoutFormatterJsonImport } from './../../routes/_layout/formatter/json'
+import { Route as LayoutFormatterLuaImport } from './../../routes/_layout/formatter/lua'
 import { Route as LayoutFormatterPythonImport } from './../../routes/_layout/formatter/python'
 import { Route as LayoutFormatterSqlImport } from './../../routes/_layout/formatter/sql'
 import { Route as LayoutFormatterTypescriptImport } from './../../routes/_layout/formatter/typescript'
@@ -93,6 +94,11 @@ const LayoutFormatterSqlRoute = LayoutFormatterSqlImport.update({
 
 const LayoutFormatterPythonRoute = LayoutFormatterPythonImport.update({
   path: '/formatter/python',
+  getParentRoute: () => LayoutRoute,
+} as any)
+
+const LayoutFormatterLuaRoute = LayoutFormatterLuaImport.update({
+  path: '/formatter/lua',
   getParentRoute: () => LayoutRoute,
 } as any)
 
@@ -234,6 +240,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LayoutFormatterJsonImport
       parentRoute: typeof LayoutImport
     }
+    '/_layout/formatter/lua': {
+      id: '/_layout/formatter/lua'
+      path: '/formatter/lua'
+      fullPath: '/formatter/lua'
+      preLoaderRoute: typeof LayoutFormatterLuaImport
+      parentRoute: typeof LayoutImport
+    }
     '/_layout/formatter/python': {
       id: '/_layout/formatter/python'
       path: '/formatter/python'
@@ -329,6 +342,7 @@ export const routeTree = rootRoute.addChildren({
     LayoutFormatterHtmlRoute,
     LayoutFormatterJavaRoute,
     LayoutFormatterJsonRoute,
+    LayoutFormatterLuaRoute,
     LayoutFormatterPythonRoute,
     LayoutFormatterSqlRoute,
     LayoutFormatterTypescriptRoute,
@@ -366,6 +380,7 @@ export const routeTree = rootRoute.addChildren({
         "/_layout/formatter/html",
         "/_layout/formatter/java",
         "/_layout/formatter/json",
+        "/_layout/formatter/lua",
         "/_layout/formatter/python",
         "/_layout/formatter/sql",
         "/_layout/formatter/typescript",
@@ -421,6 +436,10 @@ export const routeTree = rootRoute.addChildren({
     },
     "/_layout/formatter/json": {
       "filePath": "_layout/formatter/json.tsx",
+      "parent": "/_layout"
+    },
+    "/_layout/formatter/lua": {
+      "filePath": "_layout/formatter/lua.tsx",
       "parent": "/_layout"
     },
     "/_layout/formatter/python": {

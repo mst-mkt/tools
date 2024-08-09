@@ -25,6 +25,7 @@ A collection of various tools for myself.
 | [Go Formatter](https://tools.keito.dev/formatter/go)                  | Format Go code.                               |
 | [C Formatter](https://tools.keito.dev/formatter/c)                    | Format C code.                                |
 | [Java Formatter](https://tools.keito.dev/formatter/java)              | Format Java code.                             |
+| [Lua Formatter](https://tools.keito.dev/formatter/lua)                | Format Lua code.                              |
 | [SQL Formatter](https://tools.keito.dev/formatter/sql)                | Format SQL code.                              |
 
 ## Development
