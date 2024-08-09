@@ -24,6 +24,7 @@ const links = {
   formatter: [
     { label: 'TypeScript, JavaScript', id: 'typescript' },
     { label: 'JSON', id: 'json' },
+    { label: 'CSS', id: 'css' },
   ],
 } as const satisfies { [category: string]: { label: string; id: string }[] }
 

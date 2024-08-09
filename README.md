@@ -18,6 +18,7 @@ A collection of various tools for myself.
 | [Whois Lookup](https://tools.keito.dev/web/whois)                     | Lookup whois information of a domain.         |
 | [TS / JS Formatter](https://tools.keito.dev/formatter/typescript)     | Format TypeScript / JavaScript code.          |
 | [JSON Formatter](https://tools.keito.dev/formatter/json)              | Format JSON code.                             |
+| [CSS Formatter](https://tools.keito.dev/formatter/css)                | Format CSS code.                              |
 
 ## Development
 
