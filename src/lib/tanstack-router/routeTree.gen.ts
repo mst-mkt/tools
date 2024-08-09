@@ -21,6 +21,7 @@ import { Route as LayoutFormatterPythonImport } from './../../routes/_layout/for
 import { Route as LayoutFormatterSqlImport } from './../../routes/_layout/formatter/sql'
 import { Route as LayoutFormatterTypescriptImport } from './../../routes/_layout/formatter/typescript'
 import { Route as LayoutFormatterYamlImport } from './../../routes/_layout/formatter/yaml'
+import { Route as LayoutFormatterZigImport } from './../../routes/_layout/formatter/zig'
 import { Route as LayoutIndexImport } from './../../routes/_layout/index'
 import { Route as LayoutTextCountImport } from './../../routes/_layout/text/count'
 import { Route as LayoutTextRepeatImport } from './../../routes/_layout/text/repeat'
@@ -74,6 +75,11 @@ const LayoutTextRepeatRoute = LayoutTextRepeatImport.update({
 
 const LayoutTextCountRoute = LayoutTextCountImport.update({
   path: '/text/count',
+  getParentRoute: () => LayoutRoute,
+} as any)
+
+const LayoutFormatterZigRoute = LayoutFormatterZigImport.update({
+  path: '/formatter/zig',
   getParentRoute: () => LayoutRoute,
 } as any)
 
@@ -275,6 +281,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LayoutFormatterYamlImport
       parentRoute: typeof LayoutImport
     }
+    '/_layout/formatter/zig': {
+      id: '/_layout/formatter/zig'
+      path: '/formatter/zig'
+      fullPath: '/formatter/zig'
+      preLoaderRoute: typeof LayoutFormatterZigImport
+      parentRoute: typeof LayoutImport
+    }
     '/_layout/text/count': {
       id: '/_layout/text/count'
       path: '/text/count'
@@ -347,6 +360,7 @@ export const routeTree = rootRoute.addChildren({
     LayoutFormatterSqlRoute,
     LayoutFormatterTypescriptRoute,
     LayoutFormatterYamlRoute,
+    LayoutFormatterZigRoute,
     LayoutTextCountRoute,
     LayoutTextRepeatRoute,
     LayoutTextReplaceRoute,
@@ -385,6 +399,7 @@ export const routeTree = rootRoute.addChildren({
         "/_layout/formatter/sql",
         "/_layout/formatter/typescript",
         "/_layout/formatter/yaml",
+        "/_layout/formatter/zig",
         "/_layout/text/count",
         "/_layout/text/repeat",
         "/_layout/text/replace",
@@ -456,6 +471,10 @@ export const routeTree = rootRoute.addChildren({
     },
     "/_layout/formatter/yaml": {
       "filePath": "_layout/formatter/yaml.tsx",
+      "parent": "/_layout"
+    },
+    "/_layout/formatter/zig": {
+      "filePath": "_layout/formatter/zig.tsx",
       "parent": "/_layout"
     },
     "/_layout/text/count": {
