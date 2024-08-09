@@ -26,7 +26,16 @@ const Typescript = () => {
   const [code, setCode] = useInputState(initialCode ?? '')
   const { copyLink } = useCopyLink(Route.id)
 
-  const formattedCode = useMemo(() => format(code, 'text.tsx'), [code])
+  const formattedCode = useMemo(() => {
+    try {
+      const formatted = format(code, 'text.tsx').trim()
+      if (formatted === '') return '// No Input'
+      return formatted
+    } catch (e) {
+      console.error(e)
+      return code
+    }
+  }, [code])
 
   return (
     <>
@@ -36,7 +45,6 @@ const Typescript = () => {
         <Textarea value={code} onChange={setCode} placeholder="Enter TypeScript code..." />
         <div className="scrollbar-thin scrollbar-thumb-background-200 scrollbar-thumb-rounded-full scrollbar-track-transparent overflow-y-hidden overflow-x-scroll rounded-md border border-background-100 p-4 text-sm">
           <Code lang="tsx" code={formattedCode} />
-          {code.trim() === '' && <p className="text-foreground-400 text-sm">No Input</p>}
         </div>
         <div className="flex gap-x-2">
           <IconButton
@@ -49,7 +57,7 @@ const Typescript = () => {
             icon={IconCopy}
             onClick={() => copy(formattedCode)}
             label="Copy formatted code"
-            disabled={formattedCode === ''}
+            disabled={code.trim() === ''}
           />
         </div>
       </div>
