@@ -14,6 +14,7 @@ import { Route as LayoutFormatterCImport } from './../../routes/_layout/formatte
 import { Route as LayoutFormatterCssImport } from './../../routes/_layout/formatter/css'
 import { Route as LayoutFormatterGoImport } from './../../routes/_layout/formatter/go'
 import { Route as LayoutFormatterHtmlImport } from './../../routes/_layout/formatter/html'
+import { Route as LayoutFormatterJavaImport } from './../../routes/_layout/formatter/java'
 import { Route as LayoutFormatterJsonImport } from './../../routes/_layout/formatter/json'
 import { Route as LayoutFormatterPythonImport } from './../../routes/_layout/formatter/python'
 import { Route as LayoutFormatterSqlImport } from './../../routes/_layout/formatter/sql'
@@ -97,6 +98,11 @@ const LayoutFormatterPythonRoute = LayoutFormatterPythonImport.update({
 
 const LayoutFormatterJsonRoute = LayoutFormatterJsonImport.update({
   path: '/formatter/json',
+  getParentRoute: () => LayoutRoute,
+} as any)
+
+const LayoutFormatterJavaRoute = LayoutFormatterJavaImport.update({
+  path: '/formatter/java',
   getParentRoute: () => LayoutRoute,
 } as any)
 
@@ -214,6 +220,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LayoutFormatterHtmlImport
       parentRoute: typeof LayoutImport
     }
+    '/_layout/formatter/java': {
+      id: '/_layout/formatter/java'
+      path: '/formatter/java'
+      fullPath: '/formatter/java'
+      preLoaderRoute: typeof LayoutFormatterJavaImport
+      parentRoute: typeof LayoutImport
+    }
     '/_layout/formatter/json': {
       id: '/_layout/formatter/json'
       path: '/formatter/json'
@@ -314,6 +327,7 @@ export const routeTree = rootRoute.addChildren({
     LayoutFormatterCssRoute,
     LayoutFormatterGoRoute,
     LayoutFormatterHtmlRoute,
+    LayoutFormatterJavaRoute,
     LayoutFormatterJsonRoute,
     LayoutFormatterPythonRoute,
     LayoutFormatterSqlRoute,
@@ -350,6 +364,7 @@ export const routeTree = rootRoute.addChildren({
         "/_layout/formatter/css",
         "/_layout/formatter/go",
         "/_layout/formatter/html",
+        "/_layout/formatter/java",
         "/_layout/formatter/json",
         "/_layout/formatter/python",
         "/_layout/formatter/sql",
@@ -398,6 +413,10 @@ export const routeTree = rootRoute.addChildren({
     },
     "/_layout/formatter/html": {
       "filePath": "_layout/formatter/html.tsx",
+      "parent": "/_layout"
+    },
+    "/_layout/formatter/java": {
+      "filePath": "_layout/formatter/java.tsx",
       "parent": "/_layout"
     },
     "/_layout/formatter/json": {

@@ -30,6 +30,7 @@ const links = {
     { label: 'Python', id: 'python' },
     { label: 'Go', id: 'go' },
     { label: 'C', id: 'c' },
+    { label: 'Java', id: 'java' },
     { label: 'SQL', id: 'sql' },
   ],
 } as const satisfies { [category: string]: { label: string; id: string }[] }
