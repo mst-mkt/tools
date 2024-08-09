@@ -20,6 +20,7 @@ A collection of various tools for myself.
 | [JSON Formatter](https://tools.keito.dev/formatter/json)              | Format JSON code.                             |
 | [HTML Formatter](https://tools.keito.dev/formatter/html)              | Format HTML code.                             |
 | [CSS Formatter](https://tools.keito.dev/formatter/css)                | Format CSS code.                              |
+| [Python Formatter](https://tools.keito.dev/formatter/python)          | Format Python code.                           |
 
 ## Development
 

@@ -13,6 +13,7 @@ import { Route as LayoutConvertQrcodeImport } from './../../routes/_layout/conve
 import { Route as LayoutFormatterCssImport } from './../../routes/_layout/formatter/css'
 import { Route as LayoutFormatterHtmlImport } from './../../routes/_layout/formatter/html'
 import { Route as LayoutFormatterJsonImport } from './../../routes/_layout/formatter/json'
+import { Route as LayoutFormatterPythonImport } from './../../routes/_layout/formatter/python'
 import { Route as LayoutFormatterTypescriptImport } from './../../routes/_layout/formatter/typescript'
 import { Route as LayoutIndexImport } from './../../routes/_layout/index'
 import { Route as LayoutTextCountImport } from './../../routes/_layout/text/count'
@@ -72,6 +73,11 @@ const LayoutTextCountRoute = LayoutTextCountImport.update({
 
 const LayoutFormatterTypescriptRoute = LayoutFormatterTypescriptImport.update({
   path: '/formatter/typescript',
+  getParentRoute: () => LayoutRoute,
+} as any)
+
+const LayoutFormatterPythonRoute = LayoutFormatterPythonImport.update({
+  path: '/formatter/python',
   getParentRoute: () => LayoutRoute,
 } as any)
 
@@ -177,6 +183,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LayoutFormatterJsonImport
       parentRoute: typeof LayoutImport
     }
+    '/_layout/formatter/python': {
+      id: '/_layout/formatter/python'
+      path: '/formatter/python'
+      fullPath: '/formatter/python'
+      preLoaderRoute: typeof LayoutFormatterPythonImport
+      parentRoute: typeof LayoutImport
+    }
     '/_layout/formatter/typescript': {
       id: '/_layout/formatter/typescript'
       path: '/formatter/typescript'
@@ -248,6 +261,7 @@ export const routeTree = rootRoute.addChildren({
     LayoutFormatterCssRoute,
     LayoutFormatterHtmlRoute,
     LayoutFormatterJsonRoute,
+    LayoutFormatterPythonRoute,
     LayoutFormatterTypescriptRoute,
     LayoutTextCountRoute,
     LayoutTextRepeatRoute,
@@ -279,6 +293,7 @@ export const routeTree = rootRoute.addChildren({
         "/_layout/formatter/css",
         "/_layout/formatter/html",
         "/_layout/formatter/json",
+        "/_layout/formatter/python",
         "/_layout/formatter/typescript",
         "/_layout/text/count",
         "/_layout/text/repeat",
@@ -319,6 +334,10 @@ export const routeTree = rootRoute.addChildren({
     },
     "/_layout/formatter/json": {
       "filePath": "_layout/formatter/json.tsx",
+      "parent": "/_layout"
+    },
+    "/_layout/formatter/python": {
+      "filePath": "_layout/formatter/python.tsx",
       "parent": "/_layout"
     },
     "/_layout/formatter/typescript": {
