@@ -21,6 +21,21 @@ const links = {
     { label: 'Cursor Preview', id: 'cursor' },
     { label: 'Whois Lookup', id: 'whois' },
   ],
+  formatter: [
+    { label: 'TypeScript, JavaScript', id: 'typescript' },
+    { label: 'JSON', id: 'json' },
+    { label: 'YAML', id: 'yaml' },
+    { label: 'HTML', id: 'html' },
+    { label: 'CSS', id: 'css' },
+    { label: 'Python', id: 'python' },
+    { label: 'Go', id: 'go' },
+    { label: 'C', id: 'c' },
+    { label: 'Java', id: 'java' },
+    { label: 'Lua', id: 'lua' },
+    { label: 'Zig', id: 'zig' },
+    { label: 'Dart', id: 'dart' },
+    { label: 'SQL', id: 'sql' },
+  ],
 } as const satisfies { [category: string]: { label: string; id: string }[] }
 
 export const Route = createFileRoute('/_layout/')({

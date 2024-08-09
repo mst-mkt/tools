@@ -16,6 +16,19 @@ A collection of various tools for myself.
 | [Clipboard Checker](https://tools.keito.dev/web/clipboard)            | Check data in clipboard.                      |
 | [Keyboard Event Checker](https://tools.keito.dev/web/keyboard)        | Check some properties of keyboard events.     |
 | [Whois Lookup](https://tools.keito.dev/web/whois)                     | Lookup whois information of a domain.         |
+| [TS / JS Formatter](https://tools.keito.dev/formatter/typescript)     | Format TypeScript / JavaScript code.          |
+| [JSON Formatter](https://tools.keito.dev/formatter/json)              | Format JSON code.                             |
+| [YAML Formatter](https://tools.keito.dev/formatter/yaml)              | Format YAML code.                             |
+| [HTML Formatter](https://tools.keito.dev/formatter/html)              | Format HTML code.                             |
+| [CSS Formatter](https://tools.keito.dev/formatter/css)                | Format CSS code.                              |
+| [Python Formatter](https://tools.keito.dev/formatter/python)          | Format Python code.                           |
+| [Go Formatter](https://tools.keito.dev/formatter/go)                  | Format Go code.                               |
+| [C Formatter](https://tools.keito.dev/formatter/c)                    | Format C code.                                |
+| [Java Formatter](https://tools.keito.dev/formatter/java)              | Format Java code.                             |
+| [Lua Formatter](https://tools.keito.dev/formatter/lua)                | Format Lua code.                              |
+| [Zig Formatter](https://tools.keito.dev/formatter/zig)                | Format Zig code.                              |
+| [Dart Formatter](https://tools.keito.dev/formatter/dart)              | Format Dart code.                             |
+| [SQL Formatter](https://tools.keito.dev/formatter/sql)                | Format SQL code.                              |
 
 ## Development
 
