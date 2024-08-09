@@ -22,9 +22,15 @@ dependencies:
   '@wasm-fmt/clang-format':
     specifier: ^18.1.8
     version: 18.1.8
+  '@wasm-fmt/dart_fmt':
+    specifier: ^0.1.1
+    version: 0.1.1
   '@wasm-fmt/gofmt':
     specifier: ^0.4.9
     version: 0.4.9
+  '@wasm-fmt/lua_fmt':
+    specifier: ^0.0.5
+    version: 0.0.5
   '@wasm-fmt/ruff_fmt':
     specifier: ^0.5.10
     version: 0.5.10
@@ -37,6 +43,9 @@ dependencies:
   '@wasm-fmt/yamlfmt':
     specifier: ^0.0.2
     version: 0.0.2
+  '@wasm-fmt/zig_fmt':
+    specifier: ^0.0.5
+    version: 0.0.5
   cjp:
     specifier: ^2.3.1
     version: 2.3.1(patch_hash=yzwolsml2b4mob6en7vmkap4bi)
@@ -1213,9 +1222,17 @@ packages:
     hasBin: true
     dev: false
 
+  /@wasm-fmt/dart_fmt@0.1.1:
+    resolution: {integrity: sha512-nk/zSDkUyuMEevcZzhDjF3Cy0yFzisQzN7YFLqrOph+nZI9fzNijgXRHdCTdIA2P0+2M2mOWcF8+HxgqLKixQw==}
+    dev: false
+
   /@wasm-fmt/gofmt@0.4.9:
     resolution: {integrity: sha512-YiJKASbwWHD9Rt4MD1Xwb5DanB0MQLYXgxeNGocxE5nu7ZyzPgm1nTn0sFVCJoxYMsGn5ypyXakuHTQtiJu4Ag==}
     engines: {node: '>=16.17.0'}
+    dev: false
+
+  /@wasm-fmt/lua_fmt@0.0.5:
+    resolution: {integrity: sha512-86pWbM8KC4vszOpMCvtN7QqKnqNZvNWV5Pb90BGdFcaD1usf3b6qSsbcVz7jflQobxJj4NytrgOQeIivCIe0FQ==}
     dev: false
 
   /@wasm-fmt/ruff_fmt@0.5.10:
@@ -1232,6 +1249,10 @@ packages:
 
   /@wasm-fmt/yamlfmt@0.0.2:
     resolution: {integrity: sha512-I5vgaoKV7kXEvjicpZjqw4AL4/573TkEbmtg8NzZ5jubMCW4riPj/iiXPSWM6uJ9S3Q0Ad63IyPLY+q8ND9oOQ==}
+    dev: false
+
+  /@wasm-fmt/zig_fmt@0.0.5:
+    resolution: {integrity: sha512-djNL+AuMT9NlTxSxHqKIJlViX2mflqTjfixXf2CQnM3AOFHRrYS/XNtXL+upnBGuMRRqIKaW7PXB1PAcM6aLkA==}
     dev: false
 
   /acorn@8.12.1:
