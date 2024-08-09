@@ -16,6 +16,7 @@ import { Route as LayoutFormatterHtmlImport } from './../../routes/_layout/forma
 import { Route as LayoutFormatterJsonImport } from './../../routes/_layout/formatter/json'
 import { Route as LayoutFormatterPythonImport } from './../../routes/_layout/formatter/python'
 import { Route as LayoutFormatterTypescriptImport } from './../../routes/_layout/formatter/typescript'
+import { Route as LayoutFormatterYamlImport } from './../../routes/_layout/formatter/yaml'
 import { Route as LayoutIndexImport } from './../../routes/_layout/index'
 import { Route as LayoutTextCountImport } from './../../routes/_layout/text/count'
 import { Route as LayoutTextRepeatImport } from './../../routes/_layout/text/repeat'
@@ -69,6 +70,11 @@ const LayoutTextRepeatRoute = LayoutTextRepeatImport.update({
 
 const LayoutTextCountRoute = LayoutTextCountImport.update({
   path: '/text/count',
+  getParentRoute: () => LayoutRoute,
+} as any)
+
+const LayoutFormatterYamlRoute = LayoutFormatterYamlImport.update({
+  path: '/formatter/yaml',
   getParentRoute: () => LayoutRoute,
 } as any)
 
@@ -210,6 +216,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LayoutFormatterTypescriptImport
       parentRoute: typeof LayoutImport
     }
+    '/_layout/formatter/yaml': {
+      id: '/_layout/formatter/yaml'
+      path: '/formatter/yaml'
+      fullPath: '/formatter/yaml'
+      preLoaderRoute: typeof LayoutFormatterYamlImport
+      parentRoute: typeof LayoutImport
+    }
     '/_layout/text/count': {
       id: '/_layout/text/count'
       path: '/text/count'
@@ -277,6 +290,7 @@ export const routeTree = rootRoute.addChildren({
     LayoutFormatterJsonRoute,
     LayoutFormatterPythonRoute,
     LayoutFormatterTypescriptRoute,
+    LayoutFormatterYamlRoute,
     LayoutTextCountRoute,
     LayoutTextRepeatRoute,
     LayoutTextReplaceRoute,
@@ -310,6 +324,7 @@ export const routeTree = rootRoute.addChildren({
         "/_layout/formatter/json",
         "/_layout/formatter/python",
         "/_layout/formatter/typescript",
+        "/_layout/formatter/yaml",
         "/_layout/text/count",
         "/_layout/text/repeat",
         "/_layout/text/replace",
@@ -361,6 +376,10 @@ export const routeTree = rootRoute.addChildren({
     },
     "/_layout/formatter/typescript": {
       "filePath": "_layout/formatter/typescript.tsx",
+      "parent": "/_layout"
+    },
+    "/_layout/formatter/yaml": {
+      "filePath": "_layout/formatter/yaml.tsx",
       "parent": "/_layout"
     },
     "/_layout/text/count": {

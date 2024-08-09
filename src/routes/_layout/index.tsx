@@ -24,6 +24,7 @@ const links = {
   formatter: [
     { label: 'TypeScript, JavaScript', id: 'typescript' },
     { label: 'JSON', id: 'json' },
+    { label: 'YAML', id: 'yaml' },
     { label: 'HTML', id: 'html' },
     { label: 'CSS', id: 'css' },
     { label: 'Python', id: 'python' },
