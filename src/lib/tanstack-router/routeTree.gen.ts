@@ -15,6 +15,7 @@ import { Route as LayoutFormatterGoImport } from './../../routes/_layout/formatt
 import { Route as LayoutFormatterHtmlImport } from './../../routes/_layout/formatter/html'
 import { Route as LayoutFormatterJsonImport } from './../../routes/_layout/formatter/json'
 import { Route as LayoutFormatterPythonImport } from './../../routes/_layout/formatter/python'
+import { Route as LayoutFormatterSqlImport } from './../../routes/_layout/formatter/sql'
 import { Route as LayoutFormatterTypescriptImport } from './../../routes/_layout/formatter/typescript'
 import { Route as LayoutFormatterYamlImport } from './../../routes/_layout/formatter/yaml'
 import { Route as LayoutIndexImport } from './../../routes/_layout/index'
@@ -80,6 +81,11 @@ const LayoutFormatterYamlRoute = LayoutFormatterYamlImport.update({
 
 const LayoutFormatterTypescriptRoute = LayoutFormatterTypescriptImport.update({
   path: '/formatter/typescript',
+  getParentRoute: () => LayoutRoute,
+} as any)
+
+const LayoutFormatterSqlRoute = LayoutFormatterSqlImport.update({
+  path: '/formatter/sql',
   getParentRoute: () => LayoutRoute,
 } as any)
 
@@ -209,6 +215,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LayoutFormatterPythonImport
       parentRoute: typeof LayoutImport
     }
+    '/_layout/formatter/sql': {
+      id: '/_layout/formatter/sql'
+      path: '/formatter/sql'
+      fullPath: '/formatter/sql'
+      preLoaderRoute: typeof LayoutFormatterSqlImport
+      parentRoute: typeof LayoutImport
+    }
     '/_layout/formatter/typescript': {
       id: '/_layout/formatter/typescript'
       path: '/formatter/typescript'
@@ -289,6 +302,7 @@ export const routeTree = rootRoute.addChildren({
     LayoutFormatterHtmlRoute,
     LayoutFormatterJsonRoute,
     LayoutFormatterPythonRoute,
+    LayoutFormatterSqlRoute,
     LayoutFormatterTypescriptRoute,
     LayoutFormatterYamlRoute,
     LayoutTextCountRoute,
@@ -323,6 +337,7 @@ export const routeTree = rootRoute.addChildren({
         "/_layout/formatter/html",
         "/_layout/formatter/json",
         "/_layout/formatter/python",
+        "/_layout/formatter/sql",
         "/_layout/formatter/typescript",
         "/_layout/formatter/yaml",
         "/_layout/text/count",
@@ -372,6 +387,10 @@ export const routeTree = rootRoute.addChildren({
     },
     "/_layout/formatter/python": {
       "filePath": "_layout/formatter/python.tsx",
+      "parent": "/_layout"
+    },
+    "/_layout/formatter/sql": {
+      "filePath": "_layout/formatter/sql.tsx",
       "parent": "/_layout"
     },
     "/_layout/formatter/typescript": {

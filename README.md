@@ -23,6 +23,7 @@ A collection of various tools for myself.
 | [CSS Formatter](https://tools.keito.dev/formatter/css)                | Format CSS code.                              |
 | [Python Formatter](https://tools.keito.dev/formatter/python)          | Format Python code.                           |
 | [Go Formatter](https://tools.keito.dev/formatter/go)                  | Format Go code.                               |
+| [SQL Formatter](https://tools.keito.dev/formatter/sql)                | Format SQL code.                              |
 
 ## Development
 
