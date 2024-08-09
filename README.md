@@ -27,6 +27,7 @@ A collection of various tools for myself.
 | [Java Formatter](https://tools.keito.dev/formatter/java)              | Format Java code.                             |
 | [Lua Formatter](https://tools.keito.dev/formatter/lua)                | Format Lua code.                              |
 | [Zig Formatter](https://tools.keito.dev/formatter/zig)                | Format Zig code.                              |
+| [Dart Formatter](https://tools.keito.dev/formatter/dart)              | Format Dart code.                             |
 | [SQL Formatter](https://tools.keito.dev/formatter/sql)                | Format SQL code.                              |
 
 ## Development

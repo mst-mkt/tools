@@ -12,6 +12,7 @@ import { Route as LayoutConvertPunycodeImport } from './../../routes/_layout/con
 import { Route as LayoutConvertQrcodeImport } from './../../routes/_layout/convert/qrcode'
 import { Route as LayoutFormatterCImport } from './../../routes/_layout/formatter/c'
 import { Route as LayoutFormatterCssImport } from './../../routes/_layout/formatter/css'
+import { Route as LayoutFormatterDartImport } from './../../routes/_layout/formatter/dart'
 import { Route as LayoutFormatterGoImport } from './../../routes/_layout/formatter/go'
 import { Route as LayoutFormatterHtmlImport } from './../../routes/_layout/formatter/html'
 import { Route as LayoutFormatterJavaImport } from './../../routes/_layout/formatter/java'
@@ -128,6 +129,11 @@ const LayoutFormatterGoRoute = LayoutFormatterGoImport.update({
   getParentRoute: () => LayoutRoute,
 } as any)
 
+const LayoutFormatterDartRoute = LayoutFormatterDartImport.update({
+  path: '/formatter/dart',
+  getParentRoute: () => LayoutRoute,
+} as any)
+
 const LayoutFormatterCssRoute = LayoutFormatterCssImport.update({
   path: '/formatter/css',
   getParentRoute: () => LayoutRoute,
@@ -216,6 +222,13 @@ declare module '@tanstack/react-router' {
       path: '/formatter/css'
       fullPath: '/formatter/css'
       preLoaderRoute: typeof LayoutFormatterCssImport
+      parentRoute: typeof LayoutImport
+    }
+    '/_layout/formatter/dart': {
+      id: '/_layout/formatter/dart'
+      path: '/formatter/dart'
+      fullPath: '/formatter/dart'
+      preLoaderRoute: typeof LayoutFormatterDartImport
       parentRoute: typeof LayoutImport
     }
     '/_layout/formatter/go': {
@@ -351,6 +364,7 @@ export const routeTree = rootRoute.addChildren({
     LayoutConvertQrcodeRoute,
     LayoutFormatterCRoute,
     LayoutFormatterCssRoute,
+    LayoutFormatterDartRoute,
     LayoutFormatterGoRoute,
     LayoutFormatterHtmlRoute,
     LayoutFormatterJavaRoute,
@@ -390,6 +404,7 @@ export const routeTree = rootRoute.addChildren({
         "/_layout/convert/qrcode",
         "/_layout/formatter/c",
         "/_layout/formatter/css",
+        "/_layout/formatter/dart",
         "/_layout/formatter/go",
         "/_layout/formatter/html",
         "/_layout/formatter/java",
@@ -435,6 +450,10 @@ export const routeTree = rootRoute.addChildren({
     },
     "/_layout/formatter/css": {
       "filePath": "_layout/formatter/css.tsx",
+      "parent": "/_layout"
+    },
+    "/_layout/formatter/dart": {
+      "filePath": "_layout/formatter/dart.tsx",
       "parent": "/_layout"
     },
     "/_layout/formatter/go": {
