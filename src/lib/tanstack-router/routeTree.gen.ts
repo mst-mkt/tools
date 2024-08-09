@@ -11,6 +11,7 @@ import { Route as LayoutConvertJsonSchemaToZodImport } from './../../routes/_lay
 import { Route as LayoutConvertPunycodeImport } from './../../routes/_layout/convert/punycode'
 import { Route as LayoutConvertQrcodeImport } from './../../routes/_layout/convert/qrcode'
 import { Route as LayoutFormatterCssImport } from './../../routes/_layout/formatter/css'
+import { Route as LayoutFormatterHtmlImport } from './../../routes/_layout/formatter/html'
 import { Route as LayoutFormatterJsonImport } from './../../routes/_layout/formatter/json'
 import { Route as LayoutFormatterTypescriptImport } from './../../routes/_layout/formatter/typescript'
 import { Route as LayoutIndexImport } from './../../routes/_layout/index'
@@ -76,6 +77,11 @@ const LayoutFormatterTypescriptRoute = LayoutFormatterTypescriptImport.update({
 
 const LayoutFormatterJsonRoute = LayoutFormatterJsonImport.update({
   path: '/formatter/json',
+  getParentRoute: () => LayoutRoute,
+} as any)
+
+const LayoutFormatterHtmlRoute = LayoutFormatterHtmlImport.update({
+  path: '/formatter/html',
   getParentRoute: () => LayoutRoute,
 } as any)
 
@@ -157,6 +163,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LayoutFormatterCssImport
       parentRoute: typeof LayoutImport
     }
+    '/_layout/formatter/html': {
+      id: '/_layout/formatter/html'
+      path: '/formatter/html'
+      fullPath: '/formatter/html'
+      preLoaderRoute: typeof LayoutFormatterHtmlImport
+      parentRoute: typeof LayoutImport
+    }
     '/_layout/formatter/json': {
       id: '/_layout/formatter/json'
       path: '/formatter/json'
@@ -233,6 +246,7 @@ export const routeTree = rootRoute.addChildren({
     LayoutConvertPunycodeRoute,
     LayoutConvertQrcodeRoute,
     LayoutFormatterCssRoute,
+    LayoutFormatterHtmlRoute,
     LayoutFormatterJsonRoute,
     LayoutFormatterTypescriptRoute,
     LayoutTextCountRoute,
@@ -263,6 +277,7 @@ export const routeTree = rootRoute.addChildren({
         "/_layout/convert/punycode",
         "/_layout/convert/qrcode",
         "/_layout/formatter/css",
+        "/_layout/formatter/html",
         "/_layout/formatter/json",
         "/_layout/formatter/typescript",
         "/_layout/text/count",
@@ -296,6 +311,10 @@ export const routeTree = rootRoute.addChildren({
     },
     "/_layout/formatter/css": {
       "filePath": "_layout/formatter/css.tsx",
+      "parent": "/_layout"
+    },
+    "/_layout/formatter/html": {
+      "filePath": "_layout/formatter/html.tsx",
       "parent": "/_layout"
     },
     "/_layout/formatter/json": {
