@@ -13,6 +13,7 @@ import { Route as LayoutConvertQrcodeImport } from './../../routes/_layout/conve
 import { Route as LayoutDevelopClipboardImport } from './../../routes/_layout/develop/clipboard'
 import { Route as LayoutDevelopCursorImport } from './../../routes/_layout/develop/cursor'
 import { Route as LayoutDevelopKeyEventImport } from './../../routes/_layout/develop/keyEvent'
+import { Route as LayoutDevelopMarkdownImport } from './../../routes/_layout/develop/markdown'
 import { Route as LayoutDevelopWhoisImport } from './../../routes/_layout/develop/whois'
 import { Route as LayoutFormatterCImport } from './../../routes/_layout/formatter/c'
 import { Route as LayoutFormatterCssImport } from './../../routes/_layout/formatter/css'
@@ -129,6 +130,11 @@ const LayoutDevelopWhoisRoute = LayoutDevelopWhoisImport.update({
   getParentRoute: () => LayoutRoute,
 } as any)
 
+const LayoutDevelopMarkdownRoute = LayoutDevelopMarkdownImport.update({
+  path: '/develop/markdown',
+  getParentRoute: () => LayoutRoute,
+} as any)
+
 const LayoutDevelopKeyEventRoute = LayoutDevelopKeyEventImport.update({
   path: '/develop/keyEvent',
   getParentRoute: () => LayoutRoute,
@@ -229,6 +235,13 @@ declare module '@tanstack/react-router' {
       path: '/develop/keyEvent'
       fullPath: '/develop/keyEvent'
       preLoaderRoute: typeof LayoutDevelopKeyEventImport
+      parentRoute: typeof LayoutImport
+    }
+    '/_layout/develop/markdown': {
+      id: '/_layout/develop/markdown'
+      path: '/develop/markdown'
+      fullPath: '/develop/markdown'
+      preLoaderRoute: typeof LayoutDevelopMarkdownImport
       parentRoute: typeof LayoutImport
     }
     '/_layout/develop/whois': {
@@ -365,6 +378,7 @@ export const routeTree = rootRoute.addChildren({
     LayoutDevelopClipboardRoute,
     LayoutDevelopCursorRoute,
     LayoutDevelopKeyEventRoute,
+    LayoutDevelopMarkdownRoute,
     LayoutDevelopWhoisRoute,
     LayoutFormatterCRoute,
     LayoutFormatterCssRoute,
@@ -405,6 +419,7 @@ export const routeTree = rootRoute.addChildren({
         "/_layout/develop/clipboard",
         "/_layout/develop/cursor",
         "/_layout/develop/keyEvent",
+        "/_layout/develop/markdown",
         "/_layout/develop/whois",
         "/_layout/formatter/c",
         "/_layout/formatter/css",
@@ -454,6 +469,10 @@ export const routeTree = rootRoute.addChildren({
     },
     "/_layout/develop/keyEvent": {
       "filePath": "_layout/develop/keyEvent.tsx",
+      "parent": "/_layout"
+    },
+    "/_layout/develop/markdown": {
+      "filePath": "_layout/develop/markdown.tsx",
       "parent": "/_layout"
     },
     "/_layout/develop/whois": {

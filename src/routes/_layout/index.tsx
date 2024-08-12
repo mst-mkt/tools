@@ -20,6 +20,7 @@ const links = {
     { label: 'Keyboard Event Checker', id: 'keyEvent' },
     { label: 'Cursor Preview', id: 'cursor' },
     { label: 'Whois Lookup', id: 'whois' },
+    { label: 'Markdown Preview', id: 'markdown' },
   ],
   formatter: [
     { label: 'TypeScript, JavaScript', id: 'typescript' },
