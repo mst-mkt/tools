@@ -15,11 +15,12 @@ const links = {
     { label: 'Punycode', id: 'punycode' },
     { label: 'JSON Schema to Zod', id: 'jsonSchemaToZod' },
   ],
-  web: [
+  develop: [
     { label: 'Clipboard Data Checker', id: 'clipboard' },
     { label: 'Keyboard Event Checker', id: 'keyEvent' },
     { label: 'Cursor Preview', id: 'cursor' },
     { label: 'Whois Lookup', id: 'whois' },
+    { label: 'Markdown Preview', id: 'markdown' },
   ],
   formatter: [
     { label: 'TypeScript, JavaScript', id: 'typescript' },

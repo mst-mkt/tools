@@ -9,7 +9,7 @@ import { CURSORS } from '../../../constants/css/cursor'
 import { useDocumentEvent } from '../../../hooks/useDocumentEvent'
 import { copy } from '../../../utils/clipboard/copy'
 
-export const Route = createFileRoute('/_layout/web/cursor')({
+export const Route = createFileRoute('/_layout/develop/cursor')({
   component: () => <Cursor />,
 })
 

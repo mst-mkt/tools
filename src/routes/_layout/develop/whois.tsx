@@ -29,7 +29,7 @@ const loader = async (domain: string) => {
   return JSON.stringify(json, null, 2)
 }
 
-export const Route = createFileRoute('/_layout/web/whois')({
+export const Route = createFileRoute('/_layout/develop/whois')({
   validateSearch: (search) => searchParamsValidator.parse(search),
   loaderDeps: ({ search: { domain } }) => ({ domain }),
   loader: async ({ deps: { domain } }) => {

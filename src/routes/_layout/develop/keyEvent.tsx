@@ -6,7 +6,7 @@ import { IconButton } from '../../../components/ui/IconButton'
 import { useDocumentEvent } from '../../../hooks/useDocumentEvent'
 import { copy } from '../../../utils/clipboard/copy'
 
-export const Route = createFileRoute('/_layout/web/keyEvent')({
+export const Route = createFileRoute('/_layout/develop/keyEvent')({
   component: () => <KeyEvent />,
 })
 

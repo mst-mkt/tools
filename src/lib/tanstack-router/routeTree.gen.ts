@@ -10,6 +10,11 @@ import { Route as LayoutConvertCjpImport } from './../../routes/_layout/convert/
 import { Route as LayoutConvertJsonSchemaToZodImport } from './../../routes/_layout/convert/jsonSchemaToZod'
 import { Route as LayoutConvertPunycodeImport } from './../../routes/_layout/convert/punycode'
 import { Route as LayoutConvertQrcodeImport } from './../../routes/_layout/convert/qrcode'
+import { Route as LayoutDevelopClipboardImport } from './../../routes/_layout/develop/clipboard'
+import { Route as LayoutDevelopCursorImport } from './../../routes/_layout/develop/cursor'
+import { Route as LayoutDevelopKeyEventImport } from './../../routes/_layout/develop/keyEvent'
+import { Route as LayoutDevelopMarkdownImport } from './../../routes/_layout/develop/markdown'
+import { Route as LayoutDevelopWhoisImport } from './../../routes/_layout/develop/whois'
 import { Route as LayoutFormatterCImport } from './../../routes/_layout/formatter/c'
 import { Route as LayoutFormatterCssImport } from './../../routes/_layout/formatter/css'
 import { Route as LayoutFormatterDartImport } from './../../routes/_layout/formatter/dart'
@@ -27,10 +32,6 @@ import { Route as LayoutIndexImport } from './../../routes/_layout/index'
 import { Route as LayoutTextCountImport } from './../../routes/_layout/text/count'
 import { Route as LayoutTextRepeatImport } from './../../routes/_layout/text/repeat'
 import { Route as LayoutTextReplaceImport } from './../../routes/_layout/text/replace'
-import { Route as LayoutWebClipboardImport } from './../../routes/_layout/web/clipboard'
-import { Route as LayoutWebCursorImport } from './../../routes/_layout/web/cursor'
-import { Route as LayoutWebKeyEventImport } from './../../routes/_layout/web/keyEvent'
-import { Route as LayoutWebWhoisImport } from './../../routes/_layout/web/whois'
 
 // Create/Update Routes
 
@@ -41,26 +42,6 @@ const LayoutRoute = LayoutImport.update({
 
 const LayoutIndexRoute = LayoutIndexImport.update({
   path: '/',
-  getParentRoute: () => LayoutRoute,
-} as any)
-
-const LayoutWebWhoisRoute = LayoutWebWhoisImport.update({
-  path: '/web/whois',
-  getParentRoute: () => LayoutRoute,
-} as any)
-
-const LayoutWebKeyEventRoute = LayoutWebKeyEventImport.update({
-  path: '/web/keyEvent',
-  getParentRoute: () => LayoutRoute,
-} as any)
-
-const LayoutWebCursorRoute = LayoutWebCursorImport.update({
-  path: '/web/cursor',
-  getParentRoute: () => LayoutRoute,
-} as any)
-
-const LayoutWebClipboardRoute = LayoutWebClipboardImport.update({
-  path: '/web/clipboard',
   getParentRoute: () => LayoutRoute,
 } as any)
 
@@ -144,6 +125,31 @@ const LayoutFormatterCRoute = LayoutFormatterCImport.update({
   getParentRoute: () => LayoutRoute,
 } as any)
 
+const LayoutDevelopWhoisRoute = LayoutDevelopWhoisImport.update({
+  path: '/develop/whois',
+  getParentRoute: () => LayoutRoute,
+} as any)
+
+const LayoutDevelopMarkdownRoute = LayoutDevelopMarkdownImport.update({
+  path: '/develop/markdown',
+  getParentRoute: () => LayoutRoute,
+} as any)
+
+const LayoutDevelopKeyEventRoute = LayoutDevelopKeyEventImport.update({
+  path: '/develop/keyEvent',
+  getParentRoute: () => LayoutRoute,
+} as any)
+
+const LayoutDevelopCursorRoute = LayoutDevelopCursorImport.update({
+  path: '/develop/cursor',
+  getParentRoute: () => LayoutRoute,
+} as any)
+
+const LayoutDevelopClipboardRoute = LayoutDevelopClipboardImport.update({
+  path: '/develop/clipboard',
+  getParentRoute: () => LayoutRoute,
+} as any)
+
 const LayoutConvertQrcodeRoute = LayoutConvertQrcodeImport.update({
   path: '/convert/qrcode',
   getParentRoute: () => LayoutRoute,
@@ -208,6 +214,41 @@ declare module '@tanstack/react-router' {
       path: '/convert/qrcode'
       fullPath: '/convert/qrcode'
       preLoaderRoute: typeof LayoutConvertQrcodeImport
+      parentRoute: typeof LayoutImport
+    }
+    '/_layout/develop/clipboard': {
+      id: '/_layout/develop/clipboard'
+      path: '/develop/clipboard'
+      fullPath: '/develop/clipboard'
+      preLoaderRoute: typeof LayoutDevelopClipboardImport
+      parentRoute: typeof LayoutImport
+    }
+    '/_layout/develop/cursor': {
+      id: '/_layout/develop/cursor'
+      path: '/develop/cursor'
+      fullPath: '/develop/cursor'
+      preLoaderRoute: typeof LayoutDevelopCursorImport
+      parentRoute: typeof LayoutImport
+    }
+    '/_layout/develop/keyEvent': {
+      id: '/_layout/develop/keyEvent'
+      path: '/develop/keyEvent'
+      fullPath: '/develop/keyEvent'
+      preLoaderRoute: typeof LayoutDevelopKeyEventImport
+      parentRoute: typeof LayoutImport
+    }
+    '/_layout/develop/markdown': {
+      id: '/_layout/develop/markdown'
+      path: '/develop/markdown'
+      fullPath: '/develop/markdown'
+      preLoaderRoute: typeof LayoutDevelopMarkdownImport
+      parentRoute: typeof LayoutImport
+    }
+    '/_layout/develop/whois': {
+      id: '/_layout/develop/whois'
+      path: '/develop/whois'
+      fullPath: '/develop/whois'
+      preLoaderRoute: typeof LayoutDevelopWhoisImport
       parentRoute: typeof LayoutImport
     }
     '/_layout/formatter/c': {
@@ -322,34 +363,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LayoutTextReplaceImport
       parentRoute: typeof LayoutImport
     }
-    '/_layout/web/clipboard': {
-      id: '/_layout/web/clipboard'
-      path: '/web/clipboard'
-      fullPath: '/web/clipboard'
-      preLoaderRoute: typeof LayoutWebClipboardImport
-      parentRoute: typeof LayoutImport
-    }
-    '/_layout/web/cursor': {
-      id: '/_layout/web/cursor'
-      path: '/web/cursor'
-      fullPath: '/web/cursor'
-      preLoaderRoute: typeof LayoutWebCursorImport
-      parentRoute: typeof LayoutImport
-    }
-    '/_layout/web/keyEvent': {
-      id: '/_layout/web/keyEvent'
-      path: '/web/keyEvent'
-      fullPath: '/web/keyEvent'
-      preLoaderRoute: typeof LayoutWebKeyEventImport
-      parentRoute: typeof LayoutImport
-    }
-    '/_layout/web/whois': {
-      id: '/_layout/web/whois'
-      path: '/web/whois'
-      fullPath: '/web/whois'
-      preLoaderRoute: typeof LayoutWebWhoisImport
-      parentRoute: typeof LayoutImport
-    }
   }
 }
 
@@ -362,6 +375,11 @@ export const routeTree = rootRoute.addChildren({
     LayoutConvertJsonSchemaToZodRoute,
     LayoutConvertPunycodeRoute,
     LayoutConvertQrcodeRoute,
+    LayoutDevelopClipboardRoute,
+    LayoutDevelopCursorRoute,
+    LayoutDevelopKeyEventRoute,
+    LayoutDevelopMarkdownRoute,
+    LayoutDevelopWhoisRoute,
     LayoutFormatterCRoute,
     LayoutFormatterCssRoute,
     LayoutFormatterDartRoute,
@@ -378,10 +396,6 @@ export const routeTree = rootRoute.addChildren({
     LayoutTextCountRoute,
     LayoutTextRepeatRoute,
     LayoutTextReplaceRoute,
-    LayoutWebClipboardRoute,
-    LayoutWebCursorRoute,
-    LayoutWebKeyEventRoute,
-    LayoutWebWhoisRoute,
   }),
 })
 
@@ -402,6 +416,11 @@ export const routeTree = rootRoute.addChildren({
         "/_layout/convert/jsonSchemaToZod",
         "/_layout/convert/punycode",
         "/_layout/convert/qrcode",
+        "/_layout/develop/clipboard",
+        "/_layout/develop/cursor",
+        "/_layout/develop/keyEvent",
+        "/_layout/develop/markdown",
+        "/_layout/develop/whois",
         "/_layout/formatter/c",
         "/_layout/formatter/css",
         "/_layout/formatter/dart",
@@ -417,11 +436,7 @@ export const routeTree = rootRoute.addChildren({
         "/_layout/formatter/zig",
         "/_layout/text/count",
         "/_layout/text/repeat",
-        "/_layout/text/replace",
-        "/_layout/web/clipboard",
-        "/_layout/web/cursor",
-        "/_layout/web/keyEvent",
-        "/_layout/web/whois"
+        "/_layout/text/replace"
       ]
     },
     "/_layout/": {
@@ -442,6 +457,26 @@ export const routeTree = rootRoute.addChildren({
     },
     "/_layout/convert/qrcode": {
       "filePath": "_layout/convert/qrcode.tsx",
+      "parent": "/_layout"
+    },
+    "/_layout/develop/clipboard": {
+      "filePath": "_layout/develop/clipboard.tsx",
+      "parent": "/_layout"
+    },
+    "/_layout/develop/cursor": {
+      "filePath": "_layout/develop/cursor.tsx",
+      "parent": "/_layout"
+    },
+    "/_layout/develop/keyEvent": {
+      "filePath": "_layout/develop/keyEvent.tsx",
+      "parent": "/_layout"
+    },
+    "/_layout/develop/markdown": {
+      "filePath": "_layout/develop/markdown.tsx",
+      "parent": "/_layout"
+    },
+    "/_layout/develop/whois": {
+      "filePath": "_layout/develop/whois.tsx",
       "parent": "/_layout"
     },
     "/_layout/formatter/c": {
@@ -506,22 +541,6 @@ export const routeTree = rootRoute.addChildren({
     },
     "/_layout/text/replace": {
       "filePath": "_layout/text/replace.tsx",
-      "parent": "/_layout"
-    },
-    "/_layout/web/clipboard": {
-      "filePath": "_layout/web/clipboard.tsx",
-      "parent": "/_layout"
-    },
-    "/_layout/web/cursor": {
-      "filePath": "_layout/web/cursor.tsx",
-      "parent": "/_layout"
-    },
-    "/_layout/web/keyEvent": {
-      "filePath": "_layout/web/keyEvent.tsx",
-      "parent": "/_layout"
-    },
-    "/_layout/web/whois": {
-      "filePath": "_layout/web/whois.tsx",
       "parent": "/_layout"
     }
   }

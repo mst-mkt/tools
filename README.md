@@ -13,9 +13,11 @@ A collection of various tools for myself.
 | [QR Code Generator](https://tools.keito.dev/convert/qrcode)           | Generate QR code from text.                   |
 | [Punycode Converter](https://tools.keito.dev/convert/punycode)        | Convert between Text and Punycode.            |
 | [JSON Schema to Zod](https://tools.keito.dev/convert/jsonSchemaToZod) | Convert JSON Schema to Zod schema.            |
-| [Clipboard Checker](https://tools.keito.dev/web/clipboard)            | Check data in clipboard.                      |
-| [Keyboard Event Checker](https://tools.keito.dev/web/keyboard)        | Check some properties of keyboard events.     |
-| [Whois Lookup](https://tools.keito.dev/web/whois)                     | Lookup whois information of a domain.         |
+| [Clipboard Checker](https://tools.keito.dev/develop/clipboard)        | Check data in clipboard.                      |
+| [Cursor Previewer](https://tools.keito.dev/develop/cursor)            | Preview cursor style.                         |
+| [Keyboard Event Checker](https://tools.keito.dev/develop/keyboard)    | Check some properties of keyboard events.     |
+| [Whois Lookup](https://tools.keito.dev/develop/whois)                 | Lookup whois information of a domain.         |
+| [Markdown Preview](https://tools.keito.dev/develop/markdown)          | Preview Markdown code.                        |
 | [TS / JS Formatter](https://tools.keito.dev/formatter/typescript)     | Format TypeScript / JavaScript code.          |
 | [JSON Formatter](https://tools.keito.dev/formatter/json)              | Format JSON code.                             |
 | [YAML Formatter](https://tools.keito.dev/formatter/yaml)              | Format YAML code.                             |
