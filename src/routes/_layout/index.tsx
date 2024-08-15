@@ -14,6 +14,7 @@ const links = {
     { label: 'QRCode', id: 'qrcode' },
     { label: 'Punycode', id: 'punycode' },
     { label: 'Base64', id: 'base64' },
+    { label: 'URL', id: 'url' },
     { label: 'JSON Schema to Zod', id: 'jsonSchemaToZod' },
   ],
   develop: [

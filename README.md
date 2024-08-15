@@ -13,6 +13,7 @@ A collection of various tools for myself.
 | [QR Code Generator](https://tools.keito.dev/convert/qrcode)           | Generate QR code from text.                   |
 | [Punycode Converter](https://tools.keito.dev/convert/punycode)        | Convert between Text and Punycode.            |
 | [Base64 Converter](https://tools.keito.dev/convert/base64)            | Encode / Decode Base64 and Text or File.      |
+| [URL Encoder / Decoder](https://tools.keito.dev/convert/url)          | Encode / Decode URL.                          |
 | [JSON Schema to Zod](https://tools.keito.dev/convert/jsonSchemaToZod) | Convert JSON Schema to Zod schema.            |
 | [Clipboard Checker](https://tools.keito.dev/develop/clipboard)        | Check data in clipboard.                      |
 | [Cursor Previewer](https://tools.keito.dev/develop/cursor)            | Preview cursor style.                         |
