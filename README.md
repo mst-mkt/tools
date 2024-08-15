@@ -12,7 +12,7 @@ A collection of various tools for myself.
 | [CJP Converter](https://tools.keito.dev/convert/cjp)                  | Convert from Japanese to `怪レい日本语` (CJP) |
 | [QR Code Generator](https://tools.keito.dev/convert/qrcode)           | Generate QR code from text.                   |
 | [Punycode Converter](https://tools.keito.dev/convert/punycode)        | Convert between Text and Punycode.            |
-| [Base64 Converter](https://tools.keito.dev/convert/base64)            | Convert between Text and Base64.              |
+| [Base64 Converter](https://tools.keito.dev/convert/base64)            | Encode / Decode Base64 and Text or File.      |
 | [JSON Schema to Zod](https://tools.keito.dev/convert/jsonSchemaToZod) | Convert JSON Schema to Zod schema.            |
 | [Clipboard Checker](https://tools.keito.dev/develop/clipboard)        | Check data in clipboard.                      |
 | [Cursor Previewer](https://tools.keito.dev/develop/cursor)            | Preview cursor style.                         |
