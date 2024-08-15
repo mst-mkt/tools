@@ -30,6 +30,7 @@ import { Route as LayoutFormatterTypescriptImport } from './../../routes/_layout
 import { Route as LayoutFormatterYamlImport } from './../../routes/_layout/formatter/yaml'
 import { Route as LayoutFormatterZigImport } from './../../routes/_layout/formatter/zig'
 import { Route as LayoutIndexImport } from './../../routes/_layout/index'
+import { Route as LayoutIniadLockerImport } from './../../routes/_layout/iniad/locker'
 import { Route as LayoutTextCountImport } from './../../routes/_layout/text/count'
 import { Route as LayoutTextRepeatImport } from './../../routes/_layout/text/repeat'
 import { Route as LayoutTextReplaceImport } from './../../routes/_layout/text/replace'
@@ -58,6 +59,11 @@ const LayoutTextRepeatRoute = LayoutTextRepeatImport.update({
 
 const LayoutTextCountRoute = LayoutTextCountImport.update({
   path: '/text/count',
+  getParentRoute: () => LayoutRoute,
+} as any)
+
+const LayoutIniadLockerRoute = LayoutIniadLockerImport.update({
+  path: '/iniad/locker',
   getParentRoute: () => LayoutRoute,
 } as any)
 
@@ -355,6 +361,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LayoutFormatterZigImport
       parentRoute: typeof LayoutImport
     }
+    '/_layout/iniad/locker': {
+      id: '/_layout/iniad/locker'
+      path: '/iniad/locker'
+      fullPath: '/iniad/locker'
+      preLoaderRoute: typeof LayoutIniadLockerImport
+      parentRoute: typeof LayoutImport
+    }
     '/_layout/text/count': {
       id: '/_layout/text/count'
       path: '/text/count'
@@ -407,6 +420,7 @@ export const routeTree = rootRoute.addChildren({
     LayoutFormatterTypescriptRoute,
     LayoutFormatterYamlRoute,
     LayoutFormatterZigRoute,
+    LayoutIniadLockerRoute,
     LayoutTextCountRoute,
     LayoutTextRepeatRoute,
     LayoutTextReplaceRoute,
@@ -449,6 +463,7 @@ export const routeTree = rootRoute.addChildren({
         "/_layout/formatter/typescript",
         "/_layout/formatter/yaml",
         "/_layout/formatter/zig",
+        "/_layout/iniad/locker",
         "/_layout/text/count",
         "/_layout/text/repeat",
         "/_layout/text/replace"
@@ -548,6 +563,10 @@ export const routeTree = rootRoute.addChildren({
     },
     "/_layout/formatter/zig": {
       "filePath": "_layout/formatter/zig.tsx",
+      "parent": "/_layout"
+    },
+    "/_layout/iniad/locker": {
+      "filePath": "_layout/iniad/locker.tsx",
       "parent": "/_layout"
     },
     "/_layout/text/count": {
