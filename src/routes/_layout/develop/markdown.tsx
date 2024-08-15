@@ -31,7 +31,7 @@ const MarkdownPreview = () => {
       <div className="flex flex-col gap-y-8">
         <h1 className="font-bold text-lg">Markdown Preview</h1>
         <Textarea value={text} onChange={setText} placeholder="Enter markdown here" />
-        <div className="prose rounded-xl border border-background-100 p-8">
+        <div className="prose prose-invert rounded-xl border border-background-100 p-8">
           <Markdown remarkPlugins={[remarkGfm, remarkMath]} rehypePlugins={[rehypeKatex]}>
             {text.trim() === '' ? 'No Input' : text}
           </Markdown>
