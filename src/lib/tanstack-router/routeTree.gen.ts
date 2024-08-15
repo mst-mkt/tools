@@ -33,6 +33,7 @@ import { Route as LayoutConvertQrcodeImport } from './../../routes/_layout/conve
 import { Route as LayoutConvertPunycodeImport } from './../../routes/_layout/convert/punycode'
 import { Route as LayoutConvertJsonSchemaToZodImport } from './../../routes/_layout/convert/jsonSchemaToZod'
 import { Route as LayoutConvertCjpImport } from './../../routes/_layout/convert/cjp'
+import { Route as LayoutConvertBase64Import } from './../../routes/_layout/convert/base64'
 
 // Create/Update Routes
 
@@ -177,6 +178,11 @@ const LayoutConvertCjpRoute = LayoutConvertCjpImport.update({
   getParentRoute: () => LayoutRoute,
 } as any)
 
+const LayoutConvertBase64Route = LayoutConvertBase64Import.update({
+  path: '/convert/base64',
+  getParentRoute: () => LayoutRoute,
+} as any)
+
 // Populate the FileRoutesByPath interface
 
 declare module '@tanstack/react-router' {
@@ -193,6 +199,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof LayoutIndexImport
+      parentRoute: typeof LayoutImport
+    }
+    '/_layout/convert/base64': {
+      id: '/_layout/convert/base64'
+      path: '/convert/base64'
+      fullPath: '/convert/base64'
+      preLoaderRoute: typeof LayoutConvertBase64Import
       parentRoute: typeof LayoutImport
     }
     '/_layout/convert/cjp': {
@@ -385,6 +398,7 @@ declare module '@tanstack/react-router' {
 export const routeTree = rootRoute.addChildren({
   LayoutRoute: LayoutRoute.addChildren({
     LayoutIndexRoute,
+    LayoutConvertBase64Route,
     LayoutConvertCjpRoute,
     LayoutConvertJsonSchemaToZodRoute,
     LayoutConvertPunycodeRoute,
@@ -427,6 +441,7 @@ export const routeTree = rootRoute.addChildren({
       "filePath": "_layout.tsx",
       "children": [
         "/_layout/",
+        "/_layout/convert/base64",
         "/_layout/convert/cjp",
         "/_layout/convert/jsonSchemaToZod",
         "/_layout/convert/punycode",
@@ -457,6 +472,10 @@ export const routeTree = rootRoute.addChildren({
     },
     "/_layout/": {
       "filePath": "_layout/index.tsx",
+      "parent": "/_layout"
+    },
+    "/_layout/convert/base64": {
+      "filePath": "_layout/convert/base64.tsx",
       "parent": "/_layout"
     },
     "/_layout/convert/cjp": {
