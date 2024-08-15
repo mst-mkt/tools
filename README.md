@@ -31,6 +31,7 @@ A collection of various tools for myself.
 | [Zig Formatter](https://tools.keito.dev/formatter/zig)                | Format Zig code.                              |
 | [Dart Formatter](https://tools.keito.dev/formatter/dart)              | Format Dart code.                             |
 | [SQL Formatter](https://tools.keito.dev/formatter/sql)                | Format SQL code.                              |
+| [INIAD Locker Opener](https://tools.keito.dev/iniad/locker)           | Open Intelligent Locker in INIAD.             |
 
 ## Development
 

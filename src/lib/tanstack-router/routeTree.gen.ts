@@ -6,32 +6,33 @@
 
 import { Route as rootRoute } from './../../routes/__root'
 import { Route as LayoutImport } from './../../routes/_layout'
-import { Route as LayoutConvertCjpImport } from './../../routes/_layout/convert/cjp'
-import { Route as LayoutConvertJsonSchemaToZodImport } from './../../routes/_layout/convert/jsonSchemaToZod'
-import { Route as LayoutConvertPunycodeImport } from './../../routes/_layout/convert/punycode'
-import { Route as LayoutConvertQrcodeImport } from './../../routes/_layout/convert/qrcode'
-import { Route as LayoutDevelopClipboardImport } from './../../routes/_layout/develop/clipboard'
-import { Route as LayoutDevelopCursorImport } from './../../routes/_layout/develop/cursor'
-import { Route as LayoutDevelopKeyEventImport } from './../../routes/_layout/develop/keyEvent'
-import { Route as LayoutDevelopMarkdownImport } from './../../routes/_layout/develop/markdown'
-import { Route as LayoutDevelopWhoisImport } from './../../routes/_layout/develop/whois'
-import { Route as LayoutFormatterCImport } from './../../routes/_layout/formatter/c'
-import { Route as LayoutFormatterCssImport } from './../../routes/_layout/formatter/css'
-import { Route as LayoutFormatterDartImport } from './../../routes/_layout/formatter/dart'
-import { Route as LayoutFormatterGoImport } from './../../routes/_layout/formatter/go'
-import { Route as LayoutFormatterHtmlImport } from './../../routes/_layout/formatter/html'
-import { Route as LayoutFormatterJavaImport } from './../../routes/_layout/formatter/java'
-import { Route as LayoutFormatterJsonImport } from './../../routes/_layout/formatter/json'
-import { Route as LayoutFormatterLuaImport } from './../../routes/_layout/formatter/lua'
-import { Route as LayoutFormatterPythonImport } from './../../routes/_layout/formatter/python'
-import { Route as LayoutFormatterSqlImport } from './../../routes/_layout/formatter/sql'
-import { Route as LayoutFormatterTypescriptImport } from './../../routes/_layout/formatter/typescript'
-import { Route as LayoutFormatterYamlImport } from './../../routes/_layout/formatter/yaml'
-import { Route as LayoutFormatterZigImport } from './../../routes/_layout/formatter/zig'
 import { Route as LayoutIndexImport } from './../../routes/_layout/index'
-import { Route as LayoutTextCountImport } from './../../routes/_layout/text/count'
-import { Route as LayoutTextRepeatImport } from './../../routes/_layout/text/repeat'
 import { Route as LayoutTextReplaceImport } from './../../routes/_layout/text/replace'
+import { Route as LayoutTextRepeatImport } from './../../routes/_layout/text/repeat'
+import { Route as LayoutTextCountImport } from './../../routes/_layout/text/count'
+import { Route as LayoutIniadLockerImport } from './../../routes/_layout/iniad/locker'
+import { Route as LayoutFormatterZigImport } from './../../routes/_layout/formatter/zig'
+import { Route as LayoutFormatterYamlImport } from './../../routes/_layout/formatter/yaml'
+import { Route as LayoutFormatterTypescriptImport } from './../../routes/_layout/formatter/typescript'
+import { Route as LayoutFormatterSqlImport } from './../../routes/_layout/formatter/sql'
+import { Route as LayoutFormatterPythonImport } from './../../routes/_layout/formatter/python'
+import { Route as LayoutFormatterLuaImport } from './../../routes/_layout/formatter/lua'
+import { Route as LayoutFormatterJsonImport } from './../../routes/_layout/formatter/json'
+import { Route as LayoutFormatterJavaImport } from './../../routes/_layout/formatter/java'
+import { Route as LayoutFormatterHtmlImport } from './../../routes/_layout/formatter/html'
+import { Route as LayoutFormatterGoImport } from './../../routes/_layout/formatter/go'
+import { Route as LayoutFormatterDartImport } from './../../routes/_layout/formatter/dart'
+import { Route as LayoutFormatterCssImport } from './../../routes/_layout/formatter/css'
+import { Route as LayoutFormatterCImport } from './../../routes/_layout/formatter/c'
+import { Route as LayoutDevelopWhoisImport } from './../../routes/_layout/develop/whois'
+import { Route as LayoutDevelopMarkdownImport } from './../../routes/_layout/develop/markdown'
+import { Route as LayoutDevelopKeyEventImport } from './../../routes/_layout/develop/keyEvent'
+import { Route as LayoutDevelopCursorImport } from './../../routes/_layout/develop/cursor'
+import { Route as LayoutDevelopClipboardImport } from './../../routes/_layout/develop/clipboard'
+import { Route as LayoutConvertQrcodeImport } from './../../routes/_layout/convert/qrcode'
+import { Route as LayoutConvertPunycodeImport } from './../../routes/_layout/convert/punycode'
+import { Route as LayoutConvertJsonSchemaToZodImport } from './../../routes/_layout/convert/jsonSchemaToZod'
+import { Route as LayoutConvertCjpImport } from './../../routes/_layout/convert/cjp'
 
 // Create/Update Routes
 
@@ -57,6 +58,11 @@ const LayoutTextRepeatRoute = LayoutTextRepeatImport.update({
 
 const LayoutTextCountRoute = LayoutTextCountImport.update({
   path: '/text/count',
+  getParentRoute: () => LayoutRoute,
+} as any)
+
+const LayoutIniadLockerRoute = LayoutIniadLockerImport.update({
+  path: '/iniad/locker',
   getParentRoute: () => LayoutRoute,
 } as any)
 
@@ -160,10 +166,11 @@ const LayoutConvertPunycodeRoute = LayoutConvertPunycodeImport.update({
   getParentRoute: () => LayoutRoute,
 } as any)
 
-const LayoutConvertJsonSchemaToZodRoute = LayoutConvertJsonSchemaToZodImport.update({
-  path: '/convert/jsonSchemaToZod',
-  getParentRoute: () => LayoutRoute,
-} as any)
+const LayoutConvertJsonSchemaToZodRoute =
+  LayoutConvertJsonSchemaToZodImport.update({
+    path: '/convert/jsonSchemaToZod',
+    getParentRoute: () => LayoutRoute,
+  } as any)
 
 const LayoutConvertCjpRoute = LayoutConvertCjpImport.update({
   path: '/convert/cjp',
@@ -342,6 +349,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LayoutFormatterZigImport
       parentRoute: typeof LayoutImport
     }
+    '/_layout/iniad/locker': {
+      id: '/_layout/iniad/locker'
+      path: '/iniad/locker'
+      fullPath: '/iniad/locker'
+      preLoaderRoute: typeof LayoutIniadLockerImport
+      parentRoute: typeof LayoutImport
+    }
     '/_layout/text/count': {
       id: '/_layout/text/count'
       path: '/text/count'
@@ -393,6 +407,7 @@ export const routeTree = rootRoute.addChildren({
     LayoutFormatterTypescriptRoute,
     LayoutFormatterYamlRoute,
     LayoutFormatterZigRoute,
+    LayoutIniadLockerRoute,
     LayoutTextCountRoute,
     LayoutTextRepeatRoute,
     LayoutTextReplaceRoute,
@@ -434,6 +449,7 @@ export const routeTree = rootRoute.addChildren({
         "/_layout/formatter/typescript",
         "/_layout/formatter/yaml",
         "/_layout/formatter/zig",
+        "/_layout/iniad/locker",
         "/_layout/text/count",
         "/_layout/text/repeat",
         "/_layout/text/replace"
@@ -529,6 +545,10 @@ export const routeTree = rootRoute.addChildren({
     },
     "/_layout/formatter/zig": {
       "filePath": "_layout/formatter/zig.tsx",
+      "parent": "/_layout"
+    },
+    "/_layout/iniad/locker": {
+      "filePath": "_layout/iniad/locker.tsx",
       "parent": "/_layout"
     },
     "/_layout/text/count": {
