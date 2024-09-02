@@ -56,7 +56,7 @@
     "autoprefixer": "^10.4.20",
     "husky": "^9.1.4",
     "lint-staged": "^15.2.9",
-    "postcss": "^8.4.40",
+    "postcss": "^8.4.44",
     "postcss-import": "^16.1.0",
     "react-helmet-async": "^2.0.5",
     "shiki": "^1.12.1",
