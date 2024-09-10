@@ -17,7 +17,10 @@ const links = {
     { label: 'URL', id: 'url' },
     { label: 'JSON Schema to Zod', id: 'jsonSchemaToZod' },
   ],
-  math: [{ label: '基数変換', id: 'radix' }],
+  math: [
+    { label: '基数変換', id: 'radix' },
+    { label: '計算機', id: 'calculator' },
+  ],
   develop: [
     { label: 'Clipboard Data Checker', id: 'clipboard' },
     { label: 'Keyboard Event Checker', id: 'keyEvent' },

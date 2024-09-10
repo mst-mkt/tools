@@ -32,6 +32,7 @@ import { Route as LayoutFormatterYamlImport } from './../../routes/_layout/forma
 import { Route as LayoutFormatterZigImport } from './../../routes/_layout/formatter/zig'
 import { Route as LayoutIndexImport } from './../../routes/_layout/index'
 import { Route as LayoutIniadLockerImport } from './../../routes/_layout/iniad/locker'
+import { Route as LayoutMathCalculatorImport } from './../../routes/_layout/math/calculator'
 import { Route as LayoutMathRadixImport } from './../../routes/_layout/math/radix'
 import { Route as LayoutTextCountImport } from './../../routes/_layout/text/count'
 import { Route as LayoutTextRepeatImport } from './../../routes/_layout/text/repeat'
@@ -66,6 +67,11 @@ const LayoutTextCountRoute = LayoutTextCountImport.update({
 
 const LayoutMathRadixRoute = LayoutMathRadixImport.update({
   path: '/math/radix',
+  getParentRoute: () => LayoutRoute,
+} as any)
+
+const LayoutMathCalculatorRoute = LayoutMathCalculatorImport.update({
+  path: '/math/calculator',
   getParentRoute: () => LayoutRoute,
 } as any)
 
@@ -387,6 +393,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LayoutIniadLockerImport
       parentRoute: typeof LayoutImport
     }
+    '/_layout/math/calculator': {
+      id: '/_layout/math/calculator'
+      path: '/math/calculator'
+      fullPath: '/math/calculator'
+      preLoaderRoute: typeof LayoutMathCalculatorImport
+      parentRoute: typeof LayoutImport
+    }
     '/_layout/math/radix': {
       id: '/_layout/math/radix'
       path: '/math/radix'
@@ -448,6 +461,7 @@ export const routeTree = rootRoute.addChildren({
     LayoutFormatterYamlRoute,
     LayoutFormatterZigRoute,
     LayoutIniadLockerRoute,
+    LayoutMathCalculatorRoute,
     LayoutMathRadixRoute,
     LayoutTextCountRoute,
     LayoutTextRepeatRoute,
@@ -493,6 +507,7 @@ export const routeTree = rootRoute.addChildren({
         "/_layout/formatter/yaml",
         "/_layout/formatter/zig",
         "/_layout/iniad/locker",
+        "/_layout/math/calculator",
         "/_layout/math/radix",
         "/_layout/text/count",
         "/_layout/text/repeat",
@@ -601,6 +616,10 @@ export const routeTree = rootRoute.addChildren({
     },
     "/_layout/iniad/locker": {
       "filePath": "_layout/iniad/locker.tsx",
+      "parent": "/_layout"
+    },
+    "/_layout/math/calculator": {
+      "filePath": "_layout/math/calculator.tsx",
       "parent": "/_layout"
     },
     "/_layout/math/radix": {
