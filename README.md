@@ -15,6 +15,7 @@ A collection of various tools for myself.
 | [Base64 Converter](https://tools.keito.dev/convert/base64)            | Encode / Decode Base64 and Text or File.      |
 | [URL Encoder / Decoder](https://tools.keito.dev/convert/url)          | Encode / Decode URL.                          |
 | [JSON Schema to Zod](https://tools.keito.dev/convert/jsonSchemaToZod) | Convert JSON Schema to Zod schema.            |
+| [Radix Converter](https://tools.keito.dev/math/radix)                 | Convert between different number systems.     |
 | [Clipboard Checker](https://tools.keito.dev/develop/clipboard)        | Check data in clipboard.                      |
 | [Cursor Previewer](https://tools.keito.dev/develop/cursor)            | Preview cursor style.                         |
 | [Keyboard Event Checker](https://tools.keito.dev/develop/keyboard)    | Check some properties of keyboard events.     |
