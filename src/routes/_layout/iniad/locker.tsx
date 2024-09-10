@@ -1,14 +1,8 @@
 import { IconDeviceFloppy, IconLoader2, IconLockOpen, IconShare } from '@tabler/icons-react'
 import { createFileRoute } from '@tanstack/react-router'
 import clsx from 'clsx'
-import { useAtom } from 'jotai'
-import {
-  atomWithStorage,
-  createJSONStorage,
-  unstable_withStorageValidator as withStorageValidator,
-} from 'jotai/utils'
+import {} from 'jotai/utils'
 import { useCallback, useEffect, useState } from 'react'
-import { z } from 'zod'
 import { Head } from '../../../components/shared/Head'
 import { IconButton } from '../../../components/ui/IconButton'
 import { PasswordInput } from '../../../components/ui/PasswordInput'
@@ -17,23 +11,15 @@ import { Textarea } from '../../../components/ui/Textarea'
 import { EDU_IOT_API_ENDPOINT } from '../../../constants/api/iniad'
 import { useCopyLink } from '../../../hooks/useCopyLocation'
 import { useInputState } from '../../../hooks/useInputState'
+import { useLocalStorage } from '../../../hooks/useLocalStorage'
 import { basicAuthFetch } from '../../../utils/BasicAuthFetch'
-
-const lockerAuthSchema = z.object({ id: z.string(), password: z.string() })
-type LockerAuth = z.infer<typeof lockerAuthSchema>
-const isLockerAuth = (v: unknown): v is LockerAuth => lockerAuthSchema.safeParse(v).success
-const lockerAuthAtom = atomWithStorage<LockerAuth>(
-  'iniad-locker-auth',
-  { id: '', password: '' },
-  withStorageValidator(isLockerAuth)(createJSONStorage()),
-)
 
 export const Route = createFileRoute('/_layout/iniad/locker')({
   component: () => <LockerOpener />,
 })
 
 const LockerOpener = () => {
-  const [auth, setAuth] = useAtom(lockerAuthAtom)
+  const [auth, setAuth] = useLocalStorage('iniad-locker-auth', { id: '', password: '' })
   const [id, onSetId, setId] = useInputState(auth.id)
   const [password, onSetPassword, setPassword] = useInputState(auth.password)
   const [result, setResult] = useState<string | null>(null)
