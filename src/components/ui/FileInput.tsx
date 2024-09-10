@@ -1,10 +1,10 @@
 import { type Icon, IconFiles } from '@tabler/icons-react'
-import type { SetStateAction } from 'jotai'
 import {
   type ChangeEvent,
   type Dispatch,
   type FC,
   type InputHTMLAttributes,
+  type SetStateAction,
   useCallback,
 } from 'react'
 import { twMerge } from 'tailwind-merge'
