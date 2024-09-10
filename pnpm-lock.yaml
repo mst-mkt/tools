@@ -105,8 +105,8 @@ importers:
         specifier: ^0.5.7
         version: 0.5.7(tailwindcss@3.4.7)
       '@tailwindcss/typography':
-        specifier: ^0.5.14
-        version: 0.5.14(tailwindcss@3.4.7)
+        specifier: ^0.5.15
+        version: 0.5.15(tailwindcss@3.4.7)
       '@tanstack/router-vite-plugin':
         specifier: ^1.57.6
         version: 1.57.6(vite@5.4.2(@types/node@22.1.0)(terser@5.31.5))(webpack-sources@3.2.3)
@@ -1366,10 +1366,10 @@ packages:
     peerDependencies:
       tailwindcss: '>=3.0.0 || >= 3.0.0-alpha.1'
 
-  '@tailwindcss/typography@0.5.14':
-    resolution: {integrity: sha512-ZvOCjUbsJBjL9CxQBn+VEnFpouzuKhxh2dH8xMIWHILL+HfOYtlAkWcyoon8LlzE53d2Yo6YO6pahKKNW3q1YQ==}
+  '@tailwindcss/typography@0.5.15':
+    resolution: {integrity: sha512-AqhlCXl+8grUz8uqExv5OTtgpjuVIwFTSXTrh8y9/pw6q2ek7fJ+Y8ZEVw7EB2DCcuCOtEjf9w3+J3rzts01uA==}
     peerDependencies:
-      tailwindcss: '>=3.0.0 || insiders'
+      tailwindcss: '>=3.0.0 || insiders || >=4.0.0-alpha.20'
 
   '@tanstack/history@1.45.3':
     resolution: {integrity: sha512-n4XXInV9irIq0obRvINIkESkGk280Q+xkIIbswmM0z9nAu2wsIRZNvlmPrtYh6bgNWtItOWWoihFUjLTW8g6Jg==}
@@ -4545,7 +4545,7 @@ snapshots:
       mini-svg-data-uri: 1.4.4
       tailwindcss: 3.4.7
 
-  '@tailwindcss/typography@0.5.14(tailwindcss@3.4.7)':
+  '@tailwindcss/typography@0.5.15(tailwindcss@3.4.7)':
     dependencies:
       lodash.castarray: 4.4.0
       lodash.isplainobject: 4.0.6
