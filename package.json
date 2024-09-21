@@ -15,7 +15,7 @@
   "dependencies": {
     "@tabler/icons-react": "^3.17.0",
     "@tanstack/react-router": "^1.46.4",
-    "@tanstack/router-devtools": "^1.45.11",
+    "@tanstack/router-devtools": "^1.46.9",
     "@wasm-fmt/clang-format": "^18.1.8",
     "@wasm-fmt/dart_fmt": "^0.1.2",
     "@wasm-fmt/gofmt": "^0.4.9",
