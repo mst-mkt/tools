@@ -10,7 +10,6 @@ export const basicAuthFetch = async (
     ...init,
     headers: {
       ...init?.headers,
-      // biome-ignore lint/style/useNamingConvention: Authorization is a standard HTTP header
       Authorization: `Basic ${btoa(`${username}:${password}`)}`,
     },
   })
