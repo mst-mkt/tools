@@ -6,37 +6,37 @@
 
 import { Route as rootRoute } from './../../routes/__root'
 import { Route as LayoutImport } from './../../routes/_layout'
-import { Route as LayoutConvertBase64Import } from './../../routes/_layout/convert/base64'
-import { Route as LayoutConvertCjpImport } from './../../routes/_layout/convert/cjp'
-import { Route as LayoutConvertJsonSchemaToZodImport } from './../../routes/_layout/convert/jsonSchemaToZod'
-import { Route as LayoutConvertPunycodeImport } from './../../routes/_layout/convert/punycode'
-import { Route as LayoutConvertQrcodeImport } from './../../routes/_layout/convert/qrcode'
-import { Route as LayoutConvertUrlImport } from './../../routes/_layout/convert/url'
-import { Route as LayoutDevelopClipboardImport } from './../../routes/_layout/develop/clipboard'
-import { Route as LayoutDevelopCursorImport } from './../../routes/_layout/develop/cursor'
-import { Route as LayoutDevelopKeyEventImport } from './../../routes/_layout/develop/keyEvent'
-import { Route as LayoutDevelopMarkdownImport } from './../../routes/_layout/develop/markdown'
-import { Route as LayoutDevelopWhoisImport } from './../../routes/_layout/develop/whois'
-import { Route as LayoutFormatterCImport } from './../../routes/_layout/formatter/c'
-import { Route as LayoutFormatterCssImport } from './../../routes/_layout/formatter/css'
-import { Route as LayoutFormatterDartImport } from './../../routes/_layout/formatter/dart'
-import { Route as LayoutFormatterGoImport } from './../../routes/_layout/formatter/go'
-import { Route as LayoutFormatterHtmlImport } from './../../routes/_layout/formatter/html'
-import { Route as LayoutFormatterJavaImport } from './../../routes/_layout/formatter/java'
-import { Route as LayoutFormatterJsonImport } from './../../routes/_layout/formatter/json'
-import { Route as LayoutFormatterLuaImport } from './../../routes/_layout/formatter/lua'
-import { Route as LayoutFormatterPythonImport } from './../../routes/_layout/formatter/python'
-import { Route as LayoutFormatterSqlImport } from './../../routes/_layout/formatter/sql'
-import { Route as LayoutFormatterTypescriptImport } from './../../routes/_layout/formatter/typescript'
-import { Route as LayoutFormatterYamlImport } from './../../routes/_layout/formatter/yaml'
-import { Route as LayoutFormatterZigImport } from './../../routes/_layout/formatter/zig'
 import { Route as LayoutIndexImport } from './../../routes/_layout/index'
-import { Route as LayoutIniadLockerImport } from './../../routes/_layout/iniad/locker'
-import { Route as LayoutMathCalculatorImport } from './../../routes/_layout/math/calculator'
-import { Route as LayoutMathRadixImport } from './../../routes/_layout/math/radix'
-import { Route as LayoutTextCountImport } from './../../routes/_layout/text/count'
-import { Route as LayoutTextRepeatImport } from './../../routes/_layout/text/repeat'
 import { Route as LayoutTextReplaceImport } from './../../routes/_layout/text/replace'
+import { Route as LayoutTextRepeatImport } from './../../routes/_layout/text/repeat'
+import { Route as LayoutTextCountImport } from './../../routes/_layout/text/count'
+import { Route as LayoutMathRadixImport } from './../../routes/_layout/math/radix'
+import { Route as LayoutMathCalculatorImport } from './../../routes/_layout/math/calculator'
+import { Route as LayoutIniadLockerImport } from './../../routes/_layout/iniad/locker'
+import { Route as LayoutFormatterZigImport } from './../../routes/_layout/formatter/zig'
+import { Route as LayoutFormatterYamlImport } from './../../routes/_layout/formatter/yaml'
+import { Route as LayoutFormatterTypescriptImport } from './../../routes/_layout/formatter/typescript'
+import { Route as LayoutFormatterSqlImport } from './../../routes/_layout/formatter/sql'
+import { Route as LayoutFormatterPythonImport } from './../../routes/_layout/formatter/python'
+import { Route as LayoutFormatterLuaImport } from './../../routes/_layout/formatter/lua'
+import { Route as LayoutFormatterJsonImport } from './../../routes/_layout/formatter/json'
+import { Route as LayoutFormatterJavaImport } from './../../routes/_layout/formatter/java'
+import { Route as LayoutFormatterHtmlImport } from './../../routes/_layout/formatter/html'
+import { Route as LayoutFormatterGoImport } from './../../routes/_layout/formatter/go'
+import { Route as LayoutFormatterDartImport } from './../../routes/_layout/formatter/dart'
+import { Route as LayoutFormatterCssImport } from './../../routes/_layout/formatter/css'
+import { Route as LayoutFormatterCImport } from './../../routes/_layout/formatter/c'
+import { Route as LayoutDevelopWhoisImport } from './../../routes/_layout/develop/whois'
+import { Route as LayoutDevelopMarkdownImport } from './../../routes/_layout/develop/markdown'
+import { Route as LayoutDevelopKeyEventImport } from './../../routes/_layout/develop/keyEvent'
+import { Route as LayoutDevelopCursorImport } from './../../routes/_layout/develop/cursor'
+import { Route as LayoutDevelopClipboardImport } from './../../routes/_layout/develop/clipboard'
+import { Route as LayoutConvertUrlImport } from './../../routes/_layout/convert/url'
+import { Route as LayoutConvertQrcodeImport } from './../../routes/_layout/convert/qrcode'
+import { Route as LayoutConvertPunycodeImport } from './../../routes/_layout/convert/punycode'
+import { Route as LayoutConvertJsonSchemaToZodImport } from './../../routes/_layout/convert/jsonSchemaToZod'
+import { Route as LayoutConvertCjpImport } from './../../routes/_layout/convert/cjp'
+import { Route as LayoutConvertBase64Import } from './../../routes/_layout/convert/base64'
 
 // Create/Update Routes
 
@@ -46,156 +46,188 @@ const LayoutRoute = LayoutImport.update({
 } as any)
 
 const LayoutIndexRoute = LayoutIndexImport.update({
+  id: '/',
   path: '/',
   getParentRoute: () => LayoutRoute,
 } as any)
 
 const LayoutTextReplaceRoute = LayoutTextReplaceImport.update({
+  id: '/text/replace',
   path: '/text/replace',
   getParentRoute: () => LayoutRoute,
 } as any)
 
 const LayoutTextRepeatRoute = LayoutTextRepeatImport.update({
+  id: '/text/repeat',
   path: '/text/repeat',
   getParentRoute: () => LayoutRoute,
 } as any)
 
 const LayoutTextCountRoute = LayoutTextCountImport.update({
+  id: '/text/count',
   path: '/text/count',
   getParentRoute: () => LayoutRoute,
 } as any)
 
 const LayoutMathRadixRoute = LayoutMathRadixImport.update({
+  id: '/math/radix',
   path: '/math/radix',
   getParentRoute: () => LayoutRoute,
 } as any)
 
 const LayoutMathCalculatorRoute = LayoutMathCalculatorImport.update({
+  id: '/math/calculator',
   path: '/math/calculator',
   getParentRoute: () => LayoutRoute,
 } as any)
 
 const LayoutIniadLockerRoute = LayoutIniadLockerImport.update({
+  id: '/iniad/locker',
   path: '/iniad/locker',
   getParentRoute: () => LayoutRoute,
 } as any)
 
 const LayoutFormatterZigRoute = LayoutFormatterZigImport.update({
+  id: '/formatter/zig',
   path: '/formatter/zig',
   getParentRoute: () => LayoutRoute,
 } as any)
 
 const LayoutFormatterYamlRoute = LayoutFormatterYamlImport.update({
+  id: '/formatter/yaml',
   path: '/formatter/yaml',
   getParentRoute: () => LayoutRoute,
 } as any)
 
 const LayoutFormatterTypescriptRoute = LayoutFormatterTypescriptImport.update({
+  id: '/formatter/typescript',
   path: '/formatter/typescript',
   getParentRoute: () => LayoutRoute,
 } as any)
 
 const LayoutFormatterSqlRoute = LayoutFormatterSqlImport.update({
+  id: '/formatter/sql',
   path: '/formatter/sql',
   getParentRoute: () => LayoutRoute,
 } as any)
 
 const LayoutFormatterPythonRoute = LayoutFormatterPythonImport.update({
+  id: '/formatter/python',
   path: '/formatter/python',
   getParentRoute: () => LayoutRoute,
 } as any)
 
 const LayoutFormatterLuaRoute = LayoutFormatterLuaImport.update({
+  id: '/formatter/lua',
   path: '/formatter/lua',
   getParentRoute: () => LayoutRoute,
 } as any)
 
 const LayoutFormatterJsonRoute = LayoutFormatterJsonImport.update({
+  id: '/formatter/json',
   path: '/formatter/json',
   getParentRoute: () => LayoutRoute,
 } as any)
 
 const LayoutFormatterJavaRoute = LayoutFormatterJavaImport.update({
+  id: '/formatter/java',
   path: '/formatter/java',
   getParentRoute: () => LayoutRoute,
 } as any)
 
 const LayoutFormatterHtmlRoute = LayoutFormatterHtmlImport.update({
+  id: '/formatter/html',
   path: '/formatter/html',
   getParentRoute: () => LayoutRoute,
 } as any)
 
 const LayoutFormatterGoRoute = LayoutFormatterGoImport.update({
+  id: '/formatter/go',
   path: '/formatter/go',
   getParentRoute: () => LayoutRoute,
 } as any)
 
 const LayoutFormatterDartRoute = LayoutFormatterDartImport.update({
+  id: '/formatter/dart',
   path: '/formatter/dart',
   getParentRoute: () => LayoutRoute,
 } as any)
 
 const LayoutFormatterCssRoute = LayoutFormatterCssImport.update({
+  id: '/formatter/css',
   path: '/formatter/css',
   getParentRoute: () => LayoutRoute,
 } as any)
 
 const LayoutFormatterCRoute = LayoutFormatterCImport.update({
+  id: '/formatter/c',
   path: '/formatter/c',
   getParentRoute: () => LayoutRoute,
 } as any)
 
 const LayoutDevelopWhoisRoute = LayoutDevelopWhoisImport.update({
+  id: '/develop/whois',
   path: '/develop/whois',
   getParentRoute: () => LayoutRoute,
 } as any)
 
 const LayoutDevelopMarkdownRoute = LayoutDevelopMarkdownImport.update({
+  id: '/develop/markdown',
   path: '/develop/markdown',
   getParentRoute: () => LayoutRoute,
 } as any)
 
 const LayoutDevelopKeyEventRoute = LayoutDevelopKeyEventImport.update({
+  id: '/develop/keyEvent',
   path: '/develop/keyEvent',
   getParentRoute: () => LayoutRoute,
 } as any)
 
 const LayoutDevelopCursorRoute = LayoutDevelopCursorImport.update({
+  id: '/develop/cursor',
   path: '/develop/cursor',
   getParentRoute: () => LayoutRoute,
 } as any)
 
 const LayoutDevelopClipboardRoute = LayoutDevelopClipboardImport.update({
+  id: '/develop/clipboard',
   path: '/develop/clipboard',
   getParentRoute: () => LayoutRoute,
 } as any)
 
 const LayoutConvertUrlRoute = LayoutConvertUrlImport.update({
+  id: '/convert/url',
   path: '/convert/url',
   getParentRoute: () => LayoutRoute,
 } as any)
 
 const LayoutConvertQrcodeRoute = LayoutConvertQrcodeImport.update({
+  id: '/convert/qrcode',
   path: '/convert/qrcode',
   getParentRoute: () => LayoutRoute,
 } as any)
 
 const LayoutConvertPunycodeRoute = LayoutConvertPunycodeImport.update({
+  id: '/convert/punycode',
   path: '/convert/punycode',
   getParentRoute: () => LayoutRoute,
 } as any)
 
-const LayoutConvertJsonSchemaToZodRoute = LayoutConvertJsonSchemaToZodImport.update({
-  path: '/convert/jsonSchemaToZod',
-  getParentRoute: () => LayoutRoute,
-} as any)
+const LayoutConvertJsonSchemaToZodRoute =
+  LayoutConvertJsonSchemaToZodImport.update({
+    id: '/convert/jsonSchemaToZod',
+    path: '/convert/jsonSchemaToZod',
+    getParentRoute: () => LayoutRoute,
+  } as any)
 
 const LayoutConvertCjpRoute = LayoutConvertCjpImport.update({
+  id: '/convert/cjp',
   path: '/convert/cjp',
   getParentRoute: () => LayoutRoute,
 } as any)
 
 const LayoutConvertBase64Route = LayoutConvertBase64Import.update({
+  id: '/convert/base64',
   path: '/convert/base64',
   getParentRoute: () => LayoutRoute,
 } as any)
@@ -433,41 +465,298 @@ declare module '@tanstack/react-router' {
 
 // Create and export the route tree
 
-export const routeTree = rootRoute.addChildren({
-  LayoutRoute: LayoutRoute.addChildren({
-    LayoutIndexRoute,
-    LayoutConvertBase64Route,
-    LayoutConvertCjpRoute,
-    LayoutConvertJsonSchemaToZodRoute,
-    LayoutConvertPunycodeRoute,
-    LayoutConvertQrcodeRoute,
-    LayoutConvertUrlRoute,
-    LayoutDevelopClipboardRoute,
-    LayoutDevelopCursorRoute,
-    LayoutDevelopKeyEventRoute,
-    LayoutDevelopMarkdownRoute,
-    LayoutDevelopWhoisRoute,
-    LayoutFormatterCRoute,
-    LayoutFormatterCssRoute,
-    LayoutFormatterDartRoute,
-    LayoutFormatterGoRoute,
-    LayoutFormatterHtmlRoute,
-    LayoutFormatterJavaRoute,
-    LayoutFormatterJsonRoute,
-    LayoutFormatterLuaRoute,
-    LayoutFormatterPythonRoute,
-    LayoutFormatterSqlRoute,
-    LayoutFormatterTypescriptRoute,
-    LayoutFormatterYamlRoute,
-    LayoutFormatterZigRoute,
-    LayoutIniadLockerRoute,
-    LayoutMathCalculatorRoute,
-    LayoutMathRadixRoute,
-    LayoutTextCountRoute,
-    LayoutTextRepeatRoute,
-    LayoutTextReplaceRoute,
-  }),
-})
+interface LayoutRouteChildren {
+  LayoutIndexRoute: typeof LayoutIndexRoute
+  LayoutConvertBase64Route: typeof LayoutConvertBase64Route
+  LayoutConvertCjpRoute: typeof LayoutConvertCjpRoute
+  LayoutConvertJsonSchemaToZodRoute: typeof LayoutConvertJsonSchemaToZodRoute
+  LayoutConvertPunycodeRoute: typeof LayoutConvertPunycodeRoute
+  LayoutConvertQrcodeRoute: typeof LayoutConvertQrcodeRoute
+  LayoutConvertUrlRoute: typeof LayoutConvertUrlRoute
+  LayoutDevelopClipboardRoute: typeof LayoutDevelopClipboardRoute
+  LayoutDevelopCursorRoute: typeof LayoutDevelopCursorRoute
+  LayoutDevelopKeyEventRoute: typeof LayoutDevelopKeyEventRoute
+  LayoutDevelopMarkdownRoute: typeof LayoutDevelopMarkdownRoute
+  LayoutDevelopWhoisRoute: typeof LayoutDevelopWhoisRoute
+  LayoutFormatterCRoute: typeof LayoutFormatterCRoute
+  LayoutFormatterCssRoute: typeof LayoutFormatterCssRoute
+  LayoutFormatterDartRoute: typeof LayoutFormatterDartRoute
+  LayoutFormatterGoRoute: typeof LayoutFormatterGoRoute
+  LayoutFormatterHtmlRoute: typeof LayoutFormatterHtmlRoute
+  LayoutFormatterJavaRoute: typeof LayoutFormatterJavaRoute
+  LayoutFormatterJsonRoute: typeof LayoutFormatterJsonRoute
+  LayoutFormatterLuaRoute: typeof LayoutFormatterLuaRoute
+  LayoutFormatterPythonRoute: typeof LayoutFormatterPythonRoute
+  LayoutFormatterSqlRoute: typeof LayoutFormatterSqlRoute
+  LayoutFormatterTypescriptRoute: typeof LayoutFormatterTypescriptRoute
+  LayoutFormatterYamlRoute: typeof LayoutFormatterYamlRoute
+  LayoutFormatterZigRoute: typeof LayoutFormatterZigRoute
+  LayoutIniadLockerRoute: typeof LayoutIniadLockerRoute
+  LayoutMathCalculatorRoute: typeof LayoutMathCalculatorRoute
+  LayoutMathRadixRoute: typeof LayoutMathRadixRoute
+  LayoutTextCountRoute: typeof LayoutTextCountRoute
+  LayoutTextRepeatRoute: typeof LayoutTextRepeatRoute
+  LayoutTextReplaceRoute: typeof LayoutTextReplaceRoute
+}
+
+const LayoutRouteChildren: LayoutRouteChildren = {
+  LayoutIndexRoute: LayoutIndexRoute,
+  LayoutConvertBase64Route: LayoutConvertBase64Route,
+  LayoutConvertCjpRoute: LayoutConvertCjpRoute,
+  LayoutConvertJsonSchemaToZodRoute: LayoutConvertJsonSchemaToZodRoute,
+  LayoutConvertPunycodeRoute: LayoutConvertPunycodeRoute,
+  LayoutConvertQrcodeRoute: LayoutConvertQrcodeRoute,
+  LayoutConvertUrlRoute: LayoutConvertUrlRoute,
+  LayoutDevelopClipboardRoute: LayoutDevelopClipboardRoute,
+  LayoutDevelopCursorRoute: LayoutDevelopCursorRoute,
+  LayoutDevelopKeyEventRoute: LayoutDevelopKeyEventRoute,
+  LayoutDevelopMarkdownRoute: LayoutDevelopMarkdownRoute,
+  LayoutDevelopWhoisRoute: LayoutDevelopWhoisRoute,
+  LayoutFormatterCRoute: LayoutFormatterCRoute,
+  LayoutFormatterCssRoute: LayoutFormatterCssRoute,
+  LayoutFormatterDartRoute: LayoutFormatterDartRoute,
+  LayoutFormatterGoRoute: LayoutFormatterGoRoute,
+  LayoutFormatterHtmlRoute: LayoutFormatterHtmlRoute,
+  LayoutFormatterJavaRoute: LayoutFormatterJavaRoute,
+  LayoutFormatterJsonRoute: LayoutFormatterJsonRoute,
+  LayoutFormatterLuaRoute: LayoutFormatterLuaRoute,
+  LayoutFormatterPythonRoute: LayoutFormatterPythonRoute,
+  LayoutFormatterSqlRoute: LayoutFormatterSqlRoute,
+  LayoutFormatterTypescriptRoute: LayoutFormatterTypescriptRoute,
+  LayoutFormatterYamlRoute: LayoutFormatterYamlRoute,
+  LayoutFormatterZigRoute: LayoutFormatterZigRoute,
+  LayoutIniadLockerRoute: LayoutIniadLockerRoute,
+  LayoutMathCalculatorRoute: LayoutMathCalculatorRoute,
+  LayoutMathRadixRoute: LayoutMathRadixRoute,
+  LayoutTextCountRoute: LayoutTextCountRoute,
+  LayoutTextRepeatRoute: LayoutTextRepeatRoute,
+  LayoutTextReplaceRoute: LayoutTextReplaceRoute,
+}
+
+const LayoutRouteWithChildren =
+  LayoutRoute._addFileChildren(LayoutRouteChildren)
+
+export interface FileRoutesByFullPath {
+  '': typeof LayoutRouteWithChildren
+  '/': typeof LayoutIndexRoute
+  '/convert/base64': typeof LayoutConvertBase64Route
+  '/convert/cjp': typeof LayoutConvertCjpRoute
+  '/convert/jsonSchemaToZod': typeof LayoutConvertJsonSchemaToZodRoute
+  '/convert/punycode': typeof LayoutConvertPunycodeRoute
+  '/convert/qrcode': typeof LayoutConvertQrcodeRoute
+  '/convert/url': typeof LayoutConvertUrlRoute
+  '/develop/clipboard': typeof LayoutDevelopClipboardRoute
+  '/develop/cursor': typeof LayoutDevelopCursorRoute
+  '/develop/keyEvent': typeof LayoutDevelopKeyEventRoute
+  '/develop/markdown': typeof LayoutDevelopMarkdownRoute
+  '/develop/whois': typeof LayoutDevelopWhoisRoute
+  '/formatter/c': typeof LayoutFormatterCRoute
+  '/formatter/css': typeof LayoutFormatterCssRoute
+  '/formatter/dart': typeof LayoutFormatterDartRoute
+  '/formatter/go': typeof LayoutFormatterGoRoute
+  '/formatter/html': typeof LayoutFormatterHtmlRoute
+  '/formatter/java': typeof LayoutFormatterJavaRoute
+  '/formatter/json': typeof LayoutFormatterJsonRoute
+  '/formatter/lua': typeof LayoutFormatterLuaRoute
+  '/formatter/python': typeof LayoutFormatterPythonRoute
+  '/formatter/sql': typeof LayoutFormatterSqlRoute
+  '/formatter/typescript': typeof LayoutFormatterTypescriptRoute
+  '/formatter/yaml': typeof LayoutFormatterYamlRoute
+  '/formatter/zig': typeof LayoutFormatterZigRoute
+  '/iniad/locker': typeof LayoutIniadLockerRoute
+  '/math/calculator': typeof LayoutMathCalculatorRoute
+  '/math/radix': typeof LayoutMathRadixRoute
+  '/text/count': typeof LayoutTextCountRoute
+  '/text/repeat': typeof LayoutTextRepeatRoute
+  '/text/replace': typeof LayoutTextReplaceRoute
+}
+
+export interface FileRoutesByTo {
+  '/': typeof LayoutIndexRoute
+  '/convert/base64': typeof LayoutConvertBase64Route
+  '/convert/cjp': typeof LayoutConvertCjpRoute
+  '/convert/jsonSchemaToZod': typeof LayoutConvertJsonSchemaToZodRoute
+  '/convert/punycode': typeof LayoutConvertPunycodeRoute
+  '/convert/qrcode': typeof LayoutConvertQrcodeRoute
+  '/convert/url': typeof LayoutConvertUrlRoute
+  '/develop/clipboard': typeof LayoutDevelopClipboardRoute
+  '/develop/cursor': typeof LayoutDevelopCursorRoute
+  '/develop/keyEvent': typeof LayoutDevelopKeyEventRoute
+  '/develop/markdown': typeof LayoutDevelopMarkdownRoute
+  '/develop/whois': typeof LayoutDevelopWhoisRoute
+  '/formatter/c': typeof LayoutFormatterCRoute
+  '/formatter/css': typeof LayoutFormatterCssRoute
+  '/formatter/dart': typeof LayoutFormatterDartRoute
+  '/formatter/go': typeof LayoutFormatterGoRoute
+  '/formatter/html': typeof LayoutFormatterHtmlRoute
+  '/formatter/java': typeof LayoutFormatterJavaRoute
+  '/formatter/json': typeof LayoutFormatterJsonRoute
+  '/formatter/lua': typeof LayoutFormatterLuaRoute
+  '/formatter/python': typeof LayoutFormatterPythonRoute
+  '/formatter/sql': typeof LayoutFormatterSqlRoute
+  '/formatter/typescript': typeof LayoutFormatterTypescriptRoute
+  '/formatter/yaml': typeof LayoutFormatterYamlRoute
+  '/formatter/zig': typeof LayoutFormatterZigRoute
+  '/iniad/locker': typeof LayoutIniadLockerRoute
+  '/math/calculator': typeof LayoutMathCalculatorRoute
+  '/math/radix': typeof LayoutMathRadixRoute
+  '/text/count': typeof LayoutTextCountRoute
+  '/text/repeat': typeof LayoutTextRepeatRoute
+  '/text/replace': typeof LayoutTextReplaceRoute
+}
+
+export interface FileRoutesById {
+  __root__: typeof rootRoute
+  '/_layout': typeof LayoutRouteWithChildren
+  '/_layout/': typeof LayoutIndexRoute
+  '/_layout/convert/base64': typeof LayoutConvertBase64Route
+  '/_layout/convert/cjp': typeof LayoutConvertCjpRoute
+  '/_layout/convert/jsonSchemaToZod': typeof LayoutConvertJsonSchemaToZodRoute
+  '/_layout/convert/punycode': typeof LayoutConvertPunycodeRoute
+  '/_layout/convert/qrcode': typeof LayoutConvertQrcodeRoute
+  '/_layout/convert/url': typeof LayoutConvertUrlRoute
+  '/_layout/develop/clipboard': typeof LayoutDevelopClipboardRoute
+  '/_layout/develop/cursor': typeof LayoutDevelopCursorRoute
+  '/_layout/develop/keyEvent': typeof LayoutDevelopKeyEventRoute
+  '/_layout/develop/markdown': typeof LayoutDevelopMarkdownRoute
+  '/_layout/develop/whois': typeof LayoutDevelopWhoisRoute
+  '/_layout/formatter/c': typeof LayoutFormatterCRoute
+  '/_layout/formatter/css': typeof LayoutFormatterCssRoute
+  '/_layout/formatter/dart': typeof LayoutFormatterDartRoute
+  '/_layout/formatter/go': typeof LayoutFormatterGoRoute
+  '/_layout/formatter/html': typeof LayoutFormatterHtmlRoute
+  '/_layout/formatter/java': typeof LayoutFormatterJavaRoute
+  '/_layout/formatter/json': typeof LayoutFormatterJsonRoute
+  '/_layout/formatter/lua': typeof LayoutFormatterLuaRoute
+  '/_layout/formatter/python': typeof LayoutFormatterPythonRoute
+  '/_layout/formatter/sql': typeof LayoutFormatterSqlRoute
+  '/_layout/formatter/typescript': typeof LayoutFormatterTypescriptRoute
+  '/_layout/formatter/yaml': typeof LayoutFormatterYamlRoute
+  '/_layout/formatter/zig': typeof LayoutFormatterZigRoute
+  '/_layout/iniad/locker': typeof LayoutIniadLockerRoute
+  '/_layout/math/calculator': typeof LayoutMathCalculatorRoute
+  '/_layout/math/radix': typeof LayoutMathRadixRoute
+  '/_layout/text/count': typeof LayoutTextCountRoute
+  '/_layout/text/repeat': typeof LayoutTextRepeatRoute
+  '/_layout/text/replace': typeof LayoutTextReplaceRoute
+}
+
+export interface FileRouteTypes {
+  fileRoutesByFullPath: FileRoutesByFullPath
+  fullPaths:
+    | ''
+    | '/'
+    | '/convert/base64'
+    | '/convert/cjp'
+    | '/convert/jsonSchemaToZod'
+    | '/convert/punycode'
+    | '/convert/qrcode'
+    | '/convert/url'
+    | '/develop/clipboard'
+    | '/develop/cursor'
+    | '/develop/keyEvent'
+    | '/develop/markdown'
+    | '/develop/whois'
+    | '/formatter/c'
+    | '/formatter/css'
+    | '/formatter/dart'
+    | '/formatter/go'
+    | '/formatter/html'
+    | '/formatter/java'
+    | '/formatter/json'
+    | '/formatter/lua'
+    | '/formatter/python'
+    | '/formatter/sql'
+    | '/formatter/typescript'
+    | '/formatter/yaml'
+    | '/formatter/zig'
+    | '/iniad/locker'
+    | '/math/calculator'
+    | '/math/radix'
+    | '/text/count'
+    | '/text/repeat'
+    | '/text/replace'
+  fileRoutesByTo: FileRoutesByTo
+  to:
+    | '/'
+    | '/convert/base64'
+    | '/convert/cjp'
+    | '/convert/jsonSchemaToZod'
+    | '/convert/punycode'
+    | '/convert/qrcode'
+    | '/convert/url'
+    | '/develop/clipboard'
+    | '/develop/cursor'
+    | '/develop/keyEvent'
+    | '/develop/markdown'
+    | '/develop/whois'
+    | '/formatter/c'
+    | '/formatter/css'
+    | '/formatter/dart'
+    | '/formatter/go'
+    | '/formatter/html'
+    | '/formatter/java'
+    | '/formatter/json'
+    | '/formatter/lua'
+    | '/formatter/python'
+    | '/formatter/sql'
+    | '/formatter/typescript'
+    | '/formatter/yaml'
+    | '/formatter/zig'
+    | '/iniad/locker'
+    | '/math/calculator'
+    | '/math/radix'
+    | '/text/count'
+    | '/text/repeat'
+    | '/text/replace'
+  id:
+    | '__root__'
+    | '/_layout'
+    | '/_layout/'
+    | '/_layout/convert/base64'
+    | '/_layout/convert/cjp'
+    | '/_layout/convert/jsonSchemaToZod'
+    | '/_layout/convert/punycode'
+    | '/_layout/convert/qrcode'
+    | '/_layout/convert/url'
+    | '/_layout/develop/clipboard'
+    | '/_layout/develop/cursor'
+    | '/_layout/develop/keyEvent'
+    | '/_layout/develop/markdown'
+    | '/_layout/develop/whois'
+    | '/_layout/formatter/c'
+    | '/_layout/formatter/css'
+    | '/_layout/formatter/dart'
+    | '/_layout/formatter/go'
+    | '/_layout/formatter/html'
+    | '/_layout/formatter/java'
+    | '/_layout/formatter/json'
+    | '/_layout/formatter/lua'
+    | '/_layout/formatter/python'
+    | '/_layout/formatter/sql'
+    | '/_layout/formatter/typescript'
+    | '/_layout/formatter/yaml'
+    | '/_layout/formatter/zig'
+    | '/_layout/iniad/locker'
+    | '/_layout/math/calculator'
+    | '/_layout/math/radix'
+    | '/_layout/text/count'
+    | '/_layout/text/repeat'
+    | '/_layout/text/replace'
+  fileRoutesById: FileRoutesById
+}
+
+export interface RootRouteChildren {
+  LayoutRoute: typeof LayoutRouteWithChildren
+}
+
+const rootRouteChildren: RootRouteChildren = {
+  LayoutRoute: LayoutRouteWithChildren,
+}
+
+export const routeTree = rootRoute
+  ._addFileChildren(rootRouteChildren)
+  ._addFileTypes<FileRouteTypes>()
 
 /* ROUTE_MANIFEST_START
 {
