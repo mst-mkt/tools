@@ -51,13 +51,13 @@ const Cursor = () => {
         <h1 className="font-bold text-lg">Cursor Preview</h1>
         <div className="grid grid-cols-2 gap-4">
           {CURSORS.map((cursor) => (
-            <div
+            <button
+              type="button"
               key={cursor}
               onMouseEnter={() => handleMouseEnter(cursor)}
               onMouseLeave={handleMouseLeave}
               onClick={() => handleClick(cursor)}
               onKeyDown={(e) => e.key === 'Enter' && handleClick(cursor)}
-              role="button"
               tabIndex={0}
               className={clsx(
                 'flex items-center justify-center gap-x-2 rounded-md border border-background-100 p-4 transition-colors hover:bg-accent/10',
@@ -68,7 +68,7 @@ const Cursor = () => {
               style={{ cursor }}
             >
               {cursor}
-            </div>
+            </button>
           ))}
         </div>
         <div className="rounded-md border border-background-100 p-4">

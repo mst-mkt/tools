@@ -61,12 +61,14 @@ const LockerOpener = () => {
       <div className="flex flex-col gap-y-8">
         <h1 className="font-bold text-lg">INIAD Locker Opener</h1>
         <div>
+          {/* biome-ignore lint/a11y/noLabelWithoutControl: this label has input element as component */}
           <label className="flex flex-col gap-y-2">
             <span className="w-full text-sm">ID</span>
             <TextInput value={id} onChange={onSetId} placeholder="ex: s1f102X0XXX" />
           </label>
         </div>
         <div>
+          {/* biome-ignore lint/a11y/noLabelWithoutControl: this label has input element as component */}
           <label className="flex flex-col gap-y-2">
             <span className="w-full text-sm">Password</span>
             <PasswordInput value={password} onChange={onSetPassword} />
