@@ -13,7 +13,7 @@
     "prepare": "husky install"
   },
   "dependencies": {
-    "@tabler/icons-react": "3.18.0",
+    "@tabler/icons-react": "3.19.0",
     "@tanstack/react-router": "^1.74.4",
     "@tanstack/router-devtools": "^1.74.4",
     "@wasm-fmt/clang-format": "^18.1.8",
