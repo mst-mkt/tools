@@ -16,7 +16,7 @@
     "@tabler/icons-react": "3.18.0",
     "@tanstack/react-router": "^1.74.4",
     "@tanstack/router-devtools": "^1.74.4",
-    "@wasm-fmt/clang-format": "^18.1.8",
+    "@wasm-fmt/clang-format": "^19.1.2",
     "@wasm-fmt/dart_fmt": "^0.1.2",
     "@wasm-fmt/gofmt": "^0.4.9",
     "@wasm-fmt/lua_fmt": "^0.0.5",
