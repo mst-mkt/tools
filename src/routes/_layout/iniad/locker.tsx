@@ -1,7 +1,7 @@
 import { IconDeviceFloppy, IconLoader2, IconLockOpen, IconShare } from '@tabler/icons-react'
 import { createFileRoute } from '@tanstack/react-router'
 import clsx from 'clsx'
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useState } from 'react'
 import { Head } from '../../../components/shared/Head'
 import { IconButton } from '../../../components/ui/IconButton'
 import { PasswordInput } from '../../../components/ui/PasswordInput'
@@ -19,8 +19,8 @@ export const Route = createFileRoute('/_layout/iniad/locker')({
 
 const LockerOpener = () => {
   const [auth, setAuth] = useLocalStorage('iniad-locker-auth', { id: '', password: '' })
-  const [id, onSetId, setId] = useInputState(auth.id)
-  const [password, onSetPassword, setPassword] = useInputState(auth.password)
+  const [id, onSetId] = useInputState(auth.id)
+  const [password, onSetPassword] = useInputState(auth.password)
   const [result, setResult] = useState<string | null>(null)
   const [error, setError] = useState<string | null>(null)
   const [isLoading, setIsLoading] = useState(false)
@@ -49,11 +49,6 @@ const LockerOpener = () => {
     setResult(null)
     setIsLoading(false)
   }, [id, password])
-
-  useEffect(() => {
-    setId(auth.id)
-    setPassword(auth.password)
-  }, [auth, setId, setPassword])
 
   return (
     <>
