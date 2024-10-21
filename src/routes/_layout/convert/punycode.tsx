@@ -1,8 +1,6 @@
+import punycode from 'punycode'
 import { IconArrowsUpDown, IconCopy, IconShare } from '@tabler/icons-react'
 import { createFileRoute } from '@tanstack/react-router'
-
-// biome-ignore lint/style/useNodejsImportProtocol: this module use in browser
-import punycode from 'punycode'
 import { useCallback, useMemo } from 'react'
 import { match } from 'ts-pattern'
 import { z } from 'zod'
