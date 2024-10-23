@@ -1,38 +1,36 @@
-import { useCallback, useSyncExternalStore } from 'react'
+import { useCallback, useMemo, useSyncExternalStore } from 'react'
+
+const subscribe = (callback: () => void) => {
+  window.addEventListener('storage', callback)
+  return () => window.removeEventListener('storage', callback)
+}
+
+export const getStorageItem = <T>(key: string, initialValue: T) => {
+  const value = window.localStorage.getItem(key)
+  return value === null ? JSON.stringify(initialValue) : value
+}
+
+const setStorageItem = <T>(key: string, value: T) => {
+  window.localStorage.setItem(key, JSON.stringify(value))
+  window.dispatchEvent(new Event('storage'))
+}
 
 export const useLocalStorage = <T>(key: string, initialValue: T) => {
-  const subscribe = useCallback(
-    (callback: () => void) => {
-      window.addEventListener('storage', (ev) => {
-        if (ev.key === key) callback()
-      })
-      return () => window.removeEventListener('storage', callback)
+  const value = useSyncExternalStore(subscribe, () => getStorageItem(key, initialValue))
+  const setItem = useCallback(
+    (value: T) => {
+      setStorageItem(key, value)
     },
     [key],
   )
 
-  const getItem = useCallback(() => {
-    const item = localStorage.getItem(key)
-    if (item === null) return initialValue
-
+  const parsedValue = useMemo<T>(() => {
     try {
-      return JSON.parse(item) as T
+      return JSON.parse(value)
     } catch {
-      console.error(`Failed to parse JSON from localStorage: "${key}", "${item}"`)
       return initialValue
     }
-  }, [key, initialValue])
+  }, [initialValue, value])
 
-  const setValue = useCallback(
-    (newValue: T) => {
-      const stringifiedValue = JSON.stringify(newValue)
-      localStorage.setItem(key, stringifiedValue)
-      window.dispatchEvent(new StorageEvent('storage', { key, newValue: stringifiedValue }))
-    },
-    [key],
-  )
-
-  const value = useSyncExternalStore(subscribe, getItem)
-
-  return [value, setValue] as const
+  return [parsedValue, setItem] as const
 }
