@@ -17,11 +17,11 @@ importers:
         specifier: 3.18.0
         version: 3.18.0(react@18.3.1)
       '@tanstack/react-router':
-        specifier: ^1.74.4
-        version: 1.74.4(@tanstack/router-generator@1.74.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        specifier: ^1.74.6
+        version: 1.74.6(@tanstack/router-generator@1.74.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@tanstack/router-devtools':
         specifier: ^1.74.4
-        version: 1.74.4(@tanstack/react-router@1.74.4(@tanstack/router-generator@1.74.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(csstype@3.1.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        version: 1.74.4(@tanstack/react-router@1.74.6(@tanstack/router-generator@1.74.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(csstype@3.1.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@wasm-fmt/clang-format':
         specifier: ^19.1.2
         version: 19.1.2
@@ -1318,8 +1318,8 @@ packages:
     resolution: {integrity: sha512-2CqERleeqO3hkhJmyJm37tiL3LYgeOpmo8szqdjgtnnG0z7ZpvzkZz6HkfOr9Ca/ha7mhAiouSvLYuLkM37AMg==}
     engines: {node: '>=12'}
 
-  '@tanstack/react-router@1.74.4':
-    resolution: {integrity: sha512-dVI8L1Nc4d/njlFFm2O5NPLcqOd6/D10LaODIYNsbWts4UjQpQFBZcY5PGDBp9yPJxYMZ1wVctcWSGHrAUL4HQ==}
+  '@tanstack/react-router@1.74.6':
+    resolution: {integrity: sha512-mC5TMzzEAiVRvfUEHyOHhvYvt+ORrKfOSA5Tf+R/eoM0pyWo/RHCPlNSAzSfOcWU5S4LZONj8rtAvwU1fHFmFQ==}
     engines: {node: '>=12'}
     peerDependencies:
       '@tanstack/router-generator': 1.74.2
@@ -4456,7 +4456,7 @@ snapshots:
 
   '@tanstack/history@1.61.1': {}
 
-  '@tanstack/react-router@1.74.4(@tanstack/router-generator@1.74.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+  '@tanstack/react-router@1.74.6(@tanstack/router-generator@1.74.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
       '@tanstack/history': 1.61.1
       '@tanstack/react-store': 0.5.6(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -4474,9 +4474,9 @@ snapshots:
       react-dom: 18.3.1(react@18.3.1)
       use-sync-external-store: 1.2.2(react@18.3.1)
 
-  '@tanstack/router-devtools@1.74.4(@tanstack/react-router@1.74.4(@tanstack/router-generator@1.74.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(csstype@3.1.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+  '@tanstack/router-devtools@1.74.4(@tanstack/react-router@1.74.6(@tanstack/router-generator@1.74.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(csstype@3.1.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
-      '@tanstack/react-router': 1.74.4(@tanstack/router-generator@1.74.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@tanstack/react-router': 1.74.6(@tanstack/router-generator@1.74.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       clsx: 2.1.1
       goober: 2.1.16(csstype@3.1.3)
       react: 18.3.1
