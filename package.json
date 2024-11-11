@@ -48,7 +48,7 @@
     "@tailwindcss/aspect-ratio": "^0.4.2",
     "@tailwindcss/forms": "^0.5.9",
     "@tailwindcss/typography": "^0.5.15",
-    "@tanstack/router-vite-plugin": "^1.74.2",
+    "@tanstack/router-vite-plugin": "^1.79.0",
     "@types/node": "^22.7.7",
     "@types/punycode": "^2.1.4",
     "@types/react": "^18.3.11",
