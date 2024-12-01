@@ -1,11 +1,17 @@
 import { TanStackRouterVite } from '@tanstack/router-vite-plugin'
 import react from '@vitejs/plugin-react-swc'
+import path from 'node:path'
 import { defineConfig } from 'vite'
 import { VitePWA } from 'vite-plugin-pwa'
 
 export default defineConfig({
   define: {
     __UPDATED_YEAR__: new Date().getFullYear(),
+  },
+  resolve: {
+    alias: {
+      "@": path.resolve(__dirname, "./src"),
+    }
   },
   plugins: [
     react(),
