@@ -1,8 +1,9 @@
+import { Button } from '@/components/ui/button'
+import { Table, TableBody, TableCell, TableRow } from '@/components/ui/table'
 import { createFileRoute } from '@tanstack/react-router'
 import { Copy } from 'lucide-react'
 import { type JSX, useMemo, useState } from 'react'
 import { Head } from '../../../components/shared/Head'
-import { IconButton } from '../../../components/ui/IconButton'
 import { useDocumentEvent } from '../../../hooks/useDocumentEvent'
 import { copy } from '../../../utils/clipboard/copy'
 
@@ -72,19 +73,16 @@ const KeyEvent = () => {
           {keyEventInfo !== undefined ? (
             <>
               <h2 className="font-bold">キー情報</h2>
-              <table className="block w-full">
-                <tbody className="block w-full">
+              <Table>
+                <TableBody>
                   {Object.entries(keyEventInfo).map(([key, value]) => (
-                    <tr
-                      key={key}
-                      className="flex w-full items-center justify-between border-background-100 border-b px-2 py-1 last:border-0"
-                    >
-                      <td className="text-sm">{key}</td>
-                      <td>{`${value}`}</td>
-                    </tr>
+                    <TableRow key={key} className="flex w-full items-center justify-between">
+                      <TableCell>{key}</TableCell>
+                      <TableCell>{value}</TableCell>
+                    </TableRow>
                   ))}
-                </tbody>
-              </table>
+                </TableBody>
+              </Table>
             </>
           ) : (
             <div className="flex items-center justify-center rounded-md border border-background-100 p-8">
@@ -93,33 +91,31 @@ const KeyEvent = () => {
           )}
         </div>
         <div className="flex gap-x-2">
-          <IconButton
-            icon={Copy}
-            label="Copy Result"
-            onClick={() => copyData !== null && copy(...copyData)}
-            disabled={copyData === null}
-          />
+          <Button onClick={() => copyData !== null && copy(...copyData)}>
+            <Copy />
+            Copy Result
+          </Button>
         </div>
         {history.length > 0 && (
           <div className="flex flex-col gap-y-2">
             <h2 className="font-bold">履歴</h2>
-            <table className="block w-full">
-              <tbody className="block w-full">
+            <Table>
+              <TableBody>
                 {history.map((event, index) => (
-                  <tr
+                  <TableRow
                     key={`${index}-${event.key}`}
-                    className="flex w-full items-center justify-between border-background-100 border-b px-2 py-1 last:border-0"
+                    className="flex w-full items-center justify-between"
                   >
-                    <td className="text-sm">
+                    <TableCell>
                       <span className="rounded-sm border border-background-100 bg-background-50 p-1">
                         {event.key}
                       </span>
-                    </td>
-                    <td>{`${event.code} (${event.keyCode})`}</td>
-                  </tr>
+                    </TableCell>
+                    <TableCell>{`${event.code} (${event.keyCode})`}</TableCell>
+                  </TableRow>
                 ))}
-              </tbody>
-            </table>
+              </TableBody>
+            </Table>
           </div>
         )}
       </div>

@@ -1,20 +1,27 @@
+import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select'
+import { Textarea } from '@/components/ui/textarea'
 import { createFileRoute } from '@tanstack/react-router'
 import init, { format } from '@wasm-fmt/web_fmt/vite'
 import jsonSchemaToZod from 'json-schema-to-zod'
 import { Code as CodeIcon, Copy, Share } from 'lucide-react'
-import { useCallback, useEffect, useMemo } from 'react'
+import { useCallback, useMemo } from 'react'
 import { z } from 'zod'
 import { Code } from '../../../components/shared/Code'
 import { Head } from '../../../components/shared/Head'
-import { IconButton } from '../../../components/ui/IconButton'
-import { Select } from '../../../components/ui/Select'
-import { TextInput } from '../../../components/ui/TextInput'
-import { Textarea } from '../../../components/ui/Textarea'
 import { useCopyLink } from '../../../hooks/useCopyLocation'
 import { useInputState } from '../../../hooks/useInputState'
 import { copy } from '../../../utils/clipboard/copy'
 
-const MODULE_TYPES = ['esm', 'cjs', 'none']
+const MODULE_TYPES = ['esm', 'cjs', 'none'] as const
+type ModuleType = (typeof MODULE_TYPES)[number]
 
 const searchParamsValidator = z.object({
   text: z.string().optional(),
@@ -24,29 +31,25 @@ const searchParamsValidator = z.object({
 
 export const Route = createFileRoute('/_layout/convert/jsonSchemaToZod')({
   validateSearch: (search) => searchParamsValidator.parse(search),
+  loader: async () => await init(),
   component: () => <JsonSchemaToZod />,
 })
 
 const JsonSchemaToZod = () => {
   const { text: initialText, name: initialName, module: initialModule } = Route.useSearch()
-  const [text, onSetText, setText] = useInputState(initialText ?? '')
-  const [schemaName, setSchemaName] = useInputState(initialName ?? '')
-  const [moduleType, setModuleType] = useInputState(initialModule ?? 'esm')
-  const { copyLink } = useCopyLink(Route.id)
 
-  const handleFormat = useCallback(() => {
+  const handleFormat = useCallback((text: string) => {
     try {
-      const formatted = format(text, 'schema.json')
-      setText(formatted)
-    } catch (e) {
-      console.error(e)
+      return format(text, 'schema.json')
+    } catch {
+      return text
     }
-  }, [setText, text])
-
-  // biome-ignore lint/correctness/useExhaustiveDependencies: exec only once on mount
-  useEffect(() => {
-    init().then(() => text !== '' && handleFormat())
   }, [])
+
+  const [text, onSetText, setText] = useInputState(handleFormat(initialText ?? ''))
+  const [schemaName, setSchemaName] = useInputState(initialName ?? '')
+  const [moduleType, _, setModuleType] = useInputState(initialModule ?? 'esm')
+  const { copyLink } = useCopyLink(Route.id)
 
   const convertedCode = useMemo(() => {
     try {
@@ -74,43 +77,47 @@ const JsonSchemaToZod = () => {
       <div className="flex flex-col gap-y-8">
         <h1 className="font-bold text-lg">JSON Schema to Zod</h1>
         <div className="flex gap-x-2">
-          <TextInput
+          <Input
             value={schemaName}
             onChange={setSchemaName}
             placeholder="Schema Name"
-            className="flex-shrink"
+            className="grow"
           />
-          <Select
-            value={moduleType}
-            onChange={setModuleType}
-            options={MODULE_TYPES}
-            className="flex-shrink-0"
-          />
+          <Select value={moduleType} onValueChange={(value: ModuleType) => setModuleType(value)}>
+            <SelectTrigger className="w-fit grow-0 p-4">
+              <SelectValue defaultValue="esm" />
+            </SelectTrigger>
+            <SelectContent>
+              {MODULE_TYPES.map((type) => (
+                <SelectItem key={type} value={type}>
+                  {type}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
         </div>
         <Textarea value={text} onChange={onSetText} placeholder="Paste JSON Schema here" />
-        <IconButton icon={CodeIcon} label="Format JSON Schema" onClick={handleFormat} />
-        <div className="scrollbar-thin scrollbar-thumb-background-200 scrollbar-thumb-rounded-full scrollbar-track-transparent overflow-y-hidden overflow-x-scroll rounded-md border border-background-100 p-4 text-sm">
+        <Button onClick={() => setText(handleFormat(text))} className="w-fit">
+          <CodeIcon />
+          Format JSON Schema
+        </Button>
+        <div className="overflow-y-hidden overflow-x-scroll rounded-md border border-background-100 p-4 text-sm">
           <Code code={convertedCode} />
         </div>
         <div className="flex gap-x-2">
-          <IconButton
-            icon={Share}
-            label="Share Link"
+          <Button
             onClick={() =>
-              copyLink({
-                text: minifiedText,
-                name: schemaName !== '' ? schemaName : undefined,
-                module: moduleType,
-              })
+              copyLink({ text: minifiedText, name: schemaName !== '' ? schemaName : undefined })
             }
-            disabled={text.trim() === ''}
-          />
-          <IconButton
-            icon={Copy}
-            label="Copy Result"
-            onClick={() => copy(convertedCode)}
-            disabled={convertedCode.trim() === ''}
-          />
+            disabled={minifiedText.trim() === ''}
+          >
+            <Share />
+            Share Link
+          </Button>
+          <Button onClick={() => copy(convertedCode)} disabled={convertedCode.trim() === ''}>
+            <Copy />
+            Copy Result
+          </Button>
         </div>
       </div>
     </>

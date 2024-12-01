@@ -1,11 +1,12 @@
+import { Button } from '@/components/ui/button'
+import { Table, TableBody, TableCell, TableRow } from '@/components/ui/table'
+import { Textarea } from '@/components/ui/textarea'
 import { createFileRoute } from '@tanstack/react-router'
 import { Copy, Share } from 'lucide-react'
 import { type JSX, useCallback, useMemo } from 'react'
 import twitterText from 'twitter-text'
 import { z } from 'zod'
 import { Head } from '../../../components/shared/Head'
-import { IconButton } from '../../../components/ui/IconButton'
-import { Textarea } from '../../../components/ui/Textarea'
 import { useCopyLink } from '../../../hooks/useCopyLocation'
 import { useInputState } from '../../../hooks/useInputState'
 import { copy } from '../../../utils/clipboard/copy'
@@ -99,28 +100,26 @@ const Counter = () => {
         </div>
         <div className="flex flex-col gap-y-2">
           <h2 className="font-bold">カウント結果</h2>
-          <table className="block w-full">
-            <tbody className="block w-full">
+          <Table>
+            <TableBody>
               {Object.entries(textLengths).map(([key, value]: [string, number]) => (
-                <tr
-                  key={key}
-                  className="flex w-full items-center justify-between border-background-100 border-b px-2 py-1 last:border-0"
-                >
-                  <td className="text-sm">{labels[key] ?? key}</td>
-                  <td>{value}</td>
-                </tr>
+                <TableRow key={key}>
+                  <TableCell>{labels[key] ?? key}</TableCell>
+                  <TableCell>{value}</TableCell>
+                </TableRow>
               ))}
-            </tbody>
-          </table>
+            </TableBody>
+          </Table>
         </div>
         <div className="flex gap-x-2">
-          <IconButton
-            icon={Share}
-            label="Share Link"
-            onClick={() => copyLink({ text })}
-            disabled={text.length === 0}
-          />
-          <IconButton icon={Copy} label="Copy Result" onClick={() => copy(...copyData)} />
+          <Button onClick={() => copyLink({ text })} disabled={text.length === 0}>
+            <Share />
+            Share Link
+          </Button>
+          <Button onClick={() => copy(...copyData)} disabled={text.length === 0}>
+            <Copy />
+            Copy Result
+          </Button>
         </div>
       </div>
     </>

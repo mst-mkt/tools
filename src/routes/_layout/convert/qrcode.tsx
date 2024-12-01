@@ -1,3 +1,5 @@
+import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
 import { createFileRoute } from '@tanstack/react-router'
 import { clsx } from 'clsx'
 import { Copy, Download, Share } from 'lucide-react'
@@ -5,11 +7,8 @@ import { useCallback, useMemo } from 'react'
 import { encode, renderANSI, renderSVG, renderUnicode, renderUnicodeCompact } from 'uqr'
 import { z } from 'zod'
 import { Head } from '../../../components/shared/Head'
-import { IconButton } from '../../../components/ui/IconButton'
-import { TextInput } from '../../../components/ui/TextInput'
 import { useCopyLink } from '../../../hooks/useCopyLocation'
 import { useInputState } from '../../../hooks/useInputState'
-import { copy } from '../../../utils/clipboard/copy'
 
 const serachParamsValidator = z.object({
   text: z.string().optional(),
@@ -86,7 +85,7 @@ const QrCode = () => {
       <Head title="QR Code" />
       <div className="it flex flex-col gap-y-8">
         <h1 className="font-bold text-lg">QR Code Generator</h1>
-        <TextInput
+        <Input
           value={text}
           onChange={setText}
           placeholder="QRコードに変換するテキストを入力"
@@ -94,7 +93,7 @@ const QrCode = () => {
         />
         <div className="rounded-lg border border-background-200 p-4">
           <div
-            className="mx-auto grid aspect-1 max-h-[36svh]"
+            className="mx-auto grid aspect-square max-h-[36svh]"
             style={{ gridTemplateColumns: `repeat(${qrcodeData.size}, 1fr)` }}
           >
             {qrcodeData.data.map((row, rowIndex) =>
@@ -109,52 +108,41 @@ const QrCode = () => {
           </div>
         </div>
         <div className="flex flex-wrap gap-2">
-          <IconButton
-            icon={Download}
-            label="Download as PNG"
-            disabled={text.trim() === ''}
-            onClick={downloadAsImage}
-          />
-          <IconButton
-            icon={Download}
-            label="Download as SVG"
-            disabled={text.trim() === ''}
-            onClick={downloadAsSvg}
-          />
+          <Button onClick={downloadAsImage} disabled={text.trim() === ''}>
+            <Download />
+            Download as PNG
+          </Button>
+          <Button onClick={downloadAsSvg} disabled={text.trim() === ''}>
+            <Download />
+            Download as SVG
+          </Button>
         </div>
         <div className="flex flex-wrap gap-2">
-          <IconButton
-            icon={Copy}
-            label="Copy as Text"
+          <Button disabled={text.trim() === ''} onClick={() => copyLink(renderUnicode(text))}>
+            <Copy />
+            Copy as Text
+          </Button>
+          <Button
             disabled={text.trim() === ''}
-            onClick={() => copy(renderUnicode(text))}
-          />
-          <IconButton
-            icon={Copy}
-            label="Copy as Text(Compact)"
-            disabled={text.trim() === ''}
-            onClick={() => copy(renderUnicodeCompact(text))}
-          />
-          <IconButton
-            icon={Copy}
-            label="Copy as ANSI"
-            disabled={text.trim() === ''}
-            onClick={() => copy(renderANSI(text))}
-          />
-          <IconButton
-            icon={Copy}
-            label="Copy as Image"
-            disabled={text.trim() === ''}
-            onClick={copyAsImage}
-          />
+            onClick={() => copyLink(renderUnicodeCompact(text))}
+          >
+            <Copy />
+            Copy as Text(Compact)
+          </Button>
+          <Button disabled={text.trim() === ''} onClick={() => copyLink(renderANSI(text))}>
+            <Copy />
+            Copy as ANSI
+          </Button>
+          <Button disabled={text.trim() === ''} onClick={copyAsImage}>
+            <Copy />
+            Copy as Image
+          </Button>
         </div>
         <div className="flex gap-x-2">
-          <IconButton
-            icon={Share}
-            label="Share Link"
-            onClick={() => copyLink({ text })}
-            disabled={text.trim() === ''}
-          />
+          <Button onClick={() => copyLink({ text })} disabled={text.trim() === ''}>
+            <Share />
+            Share Link
+          </Button>
         </div>
       </div>
     </>

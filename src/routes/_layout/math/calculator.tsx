@@ -1,10 +1,10 @@
+import { Button } from '@/components/ui/button'
 import { createFileRoute } from '@tanstack/react-router'
-import { Divide, Equal, Minus, Plus, Trash, X } from 'lucide-react'
+import { Divide, Dot, Equal, Minus, Plus, Trash2, X } from 'lucide-react'
 import { type MathJsChain, chain } from 'mathjs'
 import { useState } from 'react'
 import { match } from 'ts-pattern'
 import { Head } from '../../../components/shared/Head'
-import { IconButton } from '../../../components/ui/IconButton'
 
 type Operator = 'add' | 'subtract' | 'multiply' | 'divide'
 
@@ -68,44 +68,58 @@ const Calculator = () => {
             {input ?? formula.done()}
           </p>
           <div className="grid grid-cols-4 gap-4">
-            <IconButton className="w-full p-4 text-lg" label="7" onClick={() => handleNumber(7)} />
-            <IconButton className="w-full p-4 text-lg" label="8" onClick={() => handleNumber(8)} />
-            <IconButton className="w-full p-4 text-lg" label="9" onClick={() => handleNumber(9)} />
-            <IconButton
-              className="w-full p-4 text-lg"
-              icon={Divide}
-              onClick={() => handleOperator('divide')}
-            />
-            <IconButton className="w-full p-4 text-lg" label="4" onClick={() => handleNumber(4)} />
-            <IconButton className="w-full p-4 text-lg" label="5" onClick={() => handleNumber(5)} />
-            <IconButton className="w-full p-4 text-lg" label="6" onClick={() => handleNumber(6)} />
-            <IconButton
-              className="w-full p-4 text-lg"
-              icon={X}
-              onClick={() => handleOperator('multiply')}
-            />
-            <IconButton className="w-full p-4 text-lg" label="1" onClick={() => handleNumber(1)} />
-            <IconButton className="w-full p-4 text-lg" label="2" onClick={() => handleNumber(2)} />
-            <IconButton className="w-full p-4 text-lg" label="3" onClick={() => handleNumber(3)} />
-            <IconButton
-              className="w-full p-4 text-lg"
-              icon={Minus}
-              onClick={() => handleOperator('subtract')}
-            />
-            <IconButton className="w-full p-4 text-lg" label="0" onClick={() => handleNumber(0)} />
-            <IconButton className="w-full p-4 text-lg" icon={Minus} onClick={handleDecimal} />
-            <IconButton className="w-full p-4 text-lg" icon={Equal} onClick={handleEqual} />
-            <IconButton
-              className="w-full p-4 text-lg"
-              icon={Plus}
-              onClick={() => handleOperator('add')}
-            />
-            <IconButton
-              label="Clear"
-              className="col-span-full w-full bg-red-500/10 p-4 text-lg hover:bg-red-500/20"
-              icon={Trash}
-              onClick={handleClear}
-            />
+            <Button variant="secondary" onClick={() => handleNumber(7)}>
+              7
+            </Button>
+            <Button variant="secondary" onClick={() => handleNumber(8)}>
+              8
+            </Button>
+            <Button variant="secondary" onClick={() => handleNumber(9)}>
+              9
+            </Button>
+            <Button onClick={() => handleOperator('divide')}>
+              <Divide />
+            </Button>
+            <Button variant="secondary" onClick={() => handleNumber(4)}>
+              4
+            </Button>
+            <Button variant="secondary" onClick={() => handleNumber(5)}>
+              5
+            </Button>
+            <Button variant="secondary" onClick={() => handleNumber(6)}>
+              6
+            </Button>
+            <Button onClick={() => handleOperator('multiply')}>
+              <X />
+            </Button>
+            <Button variant="secondary" onClick={() => handleNumber(1)}>
+              1
+            </Button>
+            <Button variant="secondary" onClick={() => handleNumber(2)}>
+              2
+            </Button>
+            <Button variant="secondary" onClick={() => handleNumber(3)}>
+              3
+            </Button>
+            <Button onClick={() => handleOperator('subtract')}>
+              <Minus />
+            </Button>
+            <Button variant="secondary" onClick={() => handleNumber(0)}>
+              0
+            </Button>
+            <Button onClick={handleDecimal}>
+              <Dot />
+            </Button>
+            <Button onClick={handleEqual}>
+              <Equal />
+            </Button>
+            <Button onClick={() => handleOperator('add')}>
+              <Plus />
+            </Button>
+            <Button variant="destructive" onClick={handleClear} className="col-span-full">
+              <Trash2 />
+              Clear
+            </Button>
           </div>
         </div>
       </div>

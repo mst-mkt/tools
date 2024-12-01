@@ -1,14 +1,20 @@
+import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select'
 import { createFileRoute } from '@tanstack/react-router'
-import { ArrowUpDown, Download, File, Share } from 'lucide-react'
+import { ArrowUpDown, Copy, Download, File, Share } from 'lucide-react'
 import { useCallback, useMemo, useState } from 'react'
 import { match } from 'ts-pattern'
 import { z } from 'zod'
 import { Head } from '../../../components/shared/Head'
-import { FileInput } from '../../../components/ui/FileInput'
-import { IconButton } from '../../../components/ui/IconButton'
-import { Select } from '../../../components/ui/Select'
-import { TextInput } from '../../../components/ui/TextInput'
-import { Textarea } from '../../../components/ui/Textarea'
+import { FileInput } from '../../../components/ui/fileInput'
+import { Textarea } from '../../../components/ui/textarea'
 import { useCopyLink } from '../../../hooks/useCopyLocation'
 import { useInputState } from '../../../hooks/useInputState'
 import { usePromise } from '../../../hooks/usePromise'
@@ -36,8 +42,8 @@ const Base64 = () => {
     filename: initialFilename,
   } = Route.useSearch()
   const [text, onSetText, setText] = useInputState(initialText ?? '')
-  const [type, onSetType, setType] = useInputState(initialType)
-  const [input, setInput] = useInputState(initialInput)
+  const [type, setType] = useState(initialType)
+  const [input, setInput] = useState(initialInput)
   const [filename, setFilename] = useInputState(initialFilename ?? '')
   const [file, setFile] = useState<File | null>(null)
   const { copyLink } = useCopyLink(Route.id)
@@ -66,7 +72,7 @@ const Base64 = () => {
   const handleReverse = useCallback(() => {
     setType((prevType) => (prevType === 'encode' ? 'decode' : 'encode'))
     setText(awaitedConvertedText ?? '')
-  }, [setType, awaitedConvertedText, setText])
+  }, [awaitedConvertedText, setText])
 
   const handleDownload = useCallback(() => {
     if (convertedFile === null) return
@@ -83,7 +89,15 @@ const Base64 = () => {
       <Head title="Base64 converter" />
       <div className="flex flex-col gap-y-8">
         <h1 className="font-bold text-lg">Base64 converter</h1>
-        <Select value={input} onChange={setInput} options={['text', 'file']} />
+        <Select onValueChange={(value: 'text' | 'file') => setInput(value)} value={input}>
+          <SelectTrigger>
+            <SelectValue defaultValue="text" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="text">Text</SelectItem>
+            <SelectItem value="file">File</SelectItem>
+          </SelectContent>
+        </Select>
         {match({ input, type })
           .with({ input: 'file', type: 'encode' }, () => (
             <FileInput file={file} setFile={setFile} />
@@ -91,9 +105,20 @@ const Base64 = () => {
           .otherwise(() => (
             <Textarea value={text} onChange={onSetText} placeholder="Enter text to convert" />
           ))}
-        <div className="flex items-center justify-between">
-          <Select value={type} onChange={onSetType} options={['encode', 'decode']} />
-          <IconButton icon={ArrowUpDown} label="Reverse" onClick={handleReverse} />
+        <div className="flex items-center justify-between gap-x-2">
+          <Select onValueChange={(value: 'encode' | 'decode') => setType(value)} value={type}>
+            <SelectTrigger>
+              <SelectValue defaultValue="encode" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="encode">Encode</SelectItem>
+              <SelectItem value="decode">Decode</SelectItem>
+            </SelectContent>
+          </Select>
+          <Button onClick={handleReverse}>
+            <ArrowUpDown />
+            Reverse
+          </Button>
         </div>
         {match({ input, type })
           .with(
@@ -111,17 +136,16 @@ const Base64 = () => {
                     </div>
                   </div>
                   <div className="flex gap-x-2">
-                    <TextInput
+                    <Input
+                      type="text"
                       value={filename}
                       onChange={setFilename}
                       placeholder="Download as..."
                     />
-                    <IconButton
-                      icon={Download}
-                      label="Download"
-                      onClick={handleDownload}
-                      disabled={filename.trim() === ''}
-                    />
+                    <Button onClick={handleDownload} disabled={filename.trim() === ''}>
+                      <Download />
+                      Download
+                    </Button>
                   </div>
                 </div>
               ),
@@ -130,18 +154,20 @@ const Base64 = () => {
             <Textarea value={awaitedConvertedText} readOnly={true} />
           ))}
         <div className="flex gap-x-2">
-          <IconButton
-            icon={Share}
-            label="Copy link"
-            disabled={text.trim() === ''}
+          <Button
             onClick={() => copyLink({ text, type, input, filename })}
-          />
-          <IconButton
-            icon={Share}
-            label="Copy Result"
+            disabled={text.trim() === ''}
+          >
+            <Share />
+            Share Link
+          </Button>
+          <Button
             onClick={() => copy(awaitedConvertedText ?? '')}
             disabled={awaitedConvertedText?.trim() === ''}
-          />
+          >
+            <Copy />
+            Copy Result
+          </Button>
         </div>
       </div>
     </>

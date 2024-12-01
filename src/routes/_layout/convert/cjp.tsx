@@ -1,11 +1,11 @@
+import { Button } from '@/components/ui/button'
 import { createFileRoute } from '@tanstack/react-router'
 import { generate } from 'cjp'
 import { Copy, Share } from 'lucide-react'
 import { useMemo } from 'react'
 import { z } from 'zod'
 import { Head } from '../../../components/shared/Head'
-import { IconButton } from '../../../components/ui/IconButton'
-import { Textarea } from '../../../components/ui/Textarea'
+import { Textarea } from '../../../components/ui/textarea'
 import { useCopyLink } from '../../../hooks/useCopyLocation'
 import { useInputState } from '../../../hooks/useInputState'
 import { copy } from '../../../utils/clipboard/copy'
@@ -51,18 +51,14 @@ const Cjp = () => {
         </div>
       </div>
       <div className="flex gap-x-2">
-        <IconButton
-          icon={Share}
-          label="Share Link"
-          onClick={() => copyLink({ text })}
-          disabled={text.trim() === ''}
-        />
-        <IconButton
-          icon={Copy}
-          label="Copy Result"
-          onClick={() => copy(cjpText)}
-          disabled={cjpText.trim() === ''}
-        />
+        <Button onClick={() => copyLink({ text })} disabled={text.trim() === ''}>
+          <Share />
+          Share Link
+        </Button>
+        <Button onClick={() => copy(cjpText)} disabled={cjpText.trim() === ''}>
+          <Copy />
+          Copy Result
+        </Button>
       </div>
     </>
   )

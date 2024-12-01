@@ -1,11 +1,11 @@
+import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
+import { Textarea } from '@/components/ui/textarea'
 import { createFileRoute } from '@tanstack/react-router'
 import { ArrowRightLeft, Copy, Share } from 'lucide-react'
 import { useCallback, useMemo } from 'react'
 import { z } from 'zod'
 import { Head } from '../../../components/shared/Head'
-import { IconButton } from '../../../components/ui/IconButton'
-import { NumberInput } from '../../../components/ui/NumberInput'
-import { Textarea } from '../../../components/ui/Textarea'
 import { useCopyLink } from '../../../hooks/useCopyLocation'
 import { useInputState } from '../../../hooks/useInputState'
 import { copy } from '../../../utils/clipboard/copy'
@@ -58,7 +58,7 @@ const Radix = () => {
         <div className="flex flex-col gap-y-2">
           <div className="flex items-center justify-between gap-x-2">
             <h2 className="grow font-bold">変換前</h2>
-            <NumberInput
+            <Input
               value={fromRadix}
               onChange={onSetFromRadix}
               min={1}
@@ -75,13 +75,16 @@ const Radix = () => {
             aria-label="変換する数値を入力"
           />
         </div>
-        <div className="justify- flex gap-x-4">
-          <IconButton icon={ArrowRightLeft} label="基数を交換" onClick={handlerReverse} />
+        <div className="flex gap-x-4">
+          <Button onClick={handlerReverse}>
+            <ArrowRightLeft />
+            基数を交換
+          </Button>
         </div>
         <div className="flex flex-col gap-y-2">
           <div className="flex items-center justify-between gap-x-2">
             <h2 className="grow font-bold">変換後</h2>
-            <NumberInput
+            <Input
               value={toRadix}
               onChange={onSetToRadix}
               min={1}
@@ -99,18 +102,17 @@ const Radix = () => {
           />
         </div>
         <div className="flex gap-x-2">
-          <IconButton
+          <Button
             onClick={() => copyLink({ number, fromRadix, toRadix })}
-            icon={Share}
-            label="Share Link"
             disabled={convertedNumber === ''}
-          />
-          <IconButton
-            onClick={() => copy(convertedNumber)}
-            icon={Copy}
-            label="Copy Result"
-            disabled={convertedNumber === ''}
-          />
+          >
+            <Share />
+            Share Link
+          </Button>
+          <Button onClick={() => copy(convertedNumber)} disabled={convertedNumber === ''}>
+            <Copy />
+            Copy Result
+          </Button>
         </div>
       </div>
     </>

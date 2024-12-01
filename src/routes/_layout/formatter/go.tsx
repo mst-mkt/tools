@@ -1,3 +1,5 @@
+import { Button } from '@/components/ui/button'
+import { Textarea } from '@/components/ui/textarea'
 import { createFileRoute } from '@tanstack/react-router'
 import init, { format } from '@wasm-fmt/gofmt/vite'
 import { Copy, Share } from 'lucide-react'
@@ -5,8 +7,6 @@ import { useMemo } from 'react'
 import { z } from 'zod'
 import { Code } from '../../../components/shared/Code'
 import { Head } from '../../../components/shared/Head'
-import { IconButton } from '../../../components/ui/IconButton'
-import { Textarea } from '../../../components/ui/Textarea'
 import { useCopyLink } from '../../../hooks/useCopyLocation'
 import { useInputState } from '../../../hooks/useInputState'
 import { copy } from '../../../utils/clipboard/copy'
@@ -47,18 +47,14 @@ const Go = () => {
           <Code lang="go" code={formattedCode} />
         </div>
         <div className="flex gap-x-2">
-          <IconButton
-            icon={Share}
-            onClick={() => copyLink({ code })}
-            label="Copy link"
-            disabled={code.trim() === ''}
-          />
-          <IconButton
-            icon={Copy}
-            onClick={() => copy(formattedCode)}
-            label="Copy formatted code"
-            disabled={code.trim() === ''}
-          />
+          <Button onClick={() => copyLink({ code })} disabled={code.trim() === ''}>
+            <Share />
+            Share Link
+          </Button>
+          <Button onClick={() => copy(formattedCode)} disabled={code.trim() === ''}>
+            <Copy />
+            Copy Result
+          </Button>
         </div>
       </div>
     </>

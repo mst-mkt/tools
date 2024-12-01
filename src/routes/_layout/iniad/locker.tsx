@@ -1,12 +1,11 @@
+import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
+import { Label } from '@/components/ui/label'
+import { Textarea } from '@/components/ui/textarea'
 import { createFileRoute } from '@tanstack/react-router'
-import clsx from 'clsx'
 import { Loader, LockOpen, Save, Share } from 'lucide-react'
 import { useCallback, useState } from 'react'
 import { Head } from '../../../components/shared/Head'
-import { IconButton } from '../../../components/ui/IconButton'
-import { PasswordInput } from '../../../components/ui/PasswordInput'
-import { TextInput } from '../../../components/ui/TextInput'
-import { Textarea } from '../../../components/ui/Textarea'
 import { EDU_IOT_API_ENDPOINT } from '../../../constants/api/iniad'
 import { useCopyLink } from '../../../hooks/useCopyLocation'
 import { useInputState } from '../../../hooks/useInputState'
@@ -56,39 +55,36 @@ const LockerOpener = () => {
       <div className="flex flex-col gap-y-8">
         <h1 className="font-bold text-lg">INIAD Locker Opener</h1>
         <div>
-          {/* biome-ignore lint/a11y/noLabelWithoutControl: this label has input element as component */}
-          <label className="flex flex-col gap-y-2">
-            <span className="w-full text-sm">ID</span>
-            <TextInput value={id} onChange={onSetId} placeholder="ex: s1f102X0XXX" />
-          </label>
+          <Label>
+            <span>ID</span>
+            <Input value={id} onChange={onSetId} placeholder="ex: s1f102X0XXX" />
+          </Label>
         </div>
         <div>
-          {/* biome-ignore lint/a11y/noLabelWithoutControl: this label has input element as component */}
-          <label className="flex flex-col gap-y-2">
-            <span className="w-full text-sm">Password</span>
-            <PasswordInput value={password} onChange={onSetPassword} />
-          </label>
+          <Label>
+            <span>Password</span>
+            <Input type="password" value={password} onChange={onSetPassword} />
+          </Label>
         </div>
         <div className="flex justify-between">
-          <IconButton
-            icon={isLoading ? Loader : LockOpen}
-            label="Open"
-            className="bg-accent-300 transition-colors hover:bg-accent-500"
-            iconClassName={clsx(isLoading && 'animate-spin')}
-            onClick={handleOpenLocker}
-          />
-          <IconButton
-            icon={Save}
-            label="Save ID and password"
-            onClick={() => setAuth({ id, password })}
-          />
+          <Button type="button" onClick={handleOpenLocker} disabled={isLoading}>
+            {isLoading ? <Loader className="animate-spin" /> : <LockOpen />}
+            Open
+          </Button>
+          <Button type="button" onClick={() => setAuth({ id, password })}>
+            <Save />
+            Save
+          </Button>
         </div>
         {error !== null && <p className="text-red-500">{error}</p>}
         {result !== null && (
           <>
             <h2 className="font-bold">Result</h2>
             <Textarea value={JSON.stringify(result, null, 2)} readOnly={true} />
-            <IconButton icon={Share} label="Copy link" onClick={() => copyLink({})} />
+            <Button onClick={() => copyLink({})}>
+              <Share />
+              Copy Link
+            </Button>
           </>
         )}
       </div>

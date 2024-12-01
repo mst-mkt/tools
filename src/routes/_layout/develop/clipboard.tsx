@@ -1,9 +1,9 @@
+import { Textarea } from '@/components/ui/textarea'
 import { createFileRoute } from '@tanstack/react-router'
 import init, { format } from '@wasm-fmt/web_fmt/vite'
 import { type ClipboardEvent, type KeyboardEvent, useEffect, useState } from 'react'
 import { P, match } from 'ts-pattern'
 import { Head } from '../../../components/shared/Head'
-import { Textarea } from '../../../components/ui/Textarea'
 
 export const Route = createFileRoute('/_layout/develop/clipboard')({
   component: () => <ClipboardChecker />,

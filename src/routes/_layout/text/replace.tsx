@@ -1,11 +1,11 @@
+import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
+import { Textarea } from '@/components/ui/textarea'
 import { createFileRoute } from '@tanstack/react-router'
-import { Copy, Plus, Share, Trash } from 'lucide-react'
+import { Copy, Plus, Share, Trash2 } from 'lucide-react'
 import { useMemo, useState } from 'react'
 import { z } from 'zod'
 import { Head } from '../../../components/shared/Head'
-import { IconButton } from '../../../components/ui/IconButton'
-import { TextInput } from '../../../components/ui/TextInput'
-import { Textarea } from '../../../components/ui/Textarea'
 import { useCopyLink } from '../../../hooks/useCopyLocation'
 import { useInputState } from '../../../hooks/useInputState'
 import { copy } from '../../../utils/clipboard/copy'
@@ -67,33 +67,34 @@ const Replacer = () => {
             {rules.map((rule, index) => (
               // biome-ignore lint/suspicious/noArrayIndexKey: This is a list of rules, and the index is used as a key
               <div key={index} className="flex gap-x-2">
-                <TextInput
+                <Input
+                  type="text"
                   value={rule.from}
                   placeholder="from"
                   aria-label="from"
                   onInput={(e) => handleRuleInput(e.currentTarget.value, index, 'from')}
                 />
-                <TextInput
+                <Input
+                  type="text"
                   value={rule.to}
                   placeholder="to"
                   aria-label="to"
                   onInput={(e) => handleRuleInput(e.currentTarget.value, index, 'to')}
                 />
-                <IconButton
-                  icon={Trash}
+                <Button
+                  variant="destructive"
                   aria-label="Delete Rule"
-                  className="bg-red-500 text-black hover:bg-red-600"
                   onClick={() => handleRuleDelete(index)}
-                />
+                >
+                  <Trash2 />
+                </Button>
               </div>
             ))}
           </div>
-          <IconButton
-            icon={Plus}
-            label="Add Rule"
-            onClick={() => setRules((rules) => [...rules, { from: '', to: '' }])}
-            className="bg-accent-200 hover:bg-accent-300"
-          />
+          <Button onClick={() => setRules((rules) => [...rules, { from: '', to: '' }])}>
+            <Plus />
+            Add Rule
+          </Button>
           <Textarea
             value={replacedText}
             readOnly={true}
@@ -102,9 +103,7 @@ const Replacer = () => {
           />
         </div>
         <div className="flex gap-x-2">
-          <IconButton
-            icon={Share}
-            label="Share Link"
+          <Button
             onClick={() =>
               copyLink({
                 text,
@@ -114,8 +113,14 @@ const Replacer = () => {
             disabled={
               text.length === 0 || rules.every((rule) => rule.from.length + rule.to.length <= 0)
             }
-          />
-          <IconButton icon={Copy} label="Copy Result" onClick={() => copy(replacedText)} />
+          >
+            <Share />
+            Share Link
+          </Button>
+          <Button onClick={() => copy(replacedText)}>
+            <Copy />
+            Copy Result
+          </Button>
         </div>
       </div>
     </>

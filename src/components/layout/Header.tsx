@@ -2,7 +2,7 @@ import { Link } from '@tanstack/react-router'
 import { Sun } from 'lucide-react'
 import { PROJECT_NAME } from '../../constants/project'
 import { useTheme } from '../../hooks/useTheme'
-import { IconButton } from '../ui/IconButton'
+import { Button } from '../ui/button'
 
 export const Header = () => {
   const { toggleTheme } = useTheme()
@@ -13,12 +13,9 @@ export const Header = () => {
         <Link to="/" className="transition-colors hover:text-accent-400">
           {PROJECT_NAME}
         </Link>
-        <IconButton
-          icon={Sun}
-          onClick={toggleTheme}
-          className="bg-transparent"
-          aria-label="toggle theme"
-        />
+        <Button variant="ghost" onClick={toggleTheme} aria-label="toggle theme">
+          <Sun />
+        </Button>
       </div>
     </header>
   )
