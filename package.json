@@ -13,6 +13,7 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@radix-ui/react-slot": "^1.1.0",
     "@tanstack/react-router": "^1.74.4",
     "@tanstack/router-devtools": "^1.74.4",
     "@wasm-fmt/clang-format": "^18.1.8",
