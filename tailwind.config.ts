@@ -3,55 +3,58 @@ import forms from '@tailwindcss/forms'
 import typography from '@tailwindcss/typography'
 import scrollbar from 'tailwind-scrollbar'
 import type { Config } from 'tailwindcss'
+import animate from 'tailwindcss-animate'
 
 const config = {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
-  darkMode: 'class',
+  darkMode: ['class'],
   theme: {
     extend: {
       spacing: {
-        "max-content": "var(--content-max-width)",
+        'max-content': 'var(--content-max-width)',
       },
       colors: {
-        background: {
-          DEFAULT: "oklch(var(--background))",
-          50: "color-mix(in srgb, oklch(var(--background)), oklch(var(--foreground)) 5%)",
-          100: "color-mix(in srgb, oklch(var(--background)), oklch(var(--foreground)) 10%)",
-          200: "color-mix(in srgb, oklch(var(--background)), oklch(var(--foreground)) 20%)",
-          300: "color-mix(in srgb, oklch(var(--background)), oklch(var(--foreground)) 30%)",
-          400: "color-mix(in srgb, oklch(var(--background)), oklch(var(--foreground)) 40%)",
-          500: "color-mix(in srgb, oklch(var(--background)), oklch(var(--foreground)) 50%)",
-          600: "color-mix(in srgb, oklch(var(--background)), oklch(var(--foreground)) 60%)",
-          700: "color-mix(in srgb, oklch(var(--background)), oklch(var(--foreground)) 70%)",
-          800: "color-mix(in srgb, oklch(var(--background)), oklch(var(--foreground)) 80%)",
-          900: "color-mix(in srgb, oklch(var(--background)), oklch(var(--foreground)) 90%)",
+        background: 'hsl(var(--background))',
+        foreground: 'hsl(var(--foreground))',
+        card: {
+          DEFAULT: 'hsl(var(--card))',
+          foreground: 'hsl(var(--card-foreground))',
         },
-        foreground: {
-          DEFAULT: "oklch(var(--foreground))",
-          50: "color-mix(in srgb, oklch(var(--foreground)), oklch(var(--background)) 5%)",
-          100: "color-mix(in srgb, oklch(var(--foreground)), oklch(var(--background)) 10%)",
-          200: "color-mix(in srgb, oklch(var(--foreground)), oklch(var(--background)) 20%)",
-          300: "color-mix(in srgb, oklch(var(--foreground)), oklch(var(--background)) 30%)",
-          400: "color-mix(in srgb, oklch(var(--foreground)), oklch(var(--background)) 40%)",
-          500: "color-mix(in srgb, oklch(var(--foreground)), oklch(var(--background)) 50%)",
-          600: "color-mix(in srgb, oklch(var(--foreground)), oklch(var(--background)) 60%)",
-          700: "color-mix(in srgb, oklch(var(--foreground)), oklch(var(--background)) 70%)",
-          800: "color-mix(in srgb, oklch(var(--foreground)), oklch(var(--background)) 80%)",
-          900: "color-mix(in srgb, oklch(var(--foreground)), oklch(var(--background)) 90%)",
+        popover: {
+          DEFAULT: 'hsl(var(--popover))',
+          foreground: 'hsl(var(--popover-foreground))',
         },
-        accent: {
-          DEFAULT: "oklch(var(--accent))",
-          50: "color-mix(in srgb, oklch(var(--accent)), oklch(var(--background)) 70%)",
-          100: "color-mix(in srgb, oklch(var(--accent)), oklch(var(--background)) 50%)",
-          200: "color-mix(in srgb, oklch(var(--accent)), oklch(var(--background)) 30%)",
-          300: "color-mix(in srgb, oklch(var(--accent)), oklch(var(--background)) 10%)",
-          400: "color-mix(in srgb, oklch(var(--accent)), oklch(var(--background)) 5%)",
-          500: "oklch(var(--accent))",
-          600: "color-mix(in srgb, oklch(var(--accent)), oklch(var(--foreground)) 10%)",
-          700: "color-mix(in srgb, oklch(var(--accent)), oklch(var(--foreground)) 30%)",
-          800: "color-mix(in srgb, oklch(var(--accent)), oklch(var(--foreground)) 50%)",
-          900: "color-mix(in srgb, oklch(var(--accent)), oklch(var(--foreground)) 70%)",
+        primary: {
+          DEFAULT: 'hsl(var(--primary))',
+          foreground: 'hsl(var(--primary-foreground))',
         },
+        secondary: {
+          DEFAULT: 'hsl(var(--secondary))',
+          foreground: 'hsl(var(--secondary-foreground))',
+        },
+        muted: {
+          DEFAULT: 'hsl(var(--muted))',
+          foreground: 'hsl(var(--muted-foreground))',
+        },
+        destructive: {
+          DEFAULT: 'hsl(var(--destructive))',
+          foreground: 'hsl(var(--destructive-foreground))',
+        },
+        border: 'hsl(var(--border))',
+        input: 'hsl(var(--input))',
+        ring: 'hsl(var(--ring))',
+        chart: {
+          '1': 'hsl(var(--chart-1))',
+          '2': 'hsl(var(--chart-2))',
+          '3': 'hsl(var(--chart-3))',
+          '4': 'hsl(var(--chart-4))',
+          '5': 'hsl(var(--chart-5))',
+        },
+      },
+      borderRadius: {
+        lg: 'var(--radius)',
+        md: 'calc(var(--radius) - 2px)',
+        sm: 'calc(var(--radius) - 4px)',
       },
     },
   },
@@ -60,6 +63,7 @@ const config = {
     typography,
     forms({ strategy: 'class' }),
     aspectRatio,
+    animate,
   ],
 } satisfies Config
 
