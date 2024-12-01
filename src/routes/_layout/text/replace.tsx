@@ -1,6 +1,7 @@
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
+import { type ReplaceRule, createEmptyRules, replaceText, updateRule } from '@/utils/text/replace'
 import { createFileRoute } from '@tanstack/react-router'
 import { Copy, Plus, Share, Trash2 } from 'lucide-react'
 import { useMemo, useState } from 'react'
@@ -23,8 +24,6 @@ const searchParamsValidator = z.object({
     .optional(),
 })
 
-type Rule = NonNullable<z.infer<typeof searchParamsValidator>['rules']>[number]
-
 export const Route = createFileRoute('/_layout/text/replace')({
   validateSearch: (search) => searchParamsValidator.parse(search),
   component: () => <Replacer />,
@@ -34,20 +33,12 @@ const Replacer = () => {
   const { text: initialText, rules: initialRules } = Route.useSearch()
   const { copyLink } = useCopyLink(Route.id)
   const [text, setText] = useInputState(initialText ?? '')
-  const [rules, setRules] = useState<Rule[]>(
-    initialRules ?? [...Array(3)].map(() => ({ from: '', to: '' })),
-  )
+  const [rules, setRules] = useState<ReplaceRule[]>(initialRules ?? createEmptyRules(3))
 
-  const replacedText = useMemo(() => {
-    return rules.reduce((acc, rule) => acc.replaceAll(rule.from, rule.to), text)
-  }, [rules, text])
-
-  const handleRuleInput = (value: string, index: number, key: keyof Rule) => {
-    setRules((rules) => rules.map((rule, i) => (i === index ? { ...rule, [key]: value } : rule)))
-  }
+  const replacedText = useMemo(() => replaceText(text, rules), [rules, text])
 
   const handleRuleDelete = (index: number) => {
-    if (rules.length === 1) return setRules([{ from: '', to: '' }])
+    if (rules.length === 1) return setRules(createEmptyRules(1))
     setRules((rules) => rules.filter((_, i) => i !== index))
   }
 
@@ -72,14 +63,14 @@ const Replacer = () => {
                   value={rule.from}
                   placeholder="from"
                   aria-label="from"
-                  onInput={(e) => handleRuleInput(e.currentTarget.value, index, 'from')}
+                  onInput={(e) => updateRule(rules, index, 'from', e.currentTarget.value)}
                 />
                 <Input
                   type="text"
                   value={rule.to}
                   placeholder="to"
                   aria-label="to"
-                  onInput={(e) => handleRuleInput(e.currentTarget.value, index, 'to')}
+                  onInput={(e) => updateRule(rules, index, 'to', e.currentTarget.value)}
                 />
                 <Button
                   variant="destructive"
@@ -91,7 +82,7 @@ const Replacer = () => {
               </div>
             ))}
           </div>
-          <Button onClick={() => setRules((rules) => [...rules, { from: '', to: '' }])}>
+          <Button onClick={() => setRules((rules) => [...rules, ...createEmptyRules(1)])}>
             <Plus />
             Add Rule
           </Button>

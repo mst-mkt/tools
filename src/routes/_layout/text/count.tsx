@@ -1,10 +1,10 @@
 import { Button } from '@/components/ui/button'
 import { Table, TableBody, TableCell, TableRow } from '@/components/ui/table'
 import { Textarea } from '@/components/ui/textarea'
+import { count } from '@/utils/text/count'
 import { createFileRoute } from '@tanstack/react-router'
 import { Copy, Share } from 'lucide-react'
-import { type JSX, useCallback, useMemo } from 'react'
-import twitterText from 'twitter-text'
+import { type JSX, useMemo } from 'react'
 import { z } from 'zod'
 import { Head } from '../../../components/shared/Head'
 import { useCopyLink } from '../../../hooks/useCopyLocation'
@@ -25,30 +25,7 @@ const Counter = () => {
   const { copyLink } = useCopyLink(Route.id)
   const [text, setText] = useInputState(initialText ?? '')
 
-  const countWithIntlSegmenter = useCallback(
-    (text: string, granularity: 'grapheme' | 'word' | 'sentence') => {
-      const segmenter = new Intl.Segmenter('ja', { granularity })
-      const segments = segmenter.segment(text)
-      return [...segments].length
-    },
-    [],
-  )
-
-  const textLengths = useMemo(
-    () => ({
-      characters: countWithIntlSegmenter(text, 'grapheme'),
-      charactersWithoutSpaces: countWithIntlSegmenter(text.replace(/\s/g, ''), 'grapheme'),
-      charactersForTwitter: twitterText.getTweetLength(text) / 2,
-      words: countWithIntlSegmenter(text, 'word'),
-      lines: text.split('\n').length,
-      linesWithoutEmpty: text.split('\n').filter((line) => line.trim() !== '').length,
-      sentences: countWithIntlSegmenter(text, 'sentence'),
-      stringLength: text.length,
-      stringLengthWithoutSpeces: text.replace(/\s/g, '').length,
-      bytes: new TextEncoder().encode(text).length,
-    }),
-    [countWithIntlSegmenter, text],
-  )
+  const textLengths = useMemo(() => count(text), [text])
 
   const labels = useMemo<Record<string, string>>(
     () => ({

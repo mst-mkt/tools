@@ -1,6 +1,7 @@
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
+import { convertRadix } from '@/utils/math/radix'
 import { createFileRoute } from '@tanstack/react-router'
 import { ArrowRightLeft, Copy, Share } from 'lucide-react'
 import { useCallback, useMemo } from 'react'
@@ -20,14 +21,6 @@ export const Route = createFileRoute('/_layout/math/radix')({
   validateSearch: (search) => searchParamsValidator.parse(search),
   component: () => <Radix />,
 })
-
-const convertRadix = (number: string, fromRadix: number, toRadix: number) => {
-  try {
-    return Number.parseInt(number, fromRadix).toString(toRadix)
-  } catch {
-    return ''
-  }
-}
 
 const Radix = () => {
   const {

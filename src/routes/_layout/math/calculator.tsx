@@ -1,21 +1,10 @@
 import { Button } from '@/components/ui/button'
+import { type CalcOperator, calculateOperation } from '@/utils/math/calculator'
 import { createFileRoute } from '@tanstack/react-router'
 import { Divide, Dot, Equal, Minus, Plus, Trash2, X } from 'lucide-react'
 import { type MathJsChain, chain } from 'mathjs'
 import { useState } from 'react'
-import { match } from 'ts-pattern'
 import { Head } from '../../../components/shared/Head'
-
-type Operator = 'add' | 'subtract' | 'multiply' | 'divide'
-
-const operation = (operator: Operator, chain: MathJsChain<number>, input: number) => {
-  return match(operator)
-    .with('add', () => chain.add(input))
-    .with('subtract', () => chain.subtract(input))
-    .with('multiply', () => chain.multiply(input))
-    .with('divide', () => chain.divide(input))
-    .exhaustive()
-}
 
 export const Route = createFileRoute('/_layout/math/calculator')({
   component: () => <Calculator />,
@@ -23,7 +12,7 @@ export const Route = createFileRoute('/_layout/math/calculator')({
 
 const Calculator = () => {
   const [formula, setFormula] = useState<MathJsChain<number>>(chain(0))
-  const [lastOperator, setLastOperator] = useState<Operator>('add')
+  const [lastOperator, setLastOperator] = useState<CalcOperator>('add')
   const [input, setInput] = useState<string>()
 
   const handleNumber = (number: number) => {
@@ -31,9 +20,9 @@ const Calculator = () => {
     setInput((prev) => `${prev}${number}`)
   }
 
-  const handleOperator = (operator: Operator) => {
+  const handleOperator = (operator: CalcOperator) => {
     if (input === undefined) return
-    setFormula((prev) => operation(lastOperator, prev, Number.parseFloat(input)))
+    setFormula((prev) => calculateOperation(lastOperator, prev, Number.parseFloat(input)))
     setInput(undefined)
     setLastOperator(operator)
   }
@@ -47,7 +36,7 @@ const Calculator = () => {
 
   const handleEqual = () => {
     if (input === undefined) return
-    setFormula((prev) => operation(lastOperator, prev, Number.parseFloat(input)))
+    setFormula((prev) => calculateOperation(lastOperator, prev, Number.parseFloat(input)))
     setInput(undefined)
     setLastOperator('add')
   }
