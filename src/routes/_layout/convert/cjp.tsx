@@ -1,6 +1,6 @@
-import { IconCopy, IconShare } from '@tabler/icons-react'
 import { createFileRoute } from '@tanstack/react-router'
 import { generate } from 'cjp'
+import { Copy, Share } from 'lucide-react'
 import { useMemo } from 'react'
 import { z } from 'zod'
 import { Head } from '../../../components/shared/Head'
@@ -52,13 +52,13 @@ const Cjp = () => {
       </div>
       <div className="flex gap-x-2">
         <IconButton
-          icon={IconShare}
+          icon={Share}
           label="Share Link"
           onClick={() => copyLink({ text })}
           disabled={text.trim() === ''}
         />
         <IconButton
-          icon={IconCopy}
+          icon={Copy}
           label="Copy Result"
           onClick={() => copy(cjpText)}
           disabled={cjpText.trim() === ''}

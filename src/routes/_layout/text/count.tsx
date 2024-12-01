@@ -1,5 +1,5 @@
-import { IconCopy, IconShare } from '@tabler/icons-react'
 import { createFileRoute } from '@tanstack/react-router'
+import { Copy, Share } from 'lucide-react'
 import { type JSX, useCallback, useMemo } from 'react'
 import twitterText from 'twitter-text'
 import { z } from 'zod'
@@ -115,12 +115,12 @@ const Counter = () => {
         </div>
         <div className="flex gap-x-2">
           <IconButton
-            icon={IconShare}
+            icon={Share}
             label="Share Link"
             onClick={() => copyLink({ text })}
             disabled={text.length === 0}
           />
-          <IconButton icon={IconCopy} label="Copy Result" onClick={() => copy(...copyData)} />
+          <IconButton icon={Copy} label="Copy Result" onClick={() => copy(...copyData)} />
         </div>
       </div>
     </>

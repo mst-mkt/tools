@@ -1,5 +1,5 @@
-import { IconEye, IconEyeOff } from '@tabler/icons-react'
 import { clsx } from 'clsx'
+import { Eye, EyeOff } from 'lucide-react'
 import { type FC, type InputHTMLAttributes, useState } from 'react'
 import { twMerge } from 'tailwind-merge'
 import { IconButton } from './IconButton'
@@ -23,7 +23,7 @@ export const PasswordInput: FC<PasswordInputProps> = (props) => {
         )}
       />
       <IconButton
-        icon={showPassword ? IconEye : IconEyeOff}
+        icon={showPassword ? Eye : EyeOff}
         onClick={() => setShowPassword((prev) => !prev)}
       />
     </div>

@@ -1,15 +1,9 @@
-import {
-  type Icon,
-  IconBrandGithub,
-  IconBrandTwitter,
-  IconBrandX,
-  IconLink,
-} from '@tabler/icons-react'
+import { Github, Link, type LucideIcon, X } from 'lucide-react'
 import { match } from 'ts-pattern'
 import { PROJECT_AUTHOR, PROJECT_LINKS, PROJECT_NAME } from '../../constants/project'
 
 type UrlInfo = {
-  icon: Icon
+  icon: LucideIcon
   label: string
   url: string
 }
@@ -19,17 +13,17 @@ const getLinkIcon = (url: string) => {
     .returnType<UrlInfo>()
     .when(
       (url) => url.startsWith('https://github.com/'),
-      (url) => ({ icon: IconBrandGithub, label: 'GitHub', url }),
+      (url) => ({ icon: Github, label: 'GitHub', url }),
     )
     .when(
       (url) => url.startsWith('https://x.com/'),
-      (url) => ({ icon: IconBrandX, label: 'X', url }),
+      (url) => ({ icon: X, label: 'X', url }),
     )
     .when(
       (url) => url.startsWith('https://twitter.com/'),
-      (url) => ({ icon: IconBrandTwitter, label: 'Twitter', url }),
+      (url) => ({ icon: X, label: 'Twitter', url }),
     )
-    .otherwise((url) => ({ icon: IconLink, label: url, url }))
+    .otherwise((url) => ({ icon: Link, label: url, url }))
 }
 
 export const Footer = () => (

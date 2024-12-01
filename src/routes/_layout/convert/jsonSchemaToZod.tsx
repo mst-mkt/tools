@@ -1,7 +1,7 @@
-import { IconCode, IconCopy, IconShare } from '@tabler/icons-react'
 import { createFileRoute } from '@tanstack/react-router'
 import init, { format } from '@wasm-fmt/web_fmt/vite'
 import jsonSchemaToZod from 'json-schema-to-zod'
+import { Code as CodeIcon, Copy, Share } from 'lucide-react'
 import { useCallback, useEffect, useMemo } from 'react'
 import { z } from 'zod'
 import { Code } from '../../../components/shared/Code'
@@ -88,13 +88,13 @@ const JsonSchemaToZod = () => {
           />
         </div>
         <Textarea value={text} onChange={onSetText} placeholder="Paste JSON Schema here" />
-        <IconButton icon={IconCode} label="Format JSON Schema" onClick={handleFormat} />
+        <IconButton icon={CodeIcon} label="Format JSON Schema" onClick={handleFormat} />
         <div className="scrollbar-thin scrollbar-thumb-background-200 scrollbar-thumb-rounded-full scrollbar-track-transparent overflow-y-hidden overflow-x-scroll rounded-md border border-background-100 p-4 text-sm">
           <Code code={convertedCode} />
         </div>
         <div className="flex gap-x-2">
           <IconButton
-            icon={IconShare}
+            icon={Share}
             label="Share Link"
             onClick={() =>
               copyLink({
@@ -106,7 +106,7 @@ const JsonSchemaToZod = () => {
             disabled={text.trim() === ''}
           />
           <IconButton
-            icon={IconCopy}
+            icon={Copy}
             label="Copy Result"
             onClick={() => copy(convertedCode)}
             disabled={convertedCode.trim() === ''}

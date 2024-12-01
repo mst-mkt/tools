@@ -1,4 +1,4 @@
-import { IconLoader2 } from '@tabler/icons-react'
+import { Loader2 } from 'lucide-react'
 import { type FC, useEffect, useMemo, useState } from 'react'
 import { type Highlighter, createHighlighter } from 'shiki'
 import { useTheme } from '../../hooks/useTheme'
@@ -41,7 +41,7 @@ export const Code: FC<CodeProps> = ({ code, lang = 'ts' }) => {
   if (html == null) {
     return (
       <div className="flex w-full items-center justify-center">
-        <IconLoader2 className="animate-spin text-accent" />
+        <Loader2 className="animate-spin text-accent" />
       </div>
     )
   }

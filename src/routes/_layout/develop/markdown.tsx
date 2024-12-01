@@ -1,5 +1,5 @@
-import { IconShare } from '@tabler/icons-react'
 import { createFileRoute } from '@tanstack/react-router'
+import { Share } from 'lucide-react'
 import Markdown from 'react-markdown'
 import rehypeKatex from 'rehype-katex'
 import remarkGfm from 'remark-gfm'
@@ -38,7 +38,7 @@ const MarkdownPreview = () => {
         </div>
         <div className="flex gap-x-2">
           <IconButton
-            icon={IconShare}
+            icon={Share}
             onClick={() => copyLink({ text })}
             label="Share Link"
             disabled={text.trim() === ''}

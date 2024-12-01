@@ -1,5 +1,5 @@
-import { IconCopy } from '@tabler/icons-react'
 import { createFileRoute } from '@tanstack/react-router'
+import { Copy } from 'lucide-react'
 import { type JSX, useMemo, useState } from 'react'
 import { Head } from '../../../components/shared/Head'
 import { IconButton } from '../../../components/ui/IconButton'
@@ -94,7 +94,7 @@ const KeyEvent = () => {
         </div>
         <div className="flex gap-x-2">
           <IconButton
-            icon={IconCopy}
+            icon={Copy}
             label="Copy Result"
             onClick={() => copyData !== null && copy(...copyData)}
             disabled={copyData === null}

@@ -1,4 +1,4 @@
-import { type Icon, IconFiles } from '@tabler/icons-react'
+import { File, type LucideIcon } from 'lucide-react'
 import {
   type ChangeEvent,
   type Dispatch,
@@ -12,14 +12,14 @@ import { twMerge } from 'tailwind-merge'
 type FileInputProps = InputHTMLAttributes<HTMLInputElement> & {
   file: File | null
   setFile: Dispatch<SetStateAction<File | null>>
-  icon?: Icon
+  icon?: LucideIcon
 }
 
 export const FileInput: FC<FileInputProps> = ({
   file,
   setFile,
   className,
-  icon: Icon = IconFiles,
+  icon: Icon = File,
   ...props
 }) => {
   const handleChange = useCallback(

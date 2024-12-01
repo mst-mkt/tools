@@ -1,6 +1,6 @@
-import { IconCopy, IconDownload, IconShare } from '@tabler/icons-react'
 import { createFileRoute } from '@tanstack/react-router'
 import { clsx } from 'clsx'
+import { Copy, Download, Share } from 'lucide-react'
 import { useCallback, useMemo } from 'react'
 import { encode, renderANSI, renderSVG, renderUnicode, renderUnicodeCompact } from 'uqr'
 import { z } from 'zod'
@@ -110,13 +110,13 @@ const QrCode = () => {
         </div>
         <div className="flex flex-wrap gap-2">
           <IconButton
-            icon={IconDownload}
+            icon={Download}
             label="Download as PNG"
             disabled={text.trim() === ''}
             onClick={downloadAsImage}
           />
           <IconButton
-            icon={IconDownload}
+            icon={Download}
             label="Download as SVG"
             disabled={text.trim() === ''}
             onClick={downloadAsSvg}
@@ -124,25 +124,25 @@ const QrCode = () => {
         </div>
         <div className="flex flex-wrap gap-2">
           <IconButton
-            icon={IconCopy}
+            icon={Copy}
             label="Copy as Text"
             disabled={text.trim() === ''}
             onClick={() => copy(renderUnicode(text))}
           />
           <IconButton
-            icon={IconCopy}
+            icon={Copy}
             label="Copy as Text(Compact)"
             disabled={text.trim() === ''}
             onClick={() => copy(renderUnicodeCompact(text))}
           />
           <IconButton
-            icon={IconCopy}
+            icon={Copy}
             label="Copy as ANSI"
             disabled={text.trim() === ''}
             onClick={() => copy(renderANSI(text))}
           />
           <IconButton
-            icon={IconCopy}
+            icon={Copy}
             label="Copy as Image"
             disabled={text.trim() === ''}
             onClick={copyAsImage}
@@ -150,7 +150,7 @@ const QrCode = () => {
         </div>
         <div className="flex gap-x-2">
           <IconButton
-            icon={IconShare}
+            icon={Share}
             label="Share Link"
             onClick={() => copyLink({ text })}
             disabled={text.trim() === ''}

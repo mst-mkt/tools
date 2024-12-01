@@ -1,5 +1,5 @@
-import { IconChevronDown } from '@tabler/icons-react'
 import { clsx } from 'clsx'
+import { ChevronDown } from 'lucide-react'
 import { type FC, type JSX, useMemo } from 'react'
 import { twMerge } from 'tailwind-merge'
 
@@ -42,7 +42,7 @@ export const Select: FC<SelectProps> = ({
         ))}
       </select>
       <div className="pointer-events-none absolute right-2">
-        <IconChevronDown size={20} role="presentation" focusable={false} aria-hidden={true} />
+        <ChevronDown size={20} role="presentation" focusable={false} aria-hidden={true} />
       </div>
     </div>
   )

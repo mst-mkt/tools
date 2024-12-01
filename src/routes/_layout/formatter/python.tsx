@@ -1,6 +1,6 @@
-import { IconCopy, IconShare } from '@tabler/icons-react'
 import { createFileRoute } from '@tanstack/react-router'
 import init, { format } from '@wasm-fmt/ruff_fmt/vite'
+import { Copy, Share } from 'lucide-react'
 import { useMemo } from 'react'
 import { z } from 'zod'
 import { Code } from '../../../components/shared/Code'
@@ -48,13 +48,13 @@ const Python = () => {
         </div>
         <div className="flex gap-x-2">
           <IconButton
-            icon={IconShare}
+            icon={Share}
             onClick={() => copyLink({ code })}
             label="Copy link"
             disabled={code.trim() === ''}
           />
           <IconButton
-            icon={IconCopy}
+            icon={Copy}
             onClick={() => copy(formattedCode)}
             label="Copy formatted code"
             disabled={code.trim() === ''}

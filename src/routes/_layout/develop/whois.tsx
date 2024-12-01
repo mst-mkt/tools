@@ -1,6 +1,6 @@
-import { IconCopy, IconSearch, IconShare } from '@tabler/icons-react'
 import { createFileRoute } from '@tanstack/react-router'
 import init, { format } from '@wasm-fmt/web_fmt/vite'
+import { Copy, Search, Share } from 'lucide-react'
 import { useEffect, useMemo, useState } from 'react'
 import { z } from 'zod'
 import { Code } from '../../../components/shared/Code'
@@ -74,11 +74,7 @@ const Whois = () => {
             placeholder="Domain"
             onKeyDown={(e) => e.key === 'Enter' && loader(domain).then(setResult)}
           />
-          <IconButton
-            icon={IconSearch}
-            label="Search"
-            onClick={() => loader(domain).then(setResult)}
-          />
+          <IconButton icon={Search} label="Search" onClick={() => loader(domain).then(setResult)} />
         </div>
         <div className="scrollbar-thin scrollbar-thumb-background-200 scrollbar-thumb-rounded-full scrollbar-track-transparent overflow-y-hidden overflow-x-scroll rounded-md border border-background-100 p-4 text-sm">
           <Code code={formattedResult ?? ''} lang="json" />
@@ -86,13 +82,13 @@ const Whois = () => {
         </div>
         <div className="flex gap-x-2">
           <IconButton
-            icon={IconShare}
+            icon={Share}
             label="Share Link"
             onClick={() => copyLink({ domain })}
             disabled={result === undefined}
           />
           <IconButton
-            icon={IconCopy}
+            icon={Copy}
             label="Copy Result"
             onClick={() => copy(formattedResult ?? '')}
             disabled={result === undefined}

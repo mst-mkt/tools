@@ -1,5 +1,5 @@
-import { IconArrowsRightLeft, IconCopy, IconShare } from '@tabler/icons-react'
 import { createFileRoute } from '@tanstack/react-router'
+import { ArrowRightLeft, Copy, Share } from 'lucide-react'
 import { useCallback, useMemo } from 'react'
 import { z } from 'zod'
 import { Head } from '../../../components/shared/Head'
@@ -76,7 +76,7 @@ const Radix = () => {
           />
         </div>
         <div className="justify- flex gap-x-4">
-          <IconButton icon={IconArrowsRightLeft} label="基数を交換" onClick={handlerReverse} />
+          <IconButton icon={ArrowRightLeft} label="基数を交換" onClick={handlerReverse} />
         </div>
         <div className="flex flex-col gap-y-2">
           <div className="flex items-center justify-between gap-x-2">
@@ -101,13 +101,13 @@ const Radix = () => {
         <div className="flex gap-x-2">
           <IconButton
             onClick={() => copyLink({ number, fromRadix, toRadix })}
-            icon={IconShare}
+            icon={Share}
             label="Share Link"
             disabled={convertedNumber === ''}
           />
           <IconButton
             onClick={() => copy(convertedNumber)}
-            icon={IconCopy}
+            icon={Copy}
             label="Copy Result"
             disabled={convertedNumber === ''}
           />

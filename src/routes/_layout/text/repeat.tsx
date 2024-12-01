@@ -1,5 +1,5 @@
-import { IconCopy, IconShare } from '@tabler/icons-react'
 import { createFileRoute } from '@tanstack/react-router'
+import { Copy, Share } from 'lucide-react'
 import { useMemo } from 'react'
 import { z } from 'zod'
 import { Head } from '../../../components/shared/Head'
@@ -67,13 +67,13 @@ const Repeater = () => {
         <div className="flex gap-x-2">
           <IconButton
             onClick={() => copyLink({ text, repeat })}
-            icon={IconShare}
+            icon={Share}
             label="Share Link"
             disabled={repeatedText === ''}
           />
           <IconButton
             onClick={() => copy(repeatedText)}
-            icon={IconCopy}
+            icon={Copy}
             label="Copy Result"
             disabled={repeatedText === ''}
           />

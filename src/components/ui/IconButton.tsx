@@ -1,10 +1,10 @@
-import type { Icon } from '@tabler/icons-react'
 import { clsx } from 'clsx'
+import type { LucideIcon } from 'lucide-react'
 import type { FC, JSX } from 'react'
 import { twMerge } from 'tailwind-merge'
 
 type IconButtonProps = {
-  icon: Icon
+  icon?: LucideIcon
   label?: string
   iconPosition?: 'left' | 'right'
   size?: number
@@ -32,7 +32,7 @@ export const IconButton: FC<IconButtonProps> = ({
       props.className,
     )}
   >
-    <Icon size={size ?? 20} className={iconClassName} />
+    {Icon !== undefined && <Icon size={size ?? 20} className={iconClassName} />}
     {label}
   </button>
 )

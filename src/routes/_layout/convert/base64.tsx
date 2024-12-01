@@ -1,5 +1,5 @@
-import { IconArrowsUpDown, IconCopy, IconDownload, IconFile, IconShare } from '@tabler/icons-react'
 import { createFileRoute } from '@tanstack/react-router'
+import { ArrowUpDown, Download, File, Share } from 'lucide-react'
 import { useCallback, useMemo, useState } from 'react'
 import { match } from 'ts-pattern'
 import { z } from 'zod'
@@ -93,7 +93,7 @@ const Base64 = () => {
           ))}
         <div className="flex items-center justify-between">
           <Select value={type} onChange={onSetType} options={['encode', 'decode']} />
-          <IconButton icon={IconArrowsUpDown} label="Reverse" onClick={handleReverse} />
+          <IconButton icon={ArrowUpDown} label="Reverse" onClick={handleReverse} />
         </div>
         {match({ input, type })
           .with(
@@ -102,7 +102,7 @@ const Base64 = () => {
               convertedFile !== null && (
                 <div className="flex flex-col gap-y-2">
                   <div className="flex max-w-full items-center gap-x-2 rounded-md border border-accent p-4">
-                    <IconFile className="shrink-0 text-accent" size={36} />
+                    <File className="shrink-0 text-accent" size={36} />
                     <div className="flex shrink flex-col items-start overflow-hidden">
                       <span className="truncate whitespace-nowrap font-bold text-accent">
                         {filename.trim() === '' ? 'Unnamed file' : filename}
@@ -117,7 +117,7 @@ const Base64 = () => {
                       placeholder="Download as..."
                     />
                     <IconButton
-                      icon={IconDownload}
+                      icon={Download}
                       label="Download"
                       onClick={handleDownload}
                       disabled={filename.trim() === ''}
@@ -131,13 +131,13 @@ const Base64 = () => {
           ))}
         <div className="flex gap-x-2">
           <IconButton
-            icon={IconShare}
+            icon={Share}
             label="Copy link"
             disabled={text.trim() === ''}
             onClick={() => copyLink({ text, type, input, filename })}
           />
           <IconButton
-            icon={IconCopy}
+            icon={Share}
             label="Copy Result"
             onClick={() => copy(awaitedConvertedText ?? '')}
             disabled={awaitedConvertedText?.trim() === ''}

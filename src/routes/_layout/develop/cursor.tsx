@@ -1,6 +1,6 @@
-import { IconCopy } from '@tabler/icons-react'
 import { createFileRoute } from '@tanstack/react-router'
 import { clsx } from 'clsx'
+import { Copy } from 'lucide-react'
 import { useMemo, useState } from 'react'
 import { Code } from '../../../components/shared/Code'
 import { Head } from '../../../components/shared/Head'
@@ -75,7 +75,7 @@ const Cursor = () => {
           <Code code={sampleCode} />
         </div>
         <div className="flex gap-x-2">
-          <IconButton icon={IconCopy} label="Copy Sample CSS" onClick={() => copy(sampleCode)} />
+          <IconButton icon={Copy} label="Copy Sample CSS" onClick={() => copy(sampleCode)} />
         </div>
       </div>
     </>

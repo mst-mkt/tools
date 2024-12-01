@@ -1,23 +1,5 @@
-import {
-  IconDecimal,
-  IconDivide,
-  IconEqual,
-  IconMinus,
-  IconNumber0,
-  IconNumber1,
-  IconNumber2,
-  IconNumber3,
-  IconNumber4,
-  IconNumber5,
-  IconNumber6,
-  IconNumber7,
-  IconNumber8,
-  IconNumber9,
-  IconPlus,
-  IconTrashX,
-  IconX,
-} from '@tabler/icons-react'
 import { createFileRoute } from '@tanstack/react-router'
+import { Divide, Equal, Minus, Plus, Trash, X } from 'lucide-react'
 import { type MathJsChain, chain } from 'mathjs'
 import { useState } from 'react'
 import { match } from 'ts-pattern'
@@ -86,82 +68,42 @@ const Calculator = () => {
             {input ?? formula.done()}
           </p>
           <div className="grid grid-cols-4 gap-4">
+            <IconButton className="w-full p-4 text-lg" label="7" onClick={() => handleNumber(7)} />
+            <IconButton className="w-full p-4 text-lg" label="8" onClick={() => handleNumber(8)} />
+            <IconButton className="w-full p-4 text-lg" label="9" onClick={() => handleNumber(9)} />
             <IconButton
               className="w-full p-4 text-lg"
-              icon={IconNumber7}
-              onClick={() => handleNumber(7)}
-            />
-            <IconButton
-              className="w-full p-4 text-lg"
-              icon={IconNumber8}
-              onClick={() => handleNumber(8)}
-            />
-            <IconButton
-              className="w-full p-4 text-lg"
-              icon={IconNumber9}
-              onClick={() => handleNumber(9)}
-            />
-            <IconButton
-              className="w-full p-4 text-lg"
-              icon={IconDivide}
+              icon={Divide}
               onClick={() => handleOperator('divide')}
             />
+            <IconButton className="w-full p-4 text-lg" label="4" onClick={() => handleNumber(4)} />
+            <IconButton className="w-full p-4 text-lg" label="5" onClick={() => handleNumber(5)} />
+            <IconButton className="w-full p-4 text-lg" label="6" onClick={() => handleNumber(6)} />
             <IconButton
               className="w-full p-4 text-lg"
-              icon={IconNumber4}
-              onClick={() => handleNumber(4)}
-            />
-            <IconButton
-              className="w-full p-4 text-lg"
-              icon={IconNumber5}
-              onClick={() => handleNumber(5)}
-            />
-            <IconButton
-              className="w-full p-4 text-lg"
-              icon={IconNumber6}
-              onClick={() => handleNumber(6)}
-            />
-            <IconButton
-              className="w-full p-4 text-lg"
-              icon={IconX}
+              icon={X}
               onClick={() => handleOperator('multiply')}
             />
+            <IconButton className="w-full p-4 text-lg" label="1" onClick={() => handleNumber(1)} />
+            <IconButton className="w-full p-4 text-lg" label="2" onClick={() => handleNumber(2)} />
+            <IconButton className="w-full p-4 text-lg" label="3" onClick={() => handleNumber(3)} />
             <IconButton
               className="w-full p-4 text-lg"
-              icon={IconNumber1}
-              onClick={() => handleNumber(1)}
-            />
-            <IconButton
-              className="w-full p-4 text-lg"
-              icon={IconNumber2}
-              onClick={() => handleNumber(2)}
-            />
-            <IconButton
-              className="w-full p-4 text-lg"
-              icon={IconNumber3}
-              onClick={() => handleNumber(3)}
-            />
-            <IconButton
-              className="w-full p-4 text-lg"
-              icon={IconMinus}
+              icon={Minus}
               onClick={() => handleOperator('subtract')}
             />
+            <IconButton className="w-full p-4 text-lg" label="0" onClick={() => handleNumber(0)} />
+            <IconButton className="w-full p-4 text-lg" icon={Minus} onClick={handleDecimal} />
+            <IconButton className="w-full p-4 text-lg" icon={Equal} onClick={handleEqual} />
             <IconButton
               className="w-full p-4 text-lg"
-              icon={IconNumber0}
-              onClick={() => handleNumber(0)}
-            />
-            <IconButton className="w-full p-4 text-lg" icon={IconDecimal} onClick={handleDecimal} />
-            <IconButton className="w-full p-4 text-lg" icon={IconEqual} onClick={handleEqual} />
-            <IconButton
-              className="w-full p-4 text-lg"
-              icon={IconPlus}
+              icon={Plus}
               onClick={() => handleOperator('add')}
             />
             <IconButton
               label="Clear"
               className="col-span-full w-full bg-red-500/10 p-4 text-lg hover:bg-red-500/20"
-              icon={IconTrashX}
+              icon={Trash}
               onClick={handleClear}
             />
           </div>

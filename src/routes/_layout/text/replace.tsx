@@ -1,5 +1,5 @@
-import { IconCopy, IconPlus, IconShare, IconTrash } from '@tabler/icons-react'
 import { createFileRoute } from '@tanstack/react-router'
+import { Copy, Plus, Share, Trash } from 'lucide-react'
 import { useMemo, useState } from 'react'
 import { z } from 'zod'
 import { Head } from '../../../components/shared/Head'
@@ -80,7 +80,7 @@ const Replacer = () => {
                   onInput={(e) => handleRuleInput(e.currentTarget.value, index, 'to')}
                 />
                 <IconButton
-                  icon={IconTrash}
+                  icon={Trash}
                   aria-label="Delete Rule"
                   className="bg-red-500 text-black hover:bg-red-600"
                   onClick={() => handleRuleDelete(index)}
@@ -89,7 +89,7 @@ const Replacer = () => {
             ))}
           </div>
           <IconButton
-            icon={IconPlus}
+            icon={Plus}
             label="Add Rule"
             onClick={() => setRules((rules) => [...rules, { from: '', to: '' }])}
             className="bg-accent-200 hover:bg-accent-300"
@@ -103,7 +103,7 @@ const Replacer = () => {
         </div>
         <div className="flex gap-x-2">
           <IconButton
-            icon={IconShare}
+            icon={Share}
             label="Share Link"
             onClick={() =>
               copyLink({
@@ -115,7 +115,7 @@ const Replacer = () => {
               text.length === 0 || rules.every((rule) => rule.from.length + rule.to.length <= 0)
             }
           />
-          <IconButton icon={IconCopy} label="Copy Result" onClick={() => copy(replacedText)} />
+          <IconButton icon={Copy} label="Copy Result" onClick={() => copy(replacedText)} />
         </div>
       </div>
     </>

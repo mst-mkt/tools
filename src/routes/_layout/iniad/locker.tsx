@@ -1,6 +1,6 @@
-import { IconDeviceFloppy, IconLoader2, IconLockOpen, IconShare } from '@tabler/icons-react'
 import { createFileRoute } from '@tanstack/react-router'
 import clsx from 'clsx'
+import { Loader, LockOpen, Save, Share } from 'lucide-react'
 import { useCallback, useState } from 'react'
 import { Head } from '../../../components/shared/Head'
 import { IconButton } from '../../../components/ui/IconButton'
@@ -71,14 +71,14 @@ const LockerOpener = () => {
         </div>
         <div className="flex justify-between">
           <IconButton
-            icon={isLoading ? IconLoader2 : IconLockOpen}
+            icon={isLoading ? Loader : LockOpen}
             label="Open"
             className="bg-accent-300 transition-colors hover:bg-accent-500"
             iconClassName={clsx(isLoading && 'animate-spin')}
             onClick={handleOpenLocker}
           />
           <IconButton
-            icon={IconDeviceFloppy}
+            icon={Save}
             label="Save ID and password"
             onClick={() => setAuth({ id, password })}
           />
@@ -88,7 +88,7 @@ const LockerOpener = () => {
           <>
             <h2 className="font-bold">Result</h2>
             <Textarea value={JSON.stringify(result, null, 2)} readOnly={true} />
-            <IconButton icon={IconShare} label="Copy link" onClick={() => copyLink({})} />
+            <IconButton icon={Share} label="Copy link" onClick={() => copyLink({})} />
           </>
         )}
       </div>

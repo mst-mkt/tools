@@ -1,5 +1,5 @@
-import { IconArrowsUpDown, IconCopy, IconShare } from '@tabler/icons-react'
 import { createFileRoute } from '@tanstack/react-router'
+import { ArrowUpDown, Share } from 'lucide-react'
 import { useMemo } from 'react'
 import { z } from 'zod'
 import { Head } from '../../../components/shared/Head'
@@ -45,18 +45,18 @@ const Url = () => {
         <Textarea value={text} onChange={onSetText} placeholder="変換するテキストを入力" />
         <div className="flex items-center justify-between">
           <Select value={type} onChange={onSetType} options={['encode', 'decode']} />
-          <IconButton icon={IconArrowsUpDown} label="Reverse" onClick={handleReverse} />
+          <IconButton icon={ArrowUpDown} label="Reverse" onClick={handleReverse} />
         </div>
         <Textarea value={convertedText} readOnly={true} placeholder="変換したテキスト" />
         <div className="flex gap-x-2">
           <IconButton
-            icon={IconShare}
+            icon={Share}
             label="Share Link"
             onClick={() => copyLink({ text, type })}
             disabled={text.trim() === ''}
           />
           <IconButton
-            icon={IconCopy}
+            icon={Share}
             label="Copy Result"
             onClick={() => copy(convertedText)}
             disabled={convertedText.trim() === ''}

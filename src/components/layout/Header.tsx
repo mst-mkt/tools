@@ -1,5 +1,5 @@
-import { IconBrightness } from '@tabler/icons-react'
 import { Link } from '@tanstack/react-router'
+import { Sun } from 'lucide-react'
 import { PROJECT_NAME } from '../../constants/project'
 import { useTheme } from '../../hooks/useTheme'
 import { IconButton } from '../ui/IconButton'
@@ -14,7 +14,7 @@ export const Header = () => {
           {PROJECT_NAME}
         </Link>
         <IconButton
-          icon={IconBrightness}
+          icon={Sun}
           onClick={toggleTheme}
           className="bg-transparent"
           aria-label="toggle theme"
