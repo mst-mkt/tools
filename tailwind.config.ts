@@ -4,27 +4,6 @@ import typography from '@tailwindcss/typography'
 import scrollbar from 'tailwind-scrollbar'
 import type { Config } from 'tailwindcss'
 
-const alphas = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900] as const
-
-const colorMix = (color1: string, color2: string, percentage: number) => {
-  return `color-mix(in srgb, ${color1}, ${color2} ${percentage}%)`
-}
-const oklch = (channels: TemplateStringsArray) => `oklch(var(--${channels[0]}))`
-const oklchAlpha = (channels: TemplateStringsArray) => `oklch(var(--${channels[0]}) / <alpha-value>)`
-
-const makeColorPalette = (color: string) => ({
-  50: colorMix(color, oklch`background`, 70),
-  100: colorMix(color, oklch`background`, 50),
-  200: colorMix(color, oklch`background`, 30),
-  300: colorMix(color, oklch`background`, 10),
-  400: colorMix(color, oklch`background`, 5),
-  500: color,
-  600: colorMix(color, oklch`foreground`, 10),
-  700: colorMix(color, oklch`foreground`, 30),
-  800: colorMix(color, oklch`foreground`, 50),
-  900: colorMix(color, oklch`foreground`, 70),
-})
-
 const config = {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   darkMode: 'class',
@@ -35,20 +14,43 @@ const config = {
       },
       colors: {
         background: {
-          DEFAULT: oklchAlpha`background`,
-          ...Object.fromEntries(
-            alphas.map((alpha) => [alpha, colorMix(oklchAlpha`background`, oklch`foreground`, alpha / 10)]),
-          ),
+          DEFAULT: "oklch(var(--background))",
+          50: "color-mix(in srgb, oklch(var(--background)), oklch(var(--foreground)) 5%)",
+          100: "color-mix(in srgb, oklch(var(--background)), oklch(var(--foreground)) 10%)",
+          200: "color-mix(in srgb, oklch(var(--background)), oklch(var(--foreground)) 20%)",
+          300: "color-mix(in srgb, oklch(var(--background)), oklch(var(--foreground)) 30%)",
+          400: "color-mix(in srgb, oklch(var(--background)), oklch(var(--foreground)) 40%)",
+          500: "color-mix(in srgb, oklch(var(--background)), oklch(var(--foreground)) 50%)",
+          600: "color-mix(in srgb, oklch(var(--background)), oklch(var(--foreground)) 60%)",
+          700: "color-mix(in srgb, oklch(var(--background)), oklch(var(--foreground)) 70%)",
+          800: "color-mix(in srgb, oklch(var(--background)), oklch(var(--foreground)) 80%)",
+          900: "color-mix(in srgb, oklch(var(--background)), oklch(var(--foreground)) 90%)",
         },
         foreground: {
-          DEFAULT: oklchAlpha`foreground`,
-          ...Object.fromEntries(
-            alphas.map((alpha) => [alpha, colorMix(oklchAlpha`foreground`, oklch`background`, alpha / 10)]),
-          ),
+          DEFAULT: "oklch(var(--foreground))",
+          50: "color-mix(in srgb, oklch(var(--foreground)), oklch(var(--background)) 5%)",
+          100: "color-mix(in srgb, oklch(var(--foreground)), oklch(var(--background)) 10%)",
+          200: "color-mix(in srgb, oklch(var(--foreground)), oklch(var(--background)) 20%)",
+          300: "color-mix(in srgb, oklch(var(--foreground)), oklch(var(--background)) 30%)",
+          400: "color-mix(in srgb, oklch(var(--foreground)), oklch(var(--background)) 40%)",
+          500: "color-mix(in srgb, oklch(var(--foreground)), oklch(var(--background)) 50%)",
+          600: "color-mix(in srgb, oklch(var(--foreground)), oklch(var(--background)) 60%)",
+          700: "color-mix(in srgb, oklch(var(--foreground)), oklch(var(--background)) 70%)",
+          800: "color-mix(in srgb, oklch(var(--foreground)), oklch(var(--background)) 80%)",
+          900: "color-mix(in srgb, oklch(var(--foreground)), oklch(var(--background)) 90%)",
         },
         accent: {
-          DEFAULT: oklchAlpha`accent`,
-          ...makeColorPalette(oklchAlpha`accent`),
+          DEFAULT: "oklch(var(--accent))",
+          50: "color-mix(in srgb, oklch(var(--accent)), oklch(var(--background)) 70%)",
+          100: "color-mix(in srgb, oklch(var(--accent)), oklch(var(--background)) 50%)",
+          200: "color-mix(in srgb, oklch(var(--accent)), oklch(var(--background)) 30%)",
+          300: "color-mix(in srgb, oklch(var(--accent)), oklch(var(--background)) 10%)",
+          400: "color-mix(in srgb, oklch(var(--accent)), oklch(var(--background)) 5%)",
+          500: "oklch(var(--accent))",
+          600: "color-mix(in srgb, oklch(var(--accent)), oklch(var(--foreground)) 10%)",
+          700: "color-mix(in srgb, oklch(var(--accent)), oklch(var(--foreground)) 30%)",
+          800: "color-mix(in srgb, oklch(var(--accent)), oklch(var(--foreground)) 50%)",
+          900: "color-mix(in srgb, oklch(var(--accent)), oklch(var(--foreground)) 70%)",
         },
       },
     },
