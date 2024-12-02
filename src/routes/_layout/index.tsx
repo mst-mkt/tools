@@ -43,7 +43,7 @@ const links = {
     { label: 'Dart', id: 'dart' },
     { label: 'SQL', id: 'sql' },
   ],
-  iniad: [{ label: 'Locker Opener', id: 'locker' }],
+  INIAD: [{ label: 'Locker Opener', id: 'locker' }],
 } as const satisfies { [category: string]: { label: string; id: string }[] }
 
 export const Route = createFileRoute('/_layout/')({
