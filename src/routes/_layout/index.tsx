@@ -27,6 +27,7 @@ const links = {
     { label: 'Cursor Preview', id: 'cursor' },
     { label: 'Whois Lookup', id: 'whois' },
     { label: 'Markdown Preview', id: 'markdown' },
+    { label: 'iframe Preview', id: 'iframe' },
   ],
   formatter: [
     { label: 'TypeScript, JavaScript', id: 'typescript' },

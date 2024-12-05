@@ -21,6 +21,7 @@ A collection of various tools for myself.
 | [Cursor Previewer](https://tools.keito.dev/develop/cursor)            | Preview cursor style.                         |
 | [Keyboard Event Checker](https://tools.keito.dev/develop/keyboard)    | Check some properties of keyboard events.     |
 | [Whois Lookup](https://tools.keito.dev/develop/whois)                 | Lookup whois information of a domain.         |
+| [iframe Preview](https://tools.keito.dev/develop/iframe)              | Preview iframe of a URL.                      |
 | [Markdown Preview](https://tools.keito.dev/develop/markdown)          | Preview Markdown code.                        |
 | [TS / JS Formatter](https://tools.keito.dev/formatter/typescript)     | Format TypeScript / JavaScript code.          |
 | [JSON Formatter](https://tools.keito.dev/formatter/json)              | Format JSON code.                             |
