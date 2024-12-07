@@ -24,15 +24,17 @@ const TimeTable = () => {
   const [editingCell, setEditingCell] = useState<CellPosition | null>(null)
 
   const handleUpdateClass = useCallback(
-    (title: string, teacher: string, classroom: string) => {
+    (title: string, teacher: string, classroom: string, absenceCount: number) => {
       if (editingCell === null) return
 
-      const isEmptyInputs = [title, teacher, classroom].every((input) => input === '')
+      const isEmptyInputs = [title, teacher, classroom, absenceCount].every(
+        (input) => input === '' || input === 0,
+      )
 
       if (isEmptyInputs) {
         setTimeTable(updateTimetable(timeTable, editingCell, null))
       } else {
-        const updatedCellInfo = { title, teacher, classroom }
+        const updatedCellInfo = { title, teacher, classroom, absenceCount }
         setTimeTable(updateTimetable(timeTable, editingCell, updatedCellInfo))
       }
 

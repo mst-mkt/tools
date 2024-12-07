@@ -8,6 +8,7 @@ import {
   TableRow,
 } from '@/components/ui/table'
 import type { FC } from 'react'
+import { match } from 'ts-pattern'
 import {
   type CellPosition,
   type ClassInfo,
@@ -81,9 +82,25 @@ const TimetableCell = ({ classInfo, day, timeIndex, setEditingCell }: TimetableC
         ) : (
           <>
             <span className="line-clamp-3 w-full text-left">{classInfo.title}</span>
-            <span className="w-full truncate text-left text-muted-foreground">
-              {classInfo.classroom}
-            </span>
+            <div className="flex flex-wrap gap-x-2">
+              <span className="truncate text-left text-muted-foreground">
+                {classInfo.classroom}
+              </span>
+              <span
+                className="truncate text-left text-muted-foreground opacity-40"
+                style={{
+                  color: match(classInfo.absenceCount ?? 0)
+                    .with(0, () => '#000')
+                    .with(1, () => '#200')
+                    .with(2, () => '#500')
+                    .with(3, () => '#900')
+                    .with(4, () => '#f00')
+                    .otherwise(() => '#f00'),
+                }}
+              >
+                {classInfo.absenceCount ?? 0}欠席
+              </span>
+            </div>
           </>
         )}
       </div>

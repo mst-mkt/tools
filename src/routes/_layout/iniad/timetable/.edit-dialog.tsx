@@ -11,12 +11,13 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { useInputState } from '@/hooks/useInputState'
 import type { CellPosition, ClassInfo } from '@/routes/_layout/iniad/timetable/.timetable'
+import { Minus, Plus } from 'lucide-react'
 import { type FC, useCallback } from 'react'
 
 type EditDialogContentProps = {
   editingCell: CellPosition
   editingCellInfo: ClassInfo | null
-  onUpdate: (title: string, teacher: string, classroom: string) => void
+  onUpdate: (title: string, teacher: string, classroom: string, absenceCount: number) => void
 }
 
 export const EditDialogContent: FC<EditDialogContentProps> = ({
@@ -33,17 +34,28 @@ export const EditDialogContent: FC<EditDialogContentProps> = ({
   const [editingClassroom, onSetEditingClassroom, setEditingClassroom] = useInputState(
     editingCellInfo?.classroom ?? '',
   )
+  const [editingAbsenceCount, onSetEditingAbsenceCount, setEditingAbsenceCount] = useInputState(
+    editingCellInfo?.absenceCount ?? 0,
+  )
 
   const resetInputValues = useCallback(() => {
     setEditingTitle('')
     setEditingTeacher('')
     setEditingClassroom('')
-  }, [setEditingTitle, setEditingTeacher, setEditingClassroom])
+    setEditingAbsenceCount(0)
+  }, [setEditingTitle, setEditingTeacher, setEditingClassroom, setEditingAbsenceCount])
 
   const updateClassInfo = useCallback(() => {
-    onUpdate(editingTitle, editingTeacher, editingClassroom)
+    onUpdate(editingTitle, editingTeacher, editingClassroom, editingAbsenceCount)
     resetInputValues()
-  }, [editingTitle, editingTeacher, editingClassroom, onUpdate, resetInputValues])
+  }, [
+    editingTitle,
+    editingTeacher,
+    editingClassroom,
+    editingAbsenceCount,
+    onUpdate,
+    resetInputValues,
+  ])
 
   return (
     <DialogContent>
@@ -65,6 +77,32 @@ export const EditDialogContent: FC<EditDialogContentProps> = ({
         <Label className="flex flex-col gap-y-2">
           <span>教室</span>
           <Input value={editingClassroom} onChange={onSetEditingClassroom} />
+        </Label>
+        <Label className="flex flex-col gap-y-2">
+          <span>欠席回数</span>
+          <div className="flex gap-x-2">
+            <Button
+              type="button"
+              variant="secondary"
+              onClick={() => setEditingAbsenceCount(editingAbsenceCount - 1)}
+            >
+              <Minus />
+            </Button>
+            <Input
+              type="number"
+              min={0}
+              max={14}
+              value={editingAbsenceCount}
+              onChange={onSetEditingAbsenceCount}
+            />
+            <Button
+              type="button"
+              variant="secondary"
+              onClick={() => setEditingAbsenceCount(editingAbsenceCount + 1)}
+            >
+              <Plus />
+            </Button>
+          </div>
         </Label>
       </div>
       <DialogFooter>
