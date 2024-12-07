@@ -40,6 +40,7 @@ import { Route as LayoutConvertPunycodeImport } from './../../routes/_layout/con
 import { Route as LayoutConvertJsonSchemaToZodImport } from './../../routes/_layout/convert/jsonSchemaToZod'
 import { Route as LayoutConvertCjpImport } from './../../routes/_layout/convert/cjp'
 import { Route as LayoutConvertBase64Import } from './../../routes/_layout/convert/base64'
+import { Route as LayoutIniadTimetableIndexImport } from './../../routes/_layout/iniad/timetable/index'
 
 // Create/Update Routes
 
@@ -238,6 +239,12 @@ const LayoutConvertCjpRoute = LayoutConvertCjpImport.update({
 const LayoutConvertBase64Route = LayoutConvertBase64Import.update({
   id: '/convert/base64',
   path: '/convert/base64',
+  getParentRoute: () => LayoutRoute,
+} as any)
+
+const LayoutIniadTimetableIndexRoute = LayoutIniadTimetableIndexImport.update({
+  id: '/iniad/timetable/',
+  path: '/iniad/timetable/',
   getParentRoute: () => LayoutRoute,
 } as any)
 
@@ -476,6 +483,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LayoutTextReplaceImport
       parentRoute: typeof LayoutImport
     }
+    '/_layout/iniad/timetable/': {
+      id: '/_layout/iniad/timetable/'
+      path: '/iniad/timetable'
+      fullPath: '/iniad/timetable'
+      preLoaderRoute: typeof LayoutIniadTimetableIndexImport
+      parentRoute: typeof LayoutImport
+    }
   }
 }
 
@@ -514,6 +528,7 @@ interface LayoutRouteChildren {
   LayoutTextCountRoute: typeof LayoutTextCountRoute
   LayoutTextRepeatRoute: typeof LayoutTextRepeatRoute
   LayoutTextReplaceRoute: typeof LayoutTextReplaceRoute
+  LayoutIniadTimetableIndexRoute: typeof LayoutIniadTimetableIndexRoute
 }
 
 const LayoutRouteChildren: LayoutRouteChildren = {
@@ -549,6 +564,7 @@ const LayoutRouteChildren: LayoutRouteChildren = {
   LayoutTextCountRoute: LayoutTextCountRoute,
   LayoutTextRepeatRoute: LayoutTextRepeatRoute,
   LayoutTextReplaceRoute: LayoutTextReplaceRoute,
+  LayoutIniadTimetableIndexRoute: LayoutIniadTimetableIndexRoute,
 }
 
 const LayoutRouteWithChildren =
@@ -588,6 +604,7 @@ export interface FileRoutesByFullPath {
   '/text/count': typeof LayoutTextCountRoute
   '/text/repeat': typeof LayoutTextRepeatRoute
   '/text/replace': typeof LayoutTextReplaceRoute
+  '/iniad/timetable': typeof LayoutIniadTimetableIndexRoute
 }
 
 export interface FileRoutesByTo {
@@ -623,6 +640,7 @@ export interface FileRoutesByTo {
   '/text/count': typeof LayoutTextCountRoute
   '/text/repeat': typeof LayoutTextRepeatRoute
   '/text/replace': typeof LayoutTextReplaceRoute
+  '/iniad/timetable': typeof LayoutIniadTimetableIndexRoute
 }
 
 export interface FileRoutesById {
@@ -660,6 +678,7 @@ export interface FileRoutesById {
   '/_layout/text/count': typeof LayoutTextCountRoute
   '/_layout/text/repeat': typeof LayoutTextRepeatRoute
   '/_layout/text/replace': typeof LayoutTextReplaceRoute
+  '/_layout/iniad/timetable/': typeof LayoutIniadTimetableIndexRoute
 }
 
 export interface FileRouteTypes {
@@ -698,6 +717,7 @@ export interface FileRouteTypes {
     | '/text/count'
     | '/text/repeat'
     | '/text/replace'
+    | '/iniad/timetable'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -732,6 +752,7 @@ export interface FileRouteTypes {
     | '/text/count'
     | '/text/repeat'
     | '/text/replace'
+    | '/iniad/timetable'
   id:
     | '__root__'
     | '/_layout'
@@ -767,6 +788,7 @@ export interface FileRouteTypes {
     | '/_layout/text/count'
     | '/_layout/text/repeat'
     | '/_layout/text/replace'
+    | '/_layout/iniad/timetable/'
   fileRoutesById: FileRoutesById
 }
 
@@ -825,7 +847,8 @@ export const routeTree = rootRoute
         "/_layout/math/radix",
         "/_layout/text/count",
         "/_layout/text/repeat",
-        "/_layout/text/replace"
+        "/_layout/text/replace",
+        "/_layout/iniad/timetable/"
       ]
     },
     "/_layout/": {
@@ -954,6 +977,10 @@ export const routeTree = rootRoute
     },
     "/_layout/text/replace": {
       "filePath": "_layout/text/replace.tsx",
+      "parent": "/_layout"
+    },
+    "/_layout/iniad/timetable/": {
+      "filePath": "_layout/iniad/timetable/index.tsx",
       "parent": "/_layout"
     }
   }

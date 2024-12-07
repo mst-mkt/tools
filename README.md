@@ -37,6 +37,7 @@ A collection of various tools for myself.
 | [Dart Formatter](https://tools.keito.dev/formatter/dart)              | Format Dart code.                             |
 | [SQL Formatter](https://tools.keito.dev/formatter/sql)                | Format SQL code.                              |
 | [INIAD Locker Opener](https://tools.keito.dev/iniad/locker)           | Open Intelligent Locker in INIAD.             |
+| [時間割](https://tools.keito.dev/iniad/timetable)                     | Timetable for University.                     |
 
 ## Development
 
