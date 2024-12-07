@@ -28,7 +28,6 @@ import { Route as LayoutFormatterGoImport } from './../../routes/_layout/formatt
 import { Route as LayoutFormatterDartImport } from './../../routes/_layout/formatter/dart'
 import { Route as LayoutFormatterCssImport } from './../../routes/_layout/formatter/css'
 import { Route as LayoutFormatterCImport } from './../../routes/_layout/formatter/c'
-import { Route as LayoutDevelopWhoisImport } from './../../routes/_layout/develop/whois'
 import { Route as LayoutDevelopMarkdownImport } from './../../routes/_layout/develop/markdown'
 import { Route as LayoutDevelopKeyEventImport } from './../../routes/_layout/develop/keyEvent'
 import { Route as LayoutDevelopIframeImport } from './../../routes/_layout/develop/iframe'
@@ -165,12 +164,6 @@ const LayoutFormatterCssRoute = LayoutFormatterCssImport.update({
 const LayoutFormatterCRoute = LayoutFormatterCImport.update({
   id: '/formatter/c',
   path: '/formatter/c',
-  getParentRoute: () => LayoutRoute,
-} as any)
-
-const LayoutDevelopWhoisRoute = LayoutDevelopWhoisImport.update({
-  id: '/develop/whois',
-  path: '/develop/whois',
   getParentRoute: () => LayoutRoute,
 } as any)
 
@@ -336,13 +329,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LayoutDevelopMarkdownImport
       parentRoute: typeof LayoutImport
     }
-    '/_layout/develop/whois': {
-      id: '/_layout/develop/whois'
-      path: '/develop/whois'
-      fullPath: '/develop/whois'
-      preLoaderRoute: typeof LayoutDevelopWhoisImport
-      parentRoute: typeof LayoutImport
-    }
     '/_layout/formatter/c': {
       id: '/_layout/formatter/c'
       path: '/formatter/c'
@@ -494,7 +480,6 @@ interface LayoutRouteChildren {
   LayoutDevelopIframeRoute: typeof LayoutDevelopIframeRoute
   LayoutDevelopKeyEventRoute: typeof LayoutDevelopKeyEventRoute
   LayoutDevelopMarkdownRoute: typeof LayoutDevelopMarkdownRoute
-  LayoutDevelopWhoisRoute: typeof LayoutDevelopWhoisRoute
   LayoutFormatterCRoute: typeof LayoutFormatterCRoute
   LayoutFormatterCssRoute: typeof LayoutFormatterCssRoute
   LayoutFormatterDartRoute: typeof LayoutFormatterDartRoute
@@ -529,7 +514,6 @@ const LayoutRouteChildren: LayoutRouteChildren = {
   LayoutDevelopIframeRoute: LayoutDevelopIframeRoute,
   LayoutDevelopKeyEventRoute: LayoutDevelopKeyEventRoute,
   LayoutDevelopMarkdownRoute: LayoutDevelopMarkdownRoute,
-  LayoutDevelopWhoisRoute: LayoutDevelopWhoisRoute,
   LayoutFormatterCRoute: LayoutFormatterCRoute,
   LayoutFormatterCssRoute: LayoutFormatterCssRoute,
   LayoutFormatterDartRoute: LayoutFormatterDartRoute,
@@ -568,7 +552,6 @@ export interface FileRoutesByFullPath {
   '/develop/iframe': typeof LayoutDevelopIframeRoute
   '/develop/keyEvent': typeof LayoutDevelopKeyEventRoute
   '/develop/markdown': typeof LayoutDevelopMarkdownRoute
-  '/develop/whois': typeof LayoutDevelopWhoisRoute
   '/formatter/c': typeof LayoutFormatterCRoute
   '/formatter/css': typeof LayoutFormatterCssRoute
   '/formatter/dart': typeof LayoutFormatterDartRoute
@@ -603,7 +586,6 @@ export interface FileRoutesByTo {
   '/develop/iframe': typeof LayoutDevelopIframeRoute
   '/develop/keyEvent': typeof LayoutDevelopKeyEventRoute
   '/develop/markdown': typeof LayoutDevelopMarkdownRoute
-  '/develop/whois': typeof LayoutDevelopWhoisRoute
   '/formatter/c': typeof LayoutFormatterCRoute
   '/formatter/css': typeof LayoutFormatterCssRoute
   '/formatter/dart': typeof LayoutFormatterDartRoute
@@ -640,7 +622,6 @@ export interface FileRoutesById {
   '/_layout/develop/iframe': typeof LayoutDevelopIframeRoute
   '/_layout/develop/keyEvent': typeof LayoutDevelopKeyEventRoute
   '/_layout/develop/markdown': typeof LayoutDevelopMarkdownRoute
-  '/_layout/develop/whois': typeof LayoutDevelopWhoisRoute
   '/_layout/formatter/c': typeof LayoutFormatterCRoute
   '/_layout/formatter/css': typeof LayoutFormatterCssRoute
   '/_layout/formatter/dart': typeof LayoutFormatterDartRoute
@@ -678,7 +659,6 @@ export interface FileRouteTypes {
     | '/develop/iframe'
     | '/develop/keyEvent'
     | '/develop/markdown'
-    | '/develop/whois'
     | '/formatter/c'
     | '/formatter/css'
     | '/formatter/dart'
@@ -712,7 +692,6 @@ export interface FileRouteTypes {
     | '/develop/iframe'
     | '/develop/keyEvent'
     | '/develop/markdown'
-    | '/develop/whois'
     | '/formatter/c'
     | '/formatter/css'
     | '/formatter/dart'
@@ -747,7 +726,6 @@ export interface FileRouteTypes {
     | '/_layout/develop/iframe'
     | '/_layout/develop/keyEvent'
     | '/_layout/develop/markdown'
-    | '/_layout/develop/whois'
     | '/_layout/formatter/c'
     | '/_layout/formatter/css'
     | '/_layout/formatter/dart'
@@ -806,7 +784,6 @@ export const routeTree = rootRoute
         "/_layout/develop/iframe",
         "/_layout/develop/keyEvent",
         "/_layout/develop/markdown",
-        "/_layout/develop/whois",
         "/_layout/formatter/c",
         "/_layout/formatter/css",
         "/_layout/formatter/dart",
@@ -874,10 +851,6 @@ export const routeTree = rootRoute
     },
     "/_layout/develop/markdown": {
       "filePath": "_layout/develop/markdown.tsx",
-      "parent": "/_layout"
-    },
-    "/_layout/develop/whois": {
-      "filePath": "_layout/develop/whois.tsx",
       "parent": "/_layout"
     },
     "/_layout/formatter/c": {
