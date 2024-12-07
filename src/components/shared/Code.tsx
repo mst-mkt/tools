@@ -34,6 +34,7 @@ export const Code: FC<CodeProps> = ({ code, lang = 'ts' }) => {
     const pre = html.querySelector('pre')
     if (pre !== null) {
       pre.tabIndex = -1
+      pre.style.backgroundColor = 'transparent'
     }
     return html.body.innerHTML
   }, [highlighter, code, lang, codeTheme])
