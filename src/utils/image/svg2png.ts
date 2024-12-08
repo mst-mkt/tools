@@ -13,12 +13,23 @@ export const svg2Png = async (svg: File, size = 512) => {
   })
 
   const canvas = document.createElement('canvas')
+
+  const aspectRatio = img.width / img.height
+  const isLandscape = aspectRatio > 1
+  const [drawWidth, drawHeight] = isLandscape
+    ? [size, size / aspectRatio]
+    : [size * aspectRatio, size]
+  const [offsetX, offsetY] = isLandscape
+    ? [0, (size - drawHeight) / 2]
+    : [(size - drawWidth) / 2, 0]
+
   canvas.width = size
   canvas.height = size
   const ctx = canvas.getContext('2d')
 
   if (ctx === null) throw new Error('Failed to get 2D context')
-  ctx.drawImage(img, 0, 0)
+  ctx.clearRect(0, 0, size, size)
+  ctx.drawImage(img, offsetX, offsetY, drawWidth, drawHeight)
 
   const pngBlob = await new Promise<Blob | null>((resolve) =>
     canvas.toBlob((blob) => resolve(blob), 'image/png'),
