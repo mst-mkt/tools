@@ -8,7 +8,7 @@ import { createFileRoute } from '@tanstack/react-router'
 import { Download, FileIcon, Loader } from 'lucide-react'
 import { type ChangeEvent, useCallback, useState } from 'react'
 
-export const Route = createFileRoute('/_layout/image/svgToPng')({
+export const Route = createFileRoute('/_layout/image/svg2png')({
   component: () => <SvgToPng />,
 })
 
