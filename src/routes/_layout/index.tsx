@@ -21,6 +21,7 @@ const links = {
     { label: '基数変換', id: 'radix' },
     { label: '計算機', id: 'calculator' },
   ],
+  image: [{ label: 'SVG to PNG', id: 'svg2png' }],
   develop: [
     { label: 'Clipboard Data Checker', id: 'clipboard' },
     { label: 'Keyboard Event Checker', id: 'keyEvent' },
