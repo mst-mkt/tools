@@ -9,7 +9,7 @@ import {
 } from '@/components/ui/select'
 import { createFileRoute } from '@tanstack/react-router'
 import { ArrowUpDown, Copy, Download, File, Share } from 'lucide-react'
-import { useCallback, useMemo, useState } from 'react'
+import { type ChangeEvent, useCallback, useMemo, useState } from 'react'
 import { match } from 'ts-pattern'
 import { z } from 'zod'
 import { Head } from '../../../components/shared/Head'
@@ -84,6 +84,11 @@ const Base64 = () => {
     URL.revokeObjectURL(url)
   }, [convertedFile, filename])
 
+  const handleSetFile = useCallback((e: ChangeEvent<HTMLInputElement>) => {
+    if (e.currentTarget.files?.[0] === undefined) return
+    setFile(e.currentTarget.files[0])
+  }, [])
+
   return (
     <>
       <Head title="Base64 converter" />
@@ -100,7 +105,7 @@ const Base64 = () => {
         </Select>
         {match({ input, type })
           .with({ input: 'file', type: 'encode' }, () => (
-            <FileInput file={file} setFile={setFile} />
+            <FileInput file={file} onChange={handleSetFile} />
           ))
           .otherwise(() => (
             <Textarea value={text} onChange={onSetText} placeholder="Enter text to convert" />

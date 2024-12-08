@@ -17,6 +17,7 @@ A collection of various tools for myself.
 | [JSON Schema to Zod](https://tools.keito.dev/convert/jsonSchemaToZod) | Convert JSON Schema to Zod schema.            |
 | [Radix Converter](https://tools.keito.dev/math/radix)                 | Convert between different number systems.     |
 | [Calculator](https://tools.keito.dev/math/calculator)                 | Simple calculator.                            |
+| [SVG to PNG Converter](https://tools.keito.dev/image/svg2png)         | Convert SVG to PNG.                           |
 | [Clipboard Checker](https://tools.keito.dev/develop/clipboard)        | Check data in clipboard.                      |
 | [Cursor Previewer](https://tools.keito.dev/develop/cursor)            | Preview cursor style.                         |
 | [Keyboard Event Checker](https://tools.keito.dev/develop/keyboard)    | Check some properties of keyboard events.     |

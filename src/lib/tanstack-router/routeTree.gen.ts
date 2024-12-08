@@ -15,6 +15,7 @@ import { Route as LayoutTextCountImport } from './../../routes/_layout/text/coun
 import { Route as LayoutMathRadixImport } from './../../routes/_layout/math/radix'
 import { Route as LayoutMathCalculatorImport } from './../../routes/_layout/math/calculator'
 import { Route as LayoutIniadLockerImport } from './../../routes/_layout/iniad/locker'
+import { Route as LayoutImageSvgToPngImport } from './../../routes/_layout/image/svgToPng'
 import { Route as LayoutFormatterZigImport } from './../../routes/_layout/formatter/zig'
 import { Route as LayoutFormatterYamlImport } from './../../routes/_layout/formatter/yaml'
 import { Route as LayoutFormatterTypescriptImport } from './../../routes/_layout/formatter/typescript'
@@ -87,6 +88,12 @@ const LayoutMathCalculatorRoute = LayoutMathCalculatorImport.update({
 const LayoutIniadLockerRoute = LayoutIniadLockerImport.update({
   id: '/iniad/locker',
   path: '/iniad/locker',
+  getParentRoute: () => LayoutRoute,
+} as any)
+
+const LayoutImageSvgToPngRoute = LayoutImageSvgToPngImport.update({
+  id: '/image/svgToPng',
+  path: '/image/svgToPng',
   getParentRoute: () => LayoutRoute,
 } as any)
 
@@ -427,6 +434,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LayoutFormatterZigImport
       parentRoute: typeof LayoutImport
     }
+    '/_layout/image/svgToPng': {
+      id: '/_layout/image/svgToPng'
+      path: '/image/svgToPng'
+      fullPath: '/image/svgToPng'
+      preLoaderRoute: typeof LayoutImageSvgToPngImport
+      parentRoute: typeof LayoutImport
+    }
     '/_layout/iniad/locker': {
       id: '/_layout/iniad/locker'
       path: '/iniad/locker'
@@ -507,6 +521,7 @@ interface LayoutRouteChildren {
   LayoutFormatterTypescriptRoute: typeof LayoutFormatterTypescriptRoute
   LayoutFormatterYamlRoute: typeof LayoutFormatterYamlRoute
   LayoutFormatterZigRoute: typeof LayoutFormatterZigRoute
+  LayoutImageSvgToPngRoute: typeof LayoutImageSvgToPngRoute
   LayoutIniadLockerRoute: typeof LayoutIniadLockerRoute
   LayoutMathCalculatorRoute: typeof LayoutMathCalculatorRoute
   LayoutMathRadixRoute: typeof LayoutMathRadixRoute
@@ -542,6 +557,7 @@ const LayoutRouteChildren: LayoutRouteChildren = {
   LayoutFormatterTypescriptRoute: LayoutFormatterTypescriptRoute,
   LayoutFormatterYamlRoute: LayoutFormatterYamlRoute,
   LayoutFormatterZigRoute: LayoutFormatterZigRoute,
+  LayoutImageSvgToPngRoute: LayoutImageSvgToPngRoute,
   LayoutIniadLockerRoute: LayoutIniadLockerRoute,
   LayoutMathCalculatorRoute: LayoutMathCalculatorRoute,
   LayoutMathRadixRoute: LayoutMathRadixRoute,
@@ -581,6 +597,7 @@ export interface FileRoutesByFullPath {
   '/formatter/typescript': typeof LayoutFormatterTypescriptRoute
   '/formatter/yaml': typeof LayoutFormatterYamlRoute
   '/formatter/zig': typeof LayoutFormatterZigRoute
+  '/image/svgToPng': typeof LayoutImageSvgToPngRoute
   '/iniad/locker': typeof LayoutIniadLockerRoute
   '/math/calculator': typeof LayoutMathCalculatorRoute
   '/math/radix': typeof LayoutMathRadixRoute
@@ -616,6 +633,7 @@ export interface FileRoutesByTo {
   '/formatter/typescript': typeof LayoutFormatterTypescriptRoute
   '/formatter/yaml': typeof LayoutFormatterYamlRoute
   '/formatter/zig': typeof LayoutFormatterZigRoute
+  '/image/svgToPng': typeof LayoutImageSvgToPngRoute
   '/iniad/locker': typeof LayoutIniadLockerRoute
   '/math/calculator': typeof LayoutMathCalculatorRoute
   '/math/radix': typeof LayoutMathRadixRoute
@@ -653,6 +671,7 @@ export interface FileRoutesById {
   '/_layout/formatter/typescript': typeof LayoutFormatterTypescriptRoute
   '/_layout/formatter/yaml': typeof LayoutFormatterYamlRoute
   '/_layout/formatter/zig': typeof LayoutFormatterZigRoute
+  '/_layout/image/svgToPng': typeof LayoutImageSvgToPngRoute
   '/_layout/iniad/locker': typeof LayoutIniadLockerRoute
   '/_layout/math/calculator': typeof LayoutMathCalculatorRoute
   '/_layout/math/radix': typeof LayoutMathRadixRoute
@@ -691,6 +710,7 @@ export interface FileRouteTypes {
     | '/formatter/typescript'
     | '/formatter/yaml'
     | '/formatter/zig'
+    | '/image/svgToPng'
     | '/iniad/locker'
     | '/math/calculator'
     | '/math/radix'
@@ -725,6 +745,7 @@ export interface FileRouteTypes {
     | '/formatter/typescript'
     | '/formatter/yaml'
     | '/formatter/zig'
+    | '/image/svgToPng'
     | '/iniad/locker'
     | '/math/calculator'
     | '/math/radix'
@@ -760,6 +781,7 @@ export interface FileRouteTypes {
     | '/_layout/formatter/typescript'
     | '/_layout/formatter/yaml'
     | '/_layout/formatter/zig'
+    | '/_layout/image/svgToPng'
     | '/_layout/iniad/locker'
     | '/_layout/math/calculator'
     | '/_layout/math/radix'
@@ -819,6 +841,7 @@ export const routeTree = rootRoute
         "/_layout/formatter/typescript",
         "/_layout/formatter/yaml",
         "/_layout/formatter/zig",
+        "/_layout/image/svgToPng",
         "/_layout/iniad/locker",
         "/_layout/math/calculator",
         "/_layout/math/radix",
@@ -926,6 +949,10 @@ export const routeTree = rootRoute
     },
     "/_layout/formatter/zig": {
       "filePath": "_layout/formatter/zig.tsx",
+      "parent": "/_layout"
+    },
+    "/_layout/image/svgToPng": {
+      "filePath": "_layout/image/svgToPng.tsx",
       "parent": "/_layout"
     },
     "/_layout/iniad/locker": {
