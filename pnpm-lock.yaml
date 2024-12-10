@@ -74,8 +74,8 @@ importers:
         specifier: ^2.1.1
         version: 2.1.1
       json-schema-to-zod:
-        specifier: ^2.4.1
-        version: 2.4.1
+        specifier: ^2.5.0
+        version: 2.5.0
       lucide-react:
         specifier: ^0.468.0
         version: 0.468.0(react@18.3.1)
@@ -2566,8 +2566,8 @@ packages:
     engines: {node: '>=6'}
     hasBin: true
 
-  json-schema-to-zod@2.4.1:
-    resolution: {integrity: sha512-aMoez9TxgnfLAIZaWTPaQ+j7rOt1K9Ew/TBI85XcnhcFlo/47b1MDgpi4r07XndLSZWOX/KsJiRJvhdzSvo2Dw==}
+  json-schema-to-zod@2.5.0:
+    resolution: {integrity: sha512-77mMOdHz+VdoFN6VYCYzEmH//WzwLa5LnphLT4gaVCcHn7R1PbzNCsZnlIFKBAfOUYuFyatkDTJEy1GVo4DnLQ==}
     hasBin: true
 
   json-schema-traverse@1.0.0:
@@ -6165,7 +6165,7 @@ snapshots:
 
   jsesc@3.0.2: {}
 
-  json-schema-to-zod@2.4.1: {}
+  json-schema-to-zod@2.5.0: {}
 
   json-schema-traverse@1.0.0: {}
 
