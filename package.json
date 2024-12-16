@@ -47,7 +47,7 @@
     "ts-pattern": "^5.5.0",
     "twitter-text": "^3.1.0",
     "uqr": "^0.1.2",
-    "zod": "^3.23.8"
+    "zod": "^3.24.1"
   },
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",
