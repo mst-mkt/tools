@@ -80,8 +80,8 @@ importers:
         specifier: ^0.468.0
         version: 0.468.0(react@18.3.1)
       mathjs:
-        specifier: ^13.2.0
-        version: 13.2.0
+        specifier: ^14.0.1
+        version: 14.0.1
       punycode:
         specifier: ^2.3.1
         version: 2.3.1
@@ -2235,6 +2235,10 @@ packages:
   fraction.js@4.3.7:
     resolution: {integrity: sha512-ZsDfxO51wGAXREY55a7la9LScWpwv9RxIrYABrlvOFBlH/ShPnrtsXeuUIfXKKOVicNxQ+o8JTbJvjS4M89yew==}
 
+  fraction.js@5.2.1:
+    resolution: {integrity: sha512-Ah6t/7YCYjrPUFUFsOsRLMXAdnYM+aQwmojD2Ayb/Ezr82SwES0vuyQ8qZ3QO8n9j7W14VJuVZZet8U3bhSdQQ==}
+    engines: {node: '>= 12'}
+
   fs-extra@9.1.0:
     resolution: {integrity: sha512-hcg3ZmepS30/7BSFqRvoo3DOMQu7IjqxO5nCDt+zM9XWjb33Wg7ziNT+Qvqbuc3+gWpzO02JubVyk2G4Zvo1OQ==}
     engines: {node: '>=10'}
@@ -2662,8 +2666,8 @@ packages:
   markdown-table@3.0.3:
     resolution: {integrity: sha512-Z1NL3Tb1M9wH4XESsCDEksWoKTdlUafKc4pt0GRwjUyXaCFZ+dc3g2erqB6zm3szA2IUSi7VnPI+o/9jnxh9hw==}
 
-  mathjs@13.2.0:
-    resolution: {integrity: sha512-P5PZoiUX2Tkghkv3tsSqlK0B9My/ErKapv1j6wdxd0MOrYQ30cnGE4LH/kzYB2gA5rN46Njqc4cFgJjaxgijoQ==}
+  mathjs@14.0.1:
+    resolution: {integrity: sha512-yyJgLwC6UXuve724np8tHRMYaTtb5UqiOGQkjwbSXgH8y1C/LcJ0pvdNDZLI2LT7r+iExh2Y5HwfAY+oZFtGIQ==}
     engines: {node: '>= 18'}
     hasBin: true
 
@@ -5801,6 +5805,8 @@ snapshots:
 
   fraction.js@4.3.7: {}
 
+  fraction.js@5.2.1: {}
+
   fs-extra@9.1.0:
     dependencies:
       at-least-node: 1.0.0
@@ -6259,13 +6265,13 @@ snapshots:
 
   markdown-table@3.0.3: {}
 
-  mathjs@13.2.0:
+  mathjs@14.0.1:
     dependencies:
       '@babel/runtime': 7.25.7
       complex.js: 2.3.0
       decimal.js: 10.4.3
       escape-latex: 1.2.0
-      fraction.js: 4.3.7
+      fraction.js: 5.2.1
       javascript-natural-sort: 0.7.1
       seedrandom: 3.0.5
       tiny-emitter: 2.1.0
