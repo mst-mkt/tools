@@ -43,7 +43,7 @@
     "rehype-katex": "^7.0.1",
     "remark-gfm": "^4.0.0",
     "remark-math": "^6.0.0",
-    "tailwind-merge": "^2.5.4",
+    "tailwind-merge": "^2.5.5",
     "ts-pattern": "^5.5.0",
     "twitter-text": "^3.1.0",
     "uqr": "^0.1.2",
