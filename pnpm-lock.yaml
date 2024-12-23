@@ -53,8 +53,8 @@ importers:
         specifier: ^0.7.1
         version: 0.7.4
       '@wasm-fmt/sql_fmt':
-        specifier: ^0.0.2
-        version: 0.0.2
+        specifier: ^0.1.0
+        version: 0.1.0
       '@wasm-fmt/web_fmt':
         specifier: ^0.1.12
         version: 0.1.12
@@ -1794,8 +1794,8 @@ packages:
   '@wasm-fmt/ruff_fmt@0.7.4':
     resolution: {integrity: sha512-icxyV2YSRlchnjXzSPpWfdRdA4tlzkqIOK+PrjtNfwtANRRrtJpb5U9RanXiXiTrkR7D43iGFBKzfwUOXuALTg==}
 
-  '@wasm-fmt/sql_fmt@0.0.2':
-    resolution: {integrity: sha512-pr6HacbCwE87e/Rvc8zwtzaSE2EfEf7JCNf9GEHobITMbR1f0PcAWjmfdBaNo22If0Kz1pp3m3h02X7Vx6OXoQ==}
+  '@wasm-fmt/sql_fmt@0.1.0':
+    resolution: {integrity: sha512-f1tH16RL5Wt4C19Ztw6mFa1yudpsRFduHzri/zy3D2cvB8NhAkUOGybjOvoeFB6qiXfGMS9LadBduvKQCoxKew==}
 
   '@wasm-fmt/web_fmt@0.1.12':
     resolution: {integrity: sha512-mp6TbLfyF6utHNt8XDNB5KmBUgnec6rK+IJvF0E5+NCFVRMD3prUv6D5F6K0SUQeK/DZ+z/BQr/AnCmA2dOpjQ==}
@@ -3712,9 +3712,6 @@ packages:
     engines: {node: '>= 14'}
     hasBin: true
 
-  zod@3.23.8:
-    resolution: {integrity: sha512-XBx9AXhXktjUqnepgTiE5flcKIYWi/rme0Eaj+5Y0lftuGBq+jyRu/md4WnuxqgP1ubdpNCsYEYPxrzVHD8d6g==}
-
   zod@3.24.1:
     resolution: {integrity: sha512-muH7gBL9sI1nciMZV67X5fTKKBLtwpZ5VBp1vsOQzj1MhrBZ4wlVCm3gedKZWLp0Oyel8sIGfeiz54Su+OVT+A==}
 
@@ -5157,7 +5154,7 @@ snapshots:
       '@tanstack/virtual-file-routes': 1.81.9
       prettier: 3.3.3
       tsx: 4.19.2
-      zod: 3.23.8
+      zod: 3.24.1
     optional: true
 
   '@tanstack/router-generator@1.84.4':
@@ -5298,7 +5295,7 @@ snapshots:
 
   '@wasm-fmt/ruff_fmt@0.7.4': {}
 
-  '@wasm-fmt/sql_fmt@0.0.2': {}
+  '@wasm-fmt/sql_fmt@0.1.0': {}
 
   '@wasm-fmt/web_fmt@0.1.12': {}
 
@@ -7702,9 +7699,6 @@ snapshots:
   yaml@2.5.1: {}
 
   yaml@2.6.0: {}
-
-  zod@3.23.8:
-    optional: true
 
   zod@3.24.1: {}
 

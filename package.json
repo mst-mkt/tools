@@ -26,7 +26,7 @@
     "@wasm-fmt/gofmt": "^0.4.9",
     "@wasm-fmt/lua_fmt": "^0.0.6",
     "@wasm-fmt/ruff_fmt": "^0.7.1",
-    "@wasm-fmt/sql_fmt": "^0.0.2",
+    "@wasm-fmt/sql_fmt": "^0.1.0",
     "@wasm-fmt/web_fmt": "^0.1.12",
     "@wasm-fmt/yamlfmt": "^0.0.2",
     "@wasm-fmt/zig_fmt": "^0.0.5",
