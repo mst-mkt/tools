@@ -34,7 +34,7 @@
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "json-schema-to-zod": "^2.5.0",
-    "lucide-react": "^0.468.0",
+    "lucide-react": "^0.469.0",
     "mathjs": "^14.0.1",
     "punycode": "^2.3.1",
     "react": "^18.3.1",
