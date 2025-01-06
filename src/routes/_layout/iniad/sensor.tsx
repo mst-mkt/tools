@@ -48,7 +48,7 @@ const Sensor = () => {
     <>
       <Head title="INIAD Sensor" />
       <div className="flex flex-col gap-y-8">
-        <h1 className="font-bold text-lg">INIAD Locker Opener</h1>
+        <h1 className="font-bold text-lg">INIAD Sensor</h1>
         <div>
           <Label>
             <span>ID</span>

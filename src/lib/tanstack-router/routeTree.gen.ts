@@ -14,6 +14,7 @@ import { Route as LayoutTextRepeatImport } from './../../routes/_layout/text/rep
 import { Route as LayoutTextCountImport } from './../../routes/_layout/text/count'
 import { Route as LayoutMathRadixImport } from './../../routes/_layout/math/radix'
 import { Route as LayoutMathCalculatorImport } from './../../routes/_layout/math/calculator'
+import { Route as LayoutIniadSensorImport } from './../../routes/_layout/iniad/sensor'
 import { Route as LayoutIniadLockerImport } from './../../routes/_layout/iniad/locker'
 import { Route as LayoutImageSvg2pngImport } from './../../routes/_layout/image/svg2png'
 import { Route as LayoutFormatterZigImport } from './../../routes/_layout/formatter/zig'
@@ -82,6 +83,12 @@ const LayoutMathRadixRoute = LayoutMathRadixImport.update({
 const LayoutMathCalculatorRoute = LayoutMathCalculatorImport.update({
   id: '/math/calculator',
   path: '/math/calculator',
+  getParentRoute: () => LayoutRoute,
+} as any)
+
+const LayoutIniadSensorRoute = LayoutIniadSensorImport.update({
+  id: '/iniad/sensor',
+  path: '/iniad/sensor',
   getParentRoute: () => LayoutRoute,
 } as any)
 
@@ -448,6 +455,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LayoutIniadLockerImport
       parentRoute: typeof LayoutImport
     }
+    '/_layout/iniad/sensor': {
+      id: '/_layout/iniad/sensor'
+      path: '/iniad/sensor'
+      fullPath: '/iniad/sensor'
+      preLoaderRoute: typeof LayoutIniadSensorImport
+      parentRoute: typeof LayoutImport
+    }
     '/_layout/math/calculator': {
       id: '/_layout/math/calculator'
       path: '/math/calculator'
@@ -523,6 +537,7 @@ interface LayoutRouteChildren {
   LayoutFormatterZigRoute: typeof LayoutFormatterZigRoute
   LayoutImageSvg2pngRoute: typeof LayoutImageSvg2pngRoute
   LayoutIniadLockerRoute: typeof LayoutIniadLockerRoute
+  LayoutIniadSensorRoute: typeof LayoutIniadSensorRoute
   LayoutMathCalculatorRoute: typeof LayoutMathCalculatorRoute
   LayoutMathRadixRoute: typeof LayoutMathRadixRoute
   LayoutTextCountRoute: typeof LayoutTextCountRoute
@@ -559,6 +574,7 @@ const LayoutRouteChildren: LayoutRouteChildren = {
   LayoutFormatterZigRoute: LayoutFormatterZigRoute,
   LayoutImageSvg2pngRoute: LayoutImageSvg2pngRoute,
   LayoutIniadLockerRoute: LayoutIniadLockerRoute,
+  LayoutIniadSensorRoute: LayoutIniadSensorRoute,
   LayoutMathCalculatorRoute: LayoutMathCalculatorRoute,
   LayoutMathRadixRoute: LayoutMathRadixRoute,
   LayoutTextCountRoute: LayoutTextCountRoute,
@@ -599,6 +615,7 @@ export interface FileRoutesByFullPath {
   '/formatter/zig': typeof LayoutFormatterZigRoute
   '/image/svg2png': typeof LayoutImageSvg2pngRoute
   '/iniad/locker': typeof LayoutIniadLockerRoute
+  '/iniad/sensor': typeof LayoutIniadSensorRoute
   '/math/calculator': typeof LayoutMathCalculatorRoute
   '/math/radix': typeof LayoutMathRadixRoute
   '/text/count': typeof LayoutTextCountRoute
@@ -635,6 +652,7 @@ export interface FileRoutesByTo {
   '/formatter/zig': typeof LayoutFormatterZigRoute
   '/image/svg2png': typeof LayoutImageSvg2pngRoute
   '/iniad/locker': typeof LayoutIniadLockerRoute
+  '/iniad/sensor': typeof LayoutIniadSensorRoute
   '/math/calculator': typeof LayoutMathCalculatorRoute
   '/math/radix': typeof LayoutMathRadixRoute
   '/text/count': typeof LayoutTextCountRoute
@@ -673,6 +691,7 @@ export interface FileRoutesById {
   '/_layout/formatter/zig': typeof LayoutFormatterZigRoute
   '/_layout/image/svg2png': typeof LayoutImageSvg2pngRoute
   '/_layout/iniad/locker': typeof LayoutIniadLockerRoute
+  '/_layout/iniad/sensor': typeof LayoutIniadSensorRoute
   '/_layout/math/calculator': typeof LayoutMathCalculatorRoute
   '/_layout/math/radix': typeof LayoutMathRadixRoute
   '/_layout/text/count': typeof LayoutTextCountRoute
@@ -712,6 +731,7 @@ export interface FileRouteTypes {
     | '/formatter/zig'
     | '/image/svg2png'
     | '/iniad/locker'
+    | '/iniad/sensor'
     | '/math/calculator'
     | '/math/radix'
     | '/text/count'
@@ -747,6 +767,7 @@ export interface FileRouteTypes {
     | '/formatter/zig'
     | '/image/svg2png'
     | '/iniad/locker'
+    | '/iniad/sensor'
     | '/math/calculator'
     | '/math/radix'
     | '/text/count'
@@ -783,6 +804,7 @@ export interface FileRouteTypes {
     | '/_layout/formatter/zig'
     | '/_layout/image/svg2png'
     | '/_layout/iniad/locker'
+    | '/_layout/iniad/sensor'
     | '/_layout/math/calculator'
     | '/_layout/math/radix'
     | '/_layout/text/count'
@@ -843,6 +865,7 @@ export const routeTree = rootRoute
         "/_layout/formatter/zig",
         "/_layout/image/svg2png",
         "/_layout/iniad/locker",
+        "/_layout/iniad/sensor",
         "/_layout/math/calculator",
         "/_layout/math/radix",
         "/_layout/text/count",
@@ -957,6 +980,10 @@ export const routeTree = rootRoute
     },
     "/_layout/iniad/locker": {
       "filePath": "_layout/iniad/locker.tsx",
+      "parent": "/_layout"
+    },
+    "/_layout/iniad/sensor": {
+      "filePath": "_layout/iniad/sensor.tsx",
       "parent": "/_layout"
     },
     "/_layout/math/calculator": {
