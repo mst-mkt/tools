@@ -46,6 +46,7 @@ const links = {
   ],
   INIAD: [
     { label: 'Locker Opener', id: 'locker' },
+    { label: 'Sensor', id: 'sensor' },
     { label: '時間割', id: 'timetable' },
   ],
 } as const satisfies { [category: string]: { label: string; id: string }[] }
