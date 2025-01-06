@@ -7,6 +7,7 @@ import { Label } from '@/components/ui/label'
 import { EDU_IOT_API_ENDPOINT, INIAD_ROOMS } from '@/constants/api/iniad'
 import { useInputState } from '@/hooks/useInputState'
 import { useLocalStorage } from '@/hooks/useLocalStorage'
+import { sleep } from '@/utils/sleep'
 import { createFileRoute } from '@tanstack/react-router'
 import { EduIotApiClient, type RoomStatus } from 'iniad-api-client'
 import { Loader, Save, Thermometer } from 'lucide-react'
@@ -34,9 +35,12 @@ const Sensor = () => {
     const apiClient = new EduIotApiClient(id, password, EDU_IOT_API_ENDPOINT)
     setIsLoading(true)
 
-    const statuses = await Promise.all(
-      INIAD_ROOMS.map(async (room) => apiClient.getRoomStatus(room)),
-    )
+    const statuses = await INIAD_ROOMS.reduce<Promise<RoomStatus[]>>(async (prev, roomNumber) => {
+      const acc = await prev
+      const result = await apiClient.getRoomStatus(roomNumber)
+      await sleep(100)
+      return [...acc, result]
+    }, Promise.resolve([]))
 
     setRoomStatuses(
       statuses.map((status, index) => ({ ...status, roomNumber: INIAD_ROOMS[index] ?? 1234 })),
