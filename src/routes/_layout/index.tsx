@@ -1,4 +1,4 @@
-import { Link, createFileRoute } from '@tanstack/react-router'
+import { type FileRouteTypes, Link, createFileRoute } from '@tanstack/react-router'
 import { Head } from '../../components/shared/Head'
 import { PROJECT_NAME } from '../../constants/project'
 import { toPascalCase } from '../../utils/text/case'
@@ -66,7 +66,7 @@ const Home = () => (
             {items.map(({ label, id }) => (
               <Link
                 key={id}
-                to={`/${category}/${id}`}
+                to={`/${category}/${id}` as FileRouteTypes['to']}
                 className="rounded-md border border-background-100 p-4 transition-colors hover:bg-background-50"
               >
                 <p>{label}</p>
