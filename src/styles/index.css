@@ -1,0 +1,4 @@
+@import './theme';
+
+@import 'tailwindcss';
+@config "../../tailwind.config.ts";
