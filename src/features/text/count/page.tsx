@@ -12,11 +12,11 @@ import { generateCopyResult } from './copy-data'
 import { count } from './count'
 import { countMethodLabel, isCountMethod } from './count-methods'
 
-type TextCounterProps = {
+type TextCountProps = {
   initialText: string
 }
 
-export const TextCount: FC<TextCounterProps> = ({ initialText }) => {
+export const TextCount: FC<TextCountProps> = ({ initialText }) => {
   const [inputText, onChangeInputText] = useInputState(initialText)
   const textLengthes = useMemo(() => count(inputText), [inputText])
   const [copytextData, copyHtmlData] = useMemo(
