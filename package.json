@@ -46,5 +46,10 @@
   },
   "volta": {
     "node": "22.11.0"
+  },
+  "pnpm": {
+    "patchedDependencies": {
+      "rizzui": "patches/rizzui.patch"
+    }
   }
 }

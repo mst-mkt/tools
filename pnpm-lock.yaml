@@ -4,6 +4,11 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+patchedDependencies:
+  rizzui:
+    hash: z4xgrreeeg6ai6um3c5hmtneoq
+    path: patches/rizzui.patch
+
 importers:
 
   .:
@@ -37,7 +42,7 @@ importers:
         version: 18.3.1(react@18.3.1)
       rizzui:
         specifier: ^1.0.1
-        version: 1.0.1(@floating-ui/react@0.27.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@headlessui/react@2.2.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        version: 1.0.1(patch_hash=z4xgrreeeg6ai6um3c5hmtneoq)(@floating-ui/react@0.27.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@headlessui/react@2.2.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       tailwind-merge:
         specifier: ^2.6.0
         version: 2.6.0
@@ -2709,7 +2714,7 @@ snapshots:
 
   resolve-pkg-maps@1.0.0: {}
 
-  rizzui@1.0.1(@floating-ui/react@0.27.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@headlessui/react@2.2.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+  rizzui@1.0.1(patch_hash=z4xgrreeeg6ai6um3c5hmtneoq)(@floating-ui/react@0.27.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@headlessui/react@2.2.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
       '@floating-ui/react': 0.27.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@headlessui/react': 2.2.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
