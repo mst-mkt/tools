@@ -1,4 +1,5 @@
 import aspectRatio from '@tailwindcss/aspect-ratio'
+import forms from '@tailwindcss/forms'
 import type { Config } from 'tailwindcss'
 
 const alphas = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900] as const
@@ -9,21 +10,8 @@ const colorMix = (color1: string, color2: string, percentage: number) => {
 
 const oklch = ([color]: TemplateStringsArray) => `oklch(var(--${color}) / <alpha-value>)`
 
-const makeColorPalette = (color: string) => ({
-  50: colorMix(color, oklch`background`, 70),
-  100: colorMix(color, oklch`background`, 50),
-  200: colorMix(color, oklch`background`, 30),
-  300: colorMix(color, oklch`background`, 10),
-  400: colorMix(color, oklch`background`, 5),
-  500: color,
-  600: colorMix(color, oklch`foreground`, 10),
-  700: colorMix(color, oklch`foreground`, 30),
-  800: colorMix(color, oklch`foreground`, 50),
-  900: colorMix(color, oklch`foreground`, 70),
-})
-
 const config = {
-  content: ['./index.html', './src/**/*.{ts,tsx}', './src/**/.*.{ts,tsx}'],
+  content: ['./index.html', './src/**/*.{ts,tsx}', './src/**/.*.{ts,tsx}', './node_modules/rizzui/dist/*.{js,ts,jsx,tsx}'],
   darkMode: 'class',
   theme: {
     extend: {
@@ -43,15 +31,50 @@ const config = {
             alphas.map((alpha) => [alpha, colorMix(oklch`foreground`, oklch`background`, alpha / 10)]),
           ),
         },
-        accent: {
-          DEFAULT: oklch`accent`,
-          ...makeColorPalette(oklch`accent`),
+        muted: {
+          DEFAULT: oklch`muted`,
+          foreground: oklch`muted-foreground`,
+        },
+
+        primary: {
+          lighter: oklch`primary-lighter`,
+          DEFAULT: oklch`primary-default`,
+          dark: oklch`primary-dark`,
+          foreground: oklch`primary-foreground`,
+        },
+        secondary: {
+          lighter: oklch`secondary-lighter`,
+          DEFAULT: oklch`secondary-default`,
+          dark: oklch`secondary-dark`,
+          foreground: oklch`secondary-foreground`,
+        },
+
+        red: {
+          lighter: oklch`red-lighter`,
+          DEFAULT: oklch`red-default`,
+          dark: oklch`red-dark`,
+        },
+        orange: {
+          lighter: oklch`orange-lighter`,
+          DEFAULT: oklch`orange-default`,
+          dark: oklch`orange-dark`,
+        },
+        blue: {
+          lighter: oklch`blue-lighter`,
+          DEFAULT: oklch`blue-default`,
+          dark: oklch`blue-dark`,
+        },
+        green: {
+          lighter: oklch`green-lighter`,
+          DEFAULT: oklch`green-default`,
+          dark: oklch`green-dark`,
         },
       },
     },
   },
   plugins: [
     aspectRatio,
+    forms,
   ],
 } satisfies Config
 
