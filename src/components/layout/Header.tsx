@@ -1,5 +1,7 @@
 import { IconBrightness } from '@tabler/icons-react'
 import { Link } from '@tanstack/react-router'
+import { Button } from 'rizzui/button'
+import { Flex } from 'rizzui/flex'
 import { PROJECT_NAME } from '../../constants/project'
 import { useTheme } from '../../hooks/useTheme'
 
@@ -8,18 +10,21 @@ export const Header = () => {
 
   return (
     <header className="sticky top-0 border-background-100 border-b bg-background/16 backdrop-blur-md">
-      <div className="mx-auto flex max-w-max-content items-center justify-between gap-y-4 px-6 py-4 font-bold text-2xl">
-        <Link to="/" className="transition-colors hover:text-accent-400">
-          {PROJECT_NAME}
-        </Link>
-        <button
-          type="button"
+      <Flex
+        align="center"
+        justify="between"
+        gap="4"
+        className="mx-auto max-w-max-content px-6 py-4 font-bold text-2xl"
+      >
+        <Link to="/">{PROJECT_NAME}</Link>
+        <Button
+          variant="flat"
           onClick={toggleTheme}
-          className="w-fit rounded-md p-2 transition-colors hover:bg-background-200 focus:outline-none"
+          className="aspect-1 cursor-pointer bg-transparent p-2"
         >
           <IconBrightness size={20} />
-        </button>
-      </div>
+        </Button>
+      </Flex>
     </header>
   )
 }
