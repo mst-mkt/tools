@@ -19,6 +19,7 @@
     "@tabler/icons-react": "^3.24.0",
     "@tanstack/react-router": "^1.92.11",
     "@tanstack/router-devtools": "^1.90.0",
+    "cjp": "^2.3.1",
     "clsx": "^2.1.1",
     "rc-slider": "^11.1.8",
     "react": "^18.3.1",
