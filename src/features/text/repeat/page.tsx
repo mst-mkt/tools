@@ -49,13 +49,18 @@ export const TextRpeat: FC<TextRepeatProps> = ({ initialText, initialCount }) =>
       <Textarea value={resultText} readOnly={true} placeholder="反復結果" />
       <Flex align="center" gap="4">
         <Button
-          className="w-fit cursor-pointer gap-x-2"
+          className="w-fit cursor-pointer gap-x-2 disabled:cursor-not-allowed"
           onClick={() => copyLocation('/text/repeat', { text: inputText })}
+          disabled={inputText.trim() === ''}
         >
           <IconLink size={16} />
           URLをコピー
         </Button>
-        <Button className="w-fit cursor-pointer gap-x-2" onClick={() => copy(resultText)}>
+        <Button
+          className="w-fit cursor-pointer gap-x-2 disabled:cursor-not-allowed"
+          onClick={() => copy(resultText)}
+          disabled={resultText.trim() === ''}
+        >
           <IconCopy size={16} />
           結果をコピー
         </Button>

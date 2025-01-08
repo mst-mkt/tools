@@ -80,15 +80,22 @@ export const TextReplace: FC<TextReplaceProps> = ({ initialText, initialRules = 
       <Textarea value={replacedText} readOnly={true} placeholder="置換結果" />
       <Flex align="center" gap="4">
         <Button
-          className="w-fit cursor-pointer gap-x-2"
+          className="w-fit cursor-pointer gap-x-2 disabled:cursor-not-allowed"
           onClick={() =>
             copyLocation('/text/replace', { text: inputText, rules: withoutId(rules) })
+          }
+          disabled={
+            inputText.trim() === '' && rules.every(({ from, to }) => from.trim() + to.trim() === '')
           }
         >
           <IconLink size={16} />
           URLをコピー
         </Button>
-        <Button className="w-fit cursor-pointer gap-x-2" onClick={() => copy(replacedText)}>
+        <Button
+          className="w-fit cursor-pointer gap-x-2 disabled:cursor-not-allowed"
+          onClick={() => copy(replacedText)}
+          disabled={replacedText.trim() === ''}
+        >
           <IconCopy size={16} />
           結果をコピー
         </Button>

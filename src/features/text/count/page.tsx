@@ -54,15 +54,17 @@ export const TextCount: FC<TextCountProps> = ({ initialText }) => {
       </Flex>
       <Flex align="center" gap="4">
         <Button
-          className="w-fit cursor-pointer gap-x-2"
+          className="w-fit cursor-pointer gap-x-2 disabled:cursor-not-allowed"
           onClick={() => copyLocation('/text/count', { text: inputText })}
+          disabled={inputText.trim() === ''}
         >
           <IconLink size={16} />
           URLをコピー
         </Button>
         <Button
-          className="w-fit cursor-pointer gap-x-2"
+          className="w-fit cursor-pointer gap-x-2 disabled:cursor-not-allowed"
           onClick={() => copy(copytextData, copyHtmlData)}
+          disabled={inputText.trim() === ''}
         >
           <IconCopy size={16} />
           結果をコピー
