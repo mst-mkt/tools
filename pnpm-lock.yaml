@@ -5,6 +5,9 @@ settings:
   excludeLinksFromLockfile: false
 
 patchedDependencies:
+  cjp:
+    hash: 6sselpnz6weoh5xixdhgmo63di
+    path: patches/cjp.patch
   rizzui:
     hash: z4xgrreeeg6ai6um3c5hmtneoq
     path: patches/rizzui.patch
@@ -33,7 +36,7 @@ importers:
         version: 1.90.0(@tanstack/react-router@1.92.11(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(csstype@3.1.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       cjp:
         specifier: ^2.3.1
-        version: 2.3.1
+        version: 2.3.1(patch_hash=6sselpnz6weoh5xixdhgmo63di)
       clsx:
         specifier: ^2.1.1
         version: 2.1.1
@@ -2483,7 +2486,7 @@ snapshots:
     optionalDependencies:
       fsevents: 2.3.3
 
-  cjp@2.3.1: {}
+  cjp@2.3.1(patch_hash=6sselpnz6weoh5xixdhgmo63di): {}
 
   classnames@2.5.1: {}
 

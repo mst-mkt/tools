@@ -54,7 +54,8 @@
   },
   "pnpm": {
     "patchedDependencies": {
-      "rizzui": "patches/rizzui.patch"
+      "rizzui": "patches/rizzui.patch",
+      "cjp": "patches/cjp.patch"
     }
   }
 }
