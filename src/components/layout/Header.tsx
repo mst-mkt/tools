@@ -2,6 +2,7 @@ import { IconBrightness } from '@tabler/icons-react'
 import { Link } from '@tanstack/react-router'
 import { Button } from 'rizzui/button'
 import { Flex } from 'rizzui/flex'
+import { Tooltip } from 'rizzui/tooltip'
 import { PROJECT_NAME } from '../../constants/project'
 import { useTheme } from '../../hooks/useTheme'
 
@@ -17,13 +18,15 @@ export const Header = () => {
         className="mx-auto max-w-max-content px-6 py-4 font-bold text-2xl"
       >
         <Link to="/">{PROJECT_NAME}</Link>
-        <Button
-          variant="flat"
-          onClick={toggleTheme}
-          className="aspect-1 cursor-pointer bg-transparent p-2"
-        >
-          <IconBrightness size={20} />
-        </Button>
+        <Tooltip content="テーマを切り替える" size="sm">
+          <Button
+            variant="flat"
+            onClick={toggleTheme}
+            className="aspect-1 cursor-pointer bg-transparent p-2"
+          >
+            <IconBrightness size={20} />
+          </Button>
+        </Tooltip>
       </Flex>
     </header>
   )
