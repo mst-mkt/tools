@@ -5,6 +5,7 @@ import { Flex } from 'rizzui/flex'
 import { Input } from 'rizzui/input'
 import { Textarea } from 'rizzui/textarea'
 import { Title } from 'rizzui/typography'
+import { Breadcrumb } from '../../../components/ui/Breadcrumb'
 import { useCopyLocation } from '../../../hooks/useCopyLocation'
 import { useInputState } from '../../../hooks/useInputState'
 import { copy } from '../../../utils/copy'
@@ -33,6 +34,13 @@ export const TextReplace: FC<TextReplaceProps> = ({ initialText, initialRules = 
 
   return (
     <>
+      <Breadcrumb
+        items={[
+          { label: 'tools', toOptions: { to: '/' } },
+          { label: 'text', toOptions: { to: '/', hash: 'text' } },
+          'replace',
+        ]}
+      />
       <Title className="text-xl">文字列置換</Title>
       <Textarea value={inputText} onChange={onChangeInputText} placeholder="置換する文字列を入力" />
       <Flex direction="col" align="stretch" gap="4">

@@ -5,6 +5,7 @@ import { Button } from 'rizzui/button'
 import { Flex } from 'rizzui/flex'
 import { Textarea } from 'rizzui/textarea'
 import { Title } from 'rizzui/typography'
+import { Breadcrumb } from '../../../components/ui/Breadcrumb'
 import { useCopyLocation } from '../../../hooks/useCopyLocation'
 import { useInputState } from '../../../hooks/useInputState'
 import { copy } from '../../../utils/copy'
@@ -21,6 +22,13 @@ export const Cjp: FC<CjpProps> = ({ initialText }) => {
 
   return (
     <>
+      <Breadcrumb
+        items={[
+          { label: 'tools', toOptions: { to: '/' } },
+          { label: 'text', toOptions: { to: '/', hash: 'text' } },
+          'cjp',
+        ]}
+      />
       <Title className="text-xl">怪レい日本语 変換</Title>
       <Title as="h2" className="text-base">
         変換元

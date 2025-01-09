@@ -2,6 +2,7 @@ import { IconCopy, IconLink } from '@tabler/icons-react'
 import { type FC, useMemo } from 'react'
 import { Box, Button, Flex, Input, Textarea, Title } from 'rizzui'
 import { RangeSlider } from '../../../components/rizzui/slider'
+import { Breadcrumb } from '../../../components/ui/Breadcrumb'
 import { useCopyLocation } from '../../../hooks/useCopyLocation'
 import { useInputState } from '../../../hooks/useInputState'
 import { copy } from '../../../utils/copy'
@@ -21,6 +22,13 @@ export const TextRpeat: FC<TextRepeatProps> = ({ initialText, initialCount }) =>
 
   return (
     <>
+      <Breadcrumb
+        items={[
+          { label: 'tools', toOptions: { to: '/' } },
+          { label: 'text', toOptions: { to: '/', hash: 'text' } },
+          'repeat',
+        ]}
+      />
       <Title className="text-xl">文字数カウント</Title>
       <Textarea value={inputText} onChange={onChangeInputText} placeholder="反復する文字列を入力" />
       <Flex direction="col" align="stretch" gap="4">

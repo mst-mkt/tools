@@ -2,6 +2,7 @@ import { IconArrowsUpDown, IconCopy, IconLink } from '@tabler/icons-react'
 import { type FC, useCallback, useMemo, useState } from 'react'
 import { Button, Flex, Select, type SelectOption, Textarea, Title } from 'rizzui'
 import { match } from 'ts-pattern'
+import { Breadcrumb } from '../../../components/ui/Breadcrumb'
 import { useCopyLocation } from '../../../hooks/useCopyLocation'
 import { useInputState } from '../../../hooks/useInputState'
 import { copy } from '../../../utils/copy'
@@ -36,6 +37,13 @@ export const Url: FC<UrlProps> = ({ initialText, initialType = 'encode' }) => {
 
   return (
     <>
+      <Breadcrumb
+        items={[
+          { label: 'tools', toOptions: { to: '/' } },
+          { label: 'convert', toOptions: { to: '/', hash: 'convert' } },
+          'url',
+        ]}
+      />
       <Title className="text-xl">URL エンコード / デコード</Title>
       <Textarea value={inputText} onChange={onChangeInputText} placeholder="変換する文字列を入力" />
       <Flex align="center" gap="4">
