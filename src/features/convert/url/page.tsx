@@ -62,7 +62,7 @@ export const Url: FC<UrlProps> = ({ initialText, initialType = 'encode' }) => {
       <Flex align="center" gap="4">
         <Button
           className="w-fit cursor-pointer gap-x-2 disabled:cursor-not-allowed"
-          onClick={() => copyLocation('/text/count', { text: inputText })}
+          onClick={() => copyLocation('/convert/url', { text: inputText, type })}
           disabled={inputText.trim() === ''}
         >
           <IconLink size={16} />
