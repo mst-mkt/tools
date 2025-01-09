@@ -4,7 +4,6 @@ import { renderToString } from 'react-dom/server'
 import { toast } from 'sonner'
 import { P, match } from 'ts-pattern'
 import { url, pipe, safeParse, string } from 'valibot'
-import {} from '../lib/tanstack-router/routeTree.gen'
 
 export const copy = async (text: string, html?: string | JSX.Element) => {
   const htmlString = match(html)
@@ -34,5 +33,18 @@ export const copy = async (text: string, html?: string | JSX.Element) => {
     toast.success('コピーしました。')
   } catch {
     toast.error('コピーに失敗しました。')
+  }
+}
+
+export const copyFile = async (file: File, type: string) => {
+  const blob = new Blob([file], { type })
+  const clipboardItems = new ClipboardItem({ [type]: blob })
+
+  try {
+    await navigator.clipboard.write([clipboardItems])
+    toast.success('画像をコピーしました。')
+  } catch (e) {
+    console.error(e)
+    toast.error('画像のコピーに失敗しました。')
   }
 }
