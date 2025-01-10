@@ -21,17 +21,19 @@ export const countWords = (text: string) => {
   return [...segments].length
 }
 
-export const sentences = (text: string) => {
+export const countSentences = (text: string) => {
   const segmenter = new Intl.Segmenter('ja', { granularity: 'sentence' })
   const segments = segmenter.segment(text)
   return [...segments].length
 }
 
 export const countLines = (text: string) => {
+  if (text === '') return 0
   return text.split('\n').length
 }
 
 export const countLinesWithoutEmpty = (text: string) => {
+  if (text === '') return 0
   return text.split('\n').filter((line) => line.trim() !== '').length
 }
 
@@ -55,7 +57,7 @@ export const count = (text: string) => {
     words: countWords(text),
     lines: countLines(text),
     linesWithoutEmpty: countLinesWithoutEmpty(text),
-    sentences: sentences(text),
+    sentences: countSentences(text),
     stringLength: countStringLength(text),
     stringLengthWithoutSpaces: countStringLengthWithoutSpaces(text),
     bytes: countBytes(text),

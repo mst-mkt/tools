@@ -9,15 +9,15 @@ import { Breadcrumb } from '../../../components/ui/Breadcrumb'
 import { useCopyLocation } from '../../../hooks/useCopyLocation'
 import { useInputState } from '../../../hooks/useInputState'
 import { copy } from '../../../utils/copy'
+import { replaceText } from './replace'
 import {
   type ReplaceRule,
   type ReplaceRuleWithId,
   emptyRules,
-  replaceText,
   ruleControl,
   withId,
   withoutId,
-} from './replace'
+} from './rules'
 
 type TextReplaceProps = {
   initialText: string
