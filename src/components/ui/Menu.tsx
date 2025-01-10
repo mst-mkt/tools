@@ -36,7 +36,10 @@ const DrawerMenu: FC<MenuProps> = ({ items, label, icon: Icon }) => {
         {items.map(({ label, onClick }) => (
           <Button
             key={label}
-            onClick={onClick}
+            onClick={() => {
+              onClick()
+              setOpen(false)
+            }}
             variant="flat"
             className="w-full bg-transparent font-bold"
           >
