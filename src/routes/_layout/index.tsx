@@ -96,7 +96,7 @@ const Home = () => {
             {({ open }) => (
               <Flex align="center" justify="between">
                 <IconTransform size={24} />
-                <Title as="h2" id="text" className="text-left text-lg">
+                <Title as="h2" id="convert" className="text-left text-lg">
                   Convert
                 </Title>
                 <div className="h-[1px] grow bg-foreground opacity-50" />
