@@ -1,6 +1,16 @@
 {
   "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
   "extends": ["./node_modules/@mst-mkt/js-config/packages/biome/config.json"],
+  "linter": {
+    "rules": {
+      "complexity": {
+        "noExcessiveCognitiveComplexity": {
+          "level": "warn",
+          "options": { "maxAllowedComplexity": 8 }
+        }
+      }
+    }
+  },
   "files": {
     "include": ["./src/**/*"],
     "ignore": ["./src/**/*.d.ts", "./src/**/*.gen.ts"]
