@@ -1,9 +1,10 @@
-import { IconChevronDown, IconCopy, IconDownload, IconLink } from '@tabler/icons-react'
+import { IconCopy, IconDownload, IconLink } from '@tabler/icons-react'
 import { type FC, useCallback, useMemo } from 'react'
-import { Box, Button, Dropdown, Flex, Grid, Input, Title } from 'rizzui'
+import { Box, Button, Flex, Grid, Input, Title } from 'rizzui'
 import { twMerge } from 'tailwind-merge'
 import { encode, renderANSI, renderSVG, renderUnicode, renderUnicodeCompact } from 'uqr'
 import { Breadcrumb } from '../../../components/ui/Breadcrumb'
+import { Menu } from '../../../components/ui/Menu'
 import { useCopyLocation } from '../../../hooks/useCopyLocation'
 import { useInputState } from '../../../hooks/useInputState'
 import { copy, copyFile } from '../../../utils/copy'
@@ -70,7 +71,7 @@ export const QrCode: FC<QrCodeProps> = ({ initialText }) => {
           )}
         </Grid>
       </Box>
-      <Flex align="center" justify="start" gap="4">
+      <Flex align="center" justify="start" gap="4" className="flex-wrap">
         <Button
           className="w-fit cursor-pointer gap-x-2 disabled:cursor-not-allowed"
           onClick={() => copyLocation('/convert/qrcode', { text: inputText })}
@@ -79,48 +80,32 @@ export const QrCode: FC<QrCodeProps> = ({ initialText }) => {
           <IconLink size={16} />
           URLをコピー
         </Button>
-        <Dropdown>
-          <Dropdown.Trigger>
-            <Button className="w-fit shrink-0 cursor-pointer gap-x-2">
-              <IconCopy size={16} />
-              コピー
-              <IconChevronDown size={16} />
-            </Button>
-          </Dropdown.Trigger>
-          <Dropdown.Menu>
-            <Dropdown.Item onClick={() => copy(renderUnicode(inputText))}>文字列</Dropdown.Item>
-            <Dropdown.Item onClick={() => copy(renderUnicodeCompact(inputText))}>
-              文字列 (コンパクト)
-            </Dropdown.Item>
-            <Dropdown.Item onClick={() => copy(renderANSI(inputText))}>
-              文字列 (ANSIカラー)
-            </Dropdown.Item>
-            <Dropdown.Item onClick={() => copy(renderSVG(inputText))}>文字列 (SVG)</Dropdown.Item>
-            <Dropdown.Item onClick={() => copyFile(renderSvgAsFile(inputText))}>
-              ファイル (SVG)
-            </Dropdown.Item>
-            <Dropdown.Item onClick={async () => copyFile(await renderPngAsFile(inputText))}>
-              画像 (PNG)
-            </Dropdown.Item>
-          </Dropdown.Menu>
-        </Dropdown>
-        <Dropdown>
-          <Dropdown.Trigger>
-            <Button className="w-fit shrink-0 cursor-pointer gap-x-2">
-              <IconDownload size={16} />
-              ダウンロード
-              <IconChevronDown size={16} />
-            </Button>
-          </Dropdown.Trigger>
-          <Dropdown.Menu>
-            <Dropdown.Item onClick={() => handleDownload(renderSvgAsFile(inputText))}>
-              画像 (SVG)
-            </Dropdown.Item>
-            <Dropdown.Item onClick={async () => handleDownload(await renderPngAsFile(inputText))}>
-              画像 (PNG)
-            </Dropdown.Item>
-          </Dropdown.Menu>
-        </Dropdown>
+        <Menu
+          label="コピー"
+          icon={IconCopy}
+          items={[
+            { label: '文字列', onClick: () => copy(renderUnicode(inputText)) },
+            { label: '文字列 (コンパクト)', onClick: () => copy(renderUnicodeCompact(inputText)) },
+            { label: '文字列 (ANSIカラー)', onClick: () => copy(renderANSI(inputText)) },
+            { label: '文字列 (SVG)', onClick: () => copy(renderSVG(inputText)) },
+            { label: 'ファイル (SVG)', onClick: () => copyFile(renderSvgAsFile(inputText)) },
+            {
+              label: '画像 (PNG)',
+              onClick: async () => copyFile(await renderPngAsFile(inputText)),
+            },
+          ]}
+        />
+        <Menu
+          label="ダウンロード"
+          icon={IconDownload}
+          items={[
+            { label: '画像 (SVG)', onClick: () => handleDownload(renderSvgAsFile(inputText)) },
+            {
+              label: '画像 (PNG)',
+              onClick: async () => handleDownload(await renderPngAsFile(inputText)),
+            },
+          ]}
+        />
       </Flex>
     </>
   )
