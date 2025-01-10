@@ -28,3 +28,5 @@ jobs:
         run: pnpm biome ci ./src/ --reporter=github
       - name: Type check
         run: pnpm run typecheck
+      - name: Test
+        run: pnpm test
