@@ -36,9 +36,10 @@ export const copy = async (text: string, html?: string | JSX.Element) => {
   }
 }
 
-export const copyFile = async (file: File, type: string) => {
-  const blob = new Blob([file], { type })
-  const clipboardItems = new ClipboardItem({ [type]: blob })
+export const copyFile = async (file: File, type?: string) => {
+  const itemType = type ?? file.type
+  const blob = new Blob([file], { type: itemType })
+  const clipboardItems = new ClipboardItem({ [itemType]: blob })
 
   try {
     await navigator.clipboard.write([clipboardItems])
