@@ -9,6 +9,12 @@
 import { Route as rootRoute } from './../../routes/__root'
 import { Route as LayoutImport } from './../../routes/_layout'
 import { Route as LayoutIndexImport } from './../../routes/_layout/index'
+import { Route as LayoutTextIndexImport } from './../../routes/_layout/text/index'
+import { Route as LayoutMathIndexImport } from './../../routes/_layout/math/index'
+import { Route as LayoutIniadIndexImport } from './../../routes/_layout/iniad/index'
+import { Route as LayoutImageIndexImport } from './../../routes/_layout/image/index'
+import { Route as LayoutDevelopIndexImport } from './../../routes/_layout/develop/index'
+import { Route as LayoutConvertIndexImport } from './../../routes/_layout/convert/index'
 import { Route as LayoutTextReplaceImport } from './../../routes/_layout/text/replace'
 import { Route as LayoutTextRepeatImport } from './../../routes/_layout/text/repeat'
 import { Route as LayoutTextCountImport } from './../../routes/_layout/text/count'
@@ -41,6 +47,42 @@ const LayoutRoute = LayoutImport.update({
 const LayoutIndexRoute = LayoutIndexImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => LayoutRoute,
+} as any)
+
+const LayoutTextIndexRoute = LayoutTextIndexImport.update({
+  id: '/text/',
+  path: '/text/',
+  getParentRoute: () => LayoutRoute,
+} as any)
+
+const LayoutMathIndexRoute = LayoutMathIndexImport.update({
+  id: '/math/',
+  path: '/math/',
+  getParentRoute: () => LayoutRoute,
+} as any)
+
+const LayoutIniadIndexRoute = LayoutIniadIndexImport.update({
+  id: '/iniad/',
+  path: '/iniad/',
+  getParentRoute: () => LayoutRoute,
+} as any)
+
+const LayoutImageIndexRoute = LayoutImageIndexImport.update({
+  id: '/image/',
+  path: '/image/',
+  getParentRoute: () => LayoutRoute,
+} as any)
+
+const LayoutDevelopIndexRoute = LayoutDevelopIndexImport.update({
+  id: '/develop/',
+  path: '/develop/',
+  getParentRoute: () => LayoutRoute,
+} as any)
+
+const LayoutConvertIndexRoute = LayoutConvertIndexImport.update({
+  id: '/convert/',
+  path: '/convert/',
   getParentRoute: () => LayoutRoute,
 } as any)
 
@@ -336,6 +378,48 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LayoutTextReplaceImport
       parentRoute: typeof LayoutImport
     }
+    '/_layout/convert/': {
+      id: '/_layout/convert/'
+      path: '/convert'
+      fullPath: '/convert'
+      preLoaderRoute: typeof LayoutConvertIndexImport
+      parentRoute: typeof LayoutImport
+    }
+    '/_layout/develop/': {
+      id: '/_layout/develop/'
+      path: '/develop'
+      fullPath: '/develop'
+      preLoaderRoute: typeof LayoutDevelopIndexImport
+      parentRoute: typeof LayoutImport
+    }
+    '/_layout/image/': {
+      id: '/_layout/image/'
+      path: '/image'
+      fullPath: '/image'
+      preLoaderRoute: typeof LayoutImageIndexImport
+      parentRoute: typeof LayoutImport
+    }
+    '/_layout/iniad/': {
+      id: '/_layout/iniad/'
+      path: '/iniad'
+      fullPath: '/iniad'
+      preLoaderRoute: typeof LayoutIniadIndexImport
+      parentRoute: typeof LayoutImport
+    }
+    '/_layout/math/': {
+      id: '/_layout/math/'
+      path: '/math'
+      fullPath: '/math'
+      preLoaderRoute: typeof LayoutMathIndexImport
+      parentRoute: typeof LayoutImport
+    }
+    '/_layout/text/': {
+      id: '/_layout/text/'
+      path: '/text'
+      fullPath: '/text'
+      preLoaderRoute: typeof LayoutTextIndexImport
+      parentRoute: typeof LayoutImport
+    }
   }
 }
 
@@ -364,6 +448,12 @@ interface LayoutRouteChildren {
   LayoutTextCountRoute: typeof LayoutTextCountRoute
   LayoutTextRepeatRoute: typeof LayoutTextRepeatRoute
   LayoutTextReplaceRoute: typeof LayoutTextReplaceRoute
+  LayoutConvertIndexRoute: typeof LayoutConvertIndexRoute
+  LayoutDevelopIndexRoute: typeof LayoutDevelopIndexRoute
+  LayoutImageIndexRoute: typeof LayoutImageIndexRoute
+  LayoutIniadIndexRoute: typeof LayoutIniadIndexRoute
+  LayoutMathIndexRoute: typeof LayoutMathIndexRoute
+  LayoutTextIndexRoute: typeof LayoutTextIndexRoute
 }
 
 const LayoutRouteChildren: LayoutRouteChildren = {
@@ -389,6 +479,12 @@ const LayoutRouteChildren: LayoutRouteChildren = {
   LayoutTextCountRoute: LayoutTextCountRoute,
   LayoutTextRepeatRoute: LayoutTextRepeatRoute,
   LayoutTextReplaceRoute: LayoutTextReplaceRoute,
+  LayoutConvertIndexRoute: LayoutConvertIndexRoute,
+  LayoutDevelopIndexRoute: LayoutDevelopIndexRoute,
+  LayoutImageIndexRoute: LayoutImageIndexRoute,
+  LayoutIniadIndexRoute: LayoutIniadIndexRoute,
+  LayoutMathIndexRoute: LayoutMathIndexRoute,
+  LayoutTextIndexRoute: LayoutTextIndexRoute,
 }
 
 const LayoutRouteWithChildren =
@@ -418,6 +514,12 @@ export interface FileRoutesByFullPath {
   '/text/count': typeof LayoutTextCountRoute
   '/text/repeat': typeof LayoutTextRepeatRoute
   '/text/replace': typeof LayoutTextReplaceRoute
+  '/convert': typeof LayoutConvertIndexRoute
+  '/develop': typeof LayoutDevelopIndexRoute
+  '/image': typeof LayoutImageIndexRoute
+  '/iniad': typeof LayoutIniadIndexRoute
+  '/math': typeof LayoutMathIndexRoute
+  '/text': typeof LayoutTextIndexRoute
 }
 
 export interface FileRoutesByTo {
@@ -443,6 +545,12 @@ export interface FileRoutesByTo {
   '/text/count': typeof LayoutTextCountRoute
   '/text/repeat': typeof LayoutTextRepeatRoute
   '/text/replace': typeof LayoutTextReplaceRoute
+  '/convert': typeof LayoutConvertIndexRoute
+  '/develop': typeof LayoutDevelopIndexRoute
+  '/image': typeof LayoutImageIndexRoute
+  '/iniad': typeof LayoutIniadIndexRoute
+  '/math': typeof LayoutMathIndexRoute
+  '/text': typeof LayoutTextIndexRoute
 }
 
 export interface FileRoutesById {
@@ -470,6 +578,12 @@ export interface FileRoutesById {
   '/_layout/text/count': typeof LayoutTextCountRoute
   '/_layout/text/repeat': typeof LayoutTextRepeatRoute
   '/_layout/text/replace': typeof LayoutTextReplaceRoute
+  '/_layout/convert/': typeof LayoutConvertIndexRoute
+  '/_layout/develop/': typeof LayoutDevelopIndexRoute
+  '/_layout/image/': typeof LayoutImageIndexRoute
+  '/_layout/iniad/': typeof LayoutIniadIndexRoute
+  '/_layout/math/': typeof LayoutMathIndexRoute
+  '/_layout/text/': typeof LayoutTextIndexRoute
 }
 
 export interface FileRouteTypes {
@@ -498,6 +612,12 @@ export interface FileRouteTypes {
     | '/text/count'
     | '/text/repeat'
     | '/text/replace'
+    | '/convert'
+    | '/develop'
+    | '/image'
+    | '/iniad'
+    | '/math'
+    | '/text'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -522,6 +642,12 @@ export interface FileRouteTypes {
     | '/text/count'
     | '/text/repeat'
     | '/text/replace'
+    | '/convert'
+    | '/develop'
+    | '/image'
+    | '/iniad'
+    | '/math'
+    | '/text'
   id:
     | '__root__'
     | '/_layout'
@@ -547,6 +673,12 @@ export interface FileRouteTypes {
     | '/_layout/text/count'
     | '/_layout/text/repeat'
     | '/_layout/text/replace'
+    | '/_layout/convert/'
+    | '/_layout/develop/'
+    | '/_layout/image/'
+    | '/_layout/iniad/'
+    | '/_layout/math/'
+    | '/_layout/text/'
   fileRoutesById: FileRoutesById
 }
 
@@ -595,7 +727,13 @@ export const routeTree = rootRoute
         "/_layout/text/cjp",
         "/_layout/text/count",
         "/_layout/text/repeat",
-        "/_layout/text/replace"
+        "/_layout/text/replace",
+        "/_layout/convert/",
+        "/_layout/develop/",
+        "/_layout/image/",
+        "/_layout/iniad/",
+        "/_layout/math/",
+        "/_layout/text/"
       ]
     },
     "/_layout/": {
@@ -684,6 +822,30 @@ export const routeTree = rootRoute
     },
     "/_layout/text/replace": {
       "filePath": "_layout/text/replace.tsx",
+      "parent": "/_layout"
+    },
+    "/_layout/convert/": {
+      "filePath": "_layout/convert/index.tsx",
+      "parent": "/_layout"
+    },
+    "/_layout/develop/": {
+      "filePath": "_layout/develop/index.tsx",
+      "parent": "/_layout"
+    },
+    "/_layout/image/": {
+      "filePath": "_layout/image/index.tsx",
+      "parent": "/_layout"
+    },
+    "/_layout/iniad/": {
+      "filePath": "_layout/iniad/index.tsx",
+      "parent": "/_layout"
+    },
+    "/_layout/math/": {
+      "filePath": "_layout/math/index.tsx",
+      "parent": "/_layout"
+    },
+    "/_layout/text/": {
+      "filePath": "_layout/text/index.tsx",
       "parent": "/_layout"
     }
   }
