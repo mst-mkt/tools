@@ -1,4 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router'
+import { Head } from '../../../components/shared/Head'
 import { Clipboard } from '../../../features/develop/clipboard/page'
 
 export const Route = createFileRoute('/_layout/develop/clipboard')({
@@ -6,5 +7,10 @@ export const Route = createFileRoute('/_layout/develop/clipboard')({
 })
 
 function RouteComponent() {
-  return <Clipboard />
+  return (
+    <>
+      <Head title="クリップボードデータ確認" />
+      <Clipboard />
+    </>
+  )
 }
