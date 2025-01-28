@@ -6,6 +6,7 @@ import { RangeSlider } from '../../../components/rizzui/slider'
 import { Breadcrumb } from '../../../components/ui/Breadcrumb'
 import { FilePreview } from '../../../components/ui/FilePreview'
 import { useAwaited } from '../../../hooks/useAwaited'
+import { play } from '../../../lib/snd'
 import { svgToPngFile } from './convert'
 import { computeAspectRatio, getNumberValue, getSvgAspectRatio } from './utils'
 
@@ -79,6 +80,7 @@ export const SvgToPng: FC = () => {
     a.click()
     URL.revokeObjectURL(url)
     toast.success('ダウンロードが完了しました')
+    play.celebration()
   }, [convertedPng])
 
   return (

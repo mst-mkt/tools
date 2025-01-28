@@ -13,6 +13,7 @@ import { P, match } from 'ts-pattern'
 import { FilePreview } from '../../../../components/ui/FilePreview'
 import { useAwaited } from '../../../../hooks/useAwaited'
 import { useCopyLocation } from '../../../../hooks/useCopyLocation'
+import { play } from '../../../../lib/snd'
 import { copy, copyFile } from '../../../../utils/copy'
 import { decodeBase64ToFile } from '../decode'
 import { encodeBase64FromFile } from '../encode'
@@ -99,6 +100,7 @@ export const FileConverter: FC<FileConverterProps> = ({
     a.download = filename
     a.click()
     URL.revokeObjectURL(url)
+    play.celebration()
   }, [convertedResult, filename])
 
   const copyLocation = useCopyLocation()
