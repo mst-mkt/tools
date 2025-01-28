@@ -1,6 +1,8 @@
 import {
   IconAlignLeft,
   IconChevronDown,
+  IconClipboardCheck,
+  IconCode,
   IconFileDigit,
   IconForms,
   IconLanguage,
@@ -203,6 +205,36 @@ const Home = () => {
                 <IconSort09 size={24} />
                 <Title as="h3" className="grow text-base">
                   基数変換
+                </Title>
+              </Link>
+            </Flex>
+          </Accordion.Body>
+        </Accordion>
+        <Accordion defaultOpen={true} className="flex flex-col gap-y-2">
+          <Accordion.Header className="cursor-pointer rounded-lg py-4 transition-colors focus-visible:outline-0">
+            {({ open }) => (
+              <Flex align="center" justify="between">
+                <IconCode size={24} />
+                <Title as="h2" id="develop" className="text-left text-lg">
+                  Develop
+                </Title>
+                <div className="h-[1px] grow bg-foreground opacity-50" />
+                <IconChevronDown
+                  size={24}
+                  className={twJoin('transition-[rotate]', open ? 'rotate-180' : 'rotate-0')}
+                />
+              </Flex>
+            )}
+          </Accordion.Header>
+          <Accordion.Body>
+            <Flex direction="col" align="stretch" justify="between" gap="2">
+              <Link
+                to="/develop/clipboard"
+                className="flex items-center justify-between gap-x-4 rounded-lg border border-muted p-4 shadow-xs transition-colors hover:bg-background-50"
+              >
+                <IconClipboardCheck size={24} />
+                <Title as="h3" className="grow text-base">
+                  クリップボードデータ確認
                 </Title>
               </Link>
             </Flex>
