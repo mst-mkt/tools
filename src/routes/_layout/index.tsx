@@ -22,6 +22,7 @@ import { Accordion } from 'rizzui/accordion'
 import { Flex } from 'rizzui/flex'
 import { Text, Title } from 'rizzui/typography'
 import { twJoin } from 'tailwind-merge'
+import { Head } from '../../components/shared/Head'
 import { PROJECT_NAME } from '../../constants/project'
 
 export const Route = createFileRoute('/_layout/')({
@@ -31,6 +32,7 @@ export const Route = createFileRoute('/_layout/')({
 const Home = () => {
   return (
     <>
+      <Head title={PROJECT_NAME} />
       <Flex direction="col" as="hgroup">
         <Title>{PROJECT_NAME}</Title>
         <Text className="text-muted-foreground">A collection of various tools for myself.</Text>
