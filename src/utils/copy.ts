@@ -4,6 +4,7 @@ import { renderToString } from 'react-dom/server'
 import { toast } from 'sonner'
 import { P, match } from 'ts-pattern'
 import { url, pipe, safeParse, string } from 'valibot'
+import { play } from '../lib/snd'
 
 export const copy = async (text: string, html?: string | JSX.Element) => {
   const htmlString = match(html)
@@ -31,8 +32,10 @@ export const copy = async (text: string, html?: string | JSX.Element) => {
       await navigator.clipboard.writeText(text)
     })
     toast.success('コピーしました。')
+    play.notification()
   } catch {
     toast.error('コピーに失敗しました。')
+    play.caution()
   }
 }
 
@@ -44,8 +47,10 @@ export const copyFile = async (file: File, type?: string) => {
   try {
     await navigator.clipboard.write([clipboardItems])
     toast.success('画像をコピーしました。')
+    play.notification()
   } catch (e) {
     console.error(e)
     toast.error('画像のコピーに失敗しました。')
+    play.caution()
   }
 }

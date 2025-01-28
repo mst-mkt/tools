@@ -7,6 +7,7 @@ import { Breadcrumb } from '../../../components/ui/Breadcrumb'
 import { Menu } from '../../../components/ui/Menu'
 import { useCopyLocation } from '../../../hooks/useCopyLocation'
 import { useInputState } from '../../../hooks/useInputState'
+import { play } from '../../../lib/snd'
 import { copy, copyFile } from '../../../utils/copy'
 import { svgToPngFile } from '../../image/svg2png/convert'
 
@@ -35,6 +36,7 @@ export const QrCode: FC<QrCodeProps> = ({ initialText }) => {
     a.download = file.name
     a.click()
     URL.revokeObjectURL(url)
+    play.celebration()
   }, [])
 
   const copyLocation = useCopyLocation()
