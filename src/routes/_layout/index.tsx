@@ -1,5 +1,6 @@
 import {
   IconAlignLeft,
+  IconAppWindow,
   IconChevronDown,
   IconClipboardCheck,
   IconCode,
@@ -237,6 +238,15 @@ const Home = () => {
                 <IconClipboardCheck size={24} />
                 <Title as="h3" className="grow text-base">
                   クリップボードデータ確認
+                </Title>
+              </Link>
+              <Link
+                to="/develop/iframe"
+                className="flex items-center justify-between gap-x-4 rounded-lg border border-muted p-4 shadow-xs transition-colors hover:bg-background-50"
+              >
+                <IconAppWindow size={24} />
+                <Title as="h3" className="grow text-base">
+                  iframe プレビュー
                 </Title>
               </Link>
             </Flex>
