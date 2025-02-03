@@ -19,7 +19,7 @@
     "@radix-ui/react-select": "^2.1.4",
     "@radix-ui/react-slider": "^1.2.2",
     "@radix-ui/react-slot": "^1.1.1",
-    "@tanstack/react-router": "^1.74.4",
+    "@tanstack/react-router": "^1.99.0",
     "@tanstack/router-devtools": "^1.74.4",
     "@wasm-fmt/clang-format": "^18.1.8",
     "@wasm-fmt/dart_fmt": "^0.2.0",
