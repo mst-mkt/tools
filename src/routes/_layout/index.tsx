@@ -6,6 +6,7 @@ import {
   IconCode,
   IconFileDigit,
   IconForms,
+  IconJson,
   IconLanguage,
   IconLink,
   IconMath,
@@ -247,6 +248,15 @@ const Home = () => {
                 <IconAppWindow size={24} />
                 <Title as="h3" className="grow text-base">
                   iframe プレビュー
+                </Title>
+              </Link>
+              <Link
+                to="/develop/jsonschema2zod"
+                className="flex items-center justify-between gap-x-4 rounded-lg border border-muted p-4 shadow-xs transition-colors hover:bg-background-50"
+              >
+                <IconJson size={24} />
+                <Title as="h3" className="grow text-base">
+                  JSON Schema / Zod 変換
                 </Title>
               </Link>
             </Flex>
