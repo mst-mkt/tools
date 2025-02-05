@@ -1,13 +1,13 @@
-import { useCallback, useSyncExternalStore } from 'react'
+import { useCallback, useMemo, useSyncExternalStore } from 'react'
 
 const subscribe = (callback: () => void) => {
   window.addEventListener('storage', callback)
   return () => window.removeEventListener('storage', callback)
 }
 
-export const getStorageItem = <T>(key: string, initialValue: T): T => {
+export const getStorageItem = <T>(key: string, initialValue: T) => {
   const value = window.localStorage.getItem(key)
-  return value === null ? initialValue : JSON.parse(value)
+  return value === null ? JSON.stringify(initialValue) : value
 }
 
 const setStorageItem = <T>(key: string, value: T) => {
@@ -24,5 +24,13 @@ export const useLocalStorage = <T>(key: string, initialValue: T) => {
     [key],
   )
 
-  return [value, setItem] as const
+  const parsedValue = useMemo<T>(() => {
+    try {
+      return JSON.parse(value)
+    } catch {
+      return initialValue
+    }
+  }, [initialValue, value])
+
+  return [parsedValue, setItem] as const
 }
