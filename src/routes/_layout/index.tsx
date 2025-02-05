@@ -7,6 +7,7 @@ import {
   IconFileDigit,
   IconForms,
   IconJson,
+  IconKeyboard,
   IconLanguage,
   IconLink,
   IconMath,
@@ -267,6 +268,15 @@ const Home = () => {
                 <IconPointer size={24} />
                 <Title as="h3" className="grow text-base">
                   カーソル スタイルプレビュー
+                </Title>
+              </Link>
+              <Link
+                to="/develop/keyboard"
+                className="flex items-center justify-between gap-x-4 rounded-lg border border-muted p-4 shadow-xs transition-colors hover:bg-background-50"
+              >
+                <IconKeyboard size={24} />
+                <Title as="h3" className="grow text-base">
+                  キーボードイベント確認
                 </Title>
               </Link>
             </Flex>
