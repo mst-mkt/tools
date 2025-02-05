@@ -12,6 +12,7 @@ import {
   IconMath,
   IconNotes,
   IconPhoto,
+  IconPointer,
   IconQrcode,
   IconRepeat,
   IconReplace,
@@ -257,6 +258,15 @@ const Home = () => {
                 <IconJson size={24} />
                 <Title as="h3" className="grow text-base">
                   JSON Schema / Zod 変換
+                </Title>
+              </Link>
+              <Link
+                to="/develop/cursor"
+                className="flex items-center justify-between gap-x-4 rounded-lg border border-muted p-4 shadow-xs transition-colors hover:bg-background-50"
+              >
+                <IconPointer size={24} />
+                <Title as="h3" className="grow text-base">
+                  カーソル スタイルプレビュー
                 </Title>
               </Link>
             </Flex>
