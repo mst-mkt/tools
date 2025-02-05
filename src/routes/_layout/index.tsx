@@ -21,6 +21,7 @@ import {
   IconSchool,
   IconSort09,
   IconSvg,
+  IconTemperatureSun,
   IconTransform,
 } from '@tabler/icons-react'
 import { Link, createFileRoute } from '@tanstack/react-router'
@@ -309,6 +310,15 @@ const Home = () => {
                 <IconLockOpen size={24} />
                 <Title as="h3" className="grow text-base">
                   ロッカー解錠
+                </Title>
+              </Link>
+              <Link
+                to="/iniad/sensor"
+                className="flex items-center justify-between gap-x-4 rounded-lg border border-muted p-4 shadow-xs transition-colors hover:bg-background-50"
+              >
+                <IconTemperatureSun size={24} />
+                <Title as="h3" className="grow text-base">
+                  教室センサー情報
                 </Title>
               </Link>
             </Flex>

@@ -9,7 +9,7 @@ export const Route = createFileRoute('/_layout/iniad/sensor')({
 function RouteComponent() {
   return (
     <>
-      <Head title="INIAD センサー" />
+      <Head title="INIAD教室センサー情報" />
       <Sensor />
     </>
   )

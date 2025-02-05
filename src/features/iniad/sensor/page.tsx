@@ -74,7 +74,7 @@ export const Sensor = () => {
           'sensor',
         ]}
       />
-      <Title className="text-xl">INIAD センサー</Title>
+      <Title className="text-xl">INIAD教室センサー情報</Title>
       <Input label="統合ID (s1f102XXXXXX)" value={username} onChange={setUsername} />
       <Password label="パスワード" value={password} onChange={setPassword} />
       <Flex justify="between">
