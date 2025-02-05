@@ -3,14 +3,14 @@ import { object, optional, parse, picklist, string } from 'valibot'
 import { Head } from '../../../components/shared/Head'
 import { JsonSchemaToZod } from '../../../features/develop/jsonschema2zod/page'
 
-const schema = object({
+const searchParamsSchema = object({
   schema: optional(string()),
   name: optional(string()),
   module: optional(picklist(['esm', 'cjs', 'none'])),
 })
 
 export const Route = createFileRoute('/_layout/develop/jsonschema2zod')({
-  validateSearch: (search) => parse(schema, search),
+  validateSearch: (search) => parse(searchParamsSchema, search),
   component: RouteComponent,
 })
 

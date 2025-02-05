@@ -1,9 +1,16 @@
 import { createFileRoute } from '@tanstack/react-router'
+import { Head } from '../../../components/shared/Head'
+import { Sensor } from '../../../features/iniad/sensor/page'
 
 export const Route = createFileRoute('/_layout/iniad/sensor')({
   component: RouteComponent,
 })
 
 function RouteComponent() {
-  return <div>Hello "/_layout/iniad/sensor"!</div>
+  return (
+    <>
+      <Head title="INIAD教室センサー情報" />
+      <Sensor />
+    </>
+  )
 }
