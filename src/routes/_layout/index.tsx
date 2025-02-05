@@ -10,6 +10,7 @@ import {
   IconKeyboard,
   IconLanguage,
   IconLink,
+  IconLockOpen,
   IconMath,
   IconNotes,
   IconPhoto,
@@ -17,6 +18,7 @@ import {
   IconQrcode,
   IconRepeat,
   IconReplace,
+  IconSchool,
   IconSort09,
   IconSvg,
   IconTransform,
@@ -277,6 +279,36 @@ const Home = () => {
                 <IconKeyboard size={24} />
                 <Title as="h3" className="grow text-base">
                   キーボードイベント確認
+                </Title>
+              </Link>
+            </Flex>
+          </Accordion.Body>
+        </Accordion>
+        <Accordion defaultOpen={true} className="flex flex-col gap-y-2">
+          <Accordion.Header className="cursor-pointer rounded-lg py-4 transition-colors focus-visible:outline-0">
+            {({ open }) => (
+              <Flex align="center" justify="between">
+                <IconSchool size={24} />
+                <Title as="h2" id="iniad" className="text-left text-lg">
+                  INIAD
+                </Title>
+                <div className="h-[1px] grow bg-foreground opacity-50" />
+                <IconChevronDown
+                  size={24}
+                  className={twJoin('transition-[rotate]', open ? 'rotate-180' : 'rotate-0')}
+                />
+              </Flex>
+            )}
+          </Accordion.Header>
+          <Accordion.Body>
+            <Flex direction="col" align="stretch" justify="between" gap="2">
+              <Link
+                to="/iniad/locker"
+                className="flex items-center justify-between gap-x-4 rounded-lg border border-muted p-4 shadow-xs transition-colors hover:bg-background-50"
+              >
+                <IconLockOpen size={24} />
+                <Title as="h3" className="grow text-base">
+                  ロッカー解錠
                 </Title>
               </Link>
             </Flex>
