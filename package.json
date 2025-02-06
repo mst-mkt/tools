@@ -67,6 +67,7 @@
     "@types/twitter-text": "^3.1.10",
     "@vitejs/plugin-react-swc": "^3.7.2",
     "lefthook": "^1.10.10",
+    "tailwind-scrollbar": "^4.0.0",
     "tailwindcss": "4.0.0-beta.8",
     "typescript": "^5.7.3",
     "vite": "^6.0.11",
