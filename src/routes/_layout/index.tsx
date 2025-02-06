@@ -5,6 +5,7 @@ import {
   IconChevronDown,
   IconClipboardCheck,
   IconCode,
+  IconCodeDots,
   IconFileDigit,
   IconForms,
   IconJson,
@@ -281,6 +282,15 @@ const Home = () => {
                 <IconKeyboard size={24} />
                 <Title as="h3" className="grow text-base">
                   キーボードイベント確認
+                </Title>
+              </Link>
+              <Link
+                to="/develop/format"
+                className="flex items-center justify-between gap-x-4 rounded-lg border border-muted p-4 shadow-xs transition-colors hover:bg-background-50"
+              >
+                <IconCodeDots size={24} />
+                <Title as="h3" className="grow text-base">
+                  コードフォーマッター
                 </Title>
               </Link>
             </Flex>
