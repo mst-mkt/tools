@@ -1,4 +1,5 @@
 import { Outlet, createFileRoute } from '@tanstack/react-router'
+import { Flex } from 'rizzui/flex'
 import { Footer } from '../components/layout/Footer'
 import { Header } from '../components/layout/Header'
 
@@ -7,11 +8,17 @@ export const Route = createFileRoute('/_layout')({
 })
 
 const RootLayout = () => (
-  <div className="flex min-h-svh flex-col gap-y-8">
+  <Flex direction="col" align="stretch" gap="12" className="min-h-svh">
     <Header />
-    <main className="mx-auto flex w-full max-w-max-content grow flex-col gap-y-8 px-6">
+    <Flex
+      as="main"
+      direction="col"
+      align="stretch"
+      gap="8"
+      className="mx-auto w-full max-w-max-content grow px-6"
+    >
       <Outlet />
-    </main>
+    </Flex>
     <Footer />
-  </div>
+  </Flex>
 )

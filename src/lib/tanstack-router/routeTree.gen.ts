@@ -9,39 +9,33 @@
 import { Route as rootRoute } from './../../routes/__root'
 import { Route as LayoutImport } from './../../routes/_layout'
 import { Route as LayoutIndexImport } from './../../routes/_layout/index'
+import { Route as LayoutTextIndexImport } from './../../routes/_layout/text/index'
+import { Route as LayoutMathIndexImport } from './../../routes/_layout/math/index'
+import { Route as LayoutIniadIndexImport } from './../../routes/_layout/iniad/index'
+import { Route as LayoutImageIndexImport } from './../../routes/_layout/image/index'
+import { Route as LayoutDevelopIndexImport } from './../../routes/_layout/develop/index'
+import { Route as LayoutConvertIndexImport } from './../../routes/_layout/convert/index'
 import { Route as LayoutTextReplaceImport } from './../../routes/_layout/text/replace'
 import { Route as LayoutTextRepeatImport } from './../../routes/_layout/text/repeat'
 import { Route as LayoutTextCountImport } from './../../routes/_layout/text/count'
+import { Route as LayoutTextCjpImport } from './../../routes/_layout/text/cjp'
 import { Route as LayoutMathRadixImport } from './../../routes/_layout/math/radix'
 import { Route as LayoutMathCalculatorImport } from './../../routes/_layout/math/calculator'
+import { Route as LayoutIniadTimetableImport } from './../../routes/_layout/iniad/timetable'
 import { Route as LayoutIniadSensorImport } from './../../routes/_layout/iniad/sensor'
 import { Route as LayoutIniadLockerImport } from './../../routes/_layout/iniad/locker'
 import { Route as LayoutImageSvg2pngImport } from './../../routes/_layout/image/svg2png'
-import { Route as LayoutFormatterZigImport } from './../../routes/_layout/formatter/zig'
-import { Route as LayoutFormatterYamlImport } from './../../routes/_layout/formatter/yaml'
-import { Route as LayoutFormatterTypescriptImport } from './../../routes/_layout/formatter/typescript'
-import { Route as LayoutFormatterSqlImport } from './../../routes/_layout/formatter/sql'
-import { Route as LayoutFormatterPythonImport } from './../../routes/_layout/formatter/python'
-import { Route as LayoutFormatterLuaImport } from './../../routes/_layout/formatter/lua'
-import { Route as LayoutFormatterJsonImport } from './../../routes/_layout/formatter/json'
-import { Route as LayoutFormatterJavaImport } from './../../routes/_layout/formatter/java'
-import { Route as LayoutFormatterHtmlImport } from './../../routes/_layout/formatter/html'
-import { Route as LayoutFormatterGoImport } from './../../routes/_layout/formatter/go'
-import { Route as LayoutFormatterDartImport } from './../../routes/_layout/formatter/dart'
-import { Route as LayoutFormatterCssImport } from './../../routes/_layout/formatter/css'
-import { Route as LayoutFormatterCImport } from './../../routes/_layout/formatter/c'
 import { Route as LayoutDevelopMarkdownImport } from './../../routes/_layout/develop/markdown'
-import { Route as LayoutDevelopKeyEventImport } from './../../routes/_layout/develop/keyEvent'
+import { Route as LayoutDevelopKeyboardImport } from './../../routes/_layout/develop/keyboard'
+import { Route as LayoutDevelopJsonschema2zodImport } from './../../routes/_layout/develop/jsonschema2zod'
 import { Route as LayoutDevelopIframeImport } from './../../routes/_layout/develop/iframe'
+import { Route as LayoutDevelopFormatImport } from './../../routes/_layout/develop/format'
 import { Route as LayoutDevelopCursorImport } from './../../routes/_layout/develop/cursor'
 import { Route as LayoutDevelopClipboardImport } from './../../routes/_layout/develop/clipboard'
 import { Route as LayoutConvertUrlImport } from './../../routes/_layout/convert/url'
 import { Route as LayoutConvertQrcodeImport } from './../../routes/_layout/convert/qrcode'
 import { Route as LayoutConvertPunycodeImport } from './../../routes/_layout/convert/punycode'
-import { Route as LayoutConvertJsonSchemaToZodImport } from './../../routes/_layout/convert/jsonSchemaToZod'
-import { Route as LayoutConvertCjpImport } from './../../routes/_layout/convert/cjp'
 import { Route as LayoutConvertBase64Import } from './../../routes/_layout/convert/base64'
-import { Route as LayoutIniadTimetableIndexImport } from './../../routes/_layout/iniad/timetable/index'
 
 // Create/Update Routes
 
@@ -53,6 +47,42 @@ const LayoutRoute = LayoutImport.update({
 const LayoutIndexRoute = LayoutIndexImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => LayoutRoute,
+} as any)
+
+const LayoutTextIndexRoute = LayoutTextIndexImport.update({
+  id: '/text/',
+  path: '/text/',
+  getParentRoute: () => LayoutRoute,
+} as any)
+
+const LayoutMathIndexRoute = LayoutMathIndexImport.update({
+  id: '/math/',
+  path: '/math/',
+  getParentRoute: () => LayoutRoute,
+} as any)
+
+const LayoutIniadIndexRoute = LayoutIniadIndexImport.update({
+  id: '/iniad/',
+  path: '/iniad/',
+  getParentRoute: () => LayoutRoute,
+} as any)
+
+const LayoutImageIndexRoute = LayoutImageIndexImport.update({
+  id: '/image/',
+  path: '/image/',
+  getParentRoute: () => LayoutRoute,
+} as any)
+
+const LayoutDevelopIndexRoute = LayoutDevelopIndexImport.update({
+  id: '/develop/',
+  path: '/develop/',
+  getParentRoute: () => LayoutRoute,
+} as any)
+
+const LayoutConvertIndexRoute = LayoutConvertIndexImport.update({
+  id: '/convert/',
+  path: '/convert/',
   getParentRoute: () => LayoutRoute,
 } as any)
 
@@ -74,6 +104,12 @@ const LayoutTextCountRoute = LayoutTextCountImport.update({
   getParentRoute: () => LayoutRoute,
 } as any)
 
+const LayoutTextCjpRoute = LayoutTextCjpImport.update({
+  id: '/text/cjp',
+  path: '/text/cjp',
+  getParentRoute: () => LayoutRoute,
+} as any)
+
 const LayoutMathRadixRoute = LayoutMathRadixImport.update({
   id: '/math/radix',
   path: '/math/radix',
@@ -83,6 +119,12 @@ const LayoutMathRadixRoute = LayoutMathRadixImport.update({
 const LayoutMathCalculatorRoute = LayoutMathCalculatorImport.update({
   id: '/math/calculator',
   path: '/math/calculator',
+  getParentRoute: () => LayoutRoute,
+} as any)
+
+const LayoutIniadTimetableRoute = LayoutIniadTimetableImport.update({
+  id: '/iniad/timetable',
+  path: '/iniad/timetable',
   getParentRoute: () => LayoutRoute,
 } as any)
 
@@ -104,99 +146,34 @@ const LayoutImageSvg2pngRoute = LayoutImageSvg2pngImport.update({
   getParentRoute: () => LayoutRoute,
 } as any)
 
-const LayoutFormatterZigRoute = LayoutFormatterZigImport.update({
-  id: '/formatter/zig',
-  path: '/formatter/zig',
-  getParentRoute: () => LayoutRoute,
-} as any)
-
-const LayoutFormatterYamlRoute = LayoutFormatterYamlImport.update({
-  id: '/formatter/yaml',
-  path: '/formatter/yaml',
-  getParentRoute: () => LayoutRoute,
-} as any)
-
-const LayoutFormatterTypescriptRoute = LayoutFormatterTypescriptImport.update({
-  id: '/formatter/typescript',
-  path: '/formatter/typescript',
-  getParentRoute: () => LayoutRoute,
-} as any)
-
-const LayoutFormatterSqlRoute = LayoutFormatterSqlImport.update({
-  id: '/formatter/sql',
-  path: '/formatter/sql',
-  getParentRoute: () => LayoutRoute,
-} as any)
-
-const LayoutFormatterPythonRoute = LayoutFormatterPythonImport.update({
-  id: '/formatter/python',
-  path: '/formatter/python',
-  getParentRoute: () => LayoutRoute,
-} as any)
-
-const LayoutFormatterLuaRoute = LayoutFormatterLuaImport.update({
-  id: '/formatter/lua',
-  path: '/formatter/lua',
-  getParentRoute: () => LayoutRoute,
-} as any)
-
-const LayoutFormatterJsonRoute = LayoutFormatterJsonImport.update({
-  id: '/formatter/json',
-  path: '/formatter/json',
-  getParentRoute: () => LayoutRoute,
-} as any)
-
-const LayoutFormatterJavaRoute = LayoutFormatterJavaImport.update({
-  id: '/formatter/java',
-  path: '/formatter/java',
-  getParentRoute: () => LayoutRoute,
-} as any)
-
-const LayoutFormatterHtmlRoute = LayoutFormatterHtmlImport.update({
-  id: '/formatter/html',
-  path: '/formatter/html',
-  getParentRoute: () => LayoutRoute,
-} as any)
-
-const LayoutFormatterGoRoute = LayoutFormatterGoImport.update({
-  id: '/formatter/go',
-  path: '/formatter/go',
-  getParentRoute: () => LayoutRoute,
-} as any)
-
-const LayoutFormatterDartRoute = LayoutFormatterDartImport.update({
-  id: '/formatter/dart',
-  path: '/formatter/dart',
-  getParentRoute: () => LayoutRoute,
-} as any)
-
-const LayoutFormatterCssRoute = LayoutFormatterCssImport.update({
-  id: '/formatter/css',
-  path: '/formatter/css',
-  getParentRoute: () => LayoutRoute,
-} as any)
-
-const LayoutFormatterCRoute = LayoutFormatterCImport.update({
-  id: '/formatter/c',
-  path: '/formatter/c',
-  getParentRoute: () => LayoutRoute,
-} as any)
-
 const LayoutDevelopMarkdownRoute = LayoutDevelopMarkdownImport.update({
   id: '/develop/markdown',
   path: '/develop/markdown',
   getParentRoute: () => LayoutRoute,
 } as any)
 
-const LayoutDevelopKeyEventRoute = LayoutDevelopKeyEventImport.update({
-  id: '/develop/keyEvent',
-  path: '/develop/keyEvent',
+const LayoutDevelopKeyboardRoute = LayoutDevelopKeyboardImport.update({
+  id: '/develop/keyboard',
+  path: '/develop/keyboard',
   getParentRoute: () => LayoutRoute,
 } as any)
+
+const LayoutDevelopJsonschema2zodRoute =
+  LayoutDevelopJsonschema2zodImport.update({
+    id: '/develop/jsonschema2zod',
+    path: '/develop/jsonschema2zod',
+    getParentRoute: () => LayoutRoute,
+  } as any)
 
 const LayoutDevelopIframeRoute = LayoutDevelopIframeImport.update({
   id: '/develop/iframe',
   path: '/develop/iframe',
+  getParentRoute: () => LayoutRoute,
+} as any)
+
+const LayoutDevelopFormatRoute = LayoutDevelopFormatImport.update({
+  id: '/develop/format',
+  path: '/develop/format',
   getParentRoute: () => LayoutRoute,
 } as any)
 
@@ -230,28 +207,9 @@ const LayoutConvertPunycodeRoute = LayoutConvertPunycodeImport.update({
   getParentRoute: () => LayoutRoute,
 } as any)
 
-const LayoutConvertJsonSchemaToZodRoute =
-  LayoutConvertJsonSchemaToZodImport.update({
-    id: '/convert/jsonSchemaToZod',
-    path: '/convert/jsonSchemaToZod',
-    getParentRoute: () => LayoutRoute,
-  } as any)
-
-const LayoutConvertCjpRoute = LayoutConvertCjpImport.update({
-  id: '/convert/cjp',
-  path: '/convert/cjp',
-  getParentRoute: () => LayoutRoute,
-} as any)
-
 const LayoutConvertBase64Route = LayoutConvertBase64Import.update({
   id: '/convert/base64',
   path: '/convert/base64',
-  getParentRoute: () => LayoutRoute,
-} as any)
-
-const LayoutIniadTimetableIndexRoute = LayoutIniadTimetableIndexImport.update({
-  id: '/iniad/timetable/',
-  path: '/iniad/timetable/',
   getParentRoute: () => LayoutRoute,
 } as any)
 
@@ -278,20 +236,6 @@ declare module '@tanstack/react-router' {
       path: '/convert/base64'
       fullPath: '/convert/base64'
       preLoaderRoute: typeof LayoutConvertBase64Import
-      parentRoute: typeof LayoutImport
-    }
-    '/_layout/convert/cjp': {
-      id: '/_layout/convert/cjp'
-      path: '/convert/cjp'
-      fullPath: '/convert/cjp'
-      preLoaderRoute: typeof LayoutConvertCjpImport
-      parentRoute: typeof LayoutImport
-    }
-    '/_layout/convert/jsonSchemaToZod': {
-      id: '/_layout/convert/jsonSchemaToZod'
-      path: '/convert/jsonSchemaToZod'
-      fullPath: '/convert/jsonSchemaToZod'
-      preLoaderRoute: typeof LayoutConvertJsonSchemaToZodImport
       parentRoute: typeof LayoutImport
     }
     '/_layout/convert/punycode': {
@@ -329,6 +273,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LayoutDevelopCursorImport
       parentRoute: typeof LayoutImport
     }
+    '/_layout/develop/format': {
+      id: '/_layout/develop/format'
+      path: '/develop/format'
+      fullPath: '/develop/format'
+      preLoaderRoute: typeof LayoutDevelopFormatImport
+      parentRoute: typeof LayoutImport
+    }
     '/_layout/develop/iframe': {
       id: '/_layout/develop/iframe'
       path: '/develop/iframe'
@@ -336,11 +287,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LayoutDevelopIframeImport
       parentRoute: typeof LayoutImport
     }
-    '/_layout/develop/keyEvent': {
-      id: '/_layout/develop/keyEvent'
-      path: '/develop/keyEvent'
-      fullPath: '/develop/keyEvent'
-      preLoaderRoute: typeof LayoutDevelopKeyEventImport
+    '/_layout/develop/jsonschema2zod': {
+      id: '/_layout/develop/jsonschema2zod'
+      path: '/develop/jsonschema2zod'
+      fullPath: '/develop/jsonschema2zod'
+      preLoaderRoute: typeof LayoutDevelopJsonschema2zodImport
+      parentRoute: typeof LayoutImport
+    }
+    '/_layout/develop/keyboard': {
+      id: '/_layout/develop/keyboard'
+      path: '/develop/keyboard'
+      fullPath: '/develop/keyboard'
+      preLoaderRoute: typeof LayoutDevelopKeyboardImport
       parentRoute: typeof LayoutImport
     }
     '/_layout/develop/markdown': {
@@ -348,97 +306,6 @@ declare module '@tanstack/react-router' {
       path: '/develop/markdown'
       fullPath: '/develop/markdown'
       preLoaderRoute: typeof LayoutDevelopMarkdownImport
-      parentRoute: typeof LayoutImport
-    }
-    '/_layout/formatter/c': {
-      id: '/_layout/formatter/c'
-      path: '/formatter/c'
-      fullPath: '/formatter/c'
-      preLoaderRoute: typeof LayoutFormatterCImport
-      parentRoute: typeof LayoutImport
-    }
-    '/_layout/formatter/css': {
-      id: '/_layout/formatter/css'
-      path: '/formatter/css'
-      fullPath: '/formatter/css'
-      preLoaderRoute: typeof LayoutFormatterCssImport
-      parentRoute: typeof LayoutImport
-    }
-    '/_layout/formatter/dart': {
-      id: '/_layout/formatter/dart'
-      path: '/formatter/dart'
-      fullPath: '/formatter/dart'
-      preLoaderRoute: typeof LayoutFormatterDartImport
-      parentRoute: typeof LayoutImport
-    }
-    '/_layout/formatter/go': {
-      id: '/_layout/formatter/go'
-      path: '/formatter/go'
-      fullPath: '/formatter/go'
-      preLoaderRoute: typeof LayoutFormatterGoImport
-      parentRoute: typeof LayoutImport
-    }
-    '/_layout/formatter/html': {
-      id: '/_layout/formatter/html'
-      path: '/formatter/html'
-      fullPath: '/formatter/html'
-      preLoaderRoute: typeof LayoutFormatterHtmlImport
-      parentRoute: typeof LayoutImport
-    }
-    '/_layout/formatter/java': {
-      id: '/_layout/formatter/java'
-      path: '/formatter/java'
-      fullPath: '/formatter/java'
-      preLoaderRoute: typeof LayoutFormatterJavaImport
-      parentRoute: typeof LayoutImport
-    }
-    '/_layout/formatter/json': {
-      id: '/_layout/formatter/json'
-      path: '/formatter/json'
-      fullPath: '/formatter/json'
-      preLoaderRoute: typeof LayoutFormatterJsonImport
-      parentRoute: typeof LayoutImport
-    }
-    '/_layout/formatter/lua': {
-      id: '/_layout/formatter/lua'
-      path: '/formatter/lua'
-      fullPath: '/formatter/lua'
-      preLoaderRoute: typeof LayoutFormatterLuaImport
-      parentRoute: typeof LayoutImport
-    }
-    '/_layout/formatter/python': {
-      id: '/_layout/formatter/python'
-      path: '/formatter/python'
-      fullPath: '/formatter/python'
-      preLoaderRoute: typeof LayoutFormatterPythonImport
-      parentRoute: typeof LayoutImport
-    }
-    '/_layout/formatter/sql': {
-      id: '/_layout/formatter/sql'
-      path: '/formatter/sql'
-      fullPath: '/formatter/sql'
-      preLoaderRoute: typeof LayoutFormatterSqlImport
-      parentRoute: typeof LayoutImport
-    }
-    '/_layout/formatter/typescript': {
-      id: '/_layout/formatter/typescript'
-      path: '/formatter/typescript'
-      fullPath: '/formatter/typescript'
-      preLoaderRoute: typeof LayoutFormatterTypescriptImport
-      parentRoute: typeof LayoutImport
-    }
-    '/_layout/formatter/yaml': {
-      id: '/_layout/formatter/yaml'
-      path: '/formatter/yaml'
-      fullPath: '/formatter/yaml'
-      preLoaderRoute: typeof LayoutFormatterYamlImport
-      parentRoute: typeof LayoutImport
-    }
-    '/_layout/formatter/zig': {
-      id: '/_layout/formatter/zig'
-      path: '/formatter/zig'
-      fullPath: '/formatter/zig'
-      preLoaderRoute: typeof LayoutFormatterZigImport
       parentRoute: typeof LayoutImport
     }
     '/_layout/image/svg2png': {
@@ -462,6 +329,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LayoutIniadSensorImport
       parentRoute: typeof LayoutImport
     }
+    '/_layout/iniad/timetable': {
+      id: '/_layout/iniad/timetable'
+      path: '/iniad/timetable'
+      fullPath: '/iniad/timetable'
+      preLoaderRoute: typeof LayoutIniadTimetableImport
+      parentRoute: typeof LayoutImport
+    }
     '/_layout/math/calculator': {
       id: '/_layout/math/calculator'
       path: '/math/calculator'
@@ -474,6 +348,13 @@ declare module '@tanstack/react-router' {
       path: '/math/radix'
       fullPath: '/math/radix'
       preLoaderRoute: typeof LayoutMathRadixImport
+      parentRoute: typeof LayoutImport
+    }
+    '/_layout/text/cjp': {
+      id: '/_layout/text/cjp'
+      path: '/text/cjp'
+      fullPath: '/text/cjp'
+      preLoaderRoute: typeof LayoutTextCjpImport
       parentRoute: typeof LayoutImport
     }
     '/_layout/text/count': {
@@ -497,11 +378,46 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LayoutTextReplaceImport
       parentRoute: typeof LayoutImport
     }
-    '/_layout/iniad/timetable/': {
-      id: '/_layout/iniad/timetable/'
-      path: '/iniad/timetable'
-      fullPath: '/iniad/timetable'
-      preLoaderRoute: typeof LayoutIniadTimetableIndexImport
+    '/_layout/convert/': {
+      id: '/_layout/convert/'
+      path: '/convert'
+      fullPath: '/convert'
+      preLoaderRoute: typeof LayoutConvertIndexImport
+      parentRoute: typeof LayoutImport
+    }
+    '/_layout/develop/': {
+      id: '/_layout/develop/'
+      path: '/develop'
+      fullPath: '/develop'
+      preLoaderRoute: typeof LayoutDevelopIndexImport
+      parentRoute: typeof LayoutImport
+    }
+    '/_layout/image/': {
+      id: '/_layout/image/'
+      path: '/image'
+      fullPath: '/image'
+      preLoaderRoute: typeof LayoutImageIndexImport
+      parentRoute: typeof LayoutImport
+    }
+    '/_layout/iniad/': {
+      id: '/_layout/iniad/'
+      path: '/iniad'
+      fullPath: '/iniad'
+      preLoaderRoute: typeof LayoutIniadIndexImport
+      parentRoute: typeof LayoutImport
+    }
+    '/_layout/math/': {
+      id: '/_layout/math/'
+      path: '/math'
+      fullPath: '/math'
+      preLoaderRoute: typeof LayoutMathIndexImport
+      parentRoute: typeof LayoutImport
+    }
+    '/_layout/text/': {
+      id: '/_layout/text/'
+      path: '/text'
+      fullPath: '/text'
+      preLoaderRoute: typeof LayoutTextIndexImport
       parentRoute: typeof LayoutImport
     }
   }
@@ -512,75 +428,63 @@ declare module '@tanstack/react-router' {
 interface LayoutRouteChildren {
   LayoutIndexRoute: typeof LayoutIndexRoute
   LayoutConvertBase64Route: typeof LayoutConvertBase64Route
-  LayoutConvertCjpRoute: typeof LayoutConvertCjpRoute
-  LayoutConvertJsonSchemaToZodRoute: typeof LayoutConvertJsonSchemaToZodRoute
   LayoutConvertPunycodeRoute: typeof LayoutConvertPunycodeRoute
   LayoutConvertQrcodeRoute: typeof LayoutConvertQrcodeRoute
   LayoutConvertUrlRoute: typeof LayoutConvertUrlRoute
   LayoutDevelopClipboardRoute: typeof LayoutDevelopClipboardRoute
   LayoutDevelopCursorRoute: typeof LayoutDevelopCursorRoute
+  LayoutDevelopFormatRoute: typeof LayoutDevelopFormatRoute
   LayoutDevelopIframeRoute: typeof LayoutDevelopIframeRoute
-  LayoutDevelopKeyEventRoute: typeof LayoutDevelopKeyEventRoute
+  LayoutDevelopJsonschema2zodRoute: typeof LayoutDevelopJsonschema2zodRoute
+  LayoutDevelopKeyboardRoute: typeof LayoutDevelopKeyboardRoute
   LayoutDevelopMarkdownRoute: typeof LayoutDevelopMarkdownRoute
-  LayoutFormatterCRoute: typeof LayoutFormatterCRoute
-  LayoutFormatterCssRoute: typeof LayoutFormatterCssRoute
-  LayoutFormatterDartRoute: typeof LayoutFormatterDartRoute
-  LayoutFormatterGoRoute: typeof LayoutFormatterGoRoute
-  LayoutFormatterHtmlRoute: typeof LayoutFormatterHtmlRoute
-  LayoutFormatterJavaRoute: typeof LayoutFormatterJavaRoute
-  LayoutFormatterJsonRoute: typeof LayoutFormatterJsonRoute
-  LayoutFormatterLuaRoute: typeof LayoutFormatterLuaRoute
-  LayoutFormatterPythonRoute: typeof LayoutFormatterPythonRoute
-  LayoutFormatterSqlRoute: typeof LayoutFormatterSqlRoute
-  LayoutFormatterTypescriptRoute: typeof LayoutFormatterTypescriptRoute
-  LayoutFormatterYamlRoute: typeof LayoutFormatterYamlRoute
-  LayoutFormatterZigRoute: typeof LayoutFormatterZigRoute
   LayoutImageSvg2pngRoute: typeof LayoutImageSvg2pngRoute
   LayoutIniadLockerRoute: typeof LayoutIniadLockerRoute
   LayoutIniadSensorRoute: typeof LayoutIniadSensorRoute
+  LayoutIniadTimetableRoute: typeof LayoutIniadTimetableRoute
   LayoutMathCalculatorRoute: typeof LayoutMathCalculatorRoute
   LayoutMathRadixRoute: typeof LayoutMathRadixRoute
+  LayoutTextCjpRoute: typeof LayoutTextCjpRoute
   LayoutTextCountRoute: typeof LayoutTextCountRoute
   LayoutTextRepeatRoute: typeof LayoutTextRepeatRoute
   LayoutTextReplaceRoute: typeof LayoutTextReplaceRoute
-  LayoutIniadTimetableIndexRoute: typeof LayoutIniadTimetableIndexRoute
+  LayoutConvertIndexRoute: typeof LayoutConvertIndexRoute
+  LayoutDevelopIndexRoute: typeof LayoutDevelopIndexRoute
+  LayoutImageIndexRoute: typeof LayoutImageIndexRoute
+  LayoutIniadIndexRoute: typeof LayoutIniadIndexRoute
+  LayoutMathIndexRoute: typeof LayoutMathIndexRoute
+  LayoutTextIndexRoute: typeof LayoutTextIndexRoute
 }
 
 const LayoutRouteChildren: LayoutRouteChildren = {
   LayoutIndexRoute: LayoutIndexRoute,
   LayoutConvertBase64Route: LayoutConvertBase64Route,
-  LayoutConvertCjpRoute: LayoutConvertCjpRoute,
-  LayoutConvertJsonSchemaToZodRoute: LayoutConvertJsonSchemaToZodRoute,
   LayoutConvertPunycodeRoute: LayoutConvertPunycodeRoute,
   LayoutConvertQrcodeRoute: LayoutConvertQrcodeRoute,
   LayoutConvertUrlRoute: LayoutConvertUrlRoute,
   LayoutDevelopClipboardRoute: LayoutDevelopClipboardRoute,
   LayoutDevelopCursorRoute: LayoutDevelopCursorRoute,
+  LayoutDevelopFormatRoute: LayoutDevelopFormatRoute,
   LayoutDevelopIframeRoute: LayoutDevelopIframeRoute,
-  LayoutDevelopKeyEventRoute: LayoutDevelopKeyEventRoute,
+  LayoutDevelopJsonschema2zodRoute: LayoutDevelopJsonschema2zodRoute,
+  LayoutDevelopKeyboardRoute: LayoutDevelopKeyboardRoute,
   LayoutDevelopMarkdownRoute: LayoutDevelopMarkdownRoute,
-  LayoutFormatterCRoute: LayoutFormatterCRoute,
-  LayoutFormatterCssRoute: LayoutFormatterCssRoute,
-  LayoutFormatterDartRoute: LayoutFormatterDartRoute,
-  LayoutFormatterGoRoute: LayoutFormatterGoRoute,
-  LayoutFormatterHtmlRoute: LayoutFormatterHtmlRoute,
-  LayoutFormatterJavaRoute: LayoutFormatterJavaRoute,
-  LayoutFormatterJsonRoute: LayoutFormatterJsonRoute,
-  LayoutFormatterLuaRoute: LayoutFormatterLuaRoute,
-  LayoutFormatterPythonRoute: LayoutFormatterPythonRoute,
-  LayoutFormatterSqlRoute: LayoutFormatterSqlRoute,
-  LayoutFormatterTypescriptRoute: LayoutFormatterTypescriptRoute,
-  LayoutFormatterYamlRoute: LayoutFormatterYamlRoute,
-  LayoutFormatterZigRoute: LayoutFormatterZigRoute,
   LayoutImageSvg2pngRoute: LayoutImageSvg2pngRoute,
   LayoutIniadLockerRoute: LayoutIniadLockerRoute,
   LayoutIniadSensorRoute: LayoutIniadSensorRoute,
+  LayoutIniadTimetableRoute: LayoutIniadTimetableRoute,
   LayoutMathCalculatorRoute: LayoutMathCalculatorRoute,
   LayoutMathRadixRoute: LayoutMathRadixRoute,
+  LayoutTextCjpRoute: LayoutTextCjpRoute,
   LayoutTextCountRoute: LayoutTextCountRoute,
   LayoutTextRepeatRoute: LayoutTextRepeatRoute,
   LayoutTextReplaceRoute: LayoutTextReplaceRoute,
-  LayoutIniadTimetableIndexRoute: LayoutIniadTimetableIndexRoute,
+  LayoutConvertIndexRoute: LayoutConvertIndexRoute,
+  LayoutDevelopIndexRoute: LayoutDevelopIndexRoute,
+  LayoutImageIndexRoute: LayoutImageIndexRoute,
+  LayoutIniadIndexRoute: LayoutIniadIndexRoute,
+  LayoutMathIndexRoute: LayoutMathIndexRoute,
+  LayoutTextIndexRoute: LayoutTextIndexRoute,
 }
 
 const LayoutRouteWithChildren =
@@ -590,75 +494,63 @@ export interface FileRoutesByFullPath {
   '': typeof LayoutRouteWithChildren
   '/': typeof LayoutIndexRoute
   '/convert/base64': typeof LayoutConvertBase64Route
-  '/convert/cjp': typeof LayoutConvertCjpRoute
-  '/convert/jsonSchemaToZod': typeof LayoutConvertJsonSchemaToZodRoute
   '/convert/punycode': typeof LayoutConvertPunycodeRoute
   '/convert/qrcode': typeof LayoutConvertQrcodeRoute
   '/convert/url': typeof LayoutConvertUrlRoute
   '/develop/clipboard': typeof LayoutDevelopClipboardRoute
   '/develop/cursor': typeof LayoutDevelopCursorRoute
+  '/develop/format': typeof LayoutDevelopFormatRoute
   '/develop/iframe': typeof LayoutDevelopIframeRoute
-  '/develop/keyEvent': typeof LayoutDevelopKeyEventRoute
+  '/develop/jsonschema2zod': typeof LayoutDevelopJsonschema2zodRoute
+  '/develop/keyboard': typeof LayoutDevelopKeyboardRoute
   '/develop/markdown': typeof LayoutDevelopMarkdownRoute
-  '/formatter/c': typeof LayoutFormatterCRoute
-  '/formatter/css': typeof LayoutFormatterCssRoute
-  '/formatter/dart': typeof LayoutFormatterDartRoute
-  '/formatter/go': typeof LayoutFormatterGoRoute
-  '/formatter/html': typeof LayoutFormatterHtmlRoute
-  '/formatter/java': typeof LayoutFormatterJavaRoute
-  '/formatter/json': typeof LayoutFormatterJsonRoute
-  '/formatter/lua': typeof LayoutFormatterLuaRoute
-  '/formatter/python': typeof LayoutFormatterPythonRoute
-  '/formatter/sql': typeof LayoutFormatterSqlRoute
-  '/formatter/typescript': typeof LayoutFormatterTypescriptRoute
-  '/formatter/yaml': typeof LayoutFormatterYamlRoute
-  '/formatter/zig': typeof LayoutFormatterZigRoute
   '/image/svg2png': typeof LayoutImageSvg2pngRoute
   '/iniad/locker': typeof LayoutIniadLockerRoute
   '/iniad/sensor': typeof LayoutIniadSensorRoute
+  '/iniad/timetable': typeof LayoutIniadTimetableRoute
   '/math/calculator': typeof LayoutMathCalculatorRoute
   '/math/radix': typeof LayoutMathRadixRoute
+  '/text/cjp': typeof LayoutTextCjpRoute
   '/text/count': typeof LayoutTextCountRoute
   '/text/repeat': typeof LayoutTextRepeatRoute
   '/text/replace': typeof LayoutTextReplaceRoute
-  '/iniad/timetable': typeof LayoutIniadTimetableIndexRoute
+  '/convert': typeof LayoutConvertIndexRoute
+  '/develop': typeof LayoutDevelopIndexRoute
+  '/image': typeof LayoutImageIndexRoute
+  '/iniad': typeof LayoutIniadIndexRoute
+  '/math': typeof LayoutMathIndexRoute
+  '/text': typeof LayoutTextIndexRoute
 }
 
 export interface FileRoutesByTo {
   '/': typeof LayoutIndexRoute
   '/convert/base64': typeof LayoutConvertBase64Route
-  '/convert/cjp': typeof LayoutConvertCjpRoute
-  '/convert/jsonSchemaToZod': typeof LayoutConvertJsonSchemaToZodRoute
   '/convert/punycode': typeof LayoutConvertPunycodeRoute
   '/convert/qrcode': typeof LayoutConvertQrcodeRoute
   '/convert/url': typeof LayoutConvertUrlRoute
   '/develop/clipboard': typeof LayoutDevelopClipboardRoute
   '/develop/cursor': typeof LayoutDevelopCursorRoute
+  '/develop/format': typeof LayoutDevelopFormatRoute
   '/develop/iframe': typeof LayoutDevelopIframeRoute
-  '/develop/keyEvent': typeof LayoutDevelopKeyEventRoute
+  '/develop/jsonschema2zod': typeof LayoutDevelopJsonschema2zodRoute
+  '/develop/keyboard': typeof LayoutDevelopKeyboardRoute
   '/develop/markdown': typeof LayoutDevelopMarkdownRoute
-  '/formatter/c': typeof LayoutFormatterCRoute
-  '/formatter/css': typeof LayoutFormatterCssRoute
-  '/formatter/dart': typeof LayoutFormatterDartRoute
-  '/formatter/go': typeof LayoutFormatterGoRoute
-  '/formatter/html': typeof LayoutFormatterHtmlRoute
-  '/formatter/java': typeof LayoutFormatterJavaRoute
-  '/formatter/json': typeof LayoutFormatterJsonRoute
-  '/formatter/lua': typeof LayoutFormatterLuaRoute
-  '/formatter/python': typeof LayoutFormatterPythonRoute
-  '/formatter/sql': typeof LayoutFormatterSqlRoute
-  '/formatter/typescript': typeof LayoutFormatterTypescriptRoute
-  '/formatter/yaml': typeof LayoutFormatterYamlRoute
-  '/formatter/zig': typeof LayoutFormatterZigRoute
   '/image/svg2png': typeof LayoutImageSvg2pngRoute
   '/iniad/locker': typeof LayoutIniadLockerRoute
   '/iniad/sensor': typeof LayoutIniadSensorRoute
+  '/iniad/timetable': typeof LayoutIniadTimetableRoute
   '/math/calculator': typeof LayoutMathCalculatorRoute
   '/math/radix': typeof LayoutMathRadixRoute
+  '/text/cjp': typeof LayoutTextCjpRoute
   '/text/count': typeof LayoutTextCountRoute
   '/text/repeat': typeof LayoutTextRepeatRoute
   '/text/replace': typeof LayoutTextReplaceRoute
-  '/iniad/timetable': typeof LayoutIniadTimetableIndexRoute
+  '/convert': typeof LayoutConvertIndexRoute
+  '/develop': typeof LayoutDevelopIndexRoute
+  '/image': typeof LayoutImageIndexRoute
+  '/iniad': typeof LayoutIniadIndexRoute
+  '/math': typeof LayoutMathIndexRoute
+  '/text': typeof LayoutTextIndexRoute
 }
 
 export interface FileRoutesById {
@@ -666,38 +558,32 @@ export interface FileRoutesById {
   '/_layout': typeof LayoutRouteWithChildren
   '/_layout/': typeof LayoutIndexRoute
   '/_layout/convert/base64': typeof LayoutConvertBase64Route
-  '/_layout/convert/cjp': typeof LayoutConvertCjpRoute
-  '/_layout/convert/jsonSchemaToZod': typeof LayoutConvertJsonSchemaToZodRoute
   '/_layout/convert/punycode': typeof LayoutConvertPunycodeRoute
   '/_layout/convert/qrcode': typeof LayoutConvertQrcodeRoute
   '/_layout/convert/url': typeof LayoutConvertUrlRoute
   '/_layout/develop/clipboard': typeof LayoutDevelopClipboardRoute
   '/_layout/develop/cursor': typeof LayoutDevelopCursorRoute
+  '/_layout/develop/format': typeof LayoutDevelopFormatRoute
   '/_layout/develop/iframe': typeof LayoutDevelopIframeRoute
-  '/_layout/develop/keyEvent': typeof LayoutDevelopKeyEventRoute
+  '/_layout/develop/jsonschema2zod': typeof LayoutDevelopJsonschema2zodRoute
+  '/_layout/develop/keyboard': typeof LayoutDevelopKeyboardRoute
   '/_layout/develop/markdown': typeof LayoutDevelopMarkdownRoute
-  '/_layout/formatter/c': typeof LayoutFormatterCRoute
-  '/_layout/formatter/css': typeof LayoutFormatterCssRoute
-  '/_layout/formatter/dart': typeof LayoutFormatterDartRoute
-  '/_layout/formatter/go': typeof LayoutFormatterGoRoute
-  '/_layout/formatter/html': typeof LayoutFormatterHtmlRoute
-  '/_layout/formatter/java': typeof LayoutFormatterJavaRoute
-  '/_layout/formatter/json': typeof LayoutFormatterJsonRoute
-  '/_layout/formatter/lua': typeof LayoutFormatterLuaRoute
-  '/_layout/formatter/python': typeof LayoutFormatterPythonRoute
-  '/_layout/formatter/sql': typeof LayoutFormatterSqlRoute
-  '/_layout/formatter/typescript': typeof LayoutFormatterTypescriptRoute
-  '/_layout/formatter/yaml': typeof LayoutFormatterYamlRoute
-  '/_layout/formatter/zig': typeof LayoutFormatterZigRoute
   '/_layout/image/svg2png': typeof LayoutImageSvg2pngRoute
   '/_layout/iniad/locker': typeof LayoutIniadLockerRoute
   '/_layout/iniad/sensor': typeof LayoutIniadSensorRoute
+  '/_layout/iniad/timetable': typeof LayoutIniadTimetableRoute
   '/_layout/math/calculator': typeof LayoutMathCalculatorRoute
   '/_layout/math/radix': typeof LayoutMathRadixRoute
+  '/_layout/text/cjp': typeof LayoutTextCjpRoute
   '/_layout/text/count': typeof LayoutTextCountRoute
   '/_layout/text/repeat': typeof LayoutTextRepeatRoute
   '/_layout/text/replace': typeof LayoutTextReplaceRoute
-  '/_layout/iniad/timetable/': typeof LayoutIniadTimetableIndexRoute
+  '/_layout/convert/': typeof LayoutConvertIndexRoute
+  '/_layout/develop/': typeof LayoutDevelopIndexRoute
+  '/_layout/image/': typeof LayoutImageIndexRoute
+  '/_layout/iniad/': typeof LayoutIniadIndexRoute
+  '/_layout/math/': typeof LayoutMathIndexRoute
+  '/_layout/text/': typeof LayoutTextIndexRoute
 }
 
 export interface FileRouteTypes {
@@ -706,111 +592,93 @@ export interface FileRouteTypes {
     | ''
     | '/'
     | '/convert/base64'
-    | '/convert/cjp'
-    | '/convert/jsonSchemaToZod'
     | '/convert/punycode'
     | '/convert/qrcode'
     | '/convert/url'
     | '/develop/clipboard'
     | '/develop/cursor'
+    | '/develop/format'
     | '/develop/iframe'
-    | '/develop/keyEvent'
+    | '/develop/jsonschema2zod'
+    | '/develop/keyboard'
     | '/develop/markdown'
-    | '/formatter/c'
-    | '/formatter/css'
-    | '/formatter/dart'
-    | '/formatter/go'
-    | '/formatter/html'
-    | '/formatter/java'
-    | '/formatter/json'
-    | '/formatter/lua'
-    | '/formatter/python'
-    | '/formatter/sql'
-    | '/formatter/typescript'
-    | '/formatter/yaml'
-    | '/formatter/zig'
     | '/image/svg2png'
     | '/iniad/locker'
     | '/iniad/sensor'
+    | '/iniad/timetable'
     | '/math/calculator'
     | '/math/radix'
+    | '/text/cjp'
     | '/text/count'
     | '/text/repeat'
     | '/text/replace'
-    | '/iniad/timetable'
+    | '/convert'
+    | '/develop'
+    | '/image'
+    | '/iniad'
+    | '/math'
+    | '/text'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/convert/base64'
-    | '/convert/cjp'
-    | '/convert/jsonSchemaToZod'
     | '/convert/punycode'
     | '/convert/qrcode'
     | '/convert/url'
     | '/develop/clipboard'
     | '/develop/cursor'
+    | '/develop/format'
     | '/develop/iframe'
-    | '/develop/keyEvent'
+    | '/develop/jsonschema2zod'
+    | '/develop/keyboard'
     | '/develop/markdown'
-    | '/formatter/c'
-    | '/formatter/css'
-    | '/formatter/dart'
-    | '/formatter/go'
-    | '/formatter/html'
-    | '/formatter/java'
-    | '/formatter/json'
-    | '/formatter/lua'
-    | '/formatter/python'
-    | '/formatter/sql'
-    | '/formatter/typescript'
-    | '/formatter/yaml'
-    | '/formatter/zig'
     | '/image/svg2png'
     | '/iniad/locker'
     | '/iniad/sensor'
+    | '/iniad/timetable'
     | '/math/calculator'
     | '/math/radix'
+    | '/text/cjp'
     | '/text/count'
     | '/text/repeat'
     | '/text/replace'
-    | '/iniad/timetable'
+    | '/convert'
+    | '/develop'
+    | '/image'
+    | '/iniad'
+    | '/math'
+    | '/text'
   id:
     | '__root__'
     | '/_layout'
     | '/_layout/'
     | '/_layout/convert/base64'
-    | '/_layout/convert/cjp'
-    | '/_layout/convert/jsonSchemaToZod'
     | '/_layout/convert/punycode'
     | '/_layout/convert/qrcode'
     | '/_layout/convert/url'
     | '/_layout/develop/clipboard'
     | '/_layout/develop/cursor'
+    | '/_layout/develop/format'
     | '/_layout/develop/iframe'
-    | '/_layout/develop/keyEvent'
+    | '/_layout/develop/jsonschema2zod'
+    | '/_layout/develop/keyboard'
     | '/_layout/develop/markdown'
-    | '/_layout/formatter/c'
-    | '/_layout/formatter/css'
-    | '/_layout/formatter/dart'
-    | '/_layout/formatter/go'
-    | '/_layout/formatter/html'
-    | '/_layout/formatter/java'
-    | '/_layout/formatter/json'
-    | '/_layout/formatter/lua'
-    | '/_layout/formatter/python'
-    | '/_layout/formatter/sql'
-    | '/_layout/formatter/typescript'
-    | '/_layout/formatter/yaml'
-    | '/_layout/formatter/zig'
     | '/_layout/image/svg2png'
     | '/_layout/iniad/locker'
     | '/_layout/iniad/sensor'
+    | '/_layout/iniad/timetable'
     | '/_layout/math/calculator'
     | '/_layout/math/radix'
+    | '/_layout/text/cjp'
     | '/_layout/text/count'
     | '/_layout/text/repeat'
     | '/_layout/text/replace'
-    | '/_layout/iniad/timetable/'
+    | '/_layout/convert/'
+    | '/_layout/develop/'
+    | '/_layout/image/'
+    | '/_layout/iniad/'
+    | '/_layout/math/'
+    | '/_layout/text/'
   fileRoutesById: FileRoutesById
 }
 
@@ -840,38 +708,32 @@ export const routeTree = rootRoute
       "children": [
         "/_layout/",
         "/_layout/convert/base64",
-        "/_layout/convert/cjp",
-        "/_layout/convert/jsonSchemaToZod",
         "/_layout/convert/punycode",
         "/_layout/convert/qrcode",
         "/_layout/convert/url",
         "/_layout/develop/clipboard",
         "/_layout/develop/cursor",
+        "/_layout/develop/format",
         "/_layout/develop/iframe",
-        "/_layout/develop/keyEvent",
+        "/_layout/develop/jsonschema2zod",
+        "/_layout/develop/keyboard",
         "/_layout/develop/markdown",
-        "/_layout/formatter/c",
-        "/_layout/formatter/css",
-        "/_layout/formatter/dart",
-        "/_layout/formatter/go",
-        "/_layout/formatter/html",
-        "/_layout/formatter/java",
-        "/_layout/formatter/json",
-        "/_layout/formatter/lua",
-        "/_layout/formatter/python",
-        "/_layout/formatter/sql",
-        "/_layout/formatter/typescript",
-        "/_layout/formatter/yaml",
-        "/_layout/formatter/zig",
         "/_layout/image/svg2png",
         "/_layout/iniad/locker",
         "/_layout/iniad/sensor",
+        "/_layout/iniad/timetable",
         "/_layout/math/calculator",
         "/_layout/math/radix",
+        "/_layout/text/cjp",
         "/_layout/text/count",
         "/_layout/text/repeat",
         "/_layout/text/replace",
-        "/_layout/iniad/timetable/"
+        "/_layout/convert/",
+        "/_layout/develop/",
+        "/_layout/image/",
+        "/_layout/iniad/",
+        "/_layout/math/",
+        "/_layout/text/"
       ]
     },
     "/_layout/": {
@@ -880,14 +742,6 @@ export const routeTree = rootRoute
     },
     "/_layout/convert/base64": {
       "filePath": "_layout/convert/base64.tsx",
-      "parent": "/_layout"
-    },
-    "/_layout/convert/cjp": {
-      "filePath": "_layout/convert/cjp.tsx",
-      "parent": "/_layout"
-    },
-    "/_layout/convert/jsonSchemaToZod": {
-      "filePath": "_layout/convert/jsonSchemaToZod.tsx",
       "parent": "/_layout"
     },
     "/_layout/convert/punycode": {
@@ -910,68 +764,24 @@ export const routeTree = rootRoute
       "filePath": "_layout/develop/cursor.tsx",
       "parent": "/_layout"
     },
+    "/_layout/develop/format": {
+      "filePath": "_layout/develop/format.tsx",
+      "parent": "/_layout"
+    },
     "/_layout/develop/iframe": {
       "filePath": "_layout/develop/iframe.tsx",
       "parent": "/_layout"
     },
-    "/_layout/develop/keyEvent": {
-      "filePath": "_layout/develop/keyEvent.tsx",
+    "/_layout/develop/jsonschema2zod": {
+      "filePath": "_layout/develop/jsonschema2zod.tsx",
+      "parent": "/_layout"
+    },
+    "/_layout/develop/keyboard": {
+      "filePath": "_layout/develop/keyboard.tsx",
       "parent": "/_layout"
     },
     "/_layout/develop/markdown": {
       "filePath": "_layout/develop/markdown.tsx",
-      "parent": "/_layout"
-    },
-    "/_layout/formatter/c": {
-      "filePath": "_layout/formatter/c.tsx",
-      "parent": "/_layout"
-    },
-    "/_layout/formatter/css": {
-      "filePath": "_layout/formatter/css.tsx",
-      "parent": "/_layout"
-    },
-    "/_layout/formatter/dart": {
-      "filePath": "_layout/formatter/dart.tsx",
-      "parent": "/_layout"
-    },
-    "/_layout/formatter/go": {
-      "filePath": "_layout/formatter/go.tsx",
-      "parent": "/_layout"
-    },
-    "/_layout/formatter/html": {
-      "filePath": "_layout/formatter/html.tsx",
-      "parent": "/_layout"
-    },
-    "/_layout/formatter/java": {
-      "filePath": "_layout/formatter/java.tsx",
-      "parent": "/_layout"
-    },
-    "/_layout/formatter/json": {
-      "filePath": "_layout/formatter/json.tsx",
-      "parent": "/_layout"
-    },
-    "/_layout/formatter/lua": {
-      "filePath": "_layout/formatter/lua.tsx",
-      "parent": "/_layout"
-    },
-    "/_layout/formatter/python": {
-      "filePath": "_layout/formatter/python.tsx",
-      "parent": "/_layout"
-    },
-    "/_layout/formatter/sql": {
-      "filePath": "_layout/formatter/sql.tsx",
-      "parent": "/_layout"
-    },
-    "/_layout/formatter/typescript": {
-      "filePath": "_layout/formatter/typescript.tsx",
-      "parent": "/_layout"
-    },
-    "/_layout/formatter/yaml": {
-      "filePath": "_layout/formatter/yaml.tsx",
-      "parent": "/_layout"
-    },
-    "/_layout/formatter/zig": {
-      "filePath": "_layout/formatter/zig.tsx",
       "parent": "/_layout"
     },
     "/_layout/image/svg2png": {
@@ -986,12 +796,20 @@ export const routeTree = rootRoute
       "filePath": "_layout/iniad/sensor.tsx",
       "parent": "/_layout"
     },
+    "/_layout/iniad/timetable": {
+      "filePath": "_layout/iniad/timetable.tsx",
+      "parent": "/_layout"
+    },
     "/_layout/math/calculator": {
       "filePath": "_layout/math/calculator.tsx",
       "parent": "/_layout"
     },
     "/_layout/math/radix": {
       "filePath": "_layout/math/radix.tsx",
+      "parent": "/_layout"
+    },
+    "/_layout/text/cjp": {
+      "filePath": "_layout/text/cjp.tsx",
       "parent": "/_layout"
     },
     "/_layout/text/count": {
@@ -1006,8 +824,28 @@ export const routeTree = rootRoute
       "filePath": "_layout/text/replace.tsx",
       "parent": "/_layout"
     },
-    "/_layout/iniad/timetable/": {
-      "filePath": "_layout/iniad/timetable/index.tsx",
+    "/_layout/convert/": {
+      "filePath": "_layout/convert/index.tsx",
+      "parent": "/_layout"
+    },
+    "/_layout/develop/": {
+      "filePath": "_layout/develop/index.tsx",
+      "parent": "/_layout"
+    },
+    "/_layout/image/": {
+      "filePath": "_layout/image/index.tsx",
+      "parent": "/_layout"
+    },
+    "/_layout/iniad/": {
+      "filePath": "_layout/iniad/index.tsx",
+      "parent": "/_layout"
+    },
+    "/_layout/math/": {
+      "filePath": "_layout/math/index.tsx",
+      "parent": "/_layout"
+    },
+    "/_layout/text/": {
+      "filePath": "_layout/text/index.tsx",
       "parent": "/_layout"
     }
   }

@@ -1,0 +1,121 @@
+@layer base {
+  :root {
+    --content-max-width: 700px;
+
+    /* oklch(100% 0 0), #ffffff */
+    --background: 100% 0 0;
+    /* oklch(40% 0 0), #484848 */
+    --foreground: 40% 0 0;
+    /* oklch(91% 0 0), #e1e1e1 */
+    --muted: 91% 0 0;
+    /* oklch(66% 0 0), #929292 */
+    --muted-foreground: 66% 0 0;
+
+    /* oklch(91% 0 0), #e1e1e1 */
+    --primary-lighter: 91% 0 0;
+    /* oklch(25% 0 0), #222222 */
+    --primary-default: 25% 0 0;
+    /* oklch(0% 0 0), #000000 */
+    --primary-dark: 0% 0 0;
+    /* oklch(100% 0 0), #ffffff */
+    --primary-foreground: 100% 0 0;
+
+    /* oklch(91.99% 0.038 276.02), #dde3ff */
+    --secondary-lighter: 91.99% 0.038 276.02;
+    /* oklch(50.51% 0.26 276.95), #4e38f3 */
+    --secondary-default: 50.51% 0.26 276.95;
+    /* oklch(45.41% 0.24 277.06), #432cd6 */
+    --secondary-dark: 45.41% 0.24 277.06;
+    /* oklch(100% 0 0), #ffffff */
+    --secondary-foreground: 100% 0 0;
+
+    /* oklch(89.99% 0.039 14), #f7d4d6 */
+    --red-lighter: 89.99% 0.039 14;
+    /* oklch(59.6% 0.24 29.23), #ec0f09 */
+    --red-default: 59.6% 0.24 29.23;
+    /* oklch(51.71% 0.21 29.23), #c40603 */
+    --red-dark: 51.71% 0.21 29.23;
+
+    /* oklch(95.67% 0.045 84.57), #ffefcf */
+    --orange-lighter: 95.67% 0.045 84.57;
+    /* oklch(78.37% 0.16 72.99), #f5a620 */
+    --orange-default: 78.37% 0.16 72.99;
+    /* oklch(54.83% 0.13 53.95), #aa5813 */
+    --orange-dark: 54.83% 0.13 53.95;
+
+    /* oklch(91.66% 0.040 257.51), #d3e5ff */
+    --blue-lighter: 91.66% 0.04 257.51;
+    /* oklch(57.31% 0.21 258.25), #0971f0 */
+    --blue-default: 57.31% 0.21 258.25;
+    /* oklch(51.58% 0.19 258.27), #0561d2 */
+    --blue-dark: 51.58% 0.19 258.27;
+
+    /* oklch(92.79% 0.09 155.61), #b7face */
+    --green-lighter: 92.79% 0.09 155.61;
+    /* oklch(64.01% 0.18 148.74), #08a848 */
+    --green-default: 64.01% 0.18 148.74;
+    /* oklch(53.79% 0.14 149.52), #19833e */
+    --green-dark: 53.79% 0.14 149.52;
+  }
+
+  .dark {
+    /* oklch(14.11% 0.01 275.23), #08090e */
+    --background: 14.11% 0.01 275.23;
+    /* oklch(90.37% 0 0), #dfdfdf */
+    --foreground: 90.37% 0 0;
+    /* oklch(32.11% 0 0), #333333 */
+    --muted: 32.11% 0 0;
+    /* oklch(51.03% 0 0), #666666 */
+    --muted-foreground: 51.03% 0 0;
+
+    /* oklch(25.2% 0 0), #222222 */
+    --primary-lighter: 25.2% 0 0;
+    /* oklch(95.81% 0 0), #f1f1f1 */
+    --primary-default: 95.81% 0 0;
+    /* oklch(100% 0 0), #ffffff */
+    --primary-dark: 100% 0 0;
+    /* oklch(0% 0 0), #000000 */
+    --primary-foreground: 0% 0 0;
+
+    /* oklch(26.35% 0.11 280.96), #1f1858 */
+    --secondary-lighter: 26.35% 0.11 280.96;
+    /* oklch(50.51% 0.26 276.95), #4e38f3 */
+    --secondary-default: 50.51% 0.26 276.95;
+    /* oklch(85.2% 0.073 276.23), #c1cbff */
+    --secondary-dark: 85.2% 0.073 276.23;
+
+    /* oklch(86.69% 0.071 18.63), #ffc1c1 */
+    --red-dark: 86.69% 0.071 18.63;
+    /* oklch(59.6% 0.24 29.23), #ec0f09 */
+    --red-default: 59.6% 0.24 29.23;
+    /* oklch(27.08% 0.11 29.23), #500100 */
+    --red-lighter: 27.08% 0.11 29.23;
+
+    /* oklch(93.15% 0.12 98.83), #fcea89 */
+    --orange-dark: 93.15% 0.12 98.83;
+    /* oklch(78.37% 0.16 72.99), #f5a620 */
+    --orange-default: 78.37% 0.16 72.99;
+    /* oklch(28.29% 0.07 49.34), #441d04 */
+    --orange-lighter: 28.29% 0.07 49.34;
+
+    /* oklch(90.53% 0.061 225.72), #b5e9ff */
+    --blue-dark: 181 0.061 225.72;
+    /* oklch(57.31% 0.21 258.25), #0971f0 */
+    --blue-default: 57.31% 0.21 258.25;
+    /* oklch(32.05% 0.087 254.4), #0d335e */
+    --blue-lighter: 32.05% 0.087 254.4;
+
+    /* oklch(92.79% 0.09 155.61), #b7face */
+    --green-dark: 185 0.09 155.61;
+    /* oklch(64.01% 0.18 148.74), #08a848 */
+    --green-default: 64.01% 0.18 148.74;
+    /* oklch(27.23% 0.07 152.71), #003015 */
+    --green-lighter: 27.23% 0.07 152.71;
+  }
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground;
+  }
+}

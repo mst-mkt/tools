@@ -1,64 +1,81 @@
+import aspectRatio from '@tailwindcss/aspect-ratio'
+import forms from '@tailwindcss/forms'
 import typography from '@tailwindcss/typography'
-import scrollbar from 'tailwind-scrollbar'
 import type { Config } from 'tailwindcss'
-import animate from 'tailwindcss-animate'
+
+const alphas = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900] as const
+
+const colorMix = (color1: string, color2: string, percentage: number) => {
+  return `color-mix(in srgb, ${color1}, ${color2} ${percentage}%)`
+}
+
+const oklch = ([color]: TemplateStringsArray) => `oklch(var(--${color}) / <alpha-value>)`
 
 const config = {
-  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}', './src/**/.*.{js,ts,jsx,tsx}'],
-  darkMode: ['class'],
+  content: ['./index.html', './src/**/*.{ts,tsx}', './src/**/.*.{ts,tsx}', './node_modules/rizzui/dist/*.{js,ts,jsx,tsx}'],
+  darkMode: 'class',
   theme: {
     extend: {
       spacing: {
-        'max-content': 'var(--content-max-width)',
+        "max-content": "var(--content-max-width)",
       },
       colors: {
-        background: 'hsl(var(--background))',
-        foreground: 'hsl(var(--foreground))',
-        card: {
-          DEFAULT: 'hsl(var(--card))',
-          foreground: 'hsl(var(--card-foreground))',
+        background: {
+          DEFAULT: oklch`background`,
+          ...Object.fromEntries(
+            alphas.map((alpha) => [alpha, colorMix(oklch`background`, oklch`foreground`, alpha / 10)]),
+          ),
         },
-        popover: {
-          DEFAULT: 'hsl(var(--popover))',
-          foreground: 'hsl(var(--popover-foreground))',
-        },
-        primary: {
-          DEFAULT: 'hsl(var(--primary))',
-          foreground: 'hsl(var(--primary-foreground))',
-        },
-        secondary: {
-          DEFAULT: 'hsl(var(--secondary))',
-          foreground: 'hsl(var(--secondary-foreground))',
+        foreground: {
+          DEFAULT: oklch`foreground`,
+          ...Object.fromEntries(
+            alphas.map((alpha) => [alpha, colorMix(oklch`foreground`, oklch`background`, alpha / 10)]),
+          ),
         },
         muted: {
-          DEFAULT: 'hsl(var(--muted))',
-          foreground: 'hsl(var(--muted-foreground))',
+          DEFAULT: oklch`muted`,
+          foreground: oklch`muted-foreground`,
         },
-        destructive: {
-          DEFAULT: 'hsl(var(--destructive))',
-          foreground: 'hsl(var(--destructive-foreground))',
+
+        primary: {
+          lighter: oklch`primary-lighter`,
+          DEFAULT: oklch`primary-default`,
+          dark: oklch`primary-dark`,
+          foreground: oklch`primary-foreground`,
         },
-        border: 'hsl(var(--border))',
-        input: 'hsl(var(--input))',
-        ring: 'hsl(var(--ring))',
-        chart: {
-          '1': 'hsl(var(--chart-1))',
-          '2': 'hsl(var(--chart-2))',
-          '3': 'hsl(var(--chart-3))',
-          '4': 'hsl(var(--chart-4))',
-          '5': 'hsl(var(--chart-5))',
+        secondary: {
+          lighter: oklch`secondary-lighter`,
+          DEFAULT: oklch`secondary-default`,
+          dark: oklch`secondary-dark`,
+          foreground: oklch`secondary-foreground`,
         },
-      },
-      borderRadius: {
-        lg: 'var(--radius)',
-        md: 'calc(var(--radius) - 2px)',
-        sm: 'calc(var(--radius) - 4px)',
+
+        red: {
+          lighter: oklch`red-lighter`,
+          DEFAULT: oklch`red-default`,
+          dark: oklch`red-dark`,
+        },
+        orange: {
+          lighter: oklch`orange-lighter`,
+          DEFAULT: oklch`orange-default`,
+          dark: oklch`orange-dark`,
+        },
+        blue: {
+          lighter: oklch`blue-lighter`,
+          DEFAULT: oklch`blue-default`,
+          dark: oklch`blue-dark`,
+        },
+        green: {
+          lighter: oklch`green-lighter`,
+          DEFAULT: oklch`green-default`,
+          dark: oklch`green-dark`,
+        },
       },
     },
   },
   plugins: [
-    scrollbar({ nocompatible: true, preferredStrategy: 'pseudoelements' }),
-    animate,
+    aspectRatio,
+    forms,
     typography,
   ],
 } satisfies Config

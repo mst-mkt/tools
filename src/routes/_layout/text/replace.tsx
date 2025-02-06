@@ -1,119 +1,25 @@
-import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
-import { Textarea } from '@/components/ui/textarea'
-import { type ReplaceRule, createEmptyRules, replaceText, updateRule } from '@/utils/text/replace'
 import { createFileRoute } from '@tanstack/react-router'
-import { Copy, Plus, Share, Trash2 } from 'lucide-react'
-import { useMemo, useState } from 'react'
-import { z } from 'zod'
+import { array, minLength, object, optional, parse, pipe, string } from 'valibot'
 import { Head } from '../../../components/shared/Head'
-import { useCopyLink } from '../../../hooks/useCopyLocation'
-import { useInputState } from '../../../hooks/useInputState'
-import { copy } from '../../../utils/clipboard/copy'
+import { TextReplace } from '../../../features/text/replace/page'
 
-const searchParamsValidator = z.object({
-  text: z.string().optional(),
-  rules: z
-    .array(
-      z.object({
-        from: z.string(),
-        to: z.string(),
-      }),
-    )
-    .min(1)
-    .optional(),
+const searchParamsSchema = object({
+  text: optional(string()),
+  rules: optional(pipe(array(object({ from: string(), to: string() })), minLength(1))),
 })
 
 export const Route = createFileRoute('/_layout/text/replace')({
-  validateSearch: (search) => searchParamsValidator.parse(search),
-  component: () => <Replacer />,
+  validateSearch: (search) => parse(searchParamsSchema, search),
+  component: RouteComponent,
 })
 
-const Replacer = () => {
-  const { text: initialText, rules: initialRules } = Route.useSearch()
-  const { copyLink } = useCopyLink(Route.id)
-  const [text, setText] = useInputState(initialText ?? '')
-  const [rules, setRules] = useState<ReplaceRule[]>(initialRules ?? createEmptyRules(3))
-
-  const replacedText = useMemo(() => replaceText(text, rules), [rules, text])
-
-  const handleRuleDelete = (index: number) => {
-    if (rules.length === 1) return setRules(createEmptyRules(1))
-    setRules((rules) => rules.filter((_, i) => i !== index))
-  }
+function RouteComponent() {
+  const { text, rules } = Route.useSearch()
 
   return (
     <>
-      <Head title="Text Replacer" />
-      <div className="flex flex-col gap-y-8">
-        <h1 className="font-bold text-lg">文字置換</h1>
-        <div className="flex flex-col items-center gap-y-4">
-          <Textarea
-            value={text}
-            onChange={setText}
-            aria-label="置換前のテキスト"
-            placeholder="置換前のテキスト"
-          />
-          <div className="flex w-full flex-col gap-y-2">
-            {rules.map((rule, index) => (
-              // biome-ignore lint/suspicious/noArrayIndexKey: This is a list of rules, and the index is used as a key
-              <div key={index} className="flex gap-x-2">
-                <Input
-                  type="text"
-                  value={rule.from}
-                  placeholder="from"
-                  aria-label="from"
-                  onInput={(e) => updateRule(rules, index, 'from', e.currentTarget.value)}
-                />
-                <Input
-                  type="text"
-                  value={rule.to}
-                  placeholder="to"
-                  aria-label="to"
-                  onInput={(e) => updateRule(rules, index, 'to', e.currentTarget.value)}
-                />
-                <Button
-                  variant="destructive"
-                  aria-label="Delete Rule"
-                  onClick={() => handleRuleDelete(index)}
-                >
-                  <Trash2 />
-                </Button>
-              </div>
-            ))}
-          </div>
-          <Button onClick={() => setRules((rules) => [...rules, ...createEmptyRules(1)])}>
-            <Plus />
-            Add Rule
-          </Button>
-          <Textarea
-            value={replacedText}
-            readOnly={true}
-            aria-label="置換後のテキスト"
-            placeholder="置換後のテキスト"
-          />
-        </div>
-        <div className="flex gap-x-2">
-          <Button
-            onClick={() =>
-              copyLink({
-                text,
-                rules: rules.filter((rule) => rule.from.length + rule.to.length > 0),
-              })
-            }
-            disabled={
-              text.length === 0 || rules.every((rule) => rule.from.length + rule.to.length <= 0)
-            }
-          >
-            <Share />
-            Share Link
-          </Button>
-          <Button onClick={() => copy(replacedText)}>
-            <Copy />
-            Copy Result
-          </Button>
-        </div>
-      </div>
+      <Head title="文字列置換" />
+      <TextReplace initialText={text ?? ''} initialRules={rules} />
     </>
   )
 }

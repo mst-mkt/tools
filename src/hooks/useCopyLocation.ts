@@ -1,24 +1,27 @@
-import type { FileRoutesByPath } from '@tanstack/react-router'
-import { useRouter, useSearch } from '@tanstack/react-router'
-import { copy } from '../utils/clipboard/copy'
+import { useRouter } from '@tanstack/react-router'
+import { useCallback, useMemo } from 'react'
+import type { FileRoutesByTo } from '../lib/tanstack-router/routeTree.gen'
+import { copy } from '../utils/copy'
 
-export const useCopyLink = (path: keyof FileRoutesByPath) => {
+export const useCopyLocation = () => {
   const router = useRouter()
-  const searchParam = useSearch({
-    from: path,
-  })
+  const basePath = useMemo(() => window.location.origin, [])
 
-  const basePath = window.location.origin
-
-  return {
-    copyLink: async (searchParams: typeof searchParam) => {
+  const copyLocation = useCallback(
+    <T extends keyof FileRoutesByTo>(
+      to: T,
+      params?: FileRoutesByTo[T]['types']['searchSchema'],
+    ) => {
       const link = router.buildLocation({
-        to: router.parseLocation().pathname,
-        search: searchParams,
+        to,
+        search: params as Parameters<typeof router.buildLocation>[0]['search'],
       })
 
-      const url = `${basePath}${link.href}`
-      await copy(url)
+      const url = new URL(link.href, basePath)
+      copy(url.toString())
     },
-  }
+    [basePath, router],
+  )
+
+  return copyLocation
 }

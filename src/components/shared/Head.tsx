@@ -1,5 +1,4 @@
 import { useMemo } from 'react'
-import { Helmet } from 'react-helmet-async'
 import { PROJECT_NAME } from '../../constants/project'
 
 type HeadProps = {
@@ -18,11 +17,11 @@ export const Head = ({ title, description }: HeadProps) => {
   )
 
   return (
-    <Helmet>
+    <>
       <title>{titleTemplate}</title>
       <meta name="description" content={descriptionTemplate} />
       <meta property="og:title" content={titleTemplate} />
       <meta property="og:description" content={descriptionTemplate} />
-    </Helmet>
+    </>
   )
 }

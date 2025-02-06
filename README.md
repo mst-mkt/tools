@@ -2,43 +2,25 @@
 
 A collection of various tools for myself.
 
-## Tool list
+## Tech Stack
 
-| Name                                                                  | Description                                   |
-| --------------------------------------------------------------------- | --------------------------------------------- |
-| [Text Counter](https://tools.keito.dev/text/counte)                   | Count characters, words, and lines in text.   |
-| [Text Replacer](https://tools.keito.dev/text/replace)                 | Replace text with custom rules.               |
-| [Text Repeater](https://tools.keito.dev/text/repeat)                  | Repeat text multiple times.                   |
-| [CJP Converter](https://tools.keito.dev/convert/cjp)                  | Convert from Japanese to `怪レい日本语` (CJP) |
-| [QR Code Generator](https://tools.keito.dev/convert/qrcode)           | Generate QR code from text.                   |
-| [Punycode Converter](https://tools.keito.dev/convert/punycode)        | Convert between Text and Punycode.            |
-| [Base64 Converter](https://tools.keito.dev/convert/base64)            | Encode / Decode Base64 and Text or File.      |
-| [URL Encoder / Decoder](https://tools.keito.dev/convert/url)          | Encode / Decode URL.                          |
-| [JSON Schema to Zod](https://tools.keito.dev/convert/jsonSchemaToZod) | Convert JSON Schema to Zod schema.            |
-| [Radix Converter](https://tools.keito.dev/math/radix)                 | Convert between different number systems.     |
-| [Calculator](https://tools.keito.dev/math/calculator)                 | Simple calculator.                            |
-| [SVG to PNG Converter](https://tools.keito.dev/image/svg2png)         | Convert SVG to PNG.                           |
-| [Clipboard Checker](https://tools.keito.dev/develop/clipboard)        | Check data in clipboard.                      |
-| [Cursor Previewer](https://tools.keito.dev/develop/cursor)            | Preview cursor style.                         |
-| [Keyboard Event Checker](https://tools.keito.dev/develop/keyboard)    | Check some properties of keyboard events.     |
-| [iframe Preview](https://tools.keito.dev/develop/iframe)              | Preview iframe of a URL.                      |
-| [Markdown Preview](https://tools.keito.dev/develop/markdown)          | Preview Markdown code.                        |
-| [TS / JS Formatter](https://tools.keito.dev/formatter/typescript)     | Format TypeScript / JavaScript code.          |
-| [JSON Formatter](https://tools.keito.dev/formatter/json)              | Format JSON code.                             |
-| [YAML Formatter](https://tools.keito.dev/formatter/yaml)              | Format YAML code.                             |
-| [HTML Formatter](https://tools.keito.dev/formatter/html)              | Format HTML code.                             |
-| [CSS Formatter](https://tools.keito.dev/formatter/css)                | Format CSS code.                              |
-| [Python Formatter](https://tools.keito.dev/formatter/python)          | Format Python code.                           |
-| [Go Formatter](https://tools.keito.dev/formatter/go)                  | Format Go code.                               |
-| [C Formatter](https://tools.keito.dev/formatter/c)                    | Format C code.                                |
-| [Java Formatter](https://tools.keito.dev/formatter/java)              | Format Java code.                             |
-| [Lua Formatter](https://tools.keito.dev/formatter/lua)                | Format Lua code.                              |
-| [Zig Formatter](https://tools.keito.dev/formatter/zig)                | Format Zig code.                              |
-| [Dart Formatter](https://tools.keito.dev/formatter/dart)              | Format Dart code.                             |
-| [SQL Formatter](https://tools.keito.dev/formatter/sql)                | Format SQL code.                              |
-| [INIAD Locker Opener](https://tools.keito.dev/iniad/locker)           | Open Intelligent Locker in INIAD.             |
-| [INIAD Sensors Viewer](https://tools.keito.dev/iniad/sensor)          | View sensor data in INIAD.                    |
-| [時間割](https://tools.keito.dev/iniad/timetable)                     | Timetable for University.                     |
+| Name                   | Purpose                   |
+| ---------------------- | ------------------------- |
+| Vite                   | Build tool                |
+| React                  | UI library                |
+| Tailwind CSS           | CSS framework             |
+| @tanstack/react-router | Routing library           |
+| valibot                | Schema validation library |
+| react-helmet-async     | Dynamic meta tags         |
+| @tabler/icons-react    | Icon component library    |
+
+### For development
+
+| Name     | Purpose              |
+| -------- | -------------------- |
+| pnpm     | Package manager      |
+| biome    | Formatter and linter |
+| lefthook | Git hooks            |
 
 ## Development
 
@@ -71,3 +53,29 @@ with applying fixes:
 ```sh
 pnpm fix
 ```
+
+## Deployment
+
+1. Create cloudflare pages project
+
+```bash
+pnpm wrangler pages project create
+```
+
+> [!NOTE]
+> When deploying with GitHub Actions, the repository name and project name must be the same. \
+> If you want to change it, edit the workflow yml.
+
+2. Set secrets about cloudflare
+
+Set some secrets in the repository secrets ([https://github.com/\[username\]/\[your-repo\]/settings/secrets/actions](https://github.com/username/your-repo/settings/secrets/actions)). \
+Or you can use the gh cli.
+
+```bash
+gh secret set CLOUDFLARE_ACCOUNT_ID --body "<your-account-id>"
+gh secret set CLOUDFLARE_API_TOKEN --body "<your-api-token>"
+```
+
+3. Deploy
+
+Run the workflow manually or push to the main branch.
