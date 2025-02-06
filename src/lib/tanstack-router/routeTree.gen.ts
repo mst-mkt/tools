@@ -29,6 +29,7 @@ import { Route as LayoutDevelopMarkdownImport } from './../../routes/_layout/dev
 import { Route as LayoutDevelopKeyboardImport } from './../../routes/_layout/develop/keyboard'
 import { Route as LayoutDevelopJsonschema2zodImport } from './../../routes/_layout/develop/jsonschema2zod'
 import { Route as LayoutDevelopIframeImport } from './../../routes/_layout/develop/iframe'
+import { Route as LayoutDevelopGithubActivityImport } from './../../routes/_layout/develop/github-activity'
 import { Route as LayoutDevelopFormatImport } from './../../routes/_layout/develop/format'
 import { Route as LayoutDevelopCursorImport } from './../../routes/_layout/develop/cursor'
 import { Route as LayoutDevelopClipboardImport } from './../../routes/_layout/develop/clipboard'
@@ -171,6 +172,13 @@ const LayoutDevelopIframeRoute = LayoutDevelopIframeImport.update({
   getParentRoute: () => LayoutRoute,
 } as any)
 
+const LayoutDevelopGithubActivityRoute =
+  LayoutDevelopGithubActivityImport.update({
+    id: '/develop/github-activity',
+    path: '/develop/github-activity',
+    getParentRoute: () => LayoutRoute,
+  } as any)
+
 const LayoutDevelopFormatRoute = LayoutDevelopFormatImport.update({
   id: '/develop/format',
   path: '/develop/format',
@@ -278,6 +286,13 @@ declare module '@tanstack/react-router' {
       path: '/develop/format'
       fullPath: '/develop/format'
       preLoaderRoute: typeof LayoutDevelopFormatImport
+      parentRoute: typeof LayoutImport
+    }
+    '/_layout/develop/github-activity': {
+      id: '/_layout/develop/github-activity'
+      path: '/develop/github-activity'
+      fullPath: '/develop/github-activity'
+      preLoaderRoute: typeof LayoutDevelopGithubActivityImport
       parentRoute: typeof LayoutImport
     }
     '/_layout/develop/iframe': {
@@ -434,6 +449,7 @@ interface LayoutRouteChildren {
   LayoutDevelopClipboardRoute: typeof LayoutDevelopClipboardRoute
   LayoutDevelopCursorRoute: typeof LayoutDevelopCursorRoute
   LayoutDevelopFormatRoute: typeof LayoutDevelopFormatRoute
+  LayoutDevelopGithubActivityRoute: typeof LayoutDevelopGithubActivityRoute
   LayoutDevelopIframeRoute: typeof LayoutDevelopIframeRoute
   LayoutDevelopJsonschema2zodRoute: typeof LayoutDevelopJsonschema2zodRoute
   LayoutDevelopKeyboardRoute: typeof LayoutDevelopKeyboardRoute
@@ -465,6 +481,7 @@ const LayoutRouteChildren: LayoutRouteChildren = {
   LayoutDevelopClipboardRoute: LayoutDevelopClipboardRoute,
   LayoutDevelopCursorRoute: LayoutDevelopCursorRoute,
   LayoutDevelopFormatRoute: LayoutDevelopFormatRoute,
+  LayoutDevelopGithubActivityRoute: LayoutDevelopGithubActivityRoute,
   LayoutDevelopIframeRoute: LayoutDevelopIframeRoute,
   LayoutDevelopJsonschema2zodRoute: LayoutDevelopJsonschema2zodRoute,
   LayoutDevelopKeyboardRoute: LayoutDevelopKeyboardRoute,
@@ -500,6 +517,7 @@ export interface FileRoutesByFullPath {
   '/develop/clipboard': typeof LayoutDevelopClipboardRoute
   '/develop/cursor': typeof LayoutDevelopCursorRoute
   '/develop/format': typeof LayoutDevelopFormatRoute
+  '/develop/github-activity': typeof LayoutDevelopGithubActivityRoute
   '/develop/iframe': typeof LayoutDevelopIframeRoute
   '/develop/jsonschema2zod': typeof LayoutDevelopJsonschema2zodRoute
   '/develop/keyboard': typeof LayoutDevelopKeyboardRoute
@@ -531,6 +549,7 @@ export interface FileRoutesByTo {
   '/develop/clipboard': typeof LayoutDevelopClipboardRoute
   '/develop/cursor': typeof LayoutDevelopCursorRoute
   '/develop/format': typeof LayoutDevelopFormatRoute
+  '/develop/github-activity': typeof LayoutDevelopGithubActivityRoute
   '/develop/iframe': typeof LayoutDevelopIframeRoute
   '/develop/jsonschema2zod': typeof LayoutDevelopJsonschema2zodRoute
   '/develop/keyboard': typeof LayoutDevelopKeyboardRoute
@@ -564,6 +583,7 @@ export interface FileRoutesById {
   '/_layout/develop/clipboard': typeof LayoutDevelopClipboardRoute
   '/_layout/develop/cursor': typeof LayoutDevelopCursorRoute
   '/_layout/develop/format': typeof LayoutDevelopFormatRoute
+  '/_layout/develop/github-activity': typeof LayoutDevelopGithubActivityRoute
   '/_layout/develop/iframe': typeof LayoutDevelopIframeRoute
   '/_layout/develop/jsonschema2zod': typeof LayoutDevelopJsonschema2zodRoute
   '/_layout/develop/keyboard': typeof LayoutDevelopKeyboardRoute
@@ -598,6 +618,7 @@ export interface FileRouteTypes {
     | '/develop/clipboard'
     | '/develop/cursor'
     | '/develop/format'
+    | '/develop/github-activity'
     | '/develop/iframe'
     | '/develop/jsonschema2zod'
     | '/develop/keyboard'
@@ -628,6 +649,7 @@ export interface FileRouteTypes {
     | '/develop/clipboard'
     | '/develop/cursor'
     | '/develop/format'
+    | '/develop/github-activity'
     | '/develop/iframe'
     | '/develop/jsonschema2zod'
     | '/develop/keyboard'
@@ -659,6 +681,7 @@ export interface FileRouteTypes {
     | '/_layout/develop/clipboard'
     | '/_layout/develop/cursor'
     | '/_layout/develop/format'
+    | '/_layout/develop/github-activity'
     | '/_layout/develop/iframe'
     | '/_layout/develop/jsonschema2zod'
     | '/_layout/develop/keyboard'
@@ -714,6 +737,7 @@ export const routeTree = rootRoute
         "/_layout/develop/clipboard",
         "/_layout/develop/cursor",
         "/_layout/develop/format",
+        "/_layout/develop/github-activity",
         "/_layout/develop/iframe",
         "/_layout/develop/jsonschema2zod",
         "/_layout/develop/keyboard",
@@ -766,6 +790,10 @@ export const routeTree = rootRoute
     },
     "/_layout/develop/format": {
       "filePath": "_layout/develop/format.tsx",
+      "parent": "/_layout"
+    },
+    "/_layout/develop/github-activity": {
+      "filePath": "_layout/develop/github-activity.tsx",
       "parent": "/_layout"
     },
     "/_layout/develop/iframe": {

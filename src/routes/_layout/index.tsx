@@ -1,6 +1,7 @@
 import {
   IconAlignLeft,
   IconAppWindow,
+  IconBrandGithub,
   IconCalendarEvent,
   IconChevronDown,
   IconClipboardCheck,
@@ -291,6 +292,15 @@ const Home = () => {
                 <IconCodeDots size={24} />
                 <Title as="h3" className="grow text-base">
                   コードフォーマッター
+                </Title>
+              </Link>
+              <Link
+                to="/develop/github-activity"
+                className="flex items-center justify-between gap-x-4 rounded-lg border border-muted p-4 shadow-xs transition-colors hover:bg-background-50"
+              >
+                <IconBrandGithub size={24} />
+                <Title as="h3" className="grow text-base">
+                  GitHub アクティビティ
                 </Title>
               </Link>
             </Flex>
