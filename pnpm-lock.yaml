@@ -88,6 +88,9 @@ importers:
       react-dom:
         specifier: ^19.0.0
         version: 19.0.0(react@19.0.0)
+      react-github-calendar:
+        specifier: ^4.5.5
+        version: 4.5.5(react@19.0.0)
       react-markdown:
         specifier: ^9.0.3
         version: 9.0.3(@types/react@19.0.8)(react@19.0.0)
@@ -2019,6 +2022,9 @@ packages:
     resolution: {integrity: sha512-BS8PfmtDGnrgYdOonGZQdLZslWIeCGFP9tpan0hi1Co2Zr2NKADsvGYA8XxuG/4UWgJ6Cjtv+YJnB6MM69QGlQ==}
     engines: {node: '>= 0.4'}
 
+  date-fns@4.1.0:
+    resolution: {integrity: sha512-Ukq0owbQXxa/U3EGtsdVBkR1w7KOQ5gIBqdH2hkvknzZPYvBxb/aa6E8L7tmjFtkwZBu3UXBbjIgPo/Ez4xaNg==}
+
   debug@4.4.0:
     resolution: {integrity: sha512-6WTZ/IxCY/T6BALoZHaE4ctp9xm+Z5kY/pzYaCHRFeyVhojxlrm+46y68HA6hr0TcwEssoxNiDEUJQjfPZ/RYA==}
     engines: {node: '>=6.0'}
@@ -3006,10 +3012,25 @@ packages:
       react: '>=16.9.0'
       react-dom: '>=16.9.0'
 
+  react-activity-calendar@2.7.8:
+    resolution: {integrity: sha512-lj9IIMrRAoMsXSf6wWo7AcMNXie61Y5EuNApm6rVdJswngyw8LS2Ja50yHrGBFu9GaL1HMutGIoSbr5ifEi9xw==}
+    peerDependencies:
+      react: ^18.0.0 || ^19.0.0
+
   react-dom@19.0.0:
     resolution: {integrity: sha512-4GV5sHFG0e/0AD4X+ySy6UJd3jVl1iNsNHdpad0qhABJ11twS3TTBnseqsKurKcsNqCEFeGL3uLpVChpIO3QfQ==}
     peerDependencies:
       react: ^19.0.0
+
+  react-error-boundary@5.0.0:
+    resolution: {integrity: sha512-tnjAxG+IkpLephNcePNA7v6F/QpWLH8He65+DmedchDwg162JZqx4NmbXj0mlAYVVEd81OW7aFhmbsScYfiAFQ==}
+    peerDependencies:
+      react: '>=16.13.1'
+
+  react-github-calendar@4.5.5:
+    resolution: {integrity: sha512-GUw+c5DKFUfJtL1p6rqolPPx2MTPKvQVUrYw+2YGXp3JhNQBEgOxDXoC2WC2diDLhI3XOA+kTS/lLvp3Ftd42A==}
+    peerDependencies:
+      react: ^18.0.0 || ^19.0.0
 
   react-is@16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
@@ -5484,6 +5505,8 @@ snapshots:
       es-errors: 1.3.0
       is-data-view: 1.0.2
 
+  date-fns@4.1.0: {}
+
   debug@4.4.0:
     dependencies:
       ms: 2.1.3
@@ -6743,10 +6766,26 @@ snapshots:
       react-dom: 19.0.0(react@19.0.0)
       react-is: 18.3.1
 
+  react-activity-calendar@2.7.8(react@19.0.0):
+    dependencies:
+      date-fns: 4.1.0
+      react: 19.0.0
+
   react-dom@19.0.0(react@19.0.0):
     dependencies:
       react: 19.0.0
       scheduler: 0.25.0
+
+  react-error-boundary@5.0.0(react@19.0.0):
+    dependencies:
+      '@babel/runtime': 7.26.7
+      react: 19.0.0
+
+  react-github-calendar@4.5.5(react@19.0.0):
+    dependencies:
+      react: 19.0.0
+      react-activity-calendar: 2.7.8(react@19.0.0)
+      react-error-boundary: 5.0.0(react@19.0.0)
 
   react-is@16.13.1: {}
 
