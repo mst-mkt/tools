@@ -2,6 +2,7 @@ import aspectRatio from '@tailwindcss/aspect-ratio'
 import forms from '@tailwindcss/forms'
 import typography from '@tailwindcss/typography'
 import type { Config } from 'tailwindcss'
+import scrollbar from 'tailwind-scrollbar'
 
 const alphas = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900] as const
 
@@ -77,6 +78,7 @@ const config = {
     aspectRatio,
     forms,
     typography,
+    scrollbar({ nocompatible: true, preferredStrategy: 'pseudoelements' }),
   ],
 } satisfies Config
 
