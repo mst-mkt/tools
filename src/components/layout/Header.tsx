@@ -10,7 +10,7 @@ export const Header = () => {
   const { toggleTheme } = useTheme()
 
   return (
-    <header className="sticky top-0 z-[1000] border-background-100 border-b bg-background/16 backdrop-blur-md">
+    <header className="sticky top-0 z-[100] border-background-100 border-b bg-background/16 backdrop-blur-md">
       <Flex
         align="center"
         justify="between"

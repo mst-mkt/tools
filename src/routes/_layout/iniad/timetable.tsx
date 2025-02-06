@@ -1,9 +1,16 @@
 import { createFileRoute } from '@tanstack/react-router'
+import { Head } from '../../../components/shared/Head'
+import { TimeTable } from '../../../features/iniad/timetable/page'
 
 export const Route = createFileRoute('/_layout/iniad/timetable')({
   component: RouteComponent,
 })
 
 function RouteComponent() {
-  return <div>Hello "/_layout/iniad/timetable"!</div>
+  return (
+    <>
+      <Head title="時間割" />
+      <TimeTable />
+    </>
+  )
 }
