@@ -1,6 +1,7 @@
 import {
   IconAlignLeft,
   IconAppWindow,
+  IconCalendarEvent,
   IconChevronDown,
   IconClipboardCheck,
   IconCode,
@@ -319,6 +320,15 @@ const Home = () => {
                 <IconTemperatureSun size={24} />
                 <Title as="h3" className="grow text-base">
                   教室センサー情報
+                </Title>
+              </Link>
+              <Link
+                to="/iniad/timetable"
+                className="flex items-center justify-between gap-x-4 rounded-lg border border-muted p-4 shadow-xs transition-colors hover:bg-background-50"
+              >
+                <IconCalendarEvent size={24} />
+                <Title as="h3" className="grow text-base">
+                  時間割
                 </Title>
               </Link>
             </Flex>
