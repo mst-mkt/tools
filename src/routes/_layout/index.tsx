@@ -7,6 +7,7 @@ import {
   IconClipboardCheck,
   IconCode,
   IconCodeDots,
+  IconFileDiff,
   IconFileDigit,
   IconForms,
   IconJson,
@@ -102,6 +103,15 @@ const Home = () => {
                 <IconLetterCase size={24} />
                 <Title as="h3" className="grow text-base">
                   文字ケース変換
+                </Title>
+              </Link>
+              <Link
+                to="/text/diff"
+                className="flex items-center justify-between gap-x-4 rounded-lg border border-muted p-4 shadow-xs transition-colors hover:bg-background-50"
+              >
+                <IconFileDiff size={24} />
+                <Title as="h3" className="grow text-base">
+                  文字列差分
                 </Title>
               </Link>
               <Link
