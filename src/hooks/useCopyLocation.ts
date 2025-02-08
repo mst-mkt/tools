@@ -11,10 +11,12 @@ export const useCopyLocation = () => {
     <T extends keyof FileRoutesByTo>(
       to: T,
       params?: FileRoutesByTo[T]['types']['searchSchema'],
+      hash?: string,
     ) => {
       const link = router.buildLocation({
         to,
         search: params as Parameters<typeof router.buildLocation>[0]['search'],
+        hash,
       })
 
       const url = new URL(link.href, basePath)
