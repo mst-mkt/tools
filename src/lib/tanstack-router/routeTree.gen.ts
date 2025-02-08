@@ -17,6 +17,7 @@ import { Route as LayoutDevelopIndexImport } from './../../routes/_layout/develo
 import { Route as LayoutConvertIndexImport } from './../../routes/_layout/convert/index'
 import { Route as LayoutTextReplaceImport } from './../../routes/_layout/text/replace'
 import { Route as LayoutTextRepeatImport } from './../../routes/_layout/text/repeat'
+import { Route as LayoutTextDiffImport } from './../../routes/_layout/text/diff'
 import { Route as LayoutTextCountImport } from './../../routes/_layout/text/count'
 import { Route as LayoutTextCjpImport } from './../../routes/_layout/text/cjp'
 import { Route as LayoutTextCaseImport } from './../../routes/_layout/text/case'
@@ -98,6 +99,12 @@ const LayoutTextReplaceRoute = LayoutTextReplaceImport.update({
 const LayoutTextRepeatRoute = LayoutTextRepeatImport.update({
   id: '/text/repeat',
   path: '/text/repeat',
+  getParentRoute: () => LayoutRoute,
+} as any)
+
+const LayoutTextDiffRoute = LayoutTextDiffImport.update({
+  id: '/text/diff',
+  path: '/text/diff',
   getParentRoute: () => LayoutRoute,
 } as any)
 
@@ -407,6 +414,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LayoutTextCountImport
       parentRoute: typeof LayoutImport
     }
+    '/_layout/text/diff': {
+      id: '/_layout/text/diff'
+      path: '/text/diff'
+      fullPath: '/text/diff'
+      preLoaderRoute: typeof LayoutTextDiffImport
+      parentRoute: typeof LayoutImport
+    }
     '/_layout/text/repeat': {
       id: '/_layout/text/repeat'
       path: '/text/repeat'
@@ -492,6 +506,7 @@ interface LayoutRouteChildren {
   LayoutTextCaseRoute: typeof LayoutTextCaseRoute
   LayoutTextCjpRoute: typeof LayoutTextCjpRoute
   LayoutTextCountRoute: typeof LayoutTextCountRoute
+  LayoutTextDiffRoute: typeof LayoutTextDiffRoute
   LayoutTextRepeatRoute: typeof LayoutTextRepeatRoute
   LayoutTextReplaceRoute: typeof LayoutTextReplaceRoute
   LayoutConvertIndexRoute: typeof LayoutConvertIndexRoute
@@ -526,6 +541,7 @@ const LayoutRouteChildren: LayoutRouteChildren = {
   LayoutTextCaseRoute: LayoutTextCaseRoute,
   LayoutTextCjpRoute: LayoutTextCjpRoute,
   LayoutTextCountRoute: LayoutTextCountRoute,
+  LayoutTextDiffRoute: LayoutTextDiffRoute,
   LayoutTextRepeatRoute: LayoutTextRepeatRoute,
   LayoutTextReplaceRoute: LayoutTextReplaceRoute,
   LayoutConvertIndexRoute: LayoutConvertIndexRoute,
@@ -564,6 +580,7 @@ export interface FileRoutesByFullPath {
   '/text/case': typeof LayoutTextCaseRoute
   '/text/cjp': typeof LayoutTextCjpRoute
   '/text/count': typeof LayoutTextCountRoute
+  '/text/diff': typeof LayoutTextDiffRoute
   '/text/repeat': typeof LayoutTextRepeatRoute
   '/text/replace': typeof LayoutTextReplaceRoute
   '/convert': typeof LayoutConvertIndexRoute
@@ -598,6 +615,7 @@ export interface FileRoutesByTo {
   '/text/case': typeof LayoutTextCaseRoute
   '/text/cjp': typeof LayoutTextCjpRoute
   '/text/count': typeof LayoutTextCountRoute
+  '/text/diff': typeof LayoutTextDiffRoute
   '/text/repeat': typeof LayoutTextRepeatRoute
   '/text/replace': typeof LayoutTextReplaceRoute
   '/convert': typeof LayoutConvertIndexRoute
@@ -634,6 +652,7 @@ export interface FileRoutesById {
   '/_layout/text/case': typeof LayoutTextCaseRoute
   '/_layout/text/cjp': typeof LayoutTextCjpRoute
   '/_layout/text/count': typeof LayoutTextCountRoute
+  '/_layout/text/diff': typeof LayoutTextDiffRoute
   '/_layout/text/repeat': typeof LayoutTextRepeatRoute
   '/_layout/text/replace': typeof LayoutTextReplaceRoute
   '/_layout/convert/': typeof LayoutConvertIndexRoute
@@ -671,6 +690,7 @@ export interface FileRouteTypes {
     | '/text/case'
     | '/text/cjp'
     | '/text/count'
+    | '/text/diff'
     | '/text/repeat'
     | '/text/replace'
     | '/convert'
@@ -704,6 +724,7 @@ export interface FileRouteTypes {
     | '/text/case'
     | '/text/cjp'
     | '/text/count'
+    | '/text/diff'
     | '/text/repeat'
     | '/text/replace'
     | '/convert'
@@ -738,6 +759,7 @@ export interface FileRouteTypes {
     | '/_layout/text/case'
     | '/_layout/text/cjp'
     | '/_layout/text/count'
+    | '/_layout/text/diff'
     | '/_layout/text/repeat'
     | '/_layout/text/replace'
     | '/_layout/convert/'
@@ -796,6 +818,7 @@ export const routeTree = rootRoute
         "/_layout/text/case",
         "/_layout/text/cjp",
         "/_layout/text/count",
+        "/_layout/text/diff",
         "/_layout/text/repeat",
         "/_layout/text/replace",
         "/_layout/convert/",
@@ -896,6 +919,10 @@ export const routeTree = rootRoute
     },
     "/_layout/text/count": {
       "filePath": "_layout/text/count.tsx",
+      "parent": "/_layout"
+    },
+    "/_layout/text/diff": {
+      "filePath": "_layout/text/diff.tsx",
       "parent": "/_layout"
     },
     "/_layout/text/repeat": {
