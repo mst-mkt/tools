@@ -25,6 +25,7 @@ import { Route as LayoutIniadTimetableImport } from './../../routes/_layout/inia
 import { Route as LayoutIniadSensorImport } from './../../routes/_layout/iniad/sensor'
 import { Route as LayoutIniadLockerImport } from './../../routes/_layout/iniad/locker'
 import { Route as LayoutImageSvg2pngImport } from './../../routes/_layout/image/svg2png'
+import { Route as LayoutDevelopUnicodeImport } from './../../routes/_layout/develop/unicode'
 import { Route as LayoutDevelopMarkdownImport } from './../../routes/_layout/develop/markdown'
 import { Route as LayoutDevelopKeyboardImport } from './../../routes/_layout/develop/keyboard'
 import { Route as LayoutDevelopJsonschema2zodImport } from './../../routes/_layout/develop/jsonschema2zod'
@@ -144,6 +145,12 @@ const LayoutIniadLockerRoute = LayoutIniadLockerImport.update({
 const LayoutImageSvg2pngRoute = LayoutImageSvg2pngImport.update({
   id: '/image/svg2png',
   path: '/image/svg2png',
+  getParentRoute: () => LayoutRoute,
+} as any)
+
+const LayoutDevelopUnicodeRoute = LayoutDevelopUnicodeImport.update({
+  id: '/develop/unicode',
+  path: '/develop/unicode',
   getParentRoute: () => LayoutRoute,
 } as any)
 
@@ -323,6 +330,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LayoutDevelopMarkdownImport
       parentRoute: typeof LayoutImport
     }
+    '/_layout/develop/unicode': {
+      id: '/_layout/develop/unicode'
+      path: '/develop/unicode'
+      fullPath: '/develop/unicode'
+      preLoaderRoute: typeof LayoutDevelopUnicodeImport
+      parentRoute: typeof LayoutImport
+    }
     '/_layout/image/svg2png': {
       id: '/_layout/image/svg2png'
       path: '/image/svg2png'
@@ -454,6 +468,7 @@ interface LayoutRouteChildren {
   LayoutDevelopJsonschema2zodRoute: typeof LayoutDevelopJsonschema2zodRoute
   LayoutDevelopKeyboardRoute: typeof LayoutDevelopKeyboardRoute
   LayoutDevelopMarkdownRoute: typeof LayoutDevelopMarkdownRoute
+  LayoutDevelopUnicodeRoute: typeof LayoutDevelopUnicodeRoute
   LayoutImageSvg2pngRoute: typeof LayoutImageSvg2pngRoute
   LayoutIniadLockerRoute: typeof LayoutIniadLockerRoute
   LayoutIniadSensorRoute: typeof LayoutIniadSensorRoute
@@ -486,6 +501,7 @@ const LayoutRouteChildren: LayoutRouteChildren = {
   LayoutDevelopJsonschema2zodRoute: LayoutDevelopJsonschema2zodRoute,
   LayoutDevelopKeyboardRoute: LayoutDevelopKeyboardRoute,
   LayoutDevelopMarkdownRoute: LayoutDevelopMarkdownRoute,
+  LayoutDevelopUnicodeRoute: LayoutDevelopUnicodeRoute,
   LayoutImageSvg2pngRoute: LayoutImageSvg2pngRoute,
   LayoutIniadLockerRoute: LayoutIniadLockerRoute,
   LayoutIniadSensorRoute: LayoutIniadSensorRoute,
@@ -522,6 +538,7 @@ export interface FileRoutesByFullPath {
   '/develop/jsonschema2zod': typeof LayoutDevelopJsonschema2zodRoute
   '/develop/keyboard': typeof LayoutDevelopKeyboardRoute
   '/develop/markdown': typeof LayoutDevelopMarkdownRoute
+  '/develop/unicode': typeof LayoutDevelopUnicodeRoute
   '/image/svg2png': typeof LayoutImageSvg2pngRoute
   '/iniad/locker': typeof LayoutIniadLockerRoute
   '/iniad/sensor': typeof LayoutIniadSensorRoute
@@ -554,6 +571,7 @@ export interface FileRoutesByTo {
   '/develop/jsonschema2zod': typeof LayoutDevelopJsonschema2zodRoute
   '/develop/keyboard': typeof LayoutDevelopKeyboardRoute
   '/develop/markdown': typeof LayoutDevelopMarkdownRoute
+  '/develop/unicode': typeof LayoutDevelopUnicodeRoute
   '/image/svg2png': typeof LayoutImageSvg2pngRoute
   '/iniad/locker': typeof LayoutIniadLockerRoute
   '/iniad/sensor': typeof LayoutIniadSensorRoute
@@ -588,6 +606,7 @@ export interface FileRoutesById {
   '/_layout/develop/jsonschema2zod': typeof LayoutDevelopJsonschema2zodRoute
   '/_layout/develop/keyboard': typeof LayoutDevelopKeyboardRoute
   '/_layout/develop/markdown': typeof LayoutDevelopMarkdownRoute
+  '/_layout/develop/unicode': typeof LayoutDevelopUnicodeRoute
   '/_layout/image/svg2png': typeof LayoutImageSvg2pngRoute
   '/_layout/iniad/locker': typeof LayoutIniadLockerRoute
   '/_layout/iniad/sensor': typeof LayoutIniadSensorRoute
@@ -623,6 +642,7 @@ export interface FileRouteTypes {
     | '/develop/jsonschema2zod'
     | '/develop/keyboard'
     | '/develop/markdown'
+    | '/develop/unicode'
     | '/image/svg2png'
     | '/iniad/locker'
     | '/iniad/sensor'
@@ -654,6 +674,7 @@ export interface FileRouteTypes {
     | '/develop/jsonschema2zod'
     | '/develop/keyboard'
     | '/develop/markdown'
+    | '/develop/unicode'
     | '/image/svg2png'
     | '/iniad/locker'
     | '/iniad/sensor'
@@ -686,6 +707,7 @@ export interface FileRouteTypes {
     | '/_layout/develop/jsonschema2zod'
     | '/_layout/develop/keyboard'
     | '/_layout/develop/markdown'
+    | '/_layout/develop/unicode'
     | '/_layout/image/svg2png'
     | '/_layout/iniad/locker'
     | '/_layout/iniad/sensor'
@@ -742,6 +764,7 @@ export const routeTree = rootRoute
         "/_layout/develop/jsonschema2zod",
         "/_layout/develop/keyboard",
         "/_layout/develop/markdown",
+        "/_layout/develop/unicode",
         "/_layout/image/svg2png",
         "/_layout/iniad/locker",
         "/_layout/iniad/sensor",
@@ -810,6 +833,10 @@ export const routeTree = rootRoute
     },
     "/_layout/develop/markdown": {
       "filePath": "_layout/develop/markdown.tsx",
+      "parent": "/_layout"
+    },
+    "/_layout/develop/unicode": {
+      "filePath": "_layout/develop/unicode.tsx",
       "parent": "/_layout"
     },
     "/_layout/image/svg2png": {
