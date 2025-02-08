@@ -8,6 +8,7 @@ import { Title } from 'rizzui/typography'
 import { Breadcrumb } from '../../../components/ui/Breadcrumb'
 import { useCopyLocation } from '../../../hooks/useCopyLocation'
 import { useInputState } from '../../../hooks/useInputState'
+import { useTheme } from '../../../hooks/useTheme'
 
 type DiffProps = {
   initialBefore: string
@@ -21,6 +22,7 @@ export const Diff: FC<DiffProps> = ({ initialBefore, initialAfter }) => {
   const beforeTextareaRef = useRef<HTMLTextAreaElement>(null)
   const afterTextareaRef = useRef<HTMLTextAreaElement>(null)
 
+  const { theme } = useTheme()
   const copyLocation = useCopyLocation()
 
   useEffect(() => {
@@ -82,6 +84,7 @@ export const Diff: FC<DiffProps> = ({ initialBefore, initialAfter }) => {
               oldValue={before}
               newValue={after}
               splitView={false}
+              useDarkTheme={theme === 'dark'}
               styles={{
                 diffContainer: { minWidth: 'auto', tableLayout: 'auto' },
                 gutter: { minWidth: 'auto' },
