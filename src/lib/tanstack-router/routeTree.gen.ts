@@ -19,6 +19,7 @@ import { Route as LayoutTextReplaceImport } from './../../routes/_layout/text/re
 import { Route as LayoutTextRepeatImport } from './../../routes/_layout/text/repeat'
 import { Route as LayoutTextCountImport } from './../../routes/_layout/text/count'
 import { Route as LayoutTextCjpImport } from './../../routes/_layout/text/cjp'
+import { Route as LayoutTextCaseImport } from './../../routes/_layout/text/case'
 import { Route as LayoutMathRadixImport } from './../../routes/_layout/math/radix'
 import { Route as LayoutMathCalculatorImport } from './../../routes/_layout/math/calculator'
 import { Route as LayoutIniadTimetableImport } from './../../routes/_layout/iniad/timetable'
@@ -109,6 +110,12 @@ const LayoutTextCountRoute = LayoutTextCountImport.update({
 const LayoutTextCjpRoute = LayoutTextCjpImport.update({
   id: '/text/cjp',
   path: '/text/cjp',
+  getParentRoute: () => LayoutRoute,
+} as any)
+
+const LayoutTextCaseRoute = LayoutTextCaseImport.update({
+  id: '/text/case',
+  path: '/text/case',
   getParentRoute: () => LayoutRoute,
 } as any)
 
@@ -379,6 +386,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LayoutMathRadixImport
       parentRoute: typeof LayoutImport
     }
+    '/_layout/text/case': {
+      id: '/_layout/text/case'
+      path: '/text/case'
+      fullPath: '/text/case'
+      preLoaderRoute: typeof LayoutTextCaseImport
+      parentRoute: typeof LayoutImport
+    }
     '/_layout/text/cjp': {
       id: '/_layout/text/cjp'
       path: '/text/cjp'
@@ -475,6 +489,7 @@ interface LayoutRouteChildren {
   LayoutIniadTimetableRoute: typeof LayoutIniadTimetableRoute
   LayoutMathCalculatorRoute: typeof LayoutMathCalculatorRoute
   LayoutMathRadixRoute: typeof LayoutMathRadixRoute
+  LayoutTextCaseRoute: typeof LayoutTextCaseRoute
   LayoutTextCjpRoute: typeof LayoutTextCjpRoute
   LayoutTextCountRoute: typeof LayoutTextCountRoute
   LayoutTextRepeatRoute: typeof LayoutTextRepeatRoute
@@ -508,6 +523,7 @@ const LayoutRouteChildren: LayoutRouteChildren = {
   LayoutIniadTimetableRoute: LayoutIniadTimetableRoute,
   LayoutMathCalculatorRoute: LayoutMathCalculatorRoute,
   LayoutMathRadixRoute: LayoutMathRadixRoute,
+  LayoutTextCaseRoute: LayoutTextCaseRoute,
   LayoutTextCjpRoute: LayoutTextCjpRoute,
   LayoutTextCountRoute: LayoutTextCountRoute,
   LayoutTextRepeatRoute: LayoutTextRepeatRoute,
@@ -545,6 +561,7 @@ export interface FileRoutesByFullPath {
   '/iniad/timetable': typeof LayoutIniadTimetableRoute
   '/math/calculator': typeof LayoutMathCalculatorRoute
   '/math/radix': typeof LayoutMathRadixRoute
+  '/text/case': typeof LayoutTextCaseRoute
   '/text/cjp': typeof LayoutTextCjpRoute
   '/text/count': typeof LayoutTextCountRoute
   '/text/repeat': typeof LayoutTextRepeatRoute
@@ -578,6 +595,7 @@ export interface FileRoutesByTo {
   '/iniad/timetable': typeof LayoutIniadTimetableRoute
   '/math/calculator': typeof LayoutMathCalculatorRoute
   '/math/radix': typeof LayoutMathRadixRoute
+  '/text/case': typeof LayoutTextCaseRoute
   '/text/cjp': typeof LayoutTextCjpRoute
   '/text/count': typeof LayoutTextCountRoute
   '/text/repeat': typeof LayoutTextRepeatRoute
@@ -613,6 +631,7 @@ export interface FileRoutesById {
   '/_layout/iniad/timetable': typeof LayoutIniadTimetableRoute
   '/_layout/math/calculator': typeof LayoutMathCalculatorRoute
   '/_layout/math/radix': typeof LayoutMathRadixRoute
+  '/_layout/text/case': typeof LayoutTextCaseRoute
   '/_layout/text/cjp': typeof LayoutTextCjpRoute
   '/_layout/text/count': typeof LayoutTextCountRoute
   '/_layout/text/repeat': typeof LayoutTextRepeatRoute
@@ -649,6 +668,7 @@ export interface FileRouteTypes {
     | '/iniad/timetable'
     | '/math/calculator'
     | '/math/radix'
+    | '/text/case'
     | '/text/cjp'
     | '/text/count'
     | '/text/repeat'
@@ -681,6 +701,7 @@ export interface FileRouteTypes {
     | '/iniad/timetable'
     | '/math/calculator'
     | '/math/radix'
+    | '/text/case'
     | '/text/cjp'
     | '/text/count'
     | '/text/repeat'
@@ -714,6 +735,7 @@ export interface FileRouteTypes {
     | '/_layout/iniad/timetable'
     | '/_layout/math/calculator'
     | '/_layout/math/radix'
+    | '/_layout/text/case'
     | '/_layout/text/cjp'
     | '/_layout/text/count'
     | '/_layout/text/repeat'
@@ -771,6 +793,7 @@ export const routeTree = rootRoute
         "/_layout/iniad/timetable",
         "/_layout/math/calculator",
         "/_layout/math/radix",
+        "/_layout/text/case",
         "/_layout/text/cjp",
         "/_layout/text/count",
         "/_layout/text/repeat",
@@ -861,6 +884,10 @@ export const routeTree = rootRoute
     },
     "/_layout/math/radix": {
       "filePath": "_layout/math/radix.tsx",
+      "parent": "/_layout"
+    },
+    "/_layout/text/case": {
+      "filePath": "_layout/text/case.tsx",
       "parent": "/_layout"
     },
     "/_layout/text/cjp": {

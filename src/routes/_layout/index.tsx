@@ -12,6 +12,7 @@ import {
   IconJson,
   IconKeyboard,
   IconLanguage,
+  IconLetterCase,
   IconLink,
   IconLockOpen,
   IconMath,
@@ -92,6 +93,15 @@ const Home = () => {
                 <IconRepeat size={24} />
                 <Title as="h3" className="grow text-base">
                   文字列反復
+                </Title>
+              </Link>
+              <Link
+                to="/text/case"
+                className="flex items-center justify-between gap-x-4 rounded-lg border border-muted p-4 shadow-xs transition-colors hover:bg-background-50"
+              >
+                <IconLetterCase size={24} />
+                <Title as="h3" className="grow text-base">
+                  文字ケース変換
                 </Title>
               </Link>
               <Link
