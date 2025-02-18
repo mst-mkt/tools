@@ -14,7 +14,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@floating-ui/react": "^0.27.3",
+    "@floating-ui/react": "^0.27.4",
     "@headlessui/react": "^2.2.0",
     "@tabler/icons-react": "^3.29.0",
     "@tanstack/react-router": "^1.99.6",
