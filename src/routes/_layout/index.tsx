@@ -17,6 +17,7 @@ import {
   IconLink,
   IconLockOpen,
   IconMath,
+  IconNotebook,
   IconNotes,
   IconPhoto,
   IconPointer,
@@ -331,6 +332,15 @@ const Home = () => {
                 <IconTypography size={24} />
                 <Title as="h3" className="grow text-base">
                   Unicode 一覧表
+                </Title>
+              </Link>
+              <Link
+                to="/develop/markdown"
+                className="flex items-center justify-between gap-x-4 rounded-lg border border-muted p-4 shadow-xs transition-colors hover:bg-background-50"
+              >
+                <IconNotebook size={24} />
+                <Title as="h3" className="grow text-base">
+                  Markdown プレビュー
                 </Title>
               </Link>
             </Flex>
