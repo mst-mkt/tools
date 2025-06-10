@@ -11,6 +11,7 @@ import init_zig, { format as format_zig } from '@wasm-fmt/zig_fmt'
 export const SUPPORTED_LANGUAGES = [
   'c',
   'cpp',
+  'java',
   'dart',
   'go',
   'lua',
@@ -30,6 +31,7 @@ export type Language = (typeof SUPPORTED_LANGUAGES)[number]
 export const languageLabels = [
   { label: 'C', value: 'c' },
   { label: 'C++', value: 'cpp' },
+  { label: 'Java', value: 'java' },
   { label: 'Dart', value: 'dart' },
   { label: 'Go', value: 'go' },
   { label: 'Lua', value: 'lua' },
@@ -47,6 +49,7 @@ export const languageLabels = [
 export const init = {
   c: init_c,
   cpp: init_c,
+  java: init_c,
   dart: init_dart,
   go: init_go,
   lua: init_lua,
@@ -64,6 +67,7 @@ export const init = {
 export const format = {
   c: format_c,
   cpp: format_c,
+  java: format_c,
   dart: format_dart,
   go: format_go,
   lua: format_lua,
@@ -81,6 +85,7 @@ export const format = {
 export const noInputComment = {
   c: '// no input',
   cpp: '// no input',
+  java: '// no input',
   dart: '// no input',
   go: '// no input',
   lua: '-- no input',
