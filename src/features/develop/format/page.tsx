@@ -54,8 +54,8 @@ export const Format: FC<FormatProps> = ({ initialLanguage, initialCode }) => {
       </Title>
       {match(formattedResult)
         .with({ success: true }, ({ formatted }) => (
-          <pre className="rounded-md border border-muted p-4 shadow-xs">
-            <code>{formatted}</code>
+          <pre className="overflow-x-auto rounded-md border border-muted p-4 shadow-xs">
+            <code className="w-full">{formatted}</code>
           </pre>
         ))
         .with({ success: false }, () => (
