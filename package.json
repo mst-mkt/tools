@@ -17,7 +17,7 @@
     "@floating-ui/react": "^0.27.12",
     "@headlessui/react": "^2.2.4",
     "@tabler/icons-react": "^3.34.0",
-    "@tanstack/react-router": "^1.120.20",
+    "@tanstack/react-router": "^1.121.17",
     "@tanstack/react-virtual": "^3.13.10",
     "@tanstack/router-devtools": "^1.120.20",
     "@wasm-fmt/clang-format": "^20.1.6",
